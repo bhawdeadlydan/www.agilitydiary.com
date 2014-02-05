@@ -1,5 +1,5 @@
 module.exports = {
-  db: 'localhost',
+  db: '192.168.1.103',
 
   sendgrid: {
     user: 'Your SendGrid Username',
