@@ -1,0 +1,14 @@
+
+<h1>Map</h1>
+
+<input type="text" name="search" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}" ng-change="controls.searchBox.change();" />
+
+<leaflet
+    id="geo-wrapper"
+    elementcacheid="search/geo-wrapper"
+    fullsize="true"
+    center="data.leaflet.centre"
+    bounds="data.leaflet.bounds"
+    scrollwheelzoom="true"
+    dragging="true"
+    clickmarker="Location"></leaflet>
