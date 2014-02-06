@@ -8,6 +8,7 @@ var flash = require('express-flash');
 //var less = require('less-middleware');
 var path = require('path');
 var mongoose = require('mongoose');
+require('mongoose-double')(mongoose); // patch mongoose
 var passport = require('passport');
 var expressValidator = require('express-validator');
 
@@ -19,6 +20,9 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
+var eventController = require('./controllers/event');
+var venueController = require('./controllers/venue');
+var agilitynetbridgeController = require('./controllers/agilitynetbridge');
 
 /**
  * API keys + Passport configuration.
@@ -92,6 +96,16 @@ app.use(express.errorHandler());
 /**
  * Application routes.
  */
+app.get('/map/events/list', eventController.list);
+app.get('/map/events/create', eventController.create);
+
+app.get('/agility-diary/venue/list', venueController.list);
+
+app.get('/agilitynetbridge/parseImport', agilitynetbridgeController.parseImport);
+app.get('/agilitynetbridge/lookupVenues', agilitynetbridgeController.lookupVenues);
+app.get('/agilitynetbridge/lookupPostcode', agilitynetbridgeController.lookupPostcode);
+app.get('/agilitynetbridge/populateVenueLatLng', agilitynetbridgeController.populateVenueLatLng);
+
 
 app.get('/', homeController.index);
 app.get('/login', userController.getLogin);

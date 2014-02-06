@@ -14,6 +14,30 @@ angular.module('browserAppApp')
 				settings = Settings;
 
 			return {
+				venues: function(opts, successCallback, errorCallback) {
+					var session_data,
+						url;
+
+					session_data = Authenticationservice.load();
+					url = '/agility-diary/venue/list' //settings.serverHost + settings.api.allSearches +
+						//'?a=' + session_data.authentication_token;
+					return $http.get(url).success(successCallback).error(errorCallback);
+				},
+
+
+
+				events: function(opts, successCallback, errorCallback) {
+					var session_data,
+						url;
+
+					session_data = Authenticationservice.load();
+					url = '/agilitynetbridge/list' //settings.serverHost + settings.api.allSearches +
+						//'?a=' + session_data.authentication_token;
+					return $http.get(url).success(successCallback).error(errorCallback);
+				},
+
+
+
 				/**
 				 * @description
 				 * Return a combined list of all searches run on server

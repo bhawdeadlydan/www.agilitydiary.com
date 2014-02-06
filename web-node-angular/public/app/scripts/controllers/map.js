@@ -201,6 +201,29 @@ angular.module('browserAppApp')
 		}
 
 
+		function getVenueData() {
+			mapdata.venues({}, function(data) {
+				_.each(data, function(item) {
+					if(typeof item.location !== 'undefined') {
+						var newMarker = {
+							lat: item.location.latitude,
+							lng: item.location.longitude,
+							message: null,
+							popupText: item.name,
+							focus: false,
+							draggable: false,
+						};
+
+						$scope.markers[item._id] = newMarker;
+					}
+				});
+
+			}, function(err) {
+
+			});
+		}
+
+
 		function main() {
 			bindMapToScope();
 			newSearch();
@@ -217,6 +240,8 @@ angular.module('browserAppApp')
 					}
 				}
 			};
+
+			$timeout(getVenueData, 2000);
 		}
 
 		main();

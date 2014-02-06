@@ -1,1 +1,15 @@
 <p>This is the Events view. put search/list events here</p>
+sss
+<div>
+	<div ng-repeat="event in events">
+		<h2>Event</h2>
+
+		<div ng-bind="event.data.response.showname[0]" />
+		<div ng-bind="event.data.response.clubname[0]" />
+		<div ng-bind="event.data.response.showdate[0]" />
+
+		<div ng-bind="event.data.response.venuename[0]" />
+		<div ng-bind="event.data.response.venueaddress[0]" />
+		<div ng-bind="event.data.response.venuepostcode[0]" />
+	</div>
+</div>

@@ -1,5 +1,6 @@
 module.exports = {
-  db: '192.168.1.103',
+  db: '192.168.1.107',
+  dbconnection: 'mongodb://192.168.1.107:27017/agilitynet',
 
   sendgrid: {
     user: 'Your SendGrid Username',

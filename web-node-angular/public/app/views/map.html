@@ -12,3 +12,56 @@
     scrollwheelzoom="true"
     dragging="true"
     clickmarker="Location"></leaflet>
+
+
+<style type="text/css">
+
+/*
+ *.mapTextMarker {
+	background: rgba(0,0,0,0.5);
+	border-radius: 8px;
+	color: #fff;
+	padding: 8px;
+}*/
+/* line 12, ../scss/partials/views/_map.scss */
+.mapTextMarker {
+  position: relative;
+  background: rgba(34, 34, 34, 0.9);
+  border-radius: 12px;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  border-top: solid 1px #474747;
+}
+/* line 22, ../scss/partials/views/_map.scss */
+.mapTextMarker img.mapAvatar {
+  border-radius: 12px;
+  float: left;
+}
+/* line 27, ../scss/partials/views/_map.scss */
+.mapTextMarker span {
+  top: 2px;
+  position: relative;
+}
+
+/* line 33, ../scss/partials/views/_map.scss */
+.mapTextMarker:after {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* line 43, ../scss/partials/views/_map.scss */
+.mapTextMarker:after {
+  border-top-color: rgba(34, 34, 34, 0.9);
+  border-width: 10px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+</style>
