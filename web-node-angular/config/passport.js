@@ -6,7 +6,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
 var GitHubStrategy = require('passport-github').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var User = require('../models/User');
+var User = require('../models/mongoose/user');
 var secrets = require('./secrets');
 var _ = require('underscore');
 

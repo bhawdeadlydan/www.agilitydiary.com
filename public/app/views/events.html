@@ -1,15 +1,29 @@
 <p>This is the Events view. put search/list events here</p>
 sss
 <div>
+	<h1>Upcoming</h1>
+
+	list all where startdate &gt; today
+
 	<div ng-repeat="event in events">
 		<h2>Event</h2>
 
-		<div ng-bind="event.data.response.showname[0]" />
-		<div ng-bind="event.data.response.clubname[0]" />
-		<div ng-bind="event.data.response.showdate[0]" />
+		<div ng-bind="event.Name" />
+		club: <div ng-bind="event.Club" />
+		show date: <div ng-bind="event.ShowDate" />
+		show end: <div ng-bind="event.ShowEnd" />
+		closing date: <div ng-bind="event.ClosingDate" />
 
-		<div ng-bind="event.data.response.venuename[0]" />
-		<div ng-bind="event.data.response.venueaddress[0]" />
-		<div ng-bind="event.data.response.venuepostcode[0]" />
+		entries to: <div ng-bind="event.EntriesTo" />
+logo
+		<div ng-bind="event.Logo" />
+
+website
+		<div ng-bind="event.Website" />
+
+		venue
+		<div ng-bind="event.Venue.Name" />
+		<div ng-bind="event.Venue.Address" />
+		<div ng-bind="event.Venue.PostCode" />
 	</div>
 </div>

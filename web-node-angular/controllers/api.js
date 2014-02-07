@@ -1,5 +1,5 @@
 var secrets = require('../config/secrets');
-var User = require('../models/User');
+var User = require('../models/mongoose/user');
 var querystring = require('querystring');
 var async = require('async');
 var cheerio = require('cheerio');

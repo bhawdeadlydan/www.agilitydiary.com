@@ -31,7 +31,7 @@ angular.module('browserAppApp')
 						url;
 
 					session_data = Authenticationservice.load();
-					url = '/agilitynetbridge/list' //settings.serverHost + settings.api.allSearches +
+					url = '/map/shows/upcoming' //settings.serverHost + settings.api.allSearches +
 						//'?a=' + session_data.authentication_token;
 					return $http.get(url).success(successCallback).error(errorCallback);
 				},

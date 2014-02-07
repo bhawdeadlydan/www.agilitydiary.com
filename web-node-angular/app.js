@@ -12,17 +12,23 @@ require('mongoose-double')(mongoose); // patch mongoose
 var passport = require('passport');
 var expressValidator = require('express-validator');
 
-/**
- * Load controllers.
- */
 
+
+
+/**
+ * Controllers
+ */
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
+var showController = require('./controllers/show');
 var eventController = require('./controllers/event');
 var venueController = require('./controllers/venue');
 var agilitynetbridgeController = require('./controllers/agilitynetbridge');
+
+
+
 
 /**
  * API keys + Passport configuration.
@@ -31,11 +37,16 @@ var agilitynetbridgeController = require('./controllers/agilitynetbridge');
 var secrets = require('./config/secrets');
 var passportConf = require('./config/passport');
 
+
+
+
 /**
  * Create Express server.
  */
 
 var app = express();
+
+
 
 
 /**
@@ -44,12 +55,14 @@ var app = express();
 
 mongoose.connect(secrets.db);
 mongoose.connection.on('error', function() {
-  console.log('✗ MongoDB Connection Error. Please make sure MongoDB is running.'.red);
+	console.log('✗ MongoDB Connection Error. Please make sure MongoDB is running.'.red);
 });
 
 
+
+
 /**
- * Express configuration.
+ * Express
  */
 
 var hour = 3600000;
@@ -70,34 +83,49 @@ app.use(express.urlencoded());
 app.use(expressValidator());
 app.use(express.methodOverride());
 app.use(express.session({
-  secret: 'your secret code',
-  store: new MongoStore({
-    db: mongoose.connection.db,
-    auto_reconnect: true
-  })
+	secret: 'your secret code',
+	store: new MongoStore({
+		db: mongoose.connection.db,
+		auto_reconnect: true
+	})
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {
-  res.locals.user = req.user;
-  next();
+	res.locals.user = req.user;
+	next();
 });
 app.use(flash());
 //app.use(less({ src: __dirname + '/public', compress: true }));
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public'), { maxAge: week }));
+
+console.log(__dirname.green);
+
+app.use('app', express.static(__dirname + '../public/app'));
+app.use('/bower_components', function(req, res) {
+	var pathName = path.join(__dirname, '..', 'public', 'app', 'bower_components', req.path);
+	res.sendfile(pathName);
+});
+
+//app.use('/bower_components', express.static(__dirname + '../public/app/bower_components'));
+app.use(express.static(path.join(__dirname, '../public'), { maxAge: week }));
+
 app.use(function(req, res) {
-  res.sendfile(path.join(__dirname, 'public', 'app','index.html'));
-  //res.status(404);
-  //res.render('404');
+	//res.sendfile(path.join(__dirname, '..', '/public', 'app','index.html'));
+	res.status(404);
+	res.render('404');
 });
 app.use(express.errorHandler());
 
+
+
+
 /**
- * Application routes.
+ * Routes
  */
-app.get('/map/events/list', eventController.list);
-app.get('/map/events/create', eventController.create);
+
+app.get('/map/shows/list', showController.list);
+app.get('/map/shows/upcoming', showController.upcoming);
 
 app.get('/agility-diary/venue/list', venueController.list);
 
@@ -134,6 +162,9 @@ app.get('/api/paypal', apiController.getPayPal);
 app.get('/api/paypal/success', apiController.getPayPalSuccess);
 app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 
+
+
+
 /**
  * OAuth routes for sign-in.
  */
@@ -147,19 +178,29 @@ app.get('/auth/google/callback', passport.authenticate('google', { successRedire
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
 
+
+
+
 /**
  * OAuth routes for API examples that require authorization.
  */
 
 app.get('/auth/foursquare', passport.authorize('foursquare'));
 app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureRedirect: '/api' }), function(req, res) {
-  res.redirect('/api/foursquare');
+	res.redirect('/api/foursquare');
 });
 app.get('/auth/tumblr', passport.authorize('tumblr'));
 app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) {
-  res.redirect('/api/tumblr');
+	res.redirect('/api/tumblr');
 });
 
+
+
+
+/**
+ * Start
+ */
+
 app.listen(app.get('port'), function() {
-  console.log("✔ Express server listening on port %d in %s mode", app.get('port'), app.settings.env);
+	console.log("✔ Express server listening on port %d in %s mode", app.get('port'), app.settings.env);
 });

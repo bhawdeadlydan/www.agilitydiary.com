@@ -1,17 +1,45 @@
 
-<h1>Map</h1>
+<div >
+  <leaflet
+      id="geo-wrapper"
+      elementcacheid="search/geo-wrapper"
+      fullsize="true"
+      center="data.leaflet.centre"
+      bounds="data.leaflet.bounds"
+      scrollwheelzoom="true"
+      dragging="true"
+      clickmarker="Location"></leaflet>
+</div>
 
-<input type="text" name="search" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}" ng-change="controls.searchBox.change();" />
+<div style="position: absolute; left: 80px; top: 80px; z-index: 1000; ">
+  <input type="text" name="search" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}" ng-change="controls.searchBox.change();" style=" padding: 10px; width: 800px;"/>
+</div>
 
-<leaflet
-    id="geo-wrapper"
-    elementcacheid="search/geo-wrapper"
-    fullsize="true"
-    center="data.leaflet.centre"
-    bounds="data.leaflet.bounds"
-    scrollwheelzoom="true"
-    dragging="true"
-    clickmarker="Location"></leaflet>
+
+
+<div  style="position: absolute; right: 0; top: 0px; width: 300px; height: 800px; border: solid 1px black; background: white; zindex: 100; padding: 12px;">
+  <div ng-repeat="event in events" style="margin-bottom: 20px;">
+      <div ng-bind="event.Name" />
+      club: <div ng-bind="event.Club" />
+      <span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
+      <div>closes: <span ng-bind="event.ClosingDate" /></div>
+
+      entries to: <div ng-bind="event.EntriesTo" />
+
+      <div ng-bind="event.Logo" ng-show="event.Logo"/>
+      <div ng-bind="event.Website" ng-show="event.Website"/>
+
+      <br/>
+
+      <div ng-bind="event.Venue.Name" />
+      <div ng-bind="event.Venue.Address" />
+      <div ng-bind="event.Venue.PostCode" />
+
+      <hr/>
+  </div>
+</div>
+
+
 
 
 <style type="text/css">

@@ -3,8 +3,8 @@
 angular.module('browserAppApp')
 	.controller('MapController', ['$scope', '$timeout', 'GeopositionService', 'Settings', 'Mapdata', function ($scope, $timeout, GeopositionService, Settings, Mapdata) {
 
-  		var _searchData,
-  			position,
+		var _searchData,
+			position,
 			currentPositionHeading,
 			mapdata = Mapdata;
 
@@ -41,6 +41,8 @@ angular.module('browserAppApp')
 
 
 		$scope.controls = {};
+		$scope.events = {};
+
 
 		$scope.controls.searchBox = {
 			value: '',
@@ -242,6 +244,9 @@ angular.module('browserAppApp')
 			};
 
 			$timeout(getVenueData, 2000);
+			Mapdata.events({}, function(data) {
+				$scope.events = data;
+			});
 		}
 
 		main();

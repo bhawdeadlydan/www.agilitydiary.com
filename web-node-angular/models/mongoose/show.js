@@ -1,12 +1,25 @@
+/**
+ * @module
+ */
 var mongoose = require('mongoose');
 require('mongoose-double')(mongoose);
 
+
+/**
+ * A single show
+ */
 var showSchema = mongoose.Schema({
 	Name: String,
+	Club: String,
 	Clubs: Array,
-	ShowDate: Date,
-	ShowEnd: Date,
-	ClosingDate: Date,
+	ShowDate: String,
+	ShowEnd: String,
+	ClosingDate: String,
+
+	ParsedDate: Date,
+	ParsedEnd: Date,
+	ParsedClosingDate: Date,
+
 	Venue: {
 		Name: String,
 		Address: String,
@@ -23,5 +36,6 @@ var showSchema = mongoose.Schema({
 	Logo: String,
 	Website: String
 });
+
 
 module.exports = mongoose.model('Show', showSchema);

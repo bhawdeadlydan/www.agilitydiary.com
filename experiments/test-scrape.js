@@ -107,11 +107,11 @@ function startScraping(url, database, finished) {
 
 
 connectToDatabase(function(database) {
-	/*startScraping(settings.configuration.url, database, function() {
+	startScraping(settings.configuration.url, database, function() {
 		process.exit(1);
-	});*/
+	});
 
-	var collection = database.collection('scraped');
+	/*var collection = database.collection('scraped');
 	collection.find().toArray(function(err, items) {
 		var clubs = [];
 
@@ -128,5 +128,5 @@ connectToDatabase(function(database) {
 		clubs.sort();
 		console.log(clubs);
 
-	});
+	});*/
 });
