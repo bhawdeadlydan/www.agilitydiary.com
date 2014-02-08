@@ -34,7 +34,11 @@ var showSchema = mongoose.Schema({
 	EntriesTo: String,
 	Files: Array,
 	Logo: String,
-	Website: String
+	Website: String,
+
+	Meta: {
+		ShowTypeColour: String
+	}
 });
 
 

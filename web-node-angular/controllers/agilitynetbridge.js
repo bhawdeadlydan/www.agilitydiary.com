@@ -1,8 +1,4 @@
 "use strict";
-/* use strict */
-/* global require, process, console, exports */
-/* jshint unused: false */
-/* jshint quotmark:false */
 
 var http = require('http');
 var xml2js = require('xml2js');
@@ -18,18 +14,19 @@ var ClubModel = require('../models/mongoose/club');
 var VenueModel = require('../models/mongoose/venue');
 var PostCodeModel = require('../models/mongoose/postcode');
 var ShowModel = require('../models/mongoose/show');
+var agilitynetRepository = require('../repositories/agilitynet');
 
 var databaseCachedObject;
 
 
 function getDatabaseConnection(success, fail) {
-	if((typeof databaseCachedObject !== 'undefined') && (databaseCachedObject !== null)) {
+	if ((typeof databaseCachedObject !== 'undefined') && (databaseCachedObject !== null)) {
 		success(databaseCachedObject);
 	} else {
 		var MongoClient = mongodb.MongoClient;
 
-		MongoClient.connect(secrets.dbconnection, function(err, db) {
-			if(err) {
+		MongoClient.connect(secrets.dbconnection, function (err, db) {
+			if (err) {
 				fail(err);
 			}
 
@@ -46,7 +43,7 @@ function listEvents(req, res) {
 
 
 function getScrapedData(success, fail) {
-	getDatabaseConnection(function(database) {
+	getDatabaseConnection(function (database) {
 		var scraped = database.collection('scraped');
 		scraped.find().toArray(success, fail);
 	});
@@ -374,9 +371,56 @@ function isValid(item) {
 }
 
 
+function requestShowsAtAGlance(req, res) {
+	agilitynetRepository.requestShowsAtAglance(function (err, data) {
+		_.each(data.response.shows, function (xitem) {
+			_.each(xitem, function(yitem) {
+				_.each(yitem, function(iterator) {
+					var colour = iterator.$.showtypecolor;
+					var showName = iterator.showname;
+					var clubname = iterator.clubname;
+					var showDate = iterator.showdate;
+					var showEnd = iterator.showend;
+					var closingdate = iterator.closingdate;
+
+					console.log('%s %s', showName, colour);
+
+					ShowModel.find({
+						Name: showName,
+						ShowDate: showDate,
+						ShowEnd: showEnd,
+						ClosingDate: closingdate
+					}).exec(function(err, data) {
+						if(data.length === 1) {
+							console.log('found show');
+							data[0].Meta = {
+								ShowTypeColour: colour
+							};
+							data[0].save(function(err, data2) {
+								if(err) {
+									console.log(err);
+								} else {
+									console.log('saved');
+								}
+							});
+						}
+					});
+
+				});
+
+			});
+
+		});
+
+		res.send('done');
+	});
+}
+
+
 exports.getDatabaseConnection = getDatabaseConnection;
 exports.listEvents = listEvents;
 exports.parseImport = parseImport;
 exports.lookupVenues = lookupVenues;
 exports.lookupPostcode = lookupPostcode;
 exports.populateVenueLatLng = populateVenueLatLng;
+exports.requestShowsAtAGlance = requestShowsAtAGlance;

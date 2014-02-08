@@ -129,6 +129,8 @@ app.get('/map/shows/upcoming', showController.upcoming);
 
 app.get('/agility-diary/venue/list', venueController.list);
 
+// management tools -- move out
+app.get('/agilitynetbridge/requestShowsAtAGlance', agilitynetbridgeController.requestShowsAtAGlance);
 app.get('/agilitynetbridge/parseImport', agilitynetbridgeController.parseImport);
 app.get('/agilitynetbridge/lookupVenues', agilitynetbridgeController.lookupVenues);
 app.get('/agilitynetbridge/lookupPostcode', agilitynetbridgeController.lookupPostcode);

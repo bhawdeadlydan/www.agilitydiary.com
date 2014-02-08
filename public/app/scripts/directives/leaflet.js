@@ -1,69 +1,69 @@
 'use strict';
+/* globals $, L */
 
 
+function createHtmlElement(text, icon) {
+	var $buildHtml,
+		$textItem,
+		outputHtml,
+		image = '';
 
-	function createHtmlElement(text, icon) {
-		var $buildHtml,
-			$textItem,
-			outputHtml,
-			image = '';
-
-		if(typeof icon !== 'undefined') {
-			image = '<img class="mapAvatar" src="' + icon + '" />';
-		}
-
-		$buildHtml = $('<span />');
-		$textItem = $('<span />');
-		$textItem.text(text);
-
-		$buildHtml.append($textItem);
-		outputHtml = $buildHtml.html();
-
-		return image + outputHtml;
+	if(typeof icon !== 'undefined') {
+		image = '<img class="mapAvatar" src="' + icon + '" />';
 	}
 
-	/**
-		opts {
-		text: the text to show,
-		lat: lat,
-		lng: lng
-		}
-	 */
-	function mapTextMarker(opts) {
-		var letterWidth = 8,
-			outputHtml,
-			calculatedWidth,
-			calculatedArrowCenter,
-			markerText,
-			divIcon,
-			icon,
-			iconWidth = 24,
-			arrowWidth = 10;
+	$buildHtml = $('<span />');
+	$textItem = $('<span />');
+	$textItem.text(text);
 
-		icon = opts.icon;
-		markerText = opts.text;
+	$buildHtml.append($textItem);
+	outputHtml = $buildHtml.html();
 
-		calculatedWidth = (markerText.length * letterWidth) + iconWidth;
-		calculatedArrowCenter = calculatedWidth / 2 + (arrowWidth / 2);
+	return image + outputHtml;
+}
 
-		outputHtml = createHtmlElement(markerText, icon);
-
-		divIcon = L.divIcon({
-			iconSize: new L.Point(calculatedWidth, 24),
-			iconAnchor: new L.Point(calculatedArrowCenter, 40),
-			className: 'mapTextMarker',
-			html: outputHtml
-		});
-
-		return new L.Marker([opts.lat, opts.lng],{icon: divIcon});
+/**
+	opts {
+	text: the text to show,
+	lat: lat,
+	lng: lng
 	}
+ */
+function mapTextMarker(opts) {
+	var letterWidth = 8,
+		outputHtml,
+		calculatedWidth,
+		calculatedArrowCenter,
+		markerText,
+		divIcon,
+		icon,
+		iconWidth = 24,
+		arrowWidth = 10;
 
-	/**
-	 * @description markers module
-	 */
-	var leafletMarkers = {
-		mapTextMarker: mapTextMarker
-	};
+	icon = opts.icon;
+	markerText = opts.text;
+
+	calculatedWidth = (markerText.length * letterWidth) + iconWidth;
+	calculatedArrowCenter = calculatedWidth / 2 + (arrowWidth / 2);
+
+	outputHtml = createHtmlElement(markerText, icon);
+
+	divIcon = L.divIcon({
+		iconSize: new L.Point(calculatedWidth, 24),
+		iconAnchor: new L.Point(calculatedArrowCenter, 40),
+		className: 'mapTextMarker',
+		html: outputHtml
+	});
+
+	return new L.Marker([opts.lat, opts.lng],{icon: divIcon});
+}
+
+/**
+ * @description markers module
+ */
+var leafletMarkers = {
+	mapTextMarker: mapTextMarker
+};
 
 
 
@@ -71,7 +71,7 @@
 
 
 angular.module('browserAppApp')
-  .directive("leaflet", ["$http", "$log", '$timeout', function ($http, $log, $timeout) {
+  .directive('leaflet', ['$http', '$log', '$timeout', function ($http, $log, $timeout) {
 
 	var defaults = {
 		maxZoom: 14,
@@ -98,7 +98,7 @@ angular.module('browserAppApp')
 	var _mapElementCache = {};
 
 	return {
-		restrict: "E",
+		restrict: 'E',
 		replace: true,
 		transclude: true,
 		//scope: {
@@ -140,13 +140,13 @@ angular.module('browserAppApp')
 					map.locate({ setView: true, maxZoom: $scope.leaflet.maxZoom });
 				}
 
-				map.on("dragend", function (/* event */) {
+				map.on('dragend', function (/* event */) {
 					$scope.$apply(function (scope) {
 						mapDragged();
 					});
 				});
 
-				map.on("zoomend", function (/* event */) {
+				map.on('zoomend', function (/* event */) {
 					if ($scope.center.zoom !== map.getZoom()) {
 						$scope.$apply(function (s) {
 							s.center.zoom = map.getZoom();
@@ -157,7 +157,7 @@ angular.module('browserAppApp')
 					}
 				});
 
-				$scope.$watch("center", function (center /*, oldValue */) {
+				$scope.$watch('center', function (center /*, oldValue */) {
 					if (center.lat && center.lng && center.zoom) {
 						map.setView([center.lat, center.lng], center.zoom);
 
@@ -210,7 +210,7 @@ angular.module('browserAppApp')
 					markers[name] = createMarker(name, $scope.markers[name], map, bounceOnAdd);
 				}
 
-				$scope.$watch("markers", function (newMarkers /*, oldMarkers*/) {
+				$scope.$watch('markers', function (newMarkers /*, oldMarkers*/) {
 					var name;
 
 					for (name in newMarkers) {
@@ -234,7 +234,7 @@ angular.module('browserAppApp')
 			function createMarker(name, scopeMarker, map, bounceOnAdd) {
 				var marker = buildMarker(name, scopeMarker, bounceOnAdd);
 
-				marker.on("drag", function () {
+				marker.on('drag', function () {
 					$scope.$apply(function (scope) {
 						scopeMarker.lat = marker.getLatLng().lat;
 						scopeMarker.lng = marker.getLatLng().lng;
@@ -250,7 +250,7 @@ angular.module('browserAppApp')
 				});
 
 
-				marker.on("dragend", function () {
+				marker.on('dragend', function () {
 					$scope.$apply(function (scope) {
 						scopeMarker.lat = marker.getLatLng().lat;
 						scopeMarker.lng = marker.getLatLng().lng;

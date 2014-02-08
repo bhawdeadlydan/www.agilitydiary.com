@@ -29,7 +29,11 @@ function ShowViewModel(data) {
 		EntriesTo: data.EntriesTo,
 		Files: data.Files,
 		Logo: data.Logo,
-		Website: data.Website
+		Website: data.Website,
+
+		Meta: {
+			ShowTypeColour: typeof data.Meta.ShowTypeColour !== 'undefined' ? data.Meta.ShowTypeColour : ''
+		}
 	};
 }
 
