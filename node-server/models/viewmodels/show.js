@@ -5,6 +5,7 @@
  */
 function ShowViewModel(data) {
 	return {
+		_id: data._id,
 		Name: data.Name,
 		Club: data.Club,
 		ShowDate: data.ShowDate,

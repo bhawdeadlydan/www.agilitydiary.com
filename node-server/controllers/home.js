@@ -9,5 +9,5 @@ exports.index = function(req, res) {
   //  title: 'Home'
   //});
 
-  res.sendfile(path.join(__dirname, '..', '..', 'public', 'app','index.html'));
+  res.sendfile(path.join(__dirname, '..', '..', 'angular-client', 'app','index.html'));
 };

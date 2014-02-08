@@ -101,14 +101,14 @@ app.use(app.router);
 
 console.log(__dirname.green);
 
-app.use('app', express.static(__dirname + '../public/app'));
+app.use('app', express.static(__dirname + '../angular-client/app'));
 app.use('/bower_components', function(req, res) {
-	var pathName = path.join(__dirname, '..', 'public', 'app', 'bower_components', req.path);
+	var pathName = path.join(__dirname, '..', 'angular-client', 'app', 'bower_components', req.path);
 	res.sendfile(pathName);
 });
 
 //app.use('/bower_components', express.static(__dirname + '../public/app/bower_components'));
-app.use(express.static(path.join(__dirname, '../public'), { maxAge: week }));
+app.use(express.static(path.join(__dirname, '../angular-client'), { maxAge: week }));
 
 app.use(function(req, res) {
 	//res.sendfile(path.join(__dirname, '..', '/public', 'app','index.html'));
@@ -128,6 +128,10 @@ app.get('/map/shows/list', showController.list);
 app.get('/map/shows/upcoming', showController.upcoming);
 
 app.get('/agility-diary/venue/list', venueController.list);
+app.get('/agility-diary/userData', userController.userData);
+app.get('/agility-diary/enterShow', showController.enterShow);
+
+
 
 // management tools -- move out
 app.get('/agilitynetbridge/requestShowsAtAGlance', agilitynetbridgeController.requestShowsAtAGlance);

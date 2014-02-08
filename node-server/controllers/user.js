@@ -2,18 +2,89 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var _ = require('underscore');
 var User = require('../models/mongoose/user');
+var Diary = require('../models/mongoose/diary');
+
+
+
+
+function checkUserData(req) {
+	User.findById(req.user.id, function (err, user) {
+		console.log(user);
+
+		Diary.find({
+			User: user
+		}, function (err, diary) {
+
+			if (diary.length === 0) {
+				diary = Diary({
+					User: user
+				});
+
+				diary.save(function (err, diary) {
+					console.log('saved');
+				});
+			}
+
+			user.populate('Diary', function (err, user) {
+				console.log(user);
+
+				res.send(user);
+			});
+		});
+
+
+	});
+}
+
+
+
 
 /**
  * GET /login
  * Login page.
  */
 
-exports.getLogin = function(req, res) {
+exports.userData = function (req, res) {
+
+
+	User.findById(req.user.id, function (err, user) {
+		console.log(user);
+
+		Diary.find({
+			User: user
+		}, function (err, diary) {
+
+			if (diary.length === 0) {
+				diary = Diary({
+					User: user
+				});
+
+				diary.save(function (err, diary) {
+					console.log('saved');
+				});
+			}
+
+			user.populate('Diary', function (err, user) {
+				console.log(user);
+
+				res.send(user);
+			});
+		});
+
+
+	});
+};
+
+
+exports.getLogin = function (req, res) {
 	if (req.user) return res.redirect('/');
 	res.render('account/login', {
 		title: 'Login'
 	});
 };
+
+
+
 
 /**
  * POST /login
@@ -22,7 +93,7 @@ exports.getLogin = function(req, res) {
  * @param {string} password
  */
 
-exports.postLogin = function(req, res, next) {
+exports.postLogin = function (req, res, next) {
 	req.assert('email', 'Email is not valid').isEmail();
 	req.assert('password', 'Password cannot be blank').notEmpty();
 
@@ -33,7 +104,7 @@ exports.postLogin = function(req, res, next) {
 		return res.redirect('/login');
 	}
 
-	passport.authenticate('local', function(err, user, info) {
+	passport.authenticate('local', function (err, user, info) {
 		if (err) return next(err);
 
 		if (!user) {
@@ -41,19 +112,24 @@ exports.postLogin = function(req, res, next) {
 			return res.redirect('/login');
 		}
 
-		req.logIn(user, function(err) {
+		req.logIn(user, function (err) {
+			checkUserData(req);
+
 			if (err) return next(err);
 			return res.redirect('/');
 		});
 	})(req, res, next);
 };
 
+
+
+
 /**
  * GET /signup
  * Signup page.
  */
 
-exports.getSignup = function(req, res) {
+exports.getSignup = function (req, res) {
 	if (req.user) return res.redirect('/');
 	res.render('account/signup', {
 		title: 'Create Account'
@@ -67,7 +143,7 @@ exports.getSignup = function(req, res) {
  * @param {string} password
  */
 
-exports.postSignup = function(req, res, next) {
+exports.postSignup = function (req, res, next) {
 	req.assert('email', 'Email is not valid').isEmail();
 	req.assert('password', 'Password must be at least 4 characters long').len(4);
 	req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
@@ -84,14 +160,14 @@ exports.postSignup = function(req, res, next) {
 		password: req.body.password
 	});
 
-	user.save(function(err) {
+	user.save(function (err) {
 		if (err) {
 			if (err.code === 11000) {
 				req.flash('errors', { msg: 'User with that email already exists.' });
 			}
 			return res.redirect('/signup');
 		}
-		req.logIn(user, function(err) {
+		req.logIn(user, function (err) {
 			if (err) return next(err);
 			res.redirect('/');
 		});
@@ -103,7 +179,7 @@ exports.postSignup = function(req, res, next) {
  * Profile page.
  */
 
-exports.getAccount = function(req, res) {
+exports.getAccount = function (req, res) {
 	res.render('account/profile', {
 		title: 'Account Management'
 	});
@@ -114,8 +190,8 @@ exports.getAccount = function(req, res) {
  * Update profile information.
  */
 
-exports.postUpdateProfile = function(req, res, next) {
-	User.findById(req.user.id, function(err, user) {
+exports.postUpdateProfile = function (req, res, next) {
+	User.findById(req.user.id, function (err, user) {
 		if (err) return next(err);
 		user.email = req.body.email || '';
 		user.profile.name = req.body.name || '';
@@ -123,7 +199,7 @@ exports.postUpdateProfile = function(req, res, next) {
 		user.profile.location = req.body.location || '';
 		user.profile.website = req.body.website || '';
 
-		user.save(function(err) {
+		user.save(function (err) {
 			if (err) return next(err);
 			req.flash('success', { msg: 'Profile information updated.' });
 			res.redirect('/account');
