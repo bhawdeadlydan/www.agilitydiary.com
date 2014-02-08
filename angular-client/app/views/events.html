@@ -1,33 +1,34 @@
-<p>This is the Events view. put search/list events here</p>
-sss
 <div>
-	<h1>Upcoming</h1>
+	<h1>Upcoming events</h1>
 
-	list all where startdate &gt; today
+	<p>list all where startdate &gt; today</p>
 
 	<div ng-repeat="event in events">
 		<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
-			<h2>Event</h2>
 
-			<div ng-bind="event.Name" />
-			club: <div ng-bind="event.Club" />
-			show date: <div ng-bind="event.ShowDate" />
-			show end: <div ng-bind="event.ShowEnd" />
-			closing date: <div ng-bind="event.ClosingDate" />
+			<h2 ng-bind="event.Name"></h2>
 
-			entries to: <div ng-bind="event.EntriesTo" />
-	logo
-			<div ng-bind="event.Logo" />
+			<p>Show type: <div ng-bind="event.Venue.Meta.ShowTypeColour" /></p>
 
-	website
-			<div ng-bind="event.Website" />
+			<p>club: <span ng-bind="event.Club" /></p>
+			<p>show date:
+				<br />From <span ng-bind="event.ShowDate" />
+				To: <span ng-bind="event.ShowEnd" /></p>
 
-			venue
-			<div ng-bind="event.Venue.Name" />
-			<div ng-bind="event.Venue.Address" />
-			<div ng-bind="event.Venue.PostCode" />
+			<p>Entries close: <span ng-bind="event.ClosingDate" /></p>
 
-			Show Type Colour: <div ng-bind="event.Venue.Meta.ShowTypeColour" />
+			<p>entries to: <a href="mailto:{{ event.EntriesTo }}"><div ng-bind="event.EntriesTo" /></a></p>
+
+			<!-- <p>logo: <img src="{{ event.Logo }}" alt="{{ event.Club }}" ng-bind="event.Logo" /></p> -->
+
+			<p>website <a href="http://{{ event.Website }}" ng-bind="event.Website"><span ng-bind="event.Website" /></a></p>
+
+			<p>Venue</p>
+			<p><span ng-bind="event.Venue.Name" />
+			<br /><span ng-bind="event.Venue.Address" />
+			<br /><span ng-bind="event.Venue.PostCode" />
+			</p>
+			<p><a href="https://www.google.co.uk/maps/preview/place/{{ event.Venue.PostCode }}">Directions</a></p>
 
 			<a href="/agility-diary/enterShow?id={{ event._id }}">DO THiS SHOW</a>
 		</div>
