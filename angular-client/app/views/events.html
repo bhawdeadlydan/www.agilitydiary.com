@@ -9,6 +9,8 @@ sss
 		<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
 			<h2>Event {{ event._id }} </h2>
 
+			<span style="background: red;" ng-bind="event.Meta.ShowType" />
+
 			<div ng-bind="event.Name" />
 			club: <div ng-bind="event.Club" />
 			show date: <div ng-bind="event.ShowDate" />
@@ -27,7 +29,7 @@ sss
 			<div ng-bind="event.Venue.Address" />
 			<div ng-bind="event.Venue.PostCode" />
 
-			Show Type Colour: <div ng-bind="event.Venue.Meta.ShowTypeColour" />
+			Show Type Colour: <div ng-bind="event.Meta.ShowTypeColour" />
 
 			<button ng-click="enterShow(event);" style="background:black;color:white">DO THiS SHOW</button>
 		</div>

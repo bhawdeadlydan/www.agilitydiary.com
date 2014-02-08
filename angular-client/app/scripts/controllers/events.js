@@ -10,7 +10,7 @@ angular.module('browserAppApp')
   	});
 
   	$scope.enterShow = function (event) {
-  		alert(event._id);
+
   		Mapdata.enterShow(event._id, function () {
   			$location.path('/entered')
   		}, function() {

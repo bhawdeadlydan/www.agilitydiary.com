@@ -10,7 +10,7 @@ angular.module('browserAppApp')
   	});
 
 	$scope.resignShow = function (event) {
-  		alert(event._id);
+
   		Mapdata.resignShow(event._id, function () {
 
   			Mapdata.userData({}, function(data) {
