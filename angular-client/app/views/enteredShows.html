@@ -1,13 +1,12 @@
-<p>This is the Events view. put search/list events here</p>
-sss
+
 <div>
-	<h1>Upcoming</h1>
+	<h1>entered shows</h1>
 
 	list all where startdate &gt; today
 
 	<div ng-repeat="event in events">
 		<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
-			<h2>Event {{ event._id }} </h2>
+			<h2>Event</h2>
 
 			<div ng-bind="event.Name" />
 			club: <div ng-bind="event.Club" />
@@ -29,7 +28,7 @@ sss
 
 			Show Type Colour: <div ng-bind="event.Venue.Meta.ShowTypeColour" />
 
-			<button ng-click="enterShow(event);" style="background:black;color:white">DO THiS SHOW</button>
+			<button ng-click="resignShow(event);" style="background:black;color:white">DON'T DO THiS SHOW</button>
 		</div>
 	</div>
 </div>

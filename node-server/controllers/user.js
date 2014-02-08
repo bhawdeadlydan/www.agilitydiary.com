@@ -45,30 +45,50 @@ function checkUserData(req) {
  */
 
 exports.userData = function (req, res) {
-
-
 	User.findById(req.user.id, function (err, user) {
 		console.log(user);
 
-		Diary.find({
+		Diary.findOne({
 			User: user
 		}, function (err, diary) {
 
-			if (diary.length === 0) {
+
+			if (diary === null) {
+				console.log('HASDASD');
+
 				diary = Diary({
 					User: user
 				});
+
+
+				Diary.create({
+					User: user,
+					EnteredShows: [ ]
+				}, function (err, diary) {
+					if (err) {
+						console.log(err);
+					} else {
+						res.send(diary);
+					}
+				});
+
 
 				diary.save(function (err, diary) {
 					console.log('saved');
 				});
 			}
 
-			user.populate('Diary', function (err, user) {
-				console.log(user);
-
-				res.send(user);
+			diary.populate('EnteredShows', function(err, diary) {
+				res.send(diary);
 			});
+
+//			user.populate('Diary', function (err, user) {
+//				console.log(user);
+
+
+
+//				res.send(user);
+			//});
 		});
 
 

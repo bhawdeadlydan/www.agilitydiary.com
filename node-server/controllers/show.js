@@ -22,7 +22,7 @@ exports.enterShow = function (req, res) {
 	User.findById(req.user.id, function (err, user) {
 		console.log(user);
 
-		Show.find({
+		Show.findOne({
 			_id: req.query.id
 		}, function (err, show) {
 
@@ -31,22 +31,92 @@ exports.enterShow = function (req, res) {
 			}, function (err, diary) {
 
 				if (diary.length === 0) {
-					diary = Diary({
-						User: user
+					console.log('No diary entry');
+
+					diary = Diary.create({
+						User: user,
+						EnteredShows: [
+							show
+						]
+					}, function (err, diary) {
+						if (err) {
+							console.log(err);
+						} else {
+							res.send(diary);
+						}
+					});
+				} else {
+
+					var isAdded = false;
+					_.each(diary[0].EnteredShows, function (iterator) {
+						if(iterator.equals(show._id) === true) {
+							isAdded = true;
+						}
+					});
+
+					if (isAdded === false) {
+						diary[0].EnteredShows.push(show);
+					}
+
+					diary[0].save(function (err, diary) {
+						console.log('saved');
+
+						res.send(diary);
 					});
 				}
 
-				if(typeof diary.EnteredShows === 'undefined') {
-					diary.EnteredShows = [];
+			});
+
+		});
+	});
+};
+
+
+
+
+exports.resignShow = function (req, res) {
+	User.findById(req.user.id, function (err, user) {
+		console.log(user);
+
+		Show.findOne({
+			_id: req.query.id
+		}, function (err, show) {
+
+			Diary.findOne({
+				User: user
+			}, function (err, diary) {
+
+				if (diary === null) {
+					console.log('No diary entry');
+
+					diary = Diary.create({
+						User: user,
+						EnteredShows: [
+
+						]
+					}, function (err, diary) {
+						if (err) {
+							console.log(err);
+						} else {
+							res.send(diary);
+						}
+					});
+				} else {
+
+					var isAdded = false;
+					_.each(diary.EnteredShows, function (iterator) {
+						if(iterator.equals(req.query.id) === true) {
+
+							diary.EnteredShows.remove(iterator);
+						}
+					});
+
+					diary.save(function (err, diary) {
+						console.log('saved');
+
+						res.send(diary);
+					});
 				}
-
-				diary.EnteredShows.push(show);
-
-				diary.save(function (err, diary) {
-					console.log('saved');
-
-					res.send(diary);
-				});
 
 			});
 
