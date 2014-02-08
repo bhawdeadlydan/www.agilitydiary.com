@@ -20,6 +20,10 @@ angular.module('browserAppApp', [
         templateUrl: 'app/views/events.html',
         controller: 'EventsController'
       })
+      .when('/entered', {
+        templateUrl: 'app/views/enteredShows.html',
+        controller: 'EnteredShowsController'
+      })
       .otherwise({
         redirectTo: '/'
       });

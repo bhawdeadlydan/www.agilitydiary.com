@@ -5,6 +5,9 @@
 
 	<div ng-repeat="event in events">
 		<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
+			<h2>Event {{ event._id }} </h2>
+
+			<span style="background: red;" ng-bind="event.Meta.ShowType" />
 
 			<h2 ng-bind="event.Name"></h2>
 
@@ -30,7 +33,8 @@
 			</p>
 			<p><a href="https://www.google.co.uk/maps/preview/place/{{ event.Venue.PostCode }}">Directions</a></p>
 
-			<a href="/agility-diary/enterShow?id={{ event._id }}">DO THiS SHOW</a>
+
+			<button ng-click="enterShow(event);" style="background:black;color:white">DO THiS SHOW</button>
 		</div>
 	</div>
 </div>
