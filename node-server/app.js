@@ -138,6 +138,8 @@ app.get('/map/shows/list', showController.list);
 app.get('/map/shows/upcoming', showController.upcoming);
 
 app.get('/agility-diary/show/details', showController.details);
+app.get('/agility-diary/show/categories', showController.categories);
+
 app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
 app.get('/agility-diary/enterShow', showController.enterShow);

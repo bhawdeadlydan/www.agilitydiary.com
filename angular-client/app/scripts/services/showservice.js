@@ -31,6 +31,19 @@ angular.module('browserAppApp')
 
 
 
+			module.categories = function(successCallback, errorCallback) {
+				var url = '/agility-diary/show/categories';
+
+				$http.get(url).success(function(data) {
+					successCallback(data);
+				}).error(function(err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
 			module.details = function(opts, successCallback, errorCallback) {
 				var url = '/agility-diary/show/details?id=' + opts.id;
 

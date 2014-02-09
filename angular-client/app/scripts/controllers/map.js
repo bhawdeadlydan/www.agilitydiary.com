@@ -1,12 +1,15 @@
-'use strict';
-
 angular.module('browserAppApp')
 	.controller('MapController', ['$scope', '$timeout', 'GeopositionService', 'Settings', 'Mapdata', function ($scope, $timeout, GeopositionService, Settings, Mapdata) {
+		"use strict";
 
 		var _searchData,
 			position,
-			currentPositionHeading,
-			mapdata = Mapdata;
+			currentPositionHeading;
+
+		_searchData = createNewSearch();
+		$scope.controls = {};
+		$scope.events = {};
+
 
 
 
@@ -37,11 +40,7 @@ angular.module('browserAppApp')
 			};
 		}
 
-		_searchData = createNewSearch();
 
-
-		$scope.controls = {};
-		$scope.events = {};
 
 
 		$scope.controls.searchBox = {
@@ -51,6 +50,9 @@ angular.module('browserAppApp')
 				console.log(this.value);
 			}
 		};
+
+
+
 
 		/**
 		 * @description Set some initial variables so the
@@ -69,19 +71,21 @@ angular.module('browserAppApp')
 		}
 
 
+
+
 		/**
 		 * @description Centre the map on location from the GPS
 		 */
 		function centreMap() {
 			console.log('CentreMap');
 
-			if(_searchData.leaflet.centre.initialised===true) {
+			if (_searchData.leaflet.centre.initialised === true) {
 				return;
 			}
 
 			position = GeopositionService.getPosition();
 
-			if(position === null) {
+			if (position === null) {
 				$timeout(centreMap, Settings.centreMapRefresh);
 			} else {
 				console.log(_searchData.leaflet.centre.initialised);
@@ -106,49 +110,54 @@ angular.module('browserAppApp')
 		}
 
 
+
+
 		/**
 		 * @description Attempt to populate the title from the nearest town
 		 * @param lat
 		 * @param lng
 		 */
 		function populateTitle(lat, lng) {
-		  mapdata.findNearestTown(lat, lng,
-			function(data) {
-			  var i, placeholder='', town='', region='';
+			Mapdata.findNearestTown(lat, lng,
+				function (data) {
+					var i, placeholder = '',
+						town = '',
+						region = '';
 
-			  for(i=0; i<data.length; i++) {
-				if(data[i].model === 'db.town') {
-				  town = data[i].fields.town;
-				}
+					for (i = 0; i < data.length; i++) {
+						if (data[i].model === 'db.town') {
+							town = data[i].fields.town;
+						}
 
-				if(data[i].model === 'db.region') {
-				  region = data[i].fields.name;
-				}
-			  }
+						if (data[i].model === 'db.region') {
+							region = data[i].fields.name;
+						}
+					}
 
-			  placeholder = town;
-			  if(region !== town) {
-				placeholder += ', ' + region;
-			  }
+					placeholder = town;
+					if (region !== town) {
+						placeholder += ', ' + region;
+					}
 
-			  $scope.controls.title = town;// placeholder;
-			},
-			function(error) {
-			}
-		  );
+					$scope.controls.title = town;// placeholder;
+				},
+				function (error) {
+				});
 		}
 
 
+
+
 		function populatePlaceholder(lat, lng) {
-			if((typeof lat === 'undefined') || (typeof lng === 'undefined')) {
+			if ((typeof lat === 'undefined') || (typeof lng === 'undefined')) {
 				return;
 			}
-			if((lat===null) && (lng===null)) {
+			if ((lat === null) && (lng === null)) {
 				return;
 			}
 
 			console.log('Populating placeholder from ' + lat + ' ' + lng);
-			mapdata.findNearestTown(lat, lng,
+			Mapdata.findNearestTown(lat, lng,
 				function(data) {
 					var i, placeholder='', town='', region='';
 
@@ -179,6 +188,8 @@ angular.module('browserAppApp')
 		}
 
 
+
+
 		/**
 		 * @description Create a new search object
 		 */
@@ -203,8 +214,10 @@ angular.module('browserAppApp')
 		}
 
 
+
+
 		function getVenueData() {
-			mapdata.venues({}, function(data) {
+			Mapdata.venues({}, function(data) {
 				_.each(data, function(item) {
 					if(typeof item.location !== 'undefined') {
 						var newMarker = {
@@ -224,6 +237,8 @@ angular.module('browserAppApp')
 
 			});
 		}
+
+
 
 
 		function main() {
