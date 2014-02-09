@@ -9,8 +9,8 @@ var User = require('../models/mongoose/user');
 /**
  * List all shows
  */
-exports.list = function(req, res) {
-	Show.find().exec(function(err, data) {
+exports.list = function (req, res) {
+	Show.find().exec(function (err, data) {
 		res.send(data);
 	});
 };
@@ -21,12 +21,25 @@ exports.list = function(req, res) {
 /**
  * List all shows
  */
-exports.details = function(req, res) {
+exports.details = function (req, res) {
 	Show.findOne({
 		_id: req.query.id
-	}).exec(function(err, data) {
+	}).exec(function (err, data) {
 		res.send(data);
 	});
+};
+
+
+
+
+exports.categories = function (req, res) {
+	var data = [
+		'BAA', 'FAB', 'Independent', 'Invitation', 'Irish Kennel Club', 'KC', 'Other', 'Series', 'Training', 'UKA'
+	];
+
+	data.sort();
+
+	res.send(data);
 };
 
 

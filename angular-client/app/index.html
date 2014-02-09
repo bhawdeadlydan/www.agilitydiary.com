@@ -12,6 +12,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 	<!-- build:css styles/vendor.css -->
+	<link rel="stylesheet" href="/static/css/styles.css">
 	<link rel="stylesheet" href="/styles/main.css">
 	<!-- bower:css -->
 	<!-- endbower -->
@@ -20,25 +21,67 @@
 	<link rel="stylesheet" href="app/styles/main.css">
 	<!-- endbuild -->
   </head>
-  <body ng-app="browserAppApp">
+
+
+  <body id="home" ng-app="browserAppApp">
+
+
+    <section id="header">
+
+        <nav class="navbar navbar-fixed-top" role="navigation">
+
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#navigation"></button>
+
+                    <!-- Logo goes here - replace the image with your -->
+                    <a href="#/" class="navbar-brand">Agility Diary</a>
+
+
+                    <div class="collapse navbar-collapse main-nav" id="navigation">
+
+
+                        <ul class="nav pull-right">
+
+                            <!-- Menu items go here -->
+                            <li class="active hidden"><a href="#home">Home</a></li>
+                            <li><a ng-href="#/">Profile</a></li>
+							<li class="active"><a ng-href="#/shows/upcoming">Shows</a></li>
+							<li><a ng-href="#/shows/entered">Entered Shows</a></li>
+							<li><a ng-href="#/map">Map</a></li>
+							<li><a href="/account">Account</a></li>
+
+
+                            <!-- If you want sub-menu items, do them like this
+                            <li>
+                                <ul>
+                                  <li><a href="#">Item 1</a></li>
+                                  <li><a href="#">Item 2</a></li>
+                                </ul>
+                            </li>
+                            You just need to delete these comment lines -->
+                        </ul>
+
+                    </div><!-- /nav-collapse -->
+                </div><!-- /container -->
+            </div><!-- /navbar-inner -->
+        </nav>
+
+    </section>
+
+
+
 	<!--[if lt IE 7]>
 	  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-
+<!--
 	<div class="btn-group btn-group-justified">
 		<a href="/auth/facebook" class="btn btn-facebook"><i class="fa fa-facebook"></i>Facebook</a>
 		<a href="/auth/twitter" class="btn btn-twitter"><i class="fa fa-twitter"></i>Twitter</a>
 		<a href="/auth/google" class="btn btn-google-plus"><i class="fa fa-google-plus"></i>Google</a>
 
-		<a href="/account">Account</a>
-	</div>
-
-	<nav>
-		<a ng-href="#/">Home</a>
-		<a ng-href="#/shows/upcoming">Shows</a>
-		<a ng-href="#/shows/entered">Entered Shows</a>
-		<a ng-href="#/map">Map</a>
-	</nav>
+	</div>-->
 
 	<!-- Add your site or application content here -->
 	<div class="container" ng-view=""></div>
@@ -95,7 +138,6 @@
 	<script src="app/scripts/services/mapdata.js"></script>
 	<script src="app/scripts/services/authentication.js"></script>
 	<script src="app/scripts/services/localstoragedataservice.js"></script>
-	<script src="app/scripts/controllers/agilityenteredshows.js"></script>
 	<!-- endbuild -->
 </body>
 </html>
