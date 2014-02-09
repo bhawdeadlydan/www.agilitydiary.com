@@ -5,7 +5,7 @@
 
 	<div ng-repeat="event in upcomingShows">
 		<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
-			<a ng-href="#/shows/{{ event._id }}"><span ng-bind="event.Name"></span></a>
+			<a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a>
 
 			<span style="background: red;" ng-bind="event.Meta.ShowType" />
 
@@ -17,6 +17,8 @@
 				To: <span ng-bind="event.ShowEnd" /></p>
 
 			<p>Entries close: <span ng-bind="event.ClosingDate" /></p>
+
+
 		</div>
 	</div>
 </div>

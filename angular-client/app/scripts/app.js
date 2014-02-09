@@ -16,12 +16,17 @@ angular.module('browserAppApp', [
 			templateUrl: 'app/views/map.html',
 			controller: 'MapController'
 		})
+		.when('/shows/entered', {
+			templateUrl: 'app/views/shows/entered.html',
+			controller: 'ShowsController',
+			action: 'entered'
+		})
 		.when('/shows/upcoming', {
 			templateUrl: 'app/views/shows/upcoming.html',
 			controller: 'ShowsController',
 			action: 'upcoming'
 		})
-		.when('/shows/:id', {
+		.when('/shows/details/:id', {
 			templateUrl: 'app/views/shows/details.html',
 			controller: 'ShowsController',
 			action: 'details'

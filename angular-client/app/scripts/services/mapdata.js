@@ -26,33 +26,6 @@ angular.module('browserAppApp')
 
 
 
-				enterShow: function(id, successCallback, errorCallback) {
-					var url = '/agility-diary/enterShow?id=' + id;
-					return $http.get(url).success(successCallback).error(errorCallback);
-				},
-
-
-
-
-				resignShow: function(id, successCallback, errorCallback) {
-					var url = '/agility-diary/resignShow?id=' + id;
-					return $http.get(url).success(successCallback).error(errorCallback);
-				},
-
-
-
-
-				userData: function(opts, successCallback, errorCallback) {
-					var session_data,
-						url;
-
-					session_data = Authenticationservice.load();
-					url = '/agility-diary/userData';
-					return $http.get(url).success(successCallback).error(errorCallback);
-				},
-
-
-
 				events: function(opts, successCallback, errorCallback) {
 					var session_data,
 						url;

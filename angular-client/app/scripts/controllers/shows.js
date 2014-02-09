@@ -1,24 +1,21 @@
 'use strict';
 
-var module = angular.module('browserAppApp');
+var app = angular.module('browserAppApp');
 
-module.controller('ShowsController', [
+app.controller('ShowsController', [
 	'$scope', 'Mapdata', 'ShowService', '$location', '$route', '$routeParams',
 	function ($scope, Mapdata, ShowService, $location, $route, $routeParams) {
 
 
-		/**
-		 * @defaults
-		 */
-		$scope.upcomingShows = {};
-
-
 
 
 		/**
-		 * @description Fetch upcoming shows
+		 * Upcoming Shows
 		 */
+
 		function fetchUpcomingShows() {
+			$scope.upcomingShows = {};
+
 			ShowService.upcomingShows(function(data) {
 				$scope.upcomingShows = data;
 			}, function(data) {
@@ -31,27 +28,36 @@ module.controller('ShowsController', [
 
 
 
+		/**
+		 * Entered Shows
+		 */
+
 		function fetchEnteredShows() {
-			Mapdata.userData({}, function(data) {
-		  		$scope.events = data.EnteredShows;
-		  	});
+			$scope.enteredShows = {};
+
+			ShowService.userData({}, function(data) {
+				$scope.enteredShows = data.EnteredShows;
+			});
 
 			$scope.resignShow = function (event) {
+				ShowService.resignShow(event._id, function () {
 
-		  		Mapdata.resignShow(event._id, function () {
+					ShowService.userData({}, function(data) {
+						$scope.enteredShows = data.EnteredShows;
+					});
 
-		  			Mapdata.userData({}, function(data) {
-				  		$scope.events = data.EnteredShows;
-				  	});
+				}, function() {
 
-		  		}, function() {
-
-		  		});
-		  	};
+				});
+			};
 		}
 
 
 
+
+		/**
+		 * Show Details
+		 */
 
 		function details(id) {
 			$scope.details = {};
@@ -71,9 +77,12 @@ module.controller('ShowsController', [
 		/**
 		 * Click Handlers
 		 */
+
 		$scope.enterShow = function (event) {
-			Mapdata.enterShow(event._id, function () {
-				$location.path('/entered');
+			ShowService.enterShow({
+				id: event._id
+			}, function () {
+				$location.path('#/shows/entered');
 			}, function() {
 
 			});
@@ -82,12 +91,16 @@ module.controller('ShowsController', [
 
 
 
+		/**
+		 * Main function
+		 */
+
 		function main() {
 			var action = '';
 
 			if(typeof $route.current.$$route.action !== 'undefined') {
 				action = $route.current.$$route.action;
-            }
+			}
 
 			console.log(action);
 			console.log($location.href);
