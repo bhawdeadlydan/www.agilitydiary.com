@@ -21,6 +21,7 @@
   <div ng-repeat="event in events" style="margin-bottom: 20px;">
       <div ng-bind="event.Name" />
       club: <div ng-bind="event.Club" />
+      <p>Show type: <span style="background: red;" ng-bind="event.Meta.ShowType" /></p>
       <span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
       <div>closes: <span ng-bind="event.ClosingDate" /></div>
 
