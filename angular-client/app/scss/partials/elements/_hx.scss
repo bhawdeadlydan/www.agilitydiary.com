@@ -3,7 +3,7 @@
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2013-12-03 16:43
+ *        @date    2014-02-08 19:30
  *
  *
  *     @example
@@ -20,10 +20,6 @@
  */
 h1 {
     @include font-size(3.2);
-    // @include text-shadow(rgba(26,25,25, 0.2) 1px 1px 0);
-    // @include text-shadow(rgba(26,25,25, 0.2) 1px 1px 0);
-    // @include text-shadow(rgba($color-index, 0.2) 1px 1px 0, rgba($color-index, 0.2) 2px 2px 0, rgba($color-index, 0.2) 3px 3px 0);
-    text-shadow: 2px 2px 1px #1A1919;
 }
 
 /**

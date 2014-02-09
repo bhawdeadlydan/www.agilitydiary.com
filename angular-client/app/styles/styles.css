@@ -579,7 +579,7 @@ a img {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2013-12-03 16:43
+ *        @date    2014-02-08 19:30
  *
  *
  *     @example
@@ -595,7 +595,6 @@ a img {
 h1 {
   font-size: 32px;
   font-size: 3.2rem;
-  text-shadow: 2px 2px 1px #1A1919;
 }
 
 /**

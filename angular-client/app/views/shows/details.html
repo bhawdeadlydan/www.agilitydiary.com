@@ -1,31 +1,42 @@
 
 <div>
+	<div style="border-left: solid 5px {{ show.Meta.ShowTypeColour }}">
+		<h1 ng-bind="show.Name"></h1>
 
+		<p>Club: <span ng-bind="show.Club" /></p>
 
-		<div style="border-left: solid 5px {{ show.Meta.ShowTypeColour }}">
-			<h2>show</h2>
+		<p>Show type: <span ng-bind="show.Meta.ShowType" /></p>
 
-			<div ng-bind="show.Name" />
-			club: <div ng-bind="show.Club" />
-			show date: <div ng-bind="show.ShowDate" />
-			show end: <div ng-bind="show.ShowEnd" />
-			closing date: <div ng-bind="show.ClosingDate" />
+		<p>Venue:
+		<span ng-bind="show.Venue.Name" />,
+		<span ng-bind="show.Venue.Address" />,
+		<span ng-bind="show.Venue.PostCode" />
+		</p>
 
-			entries to: <div ng-bind="show.EntriesTo" />
-	logo
-			<div ng-bind="show.Logo" />
+		<p>Show date: <span ng-bind="show.ShowDate" />
+		Show end: <span ng-bind="show.ShowEnd" />
+		Entries closing date: <span ng-bind="show.ClosingDate" />
+		</p>
 
-	website
-			<div ng-bind="show.Website" />
+		<p>Entries to: <span ng-bind="show.EntriesTo" /></p>
 
-			venue
-			<div ng-bind="show.Venue.Name" />
-			<div ng-bind="show.Venue.Address" />
-			<div ng-bind="show.Venue.PostCode" />
+		logo
+		<div ng-bind="show.Logo" />
 
-			Show Type Colour: <div ng-bind="show.Venue.Meta.ShowTypeColour" />
+		<p>Website: <a href="http://{{ show.Website }}" ng-bind="show.Website"><span ng-bind="show.Website" /></a></p>
 
-			<button ng-click="enterShow(show);" style="background:black;color:white">DO THiS SHOW</button>
-		</div>
+		Show Type Colour: <div ng-bind="show.Venue.Meta.ShowTypeColour" />
+
+		<button ng-click="enterShow(show);">ATTEND THiS SHOW</button>
+
+		<p>TODO: List who else is attending this show</p>
+		<p>Add weather</p>
+		<p>Track/bookmark show</p>
+		<p>Add 'edit/claim this show'</p>
+		<p>Save to iCal / iPhone / Outlook / GCal</p>
+		<p>View on googlemaps</p>
+		<p>Directions</p>
+		<p>show type</p>
+	</div>
 
 </div>
