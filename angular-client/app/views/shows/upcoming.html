@@ -1,5 +1,5 @@
 <section id="blog">
-	  <header>
+	<header>
 		<h1>Upcoming Shows</h1>
 
 		<p class="lead" ng-show="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">No shows</p>
@@ -12,12 +12,8 @@
 
 	<div class="row blog-layout">
 
-
-
-
 		<!--/// MAIN COLUMN ///-->
 		<div class="col-md-8 main-column">
-
 
 			<div ng-repeat="event in upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch">
 				<div class="blog-item">
@@ -107,9 +103,5 @@
 				</div>
 
 			</div>
-
-
-
-
 
 </section>

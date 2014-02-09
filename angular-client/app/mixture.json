@@ -9,8 +9,8 @@
   "preprocessorLocations": "scss",
   "preprocessorScriptOutput": "scripts",
   "preprocessorStyleOutput": "styles",
-  "projectDescription": "My project description",
-  "projectName": "app",
+  "projectDescription": "www.AgilityDiary.com",
+  "projectName": "AgilityDiary",
   "publishedId": null,
   "serverHostname": null,
   "serverPort": null,
@@ -18,6 +18,6 @@
   "templateDefaultLayout": "layout",
   "templateDefaultPage": "index",
   "templateDirectory": "templates",
-  "type": "simple",
-  "useCompass": false
+  "type": "mixture",
+  "useCompass": true
 }
