@@ -64,7 +64,7 @@ app.controller('ShowsController', [
 		function fetchCategories() {
 			ShowService.categories(function (data) {
 				$scope.categories = data;
-				_.each(data, function(item) {
+				_.each(data, function (item) {
 					$scope.selectedCategories.push(item);
 				});
 			}, function (error) {
@@ -147,8 +147,8 @@ app.controller('ShowsController', [
 
 
 
-		$scope.showIsInSearch = function(item) {
-			if($scope.searchText === '') {
+		$scope.showIsInSearch = function (item) {
+			if ($scope.searchText === '') {
 				return true;
 			}
 
@@ -158,9 +158,9 @@ app.controller('ShowsController', [
 
 
 
-		$scope.searchClearClick = function() {
+		$scope.searchClearClick = function () {
 			$scope.searchText = '';
-		}
+		};
 
 
 

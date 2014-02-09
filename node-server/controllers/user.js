@@ -78,8 +78,10 @@ exports.userData = function (req, res) {
 				});
 			}
 
-			diary.populate('EnteredShows', function(err, diary) {
-				res.send(diary);
+			diary.populate('EnteredShows', function (err, diary) {
+				diary.populate('User', function (err, diary) {
+					res.send(diary);
+				});
 			});
 
 //			user.populate('Diary', function (err, user) {

@@ -14,16 +14,16 @@ angular.module('browserAppApp')
 			};
 
 
-			module.upcomingShows = function(initCallback, successCallback, errorCallback) {
+			module.upcomingShows = function (initCallback, successCallback, errorCallback) {
 				var url = '/map/shows/upcoming';
 
 				console.log(caches.upcomingShows);
 				initCallback(caches.upcomingShows);
 
-				$http.get(url).success(function(data) {
+				$http.get(url).success(function (data) {
 					caches.upcomingShows = data;
 					successCallback(data);
-				}).error(function(err) {
+				}).error(function (err) {
 					errorCallback(err);
 				});
 			};
@@ -31,12 +31,12 @@ angular.module('browserAppApp')
 
 
 
-			module.categories = function(successCallback, errorCallback) {
+			module.categories = function (successCallback, errorCallback) {
 				var url = '/agility-diary/show/categories';
 
-				$http.get(url).success(function(data) {
+				$http.get(url).success(function (data) {
 					successCallback(data);
-				}).error(function(err) {
+				}).error(function (err) {
 					errorCallback(err);
 				});
 			};
@@ -44,12 +44,12 @@ angular.module('browserAppApp')
 
 
 
-			module.details = function(opts, successCallback, errorCallback) {
+			module.details = function (opts, successCallback, errorCallback) {
 				var url = '/agility-diary/show/details?id=' + opts.id;
 
-				$http.get(url).success(function(data) {
+				$http.get(url).success(function (data) {
 					successCallback(data);
-				}).error(function(err) {
+				}).error(function (err) {
 					errorCallback(err);
 				});
 			};
@@ -57,7 +57,7 @@ angular.module('browserAppApp')
 
 
 
-			module.enterShow = function(id, successCallback, errorCallback) {
+			module.enterShow = function (id, successCallback, errorCallback) {
 				var url = '/agility-diary/enterShow?id=' + id;
 				return $http.get(url).success(successCallback).error(errorCallback);
 			};

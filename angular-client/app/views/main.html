@@ -1,6 +1,7 @@
 <div ng-include src="app/views/navigation.html" />
 
 <div>
-  <p>This is the home. Probably want to differentiate between logged in/not logged in home</p>
+	<img src="{{ profile.User.profile.picture }}" />
+	<div ng-bind="profile.User.profile.name" />
 
 </div>
