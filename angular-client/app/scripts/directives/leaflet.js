@@ -79,7 +79,6 @@ angular.module('browserAppApp')
 		icon: {
       // url: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon.png',
       url: 'app/images/marker-green.png',
-			// url: 'app/images/flag.png',
 			retinaUrl: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon@2x.png',
 			size: [25, 39],
 			anchor: [12, 40],
