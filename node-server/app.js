@@ -154,6 +154,10 @@ app.get('/agilitynetbridge/parseImport', agilitynetbridgeController.parseImport)
 app.get('/agilitynetbridge/lookupVenues', agilitynetbridgeController.lookupVenues);
 app.get('/agilitynetbridge/lookupPostcode', agilitynetbridgeController.lookupPostcode);
 app.get('/agilitynetbridge/populateVenueLatLng', agilitynetbridgeController.populateVenueLatLng);
+app.get('/agilitynetbridge/populateShowLatLng', agilitynetbridgeController.populateShowLatLng);
+app.get('/agilitynetbridge/populateShowVenues', agilitynetbridgeController.populateShowVenues);
+
+
 
 
 

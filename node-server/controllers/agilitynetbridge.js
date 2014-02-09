@@ -352,7 +352,61 @@ function populateVenueLatLng() {
 			});
 		});
 	});
+}
 
+
+function populateShowLatLng() {
+	ShowModel.find().exec(function(err, data) {
+		_.each(data, function(item) {
+			PostCodeModel.find({
+				Postcode: item.Venue.PostCode,
+				Terminated: ''
+			}, function(err, postcodeData) {
+				if(err) {
+					console.log(err);
+				} else {
+					if(postcodeData.length === 1) {
+						console.log('Updating');
+
+						item.Location.Latitude = postcodeData[0]['Latitude'].value;
+						item.Location.Longitude = postcodeData[0]['Longitude'].value;
+
+						console.log(item);
+						item.save();
+					}
+				}
+
+			});
+		});
+	});
+}
+
+
+function populateShowVenues() {
+	ShowModel.find().exec(function(err, data) {
+		_.each(data, function(item) {
+
+			VenueModel.findOne({
+				name: item.Venue.Name,
+				address: item.Venue.Address,
+				postcode: item.Venue.PostCode
+			}).exec(function(err, venueData) {
+
+				if (venueData !== null) {
+					item.Venue.Id = venueData._id;
+					item.save(function(err, d) {
+						if (err) {
+							console.log(err);
+						} else {
+							console.log ('updated %s', d);
+						}
+					});
+				}
+
+			});
+
+		});
+	});
 }
 
 
@@ -423,4 +477,6 @@ exports.parseImport = parseImport;
 exports.lookupVenues = lookupVenues;
 exports.lookupPostcode = lookupPostcode;
 exports.populateVenueLatLng = populateVenueLatLng;
+exports.populateShowLatLng = populateShowLatLng;
 exports.requestShowsAtAGlance = requestShowsAtAGlance;
+exports.populateShowVenues = populateShowVenues;

@@ -177,6 +177,8 @@ angular.module('browserAppApp')
 				}, true);
 			}
 
+
+
 			function setupDestructor() {
 				$scope.$on('$destroy', function() {
 					console.log('DIRECTIVE DESTROY');
@@ -231,8 +233,26 @@ angular.module('browserAppApp')
 				}, true);
 			}
 
+
+
+
 			function createMarker(name, scopeMarker, map, bounceOnAdd) {
 				var marker = buildMarker(name, scopeMarker, bounceOnAdd);
+
+
+				if(typeof marker.popup !== 'undefined') {
+					scopeMarker.openPopup = function() {
+						marker.popup.openPopup();
+					};
+				}
+
+
+				marker.on('openPopup', function () {
+					marker.openPopup();
+				});
+
+
+
 
 				marker.on('drag', function () {
 					$scope.$apply(function (scope) {
@@ -250,6 +270,8 @@ angular.module('browserAppApp')
 				});
 
 
+
+
 				marker.on('dragend', function () {
 					$scope.$apply(function (scope) {
 						scopeMarker.lat = marker.getLatLng().lat;
@@ -264,6 +286,9 @@ angular.module('browserAppApp')
 						marker.openPopup();
 					}
 				});
+
+
+
 
 				$scope.$watch('markers.' + name, function (data, oldData) {
 					if (!data) {
@@ -303,8 +328,11 @@ angular.module('browserAppApp')
 				return marker;
 			}
 
+
+
+
 			function sizeTextMarkers() {
-				$('.mapTextMarker').each(function(index, element) {
+				$('.mapTextMarker').each(function (index, element) {
 					var $element = $(element),
 						$span = $element.find('span'),
 						spanWidth;
@@ -313,6 +341,9 @@ angular.module('browserAppApp')
 					$element.width(spanWidth + 24 + 12);
 				});
 			}
+
+
+
 
 			function buildMarker(name, data, bounceOnAdd) {
 				var marker;
@@ -337,11 +368,14 @@ angular.module('browserAppApp')
 					);
 
 					if(typeof data.popupText !== 'undefined') {
-						marker.bindPopup(data.popupText);
+						marker.popup = marker.bindPopup(data.popupText);
 					}
 				}
 				return marker;
 			}
+
+
+
 
 			function buildIcon(data) {
 				var iconUrl;
@@ -377,6 +411,9 @@ angular.module('browserAppApp')
 				});
 			}
 
+
+
+
 			$scope.$on('leafletmap.startlocate', function() {
 				locate = true;
 				map.locate({
@@ -386,10 +423,28 @@ angular.module('browserAppApp')
 				});
 			});
 
+
+
+
 			$scope.$on('leafletmap.stoplocate', function() {
 				locate = false;
 				map.stopLocate();
 			});
+
+
+
+			$scope.$on('leafletmap.openPopup', function (data, id) {
+				_.each($scope.markers, function (item) {
+					if (item._id == id) {
+						item.openPopup();
+					};
+				});
+
+				//$scope.markers.id.popup.openPopup();
+			});
+
+
+
 
 			function mapDragged() {
 				$scope.center.lat = map.getCenter().lat;

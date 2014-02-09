@@ -43,6 +43,17 @@ angular.module('browserAppApp')
 
 
 
+		$scope.jumpToShow = function (show) {
+			$scope.center.lat = show.Location.Latitude;
+			$scope.center.lng = show.Location.Longitude;
+
+			$scope.$broadcast('leafletmap.centreChanged', $scope.center);
+			$scope.$broadcast('leafletmap.openPopup', show.Venue.Id);
+		};
+
+
+
+
 		$scope.controls.searchBox = {
 			value: '',
 			placeholder: 'Search here',
@@ -221,12 +232,13 @@ angular.module('browserAppApp')
 				_.each(data, function(item) {
 					if(typeof item.location !== 'undefined') {
 						var newMarker = {
+							_id: item._id,
 							lat: item.location.latitude,
 							lng: item.location.longitude,
 							message: null,
 							popupText: item.name,
 							focus: false,
-							draggable: false,
+							draggable: false
 						};
 
 						$scope.markers[item._id] = newMarker;
