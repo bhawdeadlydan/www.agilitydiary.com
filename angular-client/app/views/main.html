@@ -1,6 +1,18 @@
 <div ng-include src="app/views/navigation.html" />
 
 <div>
-  <p>This is the home. Probably want to differentiate between logged in/not logged in home</p>
+	<img src="{{ profile.User.profile.picture }}" />
+	<div ng-bind="profile.User.profile.name" />
 
+	<div>
+		<h2>Dogs</h2>
+
+		<div ng-show="!profile.Dogs.length">
+			You have no dogs
+		</div>
+
+		<div ng-repeat="profile.Dogs">
+
+		</div>
+	</div>
 </div>

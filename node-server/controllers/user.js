@@ -1,8 +1,11 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
 var _ = require('underscore');
+
 var User = require('../models/mongoose/user');
 var Diary = require('../models/mongoose/diary');
+
+var DiaryViewModel = require('../models/viewmodels/diary');
 
 
 
@@ -43,57 +46,57 @@ function checkUserData(req) {
  * GET /login
  * Login page.
  */
+function createNewDiaryForUser(user, done) {
+	Diary.create({
+		User: user,
+		EnteredShows: [ ],
+		Dogs: [ ]
+	}, function (err, diary) {
+		if (err) {
+			done(err);
+		} else {
+			done(undefined, diary);
+		}
+	});
+}
+
+
+
 
 exports.userData = function (req, res) {
-	User.findById(req.user.id, function (err, user) {
-		console.log(user);
+	function sendDiary(diary) {
+		diary.populate('EnteredShows', function (err, diary) {
+			diary.populate('User', function (err, diary) {
+				res.send(DiaryViewModel(diary));
+			});
+		});
+	}
 
+
+	User.findById(req.user.id, function (err, user) {
 		Diary.findOne({
 			User: user
 		}, function (err, diary) {
-
-
-			if (diary === null) {
-				console.log('HASDASD');
-
-				diary = Diary({
-					User: user
-				});
-
-
-				Diary.create({
-					User: user,
-					EnteredShows: [ ]
-				}, function (err, diary) {
-					if (err) {
-						console.log(err);
-					} else {
-						res.send(diary);
-					}
-				});
-
-
-				diary.save(function (err, diary) {
-					console.log('saved');
-				});
+			if (err) {
+				res.send(500, { error: 'Error' });
 			}
 
-			diary.populate('EnteredShows', function(err, diary) {
-				res.send(diary);
-			});
-
-//			user.populate('Diary', function (err, user) {
-//				console.log(user);
-
-
-
-//				res.send(user);
-			//});
+			if (diary === null) {
+				createNewDiaryForUser(user, function (err, diary) {
+					if (err) {
+						res.send(500, { error: 'Error' });
+					} else {
+						sendDiary(diary);
+					}
+				});
+			} else {
+				sendDiary(diary);
+			}
 		});
-
-
 	});
 };
+
+
 
 
 exports.getLogin = function (req, res) {
@@ -233,7 +236,7 @@ exports.postUpdateProfile = function (req, res, next) {
  * @param {string} password
  */
 
-exports.postUpdatePassword = function(req, res, next) {
+exports.postUpdatePassword = function (req, res, next) {
 	req.assert('password', 'Password must be at least 4 characters long').len(4);
 	req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
 

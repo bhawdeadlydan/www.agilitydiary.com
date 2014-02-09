@@ -24,6 +24,7 @@ var showSchema = mongoose.Schema({
 		Name: String,
 		Address: String,
 		PostCode: String,
+		Id: mongoose.Schema.Types.ObjectId
 	},
 
 	Location: {

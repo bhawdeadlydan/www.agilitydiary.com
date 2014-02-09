@@ -1,3 +1,5 @@
+var PostCodeModel = require('../mongoose/postcode');
+
 function getShowType(data) {
 
 	var colour = typeof data.Meta.ShowTypeColour !== 'undefined' ? data.Meta.ShowTypeColour : '';
@@ -43,7 +45,7 @@ function getShowType(data) {
  *
  * @param {object} data Mongoose document from Show Schema
  */
-function ShowViewModel(data) {
+module.exports = function (data, done) {
 	return {
 		_id: data._id,
 		Name: data.Name,
@@ -60,6 +62,7 @@ function ShowViewModel(data) {
 			Name: data.Venue.Name,
 			Address: data.Venue.Address,
 			PostCode: data.Venue.PostCode,
+			Id: data.Venue.Id
 		},
 
 		Location: {
@@ -78,5 +81,3 @@ function ShowViewModel(data) {
 		}
 	};
 }
-
-module.exports = ShowViewModel;

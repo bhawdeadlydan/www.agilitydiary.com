@@ -11,6 +11,17 @@ var diarySchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Show'
 		}
+	],
+
+	Dogs: [
+		{
+			Profile: {
+				Name: String,
+				DateOfBirth: Date,
+				Photo: String,
+				Sex: String
+			}
+		}
 	]
 });
 
