@@ -1,32 +1,32 @@
 var app = angular.module('browserAppApp');
 
-app.controller('MainController', [
+app.controller('DogController', [
 	'$scope', 'Mapdata', 'ShowService', 'ProfileService', '$location', '$route', '$routeParams',
-	function ($scope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams) {
+	function DogController($scope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams) {
 		"use strict";
 
 
 
-		/**
-		 * Module level variables
-		 */
 
-		$scope.profile = {};
-
-
+		$scope.dog = {
+			name: '',
+			sex: ''
+		};
 
 
-		/**
-		 * Get the users profile
-		 */
 
-		function fetchProfile() {
-			ProfileService.get(function (data) {
-				$scope.profile = data;
+
+		$scope.saveDog = function () {
+			ProfileService.addDog({
+				name: $scope.name,
+				sex: $scope.sex
+			}, function (data) {
+				$location.path('#/');
 			}, function (error) {
-
+				console.log(error);
 			});
-		}
+		};
+
 
 
 
@@ -38,7 +38,7 @@ app.controller('MainController', [
 		function main() {
 			var action = '';
 
-			if ((typeof $route.current.$$route.action !== 'undefined') && ($route.current.$$route.action !== null)) {
+			if (typeof $route.current.$$route.action !== 'undefined') {
 				action = $route.current.$$route.action;
 			}
 
@@ -49,15 +49,12 @@ app.controller('MainController', [
 
 			switch (action) {
 			case '':
-				fetchProfile();
+
 			}
 		}
 
 
 
-		/**
-		 * Start here
-		 */
 
 		main();
 	}

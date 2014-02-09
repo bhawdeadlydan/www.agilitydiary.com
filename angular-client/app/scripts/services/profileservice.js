@@ -39,6 +39,19 @@ angular.module('browserAppApp')
 
 
 
+			module.addDog = function (postData, successCallback, errorCallback) {
+				var url = '/agility-diary/addDog';
+
+				$http.post(url, postData).success(function (data) {
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
 			return module;
 		}
 	]);

@@ -14,7 +14,10 @@ app.controller('ShowsController', [
 		$scope.enteredShows = {};
 		$scope.categories = {};
 		$scope.details = {};
+		$scope.center = {};
+		$scope.bounds = {};
 		$scope.searchText = '';
+		$scope.markers = {};
 
 
 
@@ -84,6 +87,22 @@ app.controller('ShowsController', [
 				id: id
 			}, function (data) {
 				$scope.show = data;
+				$scope.center.lat = data.Location.Latitude;
+				$scope.center.lng = data.Location.Longitude;
+				$scope.center.zoom = 15;
+
+				var newMarker = {
+					_id: data._id,
+					lat: data.Location.Latitude,
+					lng: data.Location.Longitude,
+					message: null,
+					popupText: data.Name,
+					focus: true,
+					draggable: false
+      				//html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
+				};
+
+				$scope.markers.Location = newMarker;
 			}, function (err) {
 				// failed
 			});
