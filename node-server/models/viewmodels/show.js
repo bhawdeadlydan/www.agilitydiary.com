@@ -1,46 +1,49 @@
+function getShowType(data) {
+
+	var colour = typeof data.Meta.ShowTypeColour !== 'undefined' ? data.Meta.ShowTypeColour : '';
+
+	switch (colour) {
+	case '#0000FF':
+		return 'BAA';
+
+	case '#FF33FF':
+		return 'FAB';
+
+	case '#0099CC':
+		return 'Independent';
+
+	case '#FFFF00':
+		return 'Invitation';
+
+	case '#99FF66':
+		return 'Irish Kennel Club';
+
+	case '#006600':
+		return 'KC';
+
+	case '#663399':
+		return 'Other';
+
+	case  '#0099CC':
+		return 'Series';
+
+	case '#996633':
+		return 'Training';
+
+	case '#FF0000':
+		return 'UKA';
+	}
+}
+
+
+
+
 /**
  * Show ViewModel
  *
  * @param {object} data Mongoose document from Show Schema
  */
 function ShowViewModel(data) {
-	function getShowType() {
-
-		var colour = typeof data.Meta.ShowTypeColour !== 'undefined' ? data.Meta.ShowTypeColour : '';
-
-		switch (colour) {
-		case '#0000FF':
-			return 'BAA';
-
-		case '#FF33FF':
-			return 'FAB';
-
-		case '#0099CC':
-			return 'Independent';
-
-		case '#FFFF00':
-			return 'Invitation';
-
-		case '#99FF66':
-			return 'Irish Kennel Club';
-
-		case '#006600':
-			return 'KC';
-
-		case '#663399':
-			return 'Other';
-
-		case  '#0099CC':
-			return 'Series';
-
-		case '#996633':
-			return 'Training';
-
-		case '#FF0000':
-			return 'UKA';
-		}
-	}
-
 	return {
 		_id: data._id,
 		Name: data.Name,
@@ -71,7 +74,7 @@ function ShowViewModel(data) {
 
 		Meta: {
 			ShowTypeColour: typeof data.Meta.ShowTypeColour !== 'undefined' ? data.Meta.ShowTypeColour : '',
-			ShowType: getShowType()
+			ShowType: getShowType(data)
 		}
 	};
 }
