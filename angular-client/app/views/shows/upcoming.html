@@ -1,0 +1,24 @@
+<div>
+	<h1>Upcoming Shows</h1>
+
+	<p>list all where startdate &gt; today</p>
+
+	<div ng-repeat="event in upcomingShows">
+		<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
+			<a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a>
+
+			<span style="background: red;" ng-bind="event.Meta.ShowType" />
+
+			<p>Show type: <div ng-bind="event.Venue.Meta.ShowTypeColour" /></p>
+
+			<p>club: <span ng-bind="event.Club" /></p>
+			<p>show date:
+				<br />From <span ng-bind="event.ShowDate" />
+				To: <span ng-bind="event.ShowEnd" /></p>
+
+			<p>Entries close: <span ng-bind="event.ClosingDate" /></p>
+
+
+		</div>
+	</div>
+</div>

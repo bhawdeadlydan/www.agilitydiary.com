@@ -1,0 +1,31 @@
+
+<div>
+
+
+		<div style="border-left: solid 5px {{ show.Meta.ShowTypeColour }}">
+			<h2>show</h2>
+
+			<div ng-bind="show.Name" />
+			club: <div ng-bind="show.Club" />
+			show date: <div ng-bind="show.ShowDate" />
+			show end: <div ng-bind="show.ShowEnd" />
+			closing date: <div ng-bind="show.ClosingDate" />
+
+			entries to: <div ng-bind="show.EntriesTo" />
+	logo
+			<div ng-bind="show.Logo" />
+
+	website
+			<div ng-bind="show.Website" />
+
+			venue
+			<div ng-bind="show.Venue.Name" />
+			<div ng-bind="show.Venue.Address" />
+			<div ng-bind="show.Venue.PostCode" />
+
+			Show Type Colour: <div ng-bind="show.Venue.Meta.ShowTypeColour" />
+
+			<button ng-click="enterShow(show);" style="background:black;color:white">DO THiS SHOW</button>
+		</div>
+
+</div>

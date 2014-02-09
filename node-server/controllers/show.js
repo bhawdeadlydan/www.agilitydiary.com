@@ -18,6 +18,21 @@ exports.list = function(req, res) {
 
 
 
+/**
+ * List all shows
+ */
+exports.details = function(req, res) {
+	Show.findOne({
+		_id: req.query.id
+	}).exec(function(err, data) {
+		res.send(data);
+	});
+};
+
+
+
+
+
 exports.enterShow = function (req, res) {
 	User.findById(req.user.id, function (err, user) {
 		console.log(user);

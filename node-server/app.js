@@ -5,7 +5,6 @@
 var express = require('express');
 var MongoStore = require('connect-mongo')(express);
 var flash = require('express-flash');
-//var less = require('less-middleware');
 var path = require('path');
 var mongoose = require('mongoose');
 require('mongoose-double')(mongoose); // patch mongoose
@@ -18,6 +17,7 @@ var expressValidator = require('express-validator');
 /**
  * Controllers
  */
+
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
@@ -54,7 +54,7 @@ var app = express();
  */
 
 mongoose.connect(secrets.db);
-mongoose.connection.on('error', function() {
+mongoose.connection.on('error', function () {
 	console.log('✗ MongoDB Connection Error. Please make sure MongoDB is running.'.red);
 });
 
@@ -91,7 +91,7 @@ app.use(express.session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 	res.locals.user = req.user;
 	next();
 });
@@ -99,10 +99,20 @@ app.use(flash());
 //app.use(less({ src: __dirname + '/public', compress: true }));
 app.use(app.router);
 
-console.log(__dirname.green);
 
+
+
+/**
+ * Static folders (should be mapped in Nginx)
+ */
 app.use('app', express.static(__dirname + '../angular-client/app'));
-app.use('/bower_components', function(req, res) {
+
+app.use('/static', function (req, res) {
+	var pathName = path.join(__dirname, '..', 'static', req.path);
+	res.sendfile(pathName);
+});
+
+app.use('/bower_components', function (req, res) {
 	var pathName = path.join(__dirname, '..', 'angular-client', 'app', 'bower_components', req.path);
 	res.sendfile(pathName);
 });
@@ -110,7 +120,7 @@ app.use('/bower_components', function(req, res) {
 //app.use('/bower_components', express.static(__dirname + '../public/app/bower_components'));
 app.use(express.static(path.join(__dirname, '../angular-client'), { maxAge: week }));
 
-app.use(function(req, res) {
+app.use(function (req, res) {
 	//res.sendfile(path.join(__dirname, '..', '/public', 'app','index.html'));
 	res.status(404);
 	res.render('404');
@@ -127,6 +137,7 @@ app.use(express.errorHandler());
 app.get('/map/shows/list', showController.list);
 app.get('/map/shows/upcoming', showController.upcoming);
 
+app.get('/agility-diary/show/details', showController.details);
 app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
 app.get('/agility-diary/enterShow', showController.enterShow);
@@ -143,6 +154,9 @@ app.get('/agilitynetbridge/lookupPostcode', agilitynetbridgeController.lookupPos
 app.get('/agilitynetbridge/populateVenueLatLng', agilitynetbridgeController.populateVenueLatLng);
 
 
+
+
+
 app.get('/', homeController.index);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
@@ -151,11 +165,27 @@ app.get('/signup', userController.getSignup);
 app.post('/signup', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
+
+
+
+
+/**
+ *  Account pages with server side templates
+ */
+
 app.get('/account', passportConf.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
 app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
+
+
+
+
+/**
+ * API Helpers
+ */
+
 app.get('/api', apiController.getApi);
 app.get('/api/foursquare', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getFoursquare);
 app.get('/api/tumblr', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getTumblr);
