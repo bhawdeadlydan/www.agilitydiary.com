@@ -9,10 +9,10 @@ require "susy"
 
 # Set this to the root of your project when deployed:
 http_path       = "/"
-css_dir         = "css"
-sass_dir        = "css-src"
-images_dir      = "template-assets"
-javascripts_dir = "js"
+css_dir         = "styles"
+sass_dir        = "scss"
+images_dir      = "images"
+javascripts_dir = "scripts"
 fonts_dir       = "fonts"
 
 # output_style  = :compressed
