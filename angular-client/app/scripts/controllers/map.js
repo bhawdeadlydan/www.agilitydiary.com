@@ -238,7 +238,7 @@ angular.module('browserAppApp')
 							message: null,
 							popupText: undefined, //item.name,
 							focus: false,
-							draggable: false
+							draggable: false,
               				html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
 						};
 
