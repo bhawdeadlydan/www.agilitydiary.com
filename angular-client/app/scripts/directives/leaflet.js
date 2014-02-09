@@ -77,7 +77,8 @@ angular.module('browserAppApp')
 		maxZoom: 14,
 		tileLayer: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		icon: {
-			url: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon.png',
+      // url: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon.png',
+			url: 'app/images/marker.png',
 			retinaUrl: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon@2x.png',
 			size: [25, 41],
 			anchor: [12, 40],
@@ -335,6 +336,10 @@ angular.module('browserAppApp')
 							draggable: data.draggable ? true : false
 						}
 					);
+
+          if(typeof data.html !== 'undefined') {
+            marker.bindPopup(data.html);
+          }
 
 					if(typeof data.popupText !== 'undefined') {
 						marker.bindPopup(data.popupText);
