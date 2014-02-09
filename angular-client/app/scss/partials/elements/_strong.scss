@@ -1,0 +1,24 @@
+/**
+ * @description    Styling for the strong element
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-12-03 16:44
+ *
+ *
+ *     @example
+ *                 <strong></strong>
+ *
+ *
+ *        @type    element
+ *       @notes    Also covers styling for <b>
+ */
+
+
+/**
+ * @section        strong
+ */
+b,
+strong {
+	font-weight: bold;
+}

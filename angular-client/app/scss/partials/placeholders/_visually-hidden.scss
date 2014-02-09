@@ -1,0 +1,46 @@
+/**
+ * @description    visuallyhidden helper class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <div class="visuallyhidden"></div>
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes    Hide only visually, but have it available for screenreaders: h5bp.com/v
+ *      @ignore
+ */
+
+/**
+ * @section        visuallyhidden
+ */
+%visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/**
+ *       @notes    Extends the .visuallyhidden class to allow the element to be focusable
+ *                 when navigated to via the keyboard: h5bp.com/p
+ *                 <div class="visuallyhidden focusable"></div>
+ */
+%focusable:active,
+%focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}

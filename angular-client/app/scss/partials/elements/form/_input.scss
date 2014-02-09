@@ -1,0 +1,30 @@
+/**
+ * @description    input styling
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-22 10:53
+ *
+ *
+ *     @example
+ *                 <input></input>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        input
+ */
+input {
+    @include default-font-stack;
+
+    margin: .5em 0;
+    padding: .5em;
+
+    &[type="email"] {
+        width: 100%;
+    }
+}

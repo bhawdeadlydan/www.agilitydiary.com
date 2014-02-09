@@ -1,0 +1,160 @@
+/**
+ * @description    Susy Settings - Set up your default grid values: total columns, column width, and gutter width.
+ *
+ *      @author    http://susy.oddbird.net/
+ *     @version    0.1
+ *        @date    2017-02-08 18:57
+ *
+ *     @example
+ *
+ *        @type    settings
+ *       @notes    The breakpoint variables use colour coding. The .globalHeader class has debgging which
+ *                 can be enabled to view the matching colours in the background of the .globalHeader in
+ *                 the front end.
+ *      @ignore
+ *
+ */
+
+/**
+ * @section        settings
+ *   @notes        default size 0px - 576px
+ */
+$total-cols       : 7;
+$col-width        : 4em; // 4 * 16px = 64px
+$gutter-width     : 1em; // 1 x 16px = 16px
+$side-gutter-width: 0; //
+$grid-padding     : $gutter-width;
+$container-width  : 71em;
+
+// Defining the breakpoints
+// 576px; 7 columns
+// 736px; 9 columns
+// 752px;
+// 816px; 10 columns
+// 976px; 12 columns
+// 1056px; 13 columns
+
+/**
+ * @section        736 - PURPLE
+ *   @notes        (min-width: 321px) and (max-width: 480px)
+ */
+$view_purple: 480px 9 575px;
+
+/**
+ * @section        736 - RED
+ *   @notes        (min-width: 576px) and (max-width: 736px)
+ */
+$view_red: 576px 9 736px;
+
+/**
+ * @section        736 - PINK
+ *   @notes        (min-width: 576px)
+ */
+$view_pink: 576px 12;
+
+/**
+ * @section        816 - BLUE
+ *   @notes        (min-width: 736px) and (max-width: 816px)
+ */
+$view_blue: 736px 10 816px;
+
+/**
+ * @section        816 - YELLOW
+ *   @notes        (max-width: 816px)
+ */
+$view_yellow: 0 12 816px;
+
+/**
+ * @section        976 - GREEN
+ *   @notes        (min-width: 816px)
+ */
+$view_green: 816px 12;
+
+// ========================================================== //
+// GRID MATRIX
+// ($total-columns * $column-width) + ($gutter-width * $total-columns) + $gutter-width
+// ========================================================== //
+
+// 1 columns = 176px 6em
+// (1 * 64) + (16 * 1) + 16
+// 64 + 16 + 16 = 96px
+// 96px / 16 = 6
+// 6em * 16 = 96px
+
+// 2 columns = 176px 11em
+// (2 * 64) + (16 * 2) + 16
+// 128 + 32 + 16 = 176px
+// 176px / 16 = 11
+// 11em * 16 = 176px
+
+// 3 columns = 256px 16em
+// (3 * 64) + (16 * 3) + 16
+// 192 + 48 + 16 = 256px
+// 256px / 16 = 16
+// 16em * 16 = 256px
+
+// 4 columns = 336px 21em
+// (4 * 64) + (16 * 4) + 16
+// 256 + 64 + 16 = 336px
+// 336px / 16 = 21
+// 21em * 16 = 336px
+
+// 5 columns = 416px 26em
+// (5 * 64) + (16 * 5) + 16
+// 320 + 80 + 16 = 416px
+// 416px / 16 = 26
+// 26em * 16 = 416px
+
+// 6 columns = 496px 31em
+// (6 * 64) + (16 * 6) + 16
+// 384 + 96 + 16 = 496px
+// 496px / 16 = 31
+// 31em * 16 = 496px
+
+// 7 columns = 576px 36em
+// (7 * 64) + (16 * 7) + 16
+// 448 + 112 + 16 = 576px
+// 576px / 16 = 36
+// 36em * 16 = 576px
+
+// 8 columns = 656px 41em
+// (8 * 64) + (16 * 8) + 16
+// 512 + 128 + 16 = 656px
+// 656px / 16 = 41
+// 41em * 16 = 656px
+
+// 9 columns = 736px 46em
+// (9 * 64) + (16 * 9) + 16
+// 576 + 144 + 16 = 736px
+// 736px / 16 = 46
+// 46em * 16 = 736px
+
+// 10 columns = 816px 51em
+// (10 * 64) + (16 * 10) + 16
+// 640 + 160 + 16 = 816px
+// 816px / 16 = 51
+// 51em * 16 = 816px
+
+// 11 columns = 896px 56em
+// (11 * 64) + (16 * 11) + 16
+// 704 + 176 + 16 = 896px
+// 896px / 16 = 56
+// 56em * 16 = 896px
+
+// 12 columns = 976px 61em
+// (12 * 64) + (16 * 12) + 16
+// 768 + 192 + 16 = 976px
+// 976px / 16 = 61
+// 61em * 16 = 976px
+
+// 13 columns = 1056px 66em
+// (13 * 64) + (16 * 13) + 16
+// 832 + 208 + 16 = 1056px
+// 1056px / 16 = 66
+// 66em * 16 = 1056px
+
+// 14 columns = 1136px 71em
+// (14 * 64) + (16 * 14) + 16
+// 896 + 224 + 16 = 1136px
+// 1136px / 16 = 71
+// 71em * 16 = 1136px

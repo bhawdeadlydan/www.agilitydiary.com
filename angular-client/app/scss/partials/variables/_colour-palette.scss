@@ -1,0 +1,68 @@
+/**
+ * @description    Colour palette
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-08 19:21
+ *
+ *
+ *     @example
+ *
+ *
+ *        @type    variables
+ *       @notes
+ *      @ignore
+ *
+ */
+
+/**
+* @section        Base colours
+*/
+$color-black:             #000;
+$color-white:             #fff;
+
+/**
+* @section        Set Brand Colour
+*/
+$color-brand:   #73afaa;
+
+/**
+* @section        Social icon colours
+*/
+$color-social-bg:   lighten($color-black, 15%); // output = #262626
+$color-twitter:     #02aced; // https://twitter.com/logo
+$color-facebook:    #3b5998; //
+$color-linkedin:    #4875b4; // http://developer.linkedin.com/documents/branding-guidelines
+
+
+/**
+* @section        Colour complementary
+*/
+$color-brand-complementary1:    #dfcdb4;
+$color-brand-complementary2:    #fbeed3;
+
+/**
+* @section        Colour
+*/
+$color-layout-header-bg    :    $color-brand;
+$color-layout-wrapper-bg   :    lighten($color-black, 15%); // output = #262626
+
+$color-body-bg             :    $color-white;
+$color-body-copy           :    lighten($color-black, 20.5%); // output = #343434
+
+$color-copy                :    lighten($color-black, 15%); // output = #262626
+$color-link                :    $color-brand;
+
+$color-footer-copy         :    #d8d8d8;
+
+$color-nav-primary         :    lighten($color-black, 15%); // output = #262626
+$color-nav-primary-hover   :    lighten($color-black, 84.75%); // output = #D8D8D8
+$color-nav-primary-active  :    $color-brand;
+
+$color-button              :    lighten($color-black, 15%); // output = #262626
+$color-border              :    lighten($color-black, 83%); // output = #d4d4d4
+$color-shadow              :    lighten($color-black, 30%); // output = #4d4d4d
+$color-drop-shadow         :    darken($color-white, 13%); // output = #dedede
+
+$color-mark                :    $color-brand-complementary1;
+$color-selection           :    $color-brand-complementary2;

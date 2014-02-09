@@ -1,0 +1,29 @@
+/**
+ * @description    Styling for the main layout content area
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <div class="layoutMain">
+ *
+ *                 </div>
+ *
+ *        @type    layout
+ *       @notes
+ */
+
+
+/**
+ * @section        layoutMain
+ */
+.layoutMain {
+    background: $color-layout-main;
+    @include span-columns(12 alpha omega,12);
+    @include mq-support(45em) {
+        @include span-columns(12 alpha omega,12);
+        padding: 0;
+    }
+}

@@ -1,0 +1,58 @@
+/**
+ * @description    Creates the default styling for links
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-26 12:13
+ *
+ *
+ *     @example
+ *                 <a href=""></a>
+ *
+ *
+ *        @type    element
+ *       @notes    ensure pseudo classes are ordered:
+ *                      :link
+ *                      :visited
+ *                      :hover
+ *                      :focus
+ *                      :active
+ */
+
+
+/**
+ * @section        a
+ */
+a {
+    color: $color-link;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: thin dotted;
+    }
+
+    &:active,
+    &:hover {
+        outline: 0;
+    }
+
+    &[href^="tel:"] {
+        color: $color-copy;
+        cursor: default;
+        text-decoration: none;
+    }
+
+    &[href^="tel:"]:before {
+        content: "\260E";
+        display: inline-block;
+        margin-right: 0.5em;
+    }
+
+    img {
+        border: none;
+    }
+}

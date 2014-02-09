@@ -1,0 +1,74 @@
+/**
+ * @description    Heading styles
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-12-03 16:43
+ *
+ *
+ *     @example
+ *                 <h1></h1>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        h1
+ */
+h1 {
+    @include font-size(3.2);
+    // @include text-shadow(rgba(26,25,25, 0.2) 1px 1px 0);
+    // @include text-shadow(rgba(26,25,25, 0.2) 1px 1px 0);
+    // @include text-shadow(rgba($color-index, 0.2) 1px 1px 0, rgba($color-index, 0.2) 2px 2px 0, rgba($color-index, 0.2) 3px 3px 0);
+    text-shadow: 2px 2px 1px #1A1919;
+}
+
+/**
+ * @section        h1,h2,h3,h4,h5,h6
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include headline-font-stack;
+}
+
+/**
+ * @section        h2
+ */
+h2 {
+    @include font-size(4.2);
+}
+
+/**
+ * @section        h3
+ */
+h3 {
+    @include font-size(2.6);
+}
+
+/**
+ * @section        h4
+ */
+h4 {
+    @include font-size(2.0);
+}
+
+/**
+ * @section        h5
+ */
+h5 {
+    @include font-size(1.8);
+}
+
+/**
+ * @section        h6
+ */
+h6 {
+    @include font-size(1.4);
+}

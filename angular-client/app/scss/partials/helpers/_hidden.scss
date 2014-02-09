@@ -1,0 +1,25 @@
+/**
+ * @description    hidden helper class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <div class="hidden"></div>
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes    Hide from both screenreaders and browsers: h5bp.com/u
+ *      @ignore
+ */
+
+/**
+ * @section        hidden
+ */
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}

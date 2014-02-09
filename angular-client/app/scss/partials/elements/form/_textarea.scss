@@ -1,0 +1,27 @@
+/**
+ * @description    textarea styling
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-22 10:53
+ *
+ *
+ *     @example
+ *                 <textarea></textarea>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        textarea
+ */
+textarea {
+    @include default-font-stack;
+
+    margin: .5em 0;
+    padding: .5em;
+    width: 100%;
+}

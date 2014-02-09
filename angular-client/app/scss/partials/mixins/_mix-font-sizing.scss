@@ -1,0 +1,23 @@
+/**
+ * @description    font-sizing mixin
+ *
+ *      @author    http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example    @include font-size(1.6);
+ *
+ *
+ *        @type    mixin
+ *       @notes    returns rem and fall-back px values
+ *      @ignore
+ */
+
+/**
+ * @section        font-size
+ */
+@mixin font-size($sizeValue: 1.6) {
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
+}

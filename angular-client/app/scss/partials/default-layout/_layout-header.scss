@@ -1,0 +1,33 @@
+/**
+ * @description    Styling for the layout header
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-08 18:25
+ *
+ *
+ *     @example
+ *                 <header class="layoutHeader" role="banner">
+ *
+ *                 </header>
+ *
+ *        @type    layout
+ *       @notes
+ */
+
+
+/**
+ * @section        layoutHeader
+ */
+.layoutHeader {
+    background: $color-layout-header-bg;
+    display: block;
+    left: 0;
+    height: 125px;
+    overflow-y: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+
+}

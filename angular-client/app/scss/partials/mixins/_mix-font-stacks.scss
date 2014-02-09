@@ -1,0 +1,48 @@
+/**
+ * @description    font stack mixins
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-08 18:57
+ *
+ *
+ *     @example
+ *
+ *        @type    mixin
+ *       @notes
+ *      @ignore
+ */
+
+ /**
+  *     @section   import fonts
+  */
+// @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400);
+
+
+/**
+ *     @section   default-font-stack
+ */
+@mixin default-font-stack {
+
+}
+
+/**
+ *     @section   headline-font-stack
+ */
+@mixin headline-font-stack {
+
+}
+
+/**
+ *     @section   logo-font-stack
+ */
+@mixin logo-font-stack {
+
+}
+
+/**
+ *     @section   contrast-font-stack
+ */
+@mixin contrast-font-stack {
+
+}

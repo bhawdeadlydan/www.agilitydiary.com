@@ -1,0 +1,25 @@
+/**
+ * @description    Creates the default styling for images
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <img src="" alt="" />
+ *
+ *
+ *        @type    element
+ *       @notes    1. Removes border when inside `a` element in IE 8/9.
+ *                 2. Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+
+/**
+ * @section        img
+ */
+img {
+    border: 0; // 1
+    vertical-align: middle; // 2
+}

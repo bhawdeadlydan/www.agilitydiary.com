@@ -1,0 +1,30 @@
+/**
+ * @description    Default styling for the horizontal rule element
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <hr />
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        hr
+ */
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 0;
+    border-top: 1px solid $color-border;
+    display: block;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
+}

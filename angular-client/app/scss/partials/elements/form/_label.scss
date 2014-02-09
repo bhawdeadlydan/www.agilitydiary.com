@@ -1,0 +1,25 @@
+/**
+ * @description    label styling
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-22 10:53
+ *
+ *
+ *     @example
+ *                 <label for="quickEnquiry_email">Email address</label>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        label
+ */
+label {
+    cursor: pointer;
+    display: block;
+    padding: 1em 0;
+}

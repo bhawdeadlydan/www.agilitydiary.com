@@ -1,0 +1,37 @@
+/**
+ * @description    ir (image replacement) helper class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <div class="ir"></div>
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes    Image replacement
+ *                 requires .lt-ie7 class in the <html> element
+ *      @ignore
+ */
+
+/**
+ * @section        ir
+ */
+.ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	.lt-ie7 & {
+		// /* IE 6/7 fallback */
+		*text-indent: -9999px;
+	}
+	&:before {
+		content: "";
+		display: block;
+		height: 100%;
+		width: 0;
+	}
+}
