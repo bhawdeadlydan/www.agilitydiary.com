@@ -191,6 +191,43 @@
  * @section        Placeholders
  */
 /**
+ * @description    visuallyhidden helper class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-10 10:49
+ *
+ *
+ *     @example
+ *                 <div class="visuallyhidden"></div>
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes    Hide only visually, but have it available for screenreaders: h5bp.com/v
+ *      @ignore
+ */
+/**
+ * @section        visuallyhidden
+ */
+/* line 22, ../../layout/css-src/partials/placeholders/_visually-hidden.scss */
+.brandLogo span {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ *       @notes    Extends the .visuallyhidden class to allow the element to be focusable
+ *                 when navigated to via the keyboard: h5bp.com/p
+ *                 <div class="visuallyhidden focusable"></div>
+ */
+/**
  * @section        Global
  */
 /* line 14, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/susy-1.0.9/sass/susy/_grid.scss */
@@ -986,14 +1023,7 @@ input[type="email"] {
 /* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
 .layoutHeader {
   background: #73afaa;
-  display: block;
-  left: 0;
-  height: 125px;
-  overflow-y: hidden;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 10;
+  padding: 1em;
 }
 
 /**
@@ -1053,7 +1083,7 @@ input[type="email"] {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2013-12-03 17:12
+ *        @date    2014-02-10 10:58
  *
  *
  *     @example
@@ -1070,21 +1100,22 @@ input[type="email"] {
  */
 /* line 22, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary {
+  display: inline-block;
   text-align: center;
 }
-/* line 25, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 26, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a {
   color: #262626;
   display: inline-block;
   font-weight: bold;
   padding: 1em;
 }
-/* line 34, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 35, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a.active, .navPrimary a:hover {
   color: #d8d8d8;
   text-decoration: none;
 }
-/* line 41, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 42, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary .active {
   font-weight: bold;
 }
@@ -1092,6 +1123,34 @@ input[type="email"] {
 /**
  * @section        Modules
  */
+/**
+ * @description    styling for the brandLogo class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-10 10:48
+ *
+ *
+ *     @example
+ *                 <a class="brandLogo" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        brandLogo
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+.brandLogo {
+  color: #262626;
+  margin-right: 2em;
+}
+/* line 23, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+.brandLogo img {
+  text-align: center;
+  vertical-align: middle;
+}
+
 /**
  * @section        Plugins
  */

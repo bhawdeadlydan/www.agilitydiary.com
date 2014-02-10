@@ -3,7 +3,7 @@
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2013-12-03 17:12
+ *        @date    2014-02-10 10:58
  *
  *
  *     @example
@@ -20,6 +20,7 @@
  * @section        navPrimary
  */
 .navPrimary {
+    display: inline-block;
     text-align: center;
 
     a {
@@ -41,21 +42,5 @@
     .active {
         font-weight: bold;
     }
-
-    // .active {
-    //     .integrity & {
-    //         color: $color-integrity;
-    //     }
-
-    //     .simplicity & {
-    //         color: $color-simplicity;
-    //     }
-
-    //     .knowledge & {
-    //         color: $color-knowledge;
-    //     }
-
-    //     font-weight: bold;
-    // }
 
 }

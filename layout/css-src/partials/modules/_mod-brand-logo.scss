@@ -3,11 +3,11 @@
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2013-12-03 10:49
+ *        @date    2014-02-10 10:48
  *
  *
  *     @example
- *                 <a class="brandLogo" href="/">Zen Logic</a>
+ *                 <a class="brandLogo" href="/">AgilityDiary</a>
  *
  *        @type    module
  *       @notes
@@ -17,17 +17,12 @@
  * @section        brandLogo
  */
 .brandLogo {
-    background-repeat: no-repeat;
-    bottom: 1em;
-    left: 0;
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    width: 275px;
+    color: $color-copy;
+    margin-right: 2em;
 
     img {
         text-align: center;
+        vertical-align: middle;
     }
 
     span {

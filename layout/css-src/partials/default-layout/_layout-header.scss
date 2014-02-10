@@ -21,13 +21,6 @@
  */
 .layoutHeader {
     background: $color-layout-header-bg;
-    display: block;
-    left: 0;
-    height: 125px;
-    overflow-y: hidden;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 10;
+    padding: 1em;
 
 }
