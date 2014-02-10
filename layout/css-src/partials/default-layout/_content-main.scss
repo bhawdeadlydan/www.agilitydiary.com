@@ -1,5 +1,5 @@
 /**
- * @description    Styling for the main layout wrapper
+ * @description    Styling for the main content
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
@@ -7,7 +7,7 @@
  *
  *
  *     @example
- *                 <div class="layoutWrapper">
+ *                 <div class="contentMain">
  *
  *                 </div>
  *
@@ -18,8 +18,8 @@
 
 
 /**
- * @section        layoutWrapper
+ * @section        contentMain
  */
-.layoutWrapper {
-
+.contentMain {
+    @include span-columns(9,12);
 }

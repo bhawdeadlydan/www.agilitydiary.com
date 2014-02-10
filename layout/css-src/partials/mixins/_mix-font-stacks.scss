@@ -15,15 +15,16 @@
 
  /**
   *     @section   import fonts
+  *       @notes   http://www.google.com/fonts#UsePlace:use/Collection:Nunito
   */
-// @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
 /**
  *     @section   default-font-stack
  */
 @mixin default-font-stack {
-
+    font-family: 'Open Sans', sans-serif;
 }
 
 /**

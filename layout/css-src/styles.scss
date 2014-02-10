@@ -97,11 +97,16 @@
 /**
  * @section        Layout
  */
+@import "partials/default-layout/container";
+
 @import "partials/default-layout/layout-wrapper";
-// @import "partials/default-layout/layout-container";
 // @import "partials/default-layout/layout-main";
 @import "partials/default-layout/layout-header";
 @import "partials/default-layout/layout-footer";
+
+@import "partials/default-layout/content-wrapper";
+@import "partials/default-layout/content-main";
+@import "partials/default-layout/content-sub";
 
 /**
  * @section        Navigation

@@ -20,20 +20,22 @@
  */
 body {
     @include default-font-stack;
-    @include font-size(1.2);
+    @include font-size(1.8);
 
     background: $color-body-bg;
     color: $color-body-copy;
-    line-height: 1.4;
+    line-height: 1.5em;
     margin: 0;
     padding-bottom: 600px;
 
     @include at-breakpoint($view_red) {
-        @include font-size(1.5);
+        @include font-size(1.6);
+
     }
 
     @include at-breakpoint($view_blue) {
-        @include font-size(1.6);
+        @include font-size(1.8);
+
     }
 
 }

@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 /**
  * @projectDescription    AgilityDiary
  *               @file    styles.css
@@ -137,6 +138,7 @@
  */
 /**
  *     @section   import fonts
+ *       @notes   http://www.google.com/fonts#UsePlace:use/Collection:Nunito
  */
 /**
  *     @section   default-font-stack
@@ -547,6 +549,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   font-family: sans-serif;
+  font-size: 62.5%;
   overflow-y: scroll;
 }
 
@@ -570,26 +573,27 @@ html {
  */
 /* line 21, ../../layout/css-src/partials/elements/_body.scss */
 body {
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-size: 1.8rem;
   background: white;
   color: #343434;
-  line-height: 1.4;
+  line-height: 1.5em;
   margin: 0;
   padding-bottom: 600px;
 }
 @media (min-width: 576px) and (max-width: 736px) {
   /* line 21, ../../layout/css-src/partials/elements/_body.scss */
   body {
-    font-size: 15px;
-    font-size: 1.5rem;
+    font-size: 16px;
+    font-size: 1.6rem;
   }
 }
 @media (min-width: 736px) and (max-width: 816px) {
   /* line 21, ../../layout/css-src/partials/elements/_body.scss */
   body {
-    font-size: 16px;
-    font-size: 1.6rem;
+    font-size: 18px;
+    font-size: 1.8rem;
   }
 }
 
@@ -668,60 +672,34 @@ a img {
 /**
  * @section        h1
  */
-/* line 21, ../../layout/css-src/partials/elements/_hx.scss */
-h1 {
-  font-size: 32px;
-  font-size: 3.2rem;
-}
-
 /**
  * @section        h1,h2,h3,h4,h5,h6
  */
+/* line 33, ../../layout/css-src/partials/elements/_hx.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
 /**
  * @section        h2
  */
-/* line 40, ../../layout/css-src/partials/elements/_hx.scss */
-h2 {
-  font-size: 42px;
-  font-size: 4.2rem;
-}
-
 /**
  * @section        h3
  */
-/* line 47, ../../layout/css-src/partials/elements/_hx.scss */
-h3 {
-  font-size: 26px;
-  font-size: 2.6rem;
-}
-
 /**
  * @section        h4
  */
-/* line 54, ../../layout/css-src/partials/elements/_hx.scss */
-h4 {
-  font-size: 20px;
-  font-size: 2rem;
-}
-
 /**
  * @section        h5
  */
-/* line 61, ../../layout/css-src/partials/elements/_hx.scss */
-h5 {
-  font-size: 18px;
-  font-size: 1.8rem;
-}
-
 /**
  * @section        h6
  */
-/* line 68, ../../layout/css-src/partials/elements/_hx.scss */
-h6 {
-  font-size: 14px;
-  font-size: 1.4rem;
-}
-
 /**
  * @description    Styling for the nav element
  *
@@ -917,6 +895,7 @@ label {
  */
 /* line 21, ../../layout/css-src/partials/elements/form/_textarea.scss */
 textarea {
+  font-family: 'Open Sans', sans-serif;
   margin: .5em 0;
   padding: .5em;
   width: 100%;
@@ -942,6 +921,7 @@ textarea {
  */
 /* line 21, ../../layout/css-src/partials/elements/form/_input.scss */
 input {
+  font-family: 'Open Sans', sans-serif;
   margin: .5em 0;
   padding: .5em;
 }
@@ -972,11 +952,48 @@ input[type="email"] {
  * @section        Layout
  */
 /**
+ * @description    Styling for the container class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-10-02 16:04
+ *
+ *
+ *     @example
+ *                 <div class="container">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    layout
+ *       @notes
+ */
+/**
+ * @section        container
+ */
+/* line 23, ../../layout/css-src/partials/default-layout/_container.scss */
+.container {
+  *zoom: 1;
+  max-width: 71em;
+  _width: 71em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 38, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/**
  * @description    Styling for the main layout wrapper
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2013-12-02 18:04
+ *        @date    2014-10-02 16:04
  *
  *
  *     @example
@@ -991,16 +1008,6 @@ input[type="email"] {
 /**
  * @section        layoutWrapper
  */
-/* line 23, ../../layout/css-src/partials/default-layout/_layout-wrapper.scss */
-.layoutWrapper {
-  background: #262626 no-repeat bottom right;
-  height: 100%;
-  overflow-x: hidden;
-  padding: 0;
-  position: relative;
-  z-index: 3;
-}
-
 /**
  * @description    Styling for the layout header
  *
@@ -1073,6 +1080,83 @@ input[type="email"] {
 /* line 36, ../../layout/css-src/partials/default-layout/_layout-footer.scss */
 .layoutFooter form {
   text-align: left;
+}
+
+/**
+ * @description    Styling for the content wrapper
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-10-02 16:04
+ *
+ *
+ *     @example
+ *                 <div class="contentWrapper">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    layout
+ *       @notes
+ */
+/**
+ * @section        contentWrapper
+ */
+/**
+ * @description    Styling for the main content
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-10-02 16:04
+ *
+ *
+ *     @example
+ *                 <div class="contentMain">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    layout
+ *       @notes
+ */
+/**
+ * @section        contentMain
+ */
+/* line 23, ../../layout/css-src/partials/default-layout/_content-main.scss */
+.contentMain {
+  width: 74.57627%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/**
+ * @description    Styling for the sub content
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-10-02 16:04
+ *
+ *
+ *     @example
+ *                 <div class="contentSub">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    layout
+ *       @notes
+ */
+/**
+ * @section        contentSub
+ */
+/* line 23, ../../layout/css-src/partials/default-layout/_content-sub.scss */
+.contentSub {
+  width: 23.72881%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
 }
 
 /**

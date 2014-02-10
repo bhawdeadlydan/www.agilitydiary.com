@@ -1,5 +1,5 @@
 /**
- * @description    Styling for the main layout wrapper
+ * @description    Styling for the sub content
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
@@ -7,7 +7,7 @@
  *
  *
  *     @example
- *                 <div class="layoutWrapper">
+ *                 <div class="contentSub">
  *
  *                 </div>
  *
@@ -18,8 +18,8 @@
 
 
 /**
- * @section        layoutWrapper
+ * @section        contentSub
  */
-.layoutWrapper {
-
+.contentSub {
+    @include span-columns(3 omega,12);
 }
