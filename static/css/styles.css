@@ -580,7 +580,6 @@ body {
   color: #343434;
   line-height: 1.5em;
   margin: 0;
-  padding-bottom: 600px;
 }
 @media (min-width: 576px) and (max-width: 736px) {
   /* line 21, ../../layout/css-src/partials/elements/_body.scss */
@@ -1038,7 +1037,7 @@ input[type="email"] {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2013-12-02 17:57
+ *        @date    2014-02-10 21:59
  *
  *
  *     @example
@@ -1061,25 +1060,14 @@ input[type="email"] {
   padding-right: 1em;
   margin-left: auto;
   margin-right: auto;
-  bottom: 0;
   color: #d8d8d8;
-  display: block;
-  left: 0;
   padding: 2em 0 100px 0;
-  position: fixed;
-  right: 0;
-  text-align: center;
-  z-index: 0;
 }
 /* line 38, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .layoutFooter:after {
   content: "";
   display: table;
   clear: both;
-}
-/* line 36, ../../layout/css-src/partials/default-layout/_layout-footer.scss */
-.layoutFooter form {
-  text-align: left;
 }
 
 /**

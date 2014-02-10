@@ -13,15 +13,15 @@
 	</div>
 
 	<div class="container">
-		<div>
+		<h1 ng-bind="show.Name"></h1>
+		<p>
 			<span ng-bind="show.Venue.Name" />
 			<span ng-bind="show.Venue.Address" />
 			<span ng-bind="show.Venue.PostCode" />
 
 			<a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">Get directions</a>
-		</div>
+		</p>
 
-		<h1 ng-bind="show.Name"></h1>
 		<h2>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a></h2>
 
 		<div class="blog-meta">
@@ -44,27 +44,23 @@
 			</div>
 
 			<div class="contentSub">
+				<p>Show Type Colour: <div ng-bind="show.Venue.Meta.ShowTypeColour" /></p>
+
 				<p>show date:
 				From <span ng-bind="show.ShowDate" />
 				To: <span ng-bind="show.ShowEnd" /></p>
 
 				<p>Entries close: <span ng-bind="show.ClosingDate" /></p>
 				<p>Entries to: <span ng-bind="show.EntriesTo" /></p>
+
+				<button class="button attendButton" ng-click="enterShow(show);">Attend this show</button>
 			</div>
 		</div>
-
-
-
-
 
 		logo
 		<div ng-bind="show.Logo" />
 
 		<p>website <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a></p>
-
-		Show Type Colour: <div ng-bind="show.Venue.Meta.ShowTypeColour" />
-
-		<button class="button attendButton" ng-click="enterShow(show);">Attend this show</button>
 
 		<div class="widget">
 			<div class="widget-title">Categories</div>
