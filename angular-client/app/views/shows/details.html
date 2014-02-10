@@ -22,7 +22,7 @@
 			<a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">Get directions</a>
 		</p>
 
-		<h2>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a></h2>
+		<p>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a></>
 
 		<div class="blog-meta">
 			<a href="#"><span class="label label-default"><span class="fui-user"></span> admin</span></a>
@@ -44,16 +44,20 @@
 			</div>
 
 			<div class="contentSub">
-				<p>Show Type Colour: <div ng-bind="show.Venue.Meta.ShowTypeColour" /></p>
+				<p>Show Type: <div ng-bind="show.Venue.Meta.ShowType" /></p>
 
 				<p>show date:
 				From <span ng-bind="show.ShowDate" />
 				To: <span ng-bind="show.ShowEnd" /></p>
 
+				<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>
+
 				<p>Entries close: <span ng-bind="show.ClosingDate" /></p>
 				<p>Entries to: <span ng-bind="show.EntriesTo" /></p>
 
 				<button class="button attendButton" ng-click="enterShow(show);">Attend this show</button>
+
+				<p><a href="#">Is this your show?</a></p>
 			</div>
 		</div>
 
@@ -83,6 +87,13 @@
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> as you want</span></a>
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> why not</span></a>
 		</div>
+
+		<p>TODO: List who else is attending this show</p>
+		<p>Add weather</p>
+		<p>Track/bookmark show</p>
+		<p>show type</p>
+
+
 	</div>
 
 </section>

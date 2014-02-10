@@ -1179,15 +1179,14 @@ input[type="email"] {
 .navPrimary a {
   color: #262626;
   display: inline-block;
-  font-weight: bold;
   padding: 1em;
 }
-/* line 35, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 34, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a.active, .navPrimary a:hover {
   color: #d8d8d8;
   text-decoration: none;
 }
-/* line 42, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 41, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary .active {
   font-weight: bold;
 }
