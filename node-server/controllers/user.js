@@ -99,6 +99,37 @@ exports.userData = function (req, res) {
 
 
 
+exports.addDog = function (req, res) {
+	User.findById(req.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (err) {
+				res.send(500, { error: 'Error' });
+			}
+
+
+			diary.Dogs.push({
+				Status: 'enabled',
+				Profile: {
+					Name: req.body.name,
+					Sex: req.body.sex
+				}
+			});
+
+			diary.save(function (err, diary) {
+				console.log(err);
+				res.send(diary);
+			});
+
+
+		});
+	});
+};
+
+
+
+
 exports.getLogin = function (req, res) {
 	if (req.user) return res.redirect('/');
 	res.render('account/login', {

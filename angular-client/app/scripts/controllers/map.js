@@ -57,7 +57,7 @@ angular.module('browserAppApp')
 		$scope.controls.searchBox = {
 			value: '',
 			placeholder: 'Search here',
-			change: function(i) {
+			change: function (i) {
 				console.log(this.value);
 			}
 		};
@@ -170,7 +170,7 @@ angular.module('browserAppApp')
 			console.log('Populating placeholder from ' + lat + ' ' + lng);
 			Mapdata.findNearestTown(lat, lng,
 				function(data) {
-					var i, placeholder='', town='', region='';
+					var i, placeholder = '', town = '', region = '';
 
 					console.log(data);
 

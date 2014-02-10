@@ -1,44 +1,319 @@
+<section id="blog">
 
-<div>
-	<div style="border-left: solid 5px {{ show.Meta.ShowTypeColour }}">
-		<h1 ng-bind="show.Name"></h1>
+	<div class="container">
 
-		<p>Club: <span ng-bind="show.Club" /></p>
+		<div class="row">
 
-		<p>Show type: <span ng-bind="show.Meta.ShowType" /></p>
+			<!--/// MAIN COLUMN ///-->
+			<div class="col-md-8 main-column">
 
-		<p>Venue:
-		<span ng-bind="show.Venue.Name" />,
-		<span ng-bind="show.Venue.Address" />,
-		<span ng-bind="show.Venue.PostCode" />
-		</p>
-		<p><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google maps</a></p>
+				<!--/// BLOG ITEM 1 ///-->
 
-		<p>Show date: <span ng-bind="show.ShowDate" />
-		Show end: <span ng-bind="show.ShowEnd" />
-		Entries closing date: <span ng-bind="show.ClosingDate" />
-		</p>
+				<div class="blog-item">
+					<div class="blog-main">
 
-		<p>Entries to: <span ng-bind="show.EntriesTo" /></p>
+						<div >
+						<leaflet style="height: 300px"
+							id="geo-wrapper"
+							elementcacheid="search/geo-wrapper"
+							fullsize="false"
+							center="centre"
+							bounds="bounds"
+							scrollwheelzoom="true"
+							dragging="true"
+							clickmarker="Location"></leaflet>
+						</div>
 
-		logo
+
+
+						<a href="#" class="blog-title" ng-bind="show.Name" ></a>
+						<div class="blog-meta">
+							<a href="#"><span class="label label-default"><span class="fui-user"></span> admin</span></a>
+							<a href="#"><span class="label label-default"><span class="fui-calendar"></span>
+								<span ng-bind="show.ShowDate" /> to  <span ng-bind="show.ShowEnd" /></span></a>
+							<a href="#"><span class="label label-default"><span class="fui-chat"></span> 4 comments</span></a>
+							<a href="#"><span class="label label-default"><span class="fui-arrow-right"></span> news</span></a>
+							<a href="#"><span class="label label-default"><span class="fui-arrow-right"></span> announcements</span></a>
+							<a href="#"><span class="label label-default"><span class="fui-tag"></span> tag 1</span></a>
+							<a href="#"><span class="label label-default"><span class="fui-tag"></span> tag 2</span></a>
+							<a href="#"><span class="label label-default"><span class="fui-tag"></span> another tag</span></a>
+						</div>
+
+						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, cupiditate, aperiam eius quod harum sit quo repellendus.</p>
+
+						<p>
+
+		<div ng-bind="show.Name" />
+		club: <div ng-bind="show.Club" />
+		show date: <div ng-bind="show.ShowDate" />
+		show end: <div ng-bind="show.ShowEnd" />
+		closing date: <div ng-bind="show.ClosingDate" />
+
+		entries to: <div ng-bind="show.EntriesTo" />
+logo
 		<div ng-bind="show.Logo" />
 
-		<p>Website: <a href="http://{{ show.Website }}" ng-bind="show.Website"><span ng-bind="show.Website" /></a></p>
+website
+		<div ng-bind="show.Website" />
+
+
 
 		Show Type Colour: <div ng-bind="show.Venue.Meta.ShowTypeColour" />
 
-		<button ng-click="enterShow(show);">ATTEND THiS SHOW</button>
+		<button ng-click="enterShow(show);" style="background:black;color:white">DO THiS SHOW</button>
+	</p>
+					</div><!-- /blog-main -->
 
-		<p>TODO: List who else is attending this show</p>
-		<p>Add weather</p>
-		<p>Track/bookmark show</p>
-		<p>Add 'edit/claim this show'</p>
-		<p>Save to iCal / iPhone / Outlook / GCal</p>
-		<p>Directions</p>
-		<p>add small map image</p>
-		<p>show type</p>
-		<p>Venues page (list shows at venue)</p>
-	</div>
+					<hr>
 
-</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+						<h3 class="panel-title">About the Author</h3>
+					  </div>
+					  <div class="panel-body">
+						  <div class="row">
+							  <div class="col-sm-3 col-xs-4">
+								  <img src="images/img.png" alt="author-image" class="img-responsive img-circle">
+							  </div>
+							  <div class="col-sm-9 col-xs-8">
+								  <p><a href="#">admin</a> is lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, officiis, fuga, ad dolorem non iure a odit provident debitis.</p>
+
+								  <ul class="social-icons">
+									<li>
+									  <a href="#" class="fui-facebook"></a>
+									</li>
+									 <li>
+									  <a href="#" class="fui-twitter"></a>
+									</li>
+									 <li>
+									  <a href="#" class="fui-pinterest"></a>
+									</li>
+									 <li>
+									  <a href="#" class="fui-googleplus"></a>
+									</li>
+									 <li>
+									  <a href="#" class="fui-dribbble"></a>
+									</li>
+									 <li>
+									  <a href="#" class="fui-vimeo"></a>
+									</li>
+								  </ul>
+							  </div>
+						  </div>
+					  </div>
+					</div>
+
+					<hr>
+
+					<!--/// COMMENTS SECTION ///-->
+					<h3>4 Comments</h3>
+
+
+					<ul class="comments">
+						<li>
+							<div class="row">
+								<div class="col-xs-3 col-md-2">
+									<img src="" class="img-circle img-responsive" alt="" /></div>
+								<div class="col-xs-9 col-md-10">
+
+									<div class="comment-info">
+										<a href="#">John Doe</a>
+										<p>2 Aug 2013</p>
+									</div>
+
+									<div class="comment-text">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, asperiores, magnam fugiat eveniet commodi debitis beatae quae impedit.</p>
+									</div>
+									<div class="action">
+										<button type="button" class="btn btn-danger btn-xs" title="edit">
+											Edit
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="reply">
+											Reply
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="login">
+											Login to post reply
+										</button>
+
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="indent-1">
+							<div class="row">
+								<div class="col-xs-3 col-md-2">
+									<img src="" class="img-circle img-responsive" alt="" /></div>
+								<div class="col-xs-9 col-md-10">
+
+									<div class="comment-info">
+										<a href="#">John Doe</a>
+										<p>2 Aug 2013</p>
+									</div>
+
+									<div class="comment-text">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, asperiores, magnam fugiat eveniet commodi debitis beatae quae impedit.</p>
+									</div>
+									<div class="action">
+										<button type="button" class="btn btn-danger btn-xs" title="edit">
+											Edit
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="reply">
+											Reply
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="login">
+											Login to post reply
+										</button>
+
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="indent-2">
+							<div class="row">
+								<div class="col-xs-3 col-md-2">
+									<img src="" class="img-circle img-responsive" alt="" /></div>
+								<div class="col-xs-9 col-md-10">
+
+									<div class="comment-info">
+										<a href="#">John Doe</a>
+										<p>2 Aug 2013</p>
+									</div>
+
+									<div class="comment-text">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, asperiores, magnam fugiat eveniet commodi debitis beatae quae impedit.</p>
+									</div>
+									<div class="action">
+										<button type="button" class="btn btn-danger btn-xs" title="edit">
+											Edit
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="reply">
+											Reply
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="login">
+											Login to post reply
+										</button>
+
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<div class="row">
+								<div class="col-xs-3 col-md-2">
+									<img src="" class="img-circle img-responsive" alt="" /></div>
+								<div class="col-xs-9 col-md-10">
+
+									<div class="comment-info">
+										<a href="#">John Doe</a>
+										<p>2 Aug 2013</p>
+									</div>
+
+									<div class="comment-text">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, asperiores, magnam fugiat eveniet commodi debitis beatae quae impedit.</p>
+									</div>
+									<div class="action">
+										<button type="button" class="btn btn-danger btn-xs" title="edit">
+											Edit
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="reply">
+											Reply
+										</button>
+										<button type="button" class="btn btn-primary btn-xs" title="login">
+											Login to post reply
+										</button>
+
+									</div>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+
+					<hr>
+
+					<!--/// COMMENTS ENTRY ///-->
+					<h3>Leave A Comment</h3>
+
+					<div class="comment-form clearfix">
+						<form class="form-horizontal" role="form">
+							<label for="name" class="col-sm-4 control-label">Name</label>
+							<div class="col-sm-8">
+							  <input type="text" class="form-control input-hg" id="name" required="require" placeholder="Name">
+						  </div>
+
+							<label for="email" class="col-sm-4 control-label">E-mail Address</label>
+							<div class="col-sm-8">
+							  <input type="email" class="form-control input-hg" id="email" required="require" placeholder="E-mail Address">
+						  </div>
+
+							<label for="website" class="col-sm-4 control-label">Website</label>
+							<div class="col-sm-8">
+							  <input type="text" class="form-control input-hg" id="website" placeholder="Website URL">
+						  </div>
+
+							<label for="message" class="col-sm-4 control-label">Message</label>
+							<div class="col-sm-8">
+								<textarea id="message" placeholder="type away.." class="form-control input-hg" rows="6"></textarea>
+						  </div>
+
+							<div class="col-sm-offset-4 col-sm-8">
+							  <button type="submit" class="btn btn-primary btn-embossed btn-hg">Post Comment</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+			</div>
+
+
+			<!--/// SIDEBAR ///-->
+			<div class="col-md-3 sidebar">
+
+				<div class="widget">
+					<div class="widget-title">Where</div>
+
+					<div ng-bind="show.Venue.Name" />
+					<div ng-bind="show.Venue.Address" />
+					<div ng-bind="show.Venue.PostCode" />
+				</div>
+
+				<div class="widget">
+					<div class="widget-title">Categories</div>
+					<ul>
+						<li><a href="#">Category 1</a></li>
+						<li><a href="#">Category 2</a></li>
+						<li><a href="#">Category 3</a></li>
+						<li><a href="#">Category 4</a></li>
+						<li><a href="#">Category 5</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<div class="widget-title">Tags</div>
+					<a href="#"><span class="label label-default"><span class="fui-tag"></span> tag 1</span></a>
+					<a href="#"><span class="label label-default"><span class="fui-tag"></span> tag 2</span></a>
+					<a href="#"><span class="label label-default"><span class="fui-tag"></span> another tag</span></a>
+					<a href="#"><span class="label label-default"><span class="fui-tag"></span> add</span></a>
+					<a href="#"><span class="label label-default"><span class="fui-tag"></span> as many</span></a>
+					<a href="#"><span class="label label-default"><span class="fui-tag"></span> as you want</span></a>
+					<a href="#"><span class="label label-default"><span class="fui-tag"></span> why not</span></a>
+				</div>
+
+
+			</div>
+
+		</div><!-- /row -->
+	</div><!-- /container -->
+
+</section>
+
+<!--/////////////////////////////////////// end FEATURES SECTION ////////////////////////////////////////-->
+
+
+
+
+

@@ -26,7 +26,7 @@ module.exports = function (data) {
 
 		EnteredShows: data.EnteredShows,
 
-		Dogs: getEnabledDogs()
+		Dogs: data.Dogs
 	};
 
 	return result;

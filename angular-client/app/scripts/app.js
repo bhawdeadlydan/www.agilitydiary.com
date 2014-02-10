@@ -16,6 +16,13 @@ angular.module('browserAppApp', [
 			templateUrl: 'app/views/map.html',
 			controller: 'MapController'
 		})
+
+		.when('/dogs/add', {
+			templateUrl: 'app/views/dogs/add.html',
+			controller: 'DogController',
+			action: 'add'
+		})
+
 		.when('/shows/entered', {
 			templateUrl: 'app/views/shows/entered.html',
 			controller: 'ShowsController',
@@ -36,6 +43,7 @@ angular.module('browserAppApp', [
 			controller: 'ShowsController',
 			action: 'entered'
 		})
+
 		.when('/entered', {
 			templateUrl: 'app/views/enteredShows.html',
 			controller: 'EnteredShowsController'
