@@ -34,7 +34,8 @@
 					<span ng-bind="show.Venue.Address" />,
 					<span ng-bind="show.Venue.PostCode" />
 
-					<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+					<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a> |
+					Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
 				</p>
 
 				<p>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a> | Website: <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a></p>
