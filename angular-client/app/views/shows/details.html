@@ -13,18 +13,8 @@
 	</div>
 
 	<div class="container">
-		<h1 ng-bind="show.Name"></h1>
-		<p>
-			<span ng-bind="show.Venue.Name" />
-			<span ng-bind="show.Venue.Address" />
-			<span ng-bind="show.Venue.PostCode" />
 
-			<a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">Get directions</a>
-		</p>
-
-		<p>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a></>
-
-		<div class="blog-meta">
+		<!-- <div class="blog-meta">
 			<a href="#"><span class="label label-default"><span class="fui-user"></span> admin</span></a>
 			<a href="#"><span class="label label-default"><span class="fui-calendar"></span>
 				<span ng-bind="show.ShowDate" /> to  <span ng-bind="show.ShowEnd" /></span></a>
@@ -34,39 +24,47 @@
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> tag 1</span></a>
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> tag 2</span></a>
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> another tag</span></a>
-		</div>
-
-		<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, cupiditate, aperiam eius quod harum sit quo repellendus.</p>
+		</div> -->
 
 		<div class="contentWrapper">
-			<div class="contentMain">
+			<section class="contentMain">
+				<h1 ng-bind="show.Name"></h1>
+				<p>
+					<a href="#"><span ng-bind="show.Venue.Name" /></a>,
+					<span ng-bind="show.Venue.Address" />,
+					<span ng-bind="show.Venue.PostCode" />
 
-			</div>
+					<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+				</p>
 
-			<div class="contentSub">
-				<p>Show Type: <div ng-bind="show.Venue.Meta.ShowType" /></p>
+				<p>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a> | Website: <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a></p>
 
-				<p>show date:
-				From <span ng-bind="show.ShowDate" />
-				To: <span ng-bind="show.ShowEnd" /></p>
+				<section class="introduction">
+					<img alt="Placeholder" src="http://placehold.it/200x150/CCCCCC/FFFFFF.png" ng-bind="show.Logo" />
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, cupiditate, aperiam eius quod harum sit quo repellendus.</p>
+				</section>
+			</section>
+
+			<section class="contentSub">
+				<p>Show Type: <span ng-bind="show.Meta.ShowType" /></p>
+
+				<h2>Show dates</h2>
+				<p>From: <span ng-bind="show.ShowDate" />
+				<br />To: <span ng-bind="show.ShowEnd" /></p>
 
 				<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>
 
-				<p>Entries close: <span ng-bind="show.ClosingDate" /></p>
-				<p>Entries to: <span ng-bind="show.EntriesTo" /></p>
+				<h2>Entries</h2>
+				<p>Close: <span ng-bind="show.ClosingDate" /></p>
+				<p>Enter: <span ng-bind="show.EntriesTo" /></p>
 
-				<button class="button attendButton" ng-click="enterShow(show);">Attend this show</button>
+				<button class="button attendButton" ng-click="enterShow(show);">Attending?</button>
 
 				<p><a href="#">Is this your show?</a></p>
-			</div>
+			</section>
 		</div>
 
-		logo
-		<div ng-bind="show.Logo" />
-
-		<p>website <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a></p>
-
-		<div class="widget">
+		<!-- <div class="widget">
 			<div class="widget-title">Categories</div>
 			<ul>
 				<li><a href="#">Category 1</a></li>
@@ -86,14 +84,28 @@
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> as many</span></a>
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> as you want</span></a>
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> why not</span></a>
-		</div>
+		</div> -->
 
-		<p>TODO: List who else is attending this show</p>
-		<p>Add weather</p>
-		<p>Track/bookmark show</p>
-		<p>show type</p>
-
-
+		<hr />
+		<h2>TODO: </h2>
+		<ul>
+			<li>List who else is attending this show</li>
+			<li>Add weather</li>
+			<li>Track/bookmark/favourite show</li>
+			<li>Nearby</li>
+			<li>Stalls</li>
+			<li>Past events</li>
+			<li>Share this event</li>
+			<li>Tags/tagged</li>
+			<li>Satnav</li>
+			<li>Camping</li>
+			<li>Venue page</li>
+			<li>Special events</li>
+			<li>Show coments</li>
+			<li>Facilities</li>
+			<li>photos</li>
+			<li>How many days?</li>
+		</ul>
 	</div>
 
 </section>

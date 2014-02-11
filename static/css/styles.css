@@ -854,7 +854,7 @@ legend {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-01-22 10:53
+ *        @date    2014-02-11 11:06
  *
  *
  *     @example
@@ -870,8 +870,6 @@ legend {
 /* line 21, ../../layout/css-src/partials/elements/form/_label.scss */
 label {
   cursor: pointer;
-  display: block;
-  padding: 1em 0;
 }
 
 /**
@@ -905,7 +903,7 @@ textarea {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-01-22 10:53
+ *        @date    2014-02-11 11:07
  *
  *
  *     @example
@@ -923,10 +921,6 @@ input {
   font-family: 'Open Sans', sans-serif;
   margin: .5em 0;
   padding: .5em;
-}
-/* line 27, ../../layout/css-src/partials/elements/form/_input.scss */
-input[type="email"] {
-  width: 100%;
 }
 
 /**
@@ -1060,6 +1054,7 @@ input[type="email"] {
   padding-right: 1em;
   margin-left: auto;
   margin-right: auto;
+  background: #73afaa;
   color: #d8d8d8;
   padding: 2em 0 100px 0;
 }
@@ -1220,6 +1215,30 @@ input[type="email"] {
 .brandLogo img {
   text-align: center;
   vertical-align: middle;
+}
+
+/**
+ * @description    styling for the introduction class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-11 15:51
+ *
+ *
+ *     @example
+ *                 <section class="introduction"></section>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        introduction
+ */
+/* line 21, ../../layout/css-src/partials/modules/_mod-introduction.scss */
+.introduction img {
+  float: left;
+  margin-bottom: 1em;
+  margin-right: 1em;
 }
 
 /**

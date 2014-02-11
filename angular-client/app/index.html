@@ -38,6 +38,10 @@
 				<a ng-href="#/shows/entered">Entered Shows</a>
 				<a ng-href="#/map">Map</a>
 				<a href="/account">Account</a>
+
+				<label>Search the site</label>
+				<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
+				<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
 			</nav>
 
 		</header>
