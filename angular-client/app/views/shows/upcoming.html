@@ -1,107 +1,93 @@
-<section id="blog">
-	<header>
-		<h1>Upcoming Shows</h1>
+<section class="upcoming">
+	<div class="container">
+		<section>
+			<h1>Upcoming Shows</h1>
 
-		<p class="lead" ng-show="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">No shows</p>
-		<p class="lead" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }}</p>
+			<p class="lead" ng-show="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">No shows</p>
+			<p class="lead" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }}</p>
 
-		<label>Search</label>
-		<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
-		<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
-	</header>
+			<label>Search</label>
+			<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
+			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
+		</section>
 
-	<div class="row blog-layout">
+		<nav class="widgetCategories">
+			<div class="widget-title">Categories</div>
+			<ul>
+				<li ng-repeat="category in categories">
+					<a class="category" href="" ng-click="categoryClick(category);">
+					<span class="show" ng-show="isCategorySelected(category);">✓</span>
+					<span class="hide" ng-hide="isCategorySelected(category);">✗</span>
+					{{ category }}</a>
+				</li>
+			</ul>
+		</nav>
 
-		<!--/// MAIN COLUMN ///-->
-		<div class="col-md-8 main-column">
+		<ol>
+			<li>
+				<h3>February 2013</h3>
 
-			<div ng-repeat="event in upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch">
-				<div class="blog-item">
-					<div class="row">
-						<div class="col-sm-4">
-							<a href="blog-single.html"><img src="http://placehold.it/230x172" class="img-responsive featured-image hover"></a>
+				<ol>
+					<li class="event" ng-repeat="event in upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch">
+
+						<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
+
+							<!-- <a href="#"><span class="label label-default"><span class="fui-calendar"></span> <span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" /></span></a> -->
+
+						<div class="meta">
+							<a class="tag" href="#" ng-bind="event.Meta.ShowType" />
+							<a class="tag" href="#" ng-bind="event.Club" />
 						</div>
 
-						<div class="col-sm-8">
-							<a ng-href="#/shows/details/{{ event._id }}" class="blog-title"><span ng-bind="event.Name"></span></a>
-
-
-							<div class="blog-meta">
-								<a href="#"><span class="label label-default"><span class="fui-user"></span> admin</span></a>
-								<a href="#"><span class="label label-default"><span class="fui-calendar"></span> <span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" /></span></a>
-								<a href="#"><span class="label label-default"><span class="fui-chat"></span> 4 comments</span></a>
-								<a href="#"><span class="label label-default"><span class="fui-arrow-right"></span> news</span></a>
-								<a href="#"><span class="label label-default"><span class="fui-arrow-right"></span> announcements</span></a>
-								<a href="#"><span class="label label-default"><span class="fui-tag"></span> <span  ng-bind="event.Meta.ShowType" /></span></a>
-								<a href="#"><span class="label label-default"><span class="fui-tag"></span> <span ng-bind="event.Club" /></span></a>
-							</div>
-
-							<p class="blog-teaser">
-
-								<div>Closing date: <span ng-bind="event.ClosingDate" /></div>
-								<div>Venue:
-									<div ng-bind="event.Venue.Name" />
-									<div ng-bind="event.Venue.Address" />
-									<div ng-bind="event.Venue.PostCode" />
-								</div>
-
-							</p>
-							<a ng-href="#/shows/details/{{ event._id }}" class="blog-link btn btn-lg btn-embossed btn-primary">View details »</a>
+						<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
+						<div>Venue:
+							<a href="#"><span ng-bind="event.Venue.Name" /></a>,
+							<span ng-bind="event.Venue.Address" />,
+							<span ng-bind="event.Venue.PostCode" />
 						</div>
-					</div>
 
-				</div>
-			 </div>
+						<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
 
+						<!--/// PAGINATION ///-->
+						<!--<div class="pagination pagination-minimal">
+							<ul>
+								<li class="previous">
+									<a href="#" class="fui-arrow-left"></a>
+								</li>
 
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
 
-
-					<!--/// PAGINATION ///-->
-					<!--<div class="pagination pagination-minimal">
-						<ul>
-							<li class="previous">
-								<a href="#" class="fui-arrow-left"></a>
-							</li>
-
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-
-							<li class="next">
-								<a href="#" class="fui-arrow-right"></a>
-							</li>
-						</ul>
-					</div>-->
+								<li class="next">
+									<a href="#" class="fui-arrow-right"></a>
+								</li>
+							</ul>
+						</div>-->
 
 
-				</div>
 
+						<!-- <div class="widget">
+							<div class="widget-title">Classes</div>
+							<span class="label label-default"><span class="fui-tag"></span> small</span>
+							<span class="label label-default"><span class="fui-tag"></span> medium</span>
+							<span class="label label-default"><span class="fui-tag"></span> large</span>
+							<span class="label label-default"><span class="fui-tag"></span> jumping</span>
+						</div> -->
+					</li>
+				</ol>
+			</li>
+		</ol>
 
-				<!--/// SIDEBAR ///-->
-				<div class="col-md-3 sidebar">
-
-					<div class="widget">
-						<div class="widget-title">Categories</div>
-						<ul>
-							<li ng-repeat="category in categories">
-								<span ng-show="isCategorySelected(category);" >✓</span>
-								<span ng-hide="isCategorySelected(category);" >✗</span>
-								<a href="" ng-click="categoryClick(category);">{{ category }}</a></li>
-						</ul>
-					</div>
-
-					<div class="widget">
-						<div class="widget-title">Classes</div>
-						<span class="label label-default"><span class="fui-tag"></span> small</span>
-						<span class="label label-default"><span class="fui-tag"></span> medium</span>
-						<span class="label label-default"><span class="fui-tag"></span> large</span>
-						<span class="label label-default"><span class="fui-tag"></span> jumping</span>
-
-					</div>
-				</div>
-
-			</div>
-
+		<hr />
+		<h2>TODO: </h2>
+		<ul>
+			<li>Sort by - date/name/venue</li>
+			<li>past events</li>
+			<li>on now</li>
+			<li>list monthly</li>
+		</ul>
+	</div>
 </section>

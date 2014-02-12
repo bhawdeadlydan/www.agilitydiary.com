@@ -1,0 +1,25 @@
+/**
+ * @description    styling for the tag class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:01
+ *
+ *
+ *     @example
+ *                 <a class="tag" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        tag
+ */
+.tag {
+    @include border-radius(.25em);
+
+    background: rgba(0,0,0,0.5);
+    color: $color-white;
+    padding: .25em .5em;
+}

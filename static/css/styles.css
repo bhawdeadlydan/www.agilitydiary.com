@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 /**
  * @projectDescription    AgilityDiary
@@ -729,6 +730,7 @@ nav a {
 nav ul,
 nav ol,
 nav li {
+  display: inline-block;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1274,6 +1276,92 @@ input {
   font-size: 1.4rem;
   padding: 1em;
   width: 100%;
+}
+
+/**
+ * @description    styling for the tag class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:01
+ *
+ *
+ *     @example
+ *                 <a class="tag" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        tag
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-tag.scss */
+.tag {
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: .25em .5em;
+}
+
+/**
+ * @description    styling for the category class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:19
+ *
+ *
+ *     @example
+ *                 <a class="category" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        category
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-category.scss */
+.category {
+  margin-right: 1em;
+}
+/* line 22, ../../layout/css-src/partials/modules/_mod-category.scss */
+.category:hover {
+  text-decoration: none;
+}
+
+/**
+ * @description    styling for the showHide class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:28
+ *
+ *
+ *     @example
+ *                 <span class="show" ng-show="isCategorySelected(category);">✓</span>
+ *                 <span class="hide" ng-hide="isCategorySelected(category);">✗</span>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        show
+ */
+/* line 20, ../../layout/css-src/partials/modules/_mod-show-hide.scss */
+.show {
+  color: green;
+}
+
+/**
+ * @section        hide
+ */
+/* line 27, ../../layout/css-src/partials/modules/_mod-show-hide.scss */
+.hide {
+  color: red;
 }
 
 /**
