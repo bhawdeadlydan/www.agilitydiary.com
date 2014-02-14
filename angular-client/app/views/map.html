@@ -1,13 +1,13 @@
 <section class="map">
-		<leaflet style="height: 600px"
-			id="geo-wrapper"
-			elementcacheid="search/geo-wrapper"
-			fullsize="false"
-			center="data.leaflet.centre"
-			bounds="data.leaflet.bounds"
-			scrollwheelzoom="true"
-			dragging="true"
-			clickmarker="Location"></leaflet>
+	<leaflet style="height: 600px"
+		id="geo-wrapper"
+		elementcacheid="search/geo-wrapper"
+		fullsize="false"
+		center="data.leaflet.centre"
+		bounds="data.leaflet.bounds"
+		scrollwheelzoom="true"
+		dragging="true"
+		clickmarker="Location"></leaflet>
 
 	<div class="mapSearch">
 		<input type="text" name="search" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}" ng-change="controls.searchBox.change();" />

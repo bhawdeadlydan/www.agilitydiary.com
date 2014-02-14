@@ -1,0 +1,56 @@
+/**
+ * @description    styling for the eventList class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 16:02
+ *
+ *
+ *     @example
+ *                 <a class="eventList" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        eventList
+ */
+.eventList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .event {
+        margin-bottom: 2em;
+    }
+}
+
+/**
+ * @section        eventListWrapper
+ */
+.eventListWrapper {
+    @include span-columns(10 omega,12);
+}
+
+/**
+ * @section        event
+ */
+.event {
+    @include span-columns(10,10);
+}
+
+/**
+ * @section        eventDate
+ */
+.eventDate {
+    @include span-columns(2,10);
+}
+
+
+/**
+ * @section        eventShortDetail
+ */
+.eventShortDetail {
+    @include span-columns(8 omega,10);
+}

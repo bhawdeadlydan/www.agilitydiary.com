@@ -1,0 +1,32 @@
+/**
+ * @description    styling for the monthList class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 16:06
+ *
+ *
+ *     @example
+ *                 <a class="monthList" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        monthList
+ */
+.monthList {
+    @include span-columns(12,12);
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * @section        monthWrapper
+ */
+.monthWrapper {
+    @include span-columns(2,12);
+}

@@ -1365,6 +1365,119 @@ input {
 }
 
 /**
+ * @description    styling for the eventList class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 16:02
+ *
+ *
+ *     @example
+ *                 <a class="eventList" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        eventList
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.eventList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 24, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.eventList .event {
+  margin-bottom: 2em;
+}
+
+/**
+ * @section        eventListWrapper
+ */
+/* line 32, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.eventListWrapper {
+  width: 83.05085%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
+}
+
+/**
+ * @section        event
+ */
+/* line 39, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.event {
+  width: 100%;
+  float: left;
+  margin-right: 2.04082%;
+  display: inline;
+}
+
+/**
+ * @section        eventDate
+ */
+/* line 46, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.eventDate {
+  width: 18.36735%;
+  float: left;
+  margin-right: 2.04082%;
+  display: inline;
+}
+
+/**
+ * @section        eventShortDetail
+ */
+/* line 54, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.eventShortDetail {
+  width: 79.59184%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
+}
+
+/**
+ * @description    styling for the monthList class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 16:06
+ *
+ *
+ *     @example
+ *                 <a class="monthList" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        monthList
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-month-list.scss */
+.monthList {
+  width: 100%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * @section        monthWrapper
+ */
+/* line 30, ../../layout/css-src/partials/modules/_mod-month-list.scss */
+.monthWrapper {
+  width: 15.25424%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/**
  * @section        Plugins
  */
 /**
