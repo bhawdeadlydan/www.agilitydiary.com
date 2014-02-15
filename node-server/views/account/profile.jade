@@ -6,13 +6,13 @@ block content
 
   form(action='/account/profile', method='POST')
     fieldset
-      .form-group
+      .form-group.formEmail
         label(for='email') Email
         input(type='email', name='email', id='email', value='#{user.email}')
-      .form-group
+      .form-group.formText
         label(for='name') Name
         input(type='text', name='name', id='name', value='#{user.profile.name}')
-      .form-group
+      .form-group.formRadioWrapper
         label(for='name') Gender
         label Male
         input(type='radio', checked=user.profile.gender=='male', name='gender', value='male', data-toggle='radio')
@@ -20,13 +20,13 @@ block content
         label Female
         input(type='radio', checked=user.profile.gender=='female', name='gender', value='female', data-toggle='radio')
 
-      .form-group
+      .form-group.formText
         label(for='location') Location
         input(type='text', name='location', id='location', value='#{user.profile.location}')
-      .form-group
+      .form-group.formText
         label(for='website') Website
         input(type='text', name='website', id='website', value='#{user.profile.website}')
-      .form-group
+      .form-group.formSubmit
         input(type='submit', value='Update Profile')
 
 
@@ -35,24 +35,22 @@ block content
 
   form.form-horizontal(action='/account/password', method='POST')
     fieldset
-      .form-group
+      .form-group.formPassword
         label(for='password') New Password
         input(type='password', name='password', id='password')
-      .form-group
+      .form-group.formPassword
         label(for='confirmPassword') Confirm Password
         input(type='password', name='confirmPassword', id='confirmPassword')
-      .form-group
+      .form-group.formButton
         button(type='submit') Change Password
 
-  .page-header
     h2 Delete Account
 
     p You can delete your account, but keep in mind this action is irreversible.
     form(action='/account/delete', method='POST')
       button(type='submit') Delete my account
 
-  .page-header
-    h2 Linked Accounts
+  h2 Linked Accounts
 
   if user.google
     p: a(href='/account/unlink/google') Unlink your Google account

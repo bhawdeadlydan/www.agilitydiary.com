@@ -930,8 +930,8 @@ input {
   margin: .5em 0;
   padding: .5em;
 }
-/* line 28, ../../layout/css-src/partials/elements/form/_input.scss */
-input[type="email"], input[type="text"] {
+/* line 29, ../../layout/css-src/partials/elements/form/_input.scss */
+input[type="email"], input[type="password"], input[type="text"] {
   width: 74.57627%;
   float: right;
   margin-right: 0;

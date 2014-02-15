@@ -25,6 +25,7 @@ input {
     padding: .5em;
 
     &[type="email"],
+    &[type="password"],
     &[type="text"] {
         @include span-columns(9 omega,12);
     }
