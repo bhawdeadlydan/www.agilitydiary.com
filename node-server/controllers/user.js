@@ -100,6 +100,8 @@ exports.userData = function (req, res) {
 
 
 exports.addDog = function (req, res) {
+	console.log(req.body);
+
 	User.findById(req.user.id, function (err, user) {
 		Diary.findOne({
 			User: user
