@@ -1,8 +1,8 @@
 var app = angular.module('browserAppApp');
 
 app.controller('ShowsController', [
-	'$scope', 'Mapdata', 'ShowService', '$location', '$route', '$routeParams',
-	function ($scope, Mapdata, ShowService, $location, $route, $routeParams) {
+	'$scope', 'Mapdata', 'ShowService', 'PersistService', '$location', '$route', '$routeParams',
+	function ($scope, Mapdata, ShowService, PersistService, $location, $route, $routeParams) {
 		"use strict";
 
 		/**
@@ -10,7 +10,7 @@ app.controller('ShowsController', [
 		 */
 
 		$scope.upcomingShows = {};
-		$scope.selectedCategories = [];
+		$scope.selectedCategories = PersistService('shows.selectedCategories', []);
 		$scope.enteredShows = {};
 		$scope.categories = {};
 		$scope.details = {};
@@ -99,7 +99,7 @@ app.controller('ShowsController', [
 					popupText: data.Name,
 					focus: true,
 					draggable: false
-      				//html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
+					//html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
 				};
 
 				$scope.markers.Location = newMarker;
@@ -134,7 +134,7 @@ app.controller('ShowsController', [
 		 */
 
 		$scope.categoryClick = function (category) {
-			if($scope.selectedCategories.indexOf(category) === -1) {
+			if ($scope.selectedCategories.indexOf(category) === -1) {
 				$scope.selectedCategories.push(category);
 			} else {
 				$scope.selectedCategories.splice($scope.selectedCategories.indexOf(category), 1);
@@ -148,7 +148,7 @@ app.controller('ShowsController', [
 		 * Return if the category is selected
 		 */
 
-		$scope.isCategorySelected = function(category) {
+		$scope.isCategorySelected = function (category) {
 			return $scope.selectedCategories.indexOf(category) !== -1;
 		};
 
@@ -159,7 +159,7 @@ app.controller('ShowsController', [
 		 * Check if the current Show model is in the selected categories list
 		 */
 
-		$scope.showHasSelectedCategory = function(item) {
+		$scope.showHasSelectedCategory = function (item) {
 			return $scope.selectedCategories.indexOf(item.Meta.ShowType) !== -1;
 		};
 
