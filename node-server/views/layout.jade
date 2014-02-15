@@ -1,4 +1,8 @@
 doctype html
+// [if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]
+// [if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]
+// [if IE 8]>         <html class="no-js lt-ie9"> <![endif]
+// [if gt IE 8]><!--> <html class="no-js"> <!--<![endif]
 html
   head
     meta(charset='utf-8')
@@ -7,7 +11,7 @@ html
     meta(name='description', content='')
     meta(name='author', content='')
 
-    title #{title} - Starter Template for Bootstrap
+    title #{title} - AgilityDiary
 
     link(href='/static/css/styles.css?v=#{cacheBuster}', rel='stylesheet')
 
@@ -15,9 +19,12 @@ html
     script(src='/js/lib/bootstrap.min.js?v=#{cacheBuster}')
     script(src='/js/main.js?v=#{cacheBuster}')
   body
-    #wrap
+    header.layoutHeader(role='banner')
+      a.brandLogo
+        img(src='/app/images/logo-AgilityDiary.png', alt='AgilityDiary')
+        | AgilityDiary
       include partials/navigation
-      .container
-        include partials/flash
-        block content
+    .container
+      include partials/flash
+      block content
     include partials/footer

@@ -3,7 +3,7 @@
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-02-11 11:06
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -19,5 +19,9 @@
  * @section        label
  */
 label {
+    @include span-columns(3,12);
+
     cursor: pointer;
+    margin: .5em 0;
+    padding: .5em;
 }
