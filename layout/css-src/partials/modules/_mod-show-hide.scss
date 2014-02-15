@@ -1,0 +1,29 @@
+/**
+ * @description    styling for the showHide class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:28
+ *
+ *
+ *     @example
+ *                 <span class="show" ng-show="isCategorySelected(category);">✓</span>
+ *                 <span class="hide" ng-hide="isCategorySelected(category);">✗</span>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        show
+ */
+.show {
+    color: $color-show;
+}
+
+/**
+ * @section        hide
+ */
+.hide {
+    color: $color-hide;
+}

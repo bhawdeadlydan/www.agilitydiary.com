@@ -1,0 +1,31 @@
+/**
+ * @description    styling for the brandLogo class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-10 10:48
+ *
+ *
+ *     @example
+ *                 <a class="brandLogo" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        brandLogo
+ */
+.brandLogo {
+    color: $color-copy;
+    margin-right: 2em;
+
+    img {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    span {
+        @extend %visuallyhidden;
+    }
+}

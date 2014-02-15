@@ -236,10 +236,13 @@ angular.module('browserAppApp')
 							lat: item.location.latitude,
 							lng: item.location.longitude,
 							message: null,
-							popupText: undefined, //item.name,
+							popupText: undefined, //item.ΩΩname,
 							focus: false,
 							draggable: false,
-              				html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
+								html: '<span>' +
+								'<a href="#/shows/details/' + item._id + '">' + item.name + '</a>' +
+								// item.name +
+								'</span>'
 						};
 
 						$scope.markers[item._id] = newMarker;

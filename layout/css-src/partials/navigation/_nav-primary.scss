@@ -1,0 +1,45 @@
+/**
+ * @description    Styling for the primary navigation
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-10 10:58
+ *
+ *
+ *     @example
+ *                 <nav class="navPrimary">
+ *
+ *                 </nav>
+ *
+ *        @type    navigation
+ *       @notes
+ *
+ */
+
+/**
+ * @section        navPrimary
+ */
+.navPrimary {
+    display: inline-block;
+    text-align: center;
+
+    a {
+        @include contrast-font-stack;
+
+        color: $color-nav-primary;
+        display: inline-block;
+        padding: 1em;
+
+        &.active,
+        &:hover {
+            color: $color-nav-primary-hover;
+            text-decoration: none;
+        }
+
+    }
+
+    .active {
+        font-weight: bold;
+    }
+
+}

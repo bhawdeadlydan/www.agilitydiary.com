@@ -1,0 +1,49 @@
+/**
+ * @description    letterPress placeholder class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-23 09:22
+ *
+ *
+ *     @example
+ *                 .element p {
+ *                      @extend %letterPress;
+ *                  }
+ *
+ *
+ *
+ *        @type    placeholder
+ *       @notes
+ *      @ignore
+ */
+
+/**
+ * @section        letterPress
+ */
+%letterPress {
+    /* inset shadow 1px horizontal/vertical, 2px blur, 0 spread, #color */
+    box-shadow: inset 1px 1px 2px 0px #2b0017;
+
+    /* border for edge, 1px solid #color */
+    .index & {
+        border-bottom: 1px solid #dd0076;
+        border-right: 1px solid #dd0076;
+    }
+
+    .integrity & {
+        border-bottom: 1px solid #00e86e;
+        border-right: 1px solid #00e86e;
+    }
+
+    .simplicity & {
+        border-bottom: 1px solid #0097eb;
+        border-right: 1px solid #0097eb;
+    }
+
+    .knowledge & {
+        border-bottom: 1px solid #fec381;
+        border-right: 1px solid #fec381;
+    }
+
+}

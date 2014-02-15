@@ -1,0 +1,56 @@
+/**
+ * @description    Styling for the style guide
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *
+ *
+ *
+ *        @type    development
+ *       @notes    Please use the .sg_ namespace for any styling to target the style guide only.
+ *      @ignore
+ */
+
+
+/**
+ * @section        sg_snippet
+ */
+.sg_snippet {
+    border: 1px solid lighten($color-border, 40%);
+    @include border-radius(.25em);
+}
+.sg_nav {
+    padding: 1em 0;
+    li {
+        float: left;
+    }
+    a {
+        border-right: 1px solid lighten($color-border, 40%);
+        padding: 1em;
+    }
+}
+.sg_section  {
+    border-top: 1px solid lighten($color-border, 40%);
+    padding: 1em;
+    position: relative;
+}
+.sg_sectionHeading {
+    background: lighten($color-border, 40%);
+    @include border-bottom-right-radius(.25em);
+    @include box-shadow(rgba($color-border, 0.2) .1em .1em .5em);
+    color: lighten($color-black, 50%);
+    display: inline;
+    font-size: 80%;
+    font-weight: bold;
+    left: 0;
+    margin: 0;
+    padding: .25em .5em;
+    position: absolute;
+    @include text-shadow(rgba($color-white, 0.6) 1px 1px 0);
+    top: 0;
+    width: auto;
+}

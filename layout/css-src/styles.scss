@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+/**
+ * @projectDescription    AgilityDiary
+ *               @file    styles.css
+ *             @author    Kristina Auckland <Kristina.Auckland@gmail.com>
+ *            @version    0.1
+ *               @date    2014-02-08 17:22
+ *              @notes    NB. This is the master Sass file which imports all the partials.
+ *                        No CSS should be written in this file.
+ */
+
+/*! Please be aware that styles.css is a generated file and has been built using SCSS */
+
+/**
+ * @section        Compass
+ *   @notes        http://compass-style.org/install/
+ *                 $ gem update --system
+ *                 $ gem install compass
+ */
+@import "compass/css3";
+
+/**
+ * @section        Susy Grid
+ *   @notes        http://susy.oddbird.net/guides/
+ *                 $ gem install susy
+ */
+@import "susy";
+
+/**
+ * @section        Settings
+ */
+@import "partials/settings/susy";
+
+/**
+ * @section        Variables
+ */
+@import "partials/variables/colour-palette";
+// @import "partials/variables/text-shadow";
+
+/**
+ * @section        Mixins
+ */
+@import "partials/mixins/mix-font-sizing";
+@import "partials/mixins/mix-font-stacks";
+@import "partials/mixins/mix-rgba-bg";
+@import "partials/mixins/mix-mq-support";
+
+/**
+ * @section        Placeholders
+ */
+@import "partials/placeholders/visually-hidden";
+// @import "partials/placeholders/vertical-align";
+// @import "partials/placeholders/letter-press";
+
+/**
+ * @section        Global
+ */
+@include border-box-sizing;
+// @import "partials/global/selection";
+@import "partials/global/normalize";
+
+/**
+ * @section        Elements
+ */
+@import "partials/elements/html";
+@import "partials/elements/body";
+// @import "partials/elements/blockquote";
+// @import "partials/elements/em";
+// @import "partials/elements/footer";
+// @import "partials/elements/header";
+// @import "partials/elements/hr";
+@import "partials/elements/a";
+@import "partials/elements/hx";
+// @import "partials/elements/img";
+@import "partials/elements/nav";
+@import "partials/elements/strong";
+
+/**
+ *     @section    Elements
+ * @sub-section    Table
+ */
+// @import "partials/elements/table/table";
+
+/**
+ *     @section    Elements
+ * @sub-section    Form
+ */
+@import "partials/elements/form/form";
+@import "partials/elements/form/fieldset";
+@import "partials/elements/form/legend";
+@import "partials/elements/form/label";
+@import "partials/elements/form/textarea";
+@import "partials/elements/form/input";
+@import "partials/elements/form/button";
+
+/**
+ * @section        Layout
+ */
+@import "partials/default-layout/container";
+
+@import "partials/default-layout/layout-wrapper";
+// @import "partials/default-layout/layout-main";
+@import "partials/default-layout/layout-header";
+@import "partials/default-layout/layout-footer";
+
+@import "partials/default-layout/content-wrapper";
+@import "partials/default-layout/content-main";
+@import "partials/default-layout/content-sub";
+
+/**
+ * @section        Navigation
+ */
+@import "partials/navigation/nav-primary";
+// @import "partials/navigation/nav-footer";
+
+/**
+ * @section        Modules
+ */
+@import "partials/modules/mod-brand-logo";
+@import "partials/modules/mod-introduction";
+@import "partials/modules/mod-map-search";
+@import "partials/modules/mod-tag";
+@import "partials/modules/mod-category";
+@import "partials/modules/mod-show-hide";
+@import "partials/modules/mod-event-list";
+@import "partials/modules/mod-month-list";
+
+/**
+ * @section        Plugins
+ */
+// @import "partials/plugins/plug-grunticon";
+
+/**
+ * @section        Helpers
+ */
+// @import "partials/helpers/ir";
+// @import "partials/helpers/hidden";
+// @import "partials/helpers/invisible";
+// @import "partials/helpers/clearfix";
+
+/**
+ * @section        Media
+ */
+// @import "partials/media/print";
+
+/**
+ * @section        Development
+ */
+// @import "partials/development/dev-debug";
+// @import "partials/development/dev-layout";
+// @import "partials/development/dev-style-guide";

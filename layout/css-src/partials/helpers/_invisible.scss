@@ -1,0 +1,24 @@
+/**
+ * @description    invisible helper class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <div class="invisible"></div>
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes    Hide visually and from screenreaders, but maintain layout
+ *      @ignore
+ */
+
+/**
+ * @section        invisible
+ */
+.invisible {
+	visibility: hidden;
+}

@@ -1,0 +1,26 @@
+/**
+ * @description    Styling for the table element
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <table></table>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        table
+ */
+// ensure styling table allows ease of style changes
+// base all table styling on a class rather than the table element
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}

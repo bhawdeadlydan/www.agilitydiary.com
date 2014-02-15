@@ -1,0 +1,35 @@
+/**
+ * @description    font stack mixins
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes    Remove text-shadow in selection highlight: h5bp.com/i
+ *                 These selection declarations have to be separate.
+ *                 Customize the background color to match your design.
+ *      @ignore
+ */
+
+
+/**
+ *     @section   moz-selection
+ */
+::-moz-selection {
+    background: $color-selection;
+    text-shadow: none;
+}
+
+/**
+ *     @section   selection
+ */
+::selection {
+    background: $color-selection;
+    text-shadow: none;
+}

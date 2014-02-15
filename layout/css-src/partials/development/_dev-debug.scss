@@ -1,0 +1,44 @@
+/**
+ * @description    Class for developer specific information
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *                 <div class="developerInfo">
+ *
+ *                 </div>
+ *
+ *        @type    development
+ *       @notes
+ *      @ignore
+ */
+
+
+/**
+ * @section        developerInfo
+ */
+.developerInfo {
+    text-align: left;
+}
+
+/**
+ * @section        globalHeader
+ */
+.globalHeader {
+    background: orange;
+    @include at-breakpoint($view_purple) {
+        background: purple;
+    }
+    @include at-breakpoint($view_red) {
+        background: red;
+    }
+    @include at-breakpoint($view_blue) {
+        background: blue;
+    }
+    @include mq-support(45em) {
+        background: green;
+    }
+}

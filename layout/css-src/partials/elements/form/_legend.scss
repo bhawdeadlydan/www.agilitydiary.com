@@ -1,0 +1,28 @@
+/**
+ * @description    legend styling
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-22 10:51
+ *
+ *
+ *     @example
+ *                 <legend>
+ *                 </legend>
+ *
+ *
+ *        @type    element
+ *       @notes    1. Corrects color not being inherited in IE 8/9.
+ *                 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ *                 3. Corrects text not wrapping in Firefox 3.
+ */
+
+
+/**
+ * @section        legend
+ */
+legend {
+    border: 0; // 1
+    padding: 0; // 2
+    white-space: normal; // 3
+}

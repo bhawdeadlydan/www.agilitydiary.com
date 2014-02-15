@@ -1,0 +1,30 @@
+/**
+ * @description    verticalAlign placeholder class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-16 14:56
+ *
+ *
+ *     @example
+ *                 .element p {
+ *                      @extend %vertical-align;
+ *                  }
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes
+ *      @ignore
+ */
+
+/**
+ * @section        verticalAlign
+ */
+%verticalAlign {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

@@ -1,0 +1,34 @@
+/**
+ * @description    mq-support mixin
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-08-08 16:55
+ *
+ *
+ *     @example    @include mq-support(45em)
+ *
+ *
+ *        @type    mixin
+ *       @notes    http://seesparkbox.com/foundry/structuring_and_serving_styles_for_older_browsers
+ *                 adjusted to work with Compass and Susy grids.
+ *      @ignore
+ */
+
+/**
+ * @section        mq-support
+ */
+$no-mq-support: false !default;
+$serve-to-nomq-max-width: 60em;
+
+@mixin mq-support($query) {
+    @if $no-mq-support{
+        @if $query < $serve-to-nomq-max-width {
+            @content;
+        }
+    } @else {
+        @include at-breakpoint($view_green) {
+            @content;
+        }
+    }
+}

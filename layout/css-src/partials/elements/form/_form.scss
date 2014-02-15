@@ -1,0 +1,30 @@
+/**
+ * @description    Form styling
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-01-22 10:48
+ *
+ *
+ *     @example
+ *                 <form>
+</form>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        form
+ */
+form {
+    margin-bottom: 1em;
+    padding: 1em;
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+}

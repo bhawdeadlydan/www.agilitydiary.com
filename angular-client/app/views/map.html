@@ -1,50 +1,44 @@
+<section class="map">
+	<leaflet style="height: 600px"
+		id="geo-wrapper"
+		elementcacheid="search/geo-wrapper"
+		fullsize="false"
+		center="data.leaflet.centre"
+		bounds="data.leaflet.bounds"
+		scrollwheelzoom="true"
+		dragging="true"
+		clickmarker="Location"></leaflet>
 
-<div >
-  <leaflet
-      id="geo-wrapper"
-      elementcacheid="search/geo-wrapper"
-      fullsize="true"
-      center="data.leaflet.centre"
-      bounds="data.leaflet.bounds"
-      scrollwheelzoom="true"
-      dragging="true"
-      clickmarker="Location"></leaflet>
-</div>
+	<div class="mapSearch">
+		<input type="text" name="search" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}" ng-change="controls.searchBox.change();" />
+	</div>
 
-<div style="position: absolute; left: 80px; top: 80px; z-index: 1000; background: rgba(0,0,0,0.5); padding: 20px; ">
-  <input type="text" name="search" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}" ng-change="controls.searchBox.change();" style="font-size:14px; padding: 10px; width: 800px;"/>
-</div>
+	<div style="position: absolute; right: 0; top: 0px; width: 300px; height: 100%; border: solid 1px black; background: white; zindex: 100; padding: 12px; overflow-y: scroll">
+		<div ng-repeat="event in events" class="showType-{{ event.Meta.ShowType }}">
 
+			<strong><a href="#/shows/details/{{ event._id }}" ng-bind="event.Name" /></a></strong>
+			<!-- <p>Show type: <span style="background: red;" ng-bind="event.Meta.ShowType" /></p> -->
+			<br /><span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
+			<div>Entries close: <span ng-bind="event.ClosingDate" /></div>
 
+			<a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a>
 
-<div  style="position: absolute; right: 0; top: 0px; width: 300px; height: 100%; border: solid 1px black; background: white; zindex: 100; padding: 12px; overflow-y: scroll">
-  <div ng-repeat="event in events" style="margin-bottom: 20px;">
+			<!-- <div ng-bind="event.Venue.Name" />
+			<div ng-bind="event.Venue.Address" />
+			<div ng-bind="event.Venue.PostCode" /> -->
 
+			<hr/>
+		</div>
+	</div>
 
-      <div ng-bind="event.Name" />
-      club: <div ng-bind="event.Club" />
-      <p>Show type: <span style="background: red;" ng-bind="event.Meta.ShowType" /></p>
-      <span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
-      <div>closes: <span ng-bind="event.ClosingDate" /></div>
+	<hr />
+	<h2>TODO: </h2>
+	<ul>
+		<li>Entered</li>
+		<li>Search</li>
+	</ul>
 
-      entries to: <div ng-bind="event.EntriesTo" />
-
-      <div ng-bind="event.Logo" ng-show="event.Logo"/>
-      <div ng-bind="event.Website" ng-show="event.Website"/>
-
-      <br/>
-      <a href="" ng-click="jumpToShow(event);">View on map</a>
-
-      <div ng-bind="event.Venue.Name" />
-      <div ng-bind="event.Venue.Address" />
-      <div ng-bind="event.Venue.PostCode" />
-
-      <span ng-bind="event.Location.Latitude" />, <span ng-bind="event.Location.Longitude" />
-
-      <hr/>
-  </div>
-</div>
-
+</section>
 
 
 
@@ -54,10 +48,10 @@
  * @example Leaflet Marker
  *
 
-  <div class="leaflet-marker-icon mapTextMarker leaflet-clickable leaflet-zoom-animated">
-    <img class="mapAvatar" src="http://www.gravatar.com/avatar/bca4bfc1147bacae183dea750bf82634?s=24&amp;d=">
-    <span>Practicing notifications @adamauckland</span>
-  </div>
+	<div class="leaflet-marker-icon mapTextMarker leaflet-clickable leaflet-zoom-animated">
+		<img class="mapAvatar" src="http://www.gravatar.com/avatar/bca4bfc1147bacae183dea750bf82634?s=24&amp;d=">
+		<span>Practicing notifications @adamauckland</span>
+	</div>
 
  */
 
@@ -70,43 +64,43 @@
 }*/
 /* line 12, ../scss/partials/views/_map.scss */
 .mapTextMarker {
-  position: relative;
-  background: rgba(34, 34, 34, 0.9);
-  border-radius: 12px;
-  color: #fff;
-  padding: 8px;
-  text-align: center;
-  font-size: 12px;
-  border-top: solid 1px #474747;
+	position: relative;
+	background: rgba(34, 34, 34, 0.9);
+	border-radius: 12px;
+	color: #fff;
+	padding: 8px;
+	text-align: center;
+	font-size: 12px;
+	border-top: solid 1px #474747;
 }
 /* line 22, ../scss/partials/views/_map.scss */
 .mapTextMarker img.mapAvatar {
-  border-radius: 12px;
-  float: left;
+	border-radius: 12px;
+	float: left;
 }
 /* line 27, ../scss/partials/views/_map.scss */
 .mapTextMarker span {
-  top: 2px;
-  position: relative;
+	top: 2px;
+	position: relative;
 }
 
 /* line 33, ../scss/partials/views/_map.scss */
 .mapTextMarker:after {
-  top: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
 }
 
 /* line 43, ../scss/partials/views/_map.scss */
 .mapTextMarker:after {
-  border-top-color: rgba(34, 34, 34, 0.9);
-  border-width: 10px;
-  left: 50%;
-  margin-left: -10px;
+	border-top-color: rgba(34, 34, 34, 0.9);
+	border-width: 10px;
+	left: 50%;
+	margin-left: -10px;
 }
 
 </style>

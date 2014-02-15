@@ -1,0 +1,26 @@
+/**
+ * @description    styling for the tabs class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:50
+ *
+ *
+ *     @example
+ *                 <a class="tabs" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        tabs
+ */
+.tabs {
+    border-bottom: 1px solid $color-border;
+    margin-top: 1em;
+
+    &:hover {
+        text-decoration: none;
+    }
+}

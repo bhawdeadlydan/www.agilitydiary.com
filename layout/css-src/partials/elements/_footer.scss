@@ -1,0 +1,25 @@
+/**
+ * @description    Creates the default styling for the footer element
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-15 12:17
+ *
+ *
+ *     @example
+ *                 <footer>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        footer
+ */
+footer {
+	.lt-ie9 & {
+        display: block;
+    }
+}

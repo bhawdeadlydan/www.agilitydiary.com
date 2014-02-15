@@ -1,0 +1,27 @@
+/**
+ * @description    rgba-bg mixin
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-05-14 09:57
+ *
+ *
+ *     @example
+ *
+ *
+ *        @type    mixin
+ *       @notes    converts hex value to rgb along with alpha
+ *      @ignore
+ */
+
+/**
+ * @section        rgba-bg
+ */
+@mixin rgba-bg($hex, $a) {
+	//  for older browers
+	background-color: $hex;
+	background-color: ($hex, ($a/100));
+
+	// for modern browsers
+	background-color: rgba($hex, ($a/100));
+}

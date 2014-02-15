@@ -1,0 +1,40 @@
+/**
+ * @description    Creates the default styling for the body element
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-08 18:58
+ *
+ *
+ *     @example
+ *                 <body>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        body
+ */
+body {
+    @include default-font-stack;
+    @include font-size(1.8);
+
+    background: $color-body-bg;
+    color: $color-body-copy;
+    line-height: 1.5em;
+    margin: 0;
+
+    @include at-breakpoint($view_red) {
+        @include font-size(1.6);
+
+    }
+
+    @include at-breakpoint($view_blue) {
+        @include font-size(1.8);
+
+    }
+
+}

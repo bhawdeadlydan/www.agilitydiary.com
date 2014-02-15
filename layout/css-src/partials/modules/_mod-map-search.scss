@@ -1,0 +1,33 @@
+/**
+ * @description    styling for the mapSearch class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-11 20:36
+ *
+ *
+ *     @example
+ *                 <a class="mapSearch" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        mapSearch
+ */
+.mapSearch {
+    background: rgba(0,0,0,0.5);
+    left: 80px;
+    padding: 20px;
+    position: absolute;
+    top: 180px;
+    width: 50%;
+    z-index: 1000;
+
+    input {
+        @include font-size(1.4);
+        padding: 1em;
+        width: 100%;
+    }
+}

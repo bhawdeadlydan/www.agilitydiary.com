@@ -1,0 +1,29 @@
+/**
+ * @description    Stying for the main layout footer
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-10 21:59
+ *
+ *
+ *     @example
+ *                 <footer class="layoutFooter" role="contentinfo">
+ *
+ *                 </footer>
+ *
+ *        @type    layout
+ *       @notes
+ */
+
+
+/**
+ * @section        layoutFooter
+ */
+.layoutFooter {
+
+    @include container;
+
+    background: $color-layout-footer-bg;
+    color: $color-footer-copy;
+    padding: 2em 0 100px 0;
+}

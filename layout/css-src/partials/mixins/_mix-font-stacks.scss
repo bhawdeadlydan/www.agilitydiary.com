@@ -1,0 +1,49 @@
+/**
+ * @description    font stack mixins
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-08 18:57
+ *
+ *
+ *     @example
+ *
+ *        @type    mixin
+ *       @notes
+ *      @ignore
+ */
+
+ /**
+  *     @section   import fonts
+  *       @notes   http://www.google.com/fonts#UsePlace:use/Collection:Nunito
+  */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+/**
+ *     @section   default-font-stack
+ */
+@mixin default-font-stack {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/**
+ *     @section   headline-font-stack
+ */
+@mixin headline-font-stack {
+
+}
+
+/**
+ *     @section   logo-font-stack
+ */
+@mixin logo-font-stack {
+
+}
+
+/**
+ *     @section   contrast-font-stack
+ */
+@mixin contrast-font-stack {
+
+}

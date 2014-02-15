@@ -1,0 +1,25 @@
+/**
+ * @description    styling for the category class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:19
+ *
+ *
+ *     @example
+ *                 <a class="category" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        category
+ */
+.category {
+    margin-right: 1em;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
