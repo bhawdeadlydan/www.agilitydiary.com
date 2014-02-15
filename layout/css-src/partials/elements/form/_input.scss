@@ -3,7 +3,7 @@
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-02-11 11:07
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -24,7 +24,8 @@ input {
     margin: .5em 0;
     padding: .5em;
 
-    &[type="email"] {
-
+    &[type="email"],
+    &[type="text"] {
+        @include span-columns(9 omega,12);
     }
 }

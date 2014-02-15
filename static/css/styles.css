@@ -773,7 +773,7 @@ strong {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-01-22 10:48
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -802,7 +802,7 @@ form > :first-child {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-01-22 10:50
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -828,7 +828,7 @@ fieldset {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-01-22 10:51
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -856,7 +856,7 @@ legend {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-02-11 11:06
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -871,7 +871,13 @@ legend {
  */
 /* line 21, ../../layout/css-src/partials/elements/form/_label.scss */
 label {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
   cursor: pointer;
+  margin: .5em 0;
+  padding: .5em;
 }
 
 /**
@@ -879,7 +885,7 @@ label {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-01-22 10:53
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -905,7 +911,7 @@ textarea {
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-02-11 11:07
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
@@ -924,13 +930,21 @@ input {
   margin: .5em 0;
   padding: .5em;
 }
+/* line 28, ../../layout/css-src/partials/elements/form/_input.scss */
+input[type="email"], input[type="text"] {
+  width: 74.57627%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
+}
 
 /**
  * @description    button styling
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-01-22 10:53
+ *        @date    2014-02-15 08:40
  *
  *
  *     @example
