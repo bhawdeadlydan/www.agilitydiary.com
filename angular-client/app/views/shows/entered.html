@@ -1,32 +1,33 @@
+<section class="entered">
+	<div>
+		<h1>entered shows</h1>
 
-<div>
-	<h1>entered shows</h1>
+		<div ng-repeat="event in enteredShows">
+			<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
+				<h2>Event</h2>
 
-	<div ng-repeat="event in enteredShows">
-		<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
-			<h2>Event</h2>
+				<div ng-bind="event.Name" />
+				club: <div ng-bind="event.Club" />
+				show date: <div ng-bind="event.ShowDate" />
+				show end: <div ng-bind="event.ShowEnd" />
+				closing date: <div ng-bind="event.ClosingDate" />
 
-			<div ng-bind="event.Name" />
-			club: <div ng-bind="event.Club" />
-			show date: <div ng-bind="event.ShowDate" />
-			show end: <div ng-bind="event.ShowEnd" />
-			closing date: <div ng-bind="event.ClosingDate" />
+				entries to: <div ng-bind="event.EntriesTo" />
+		logo
+				<div ng-bind="event.Logo" />
 
-			entries to: <div ng-bind="event.EntriesTo" />
-	logo
-			<div ng-bind="event.Logo" />
+		website
+				<div ng-bind="event.Website" />
 
-	website
-			<div ng-bind="event.Website" />
+				venue
+				<div ng-bind="event.Venue.Name" />
+				<div ng-bind="event.Venue.Address" />
+				<div ng-bind="event.Venue.PostCode" />
 
-			venue
-			<div ng-bind="event.Venue.Name" />
-			<div ng-bind="event.Venue.Address" />
-			<div ng-bind="event.Venue.PostCode" />
+				Show Type Colour: <div ng-bind="event.Venue.Meta.ShowTypeColour" />
 
-			Show Type Colour: <div ng-bind="event.Venue.Meta.ShowTypeColour" />
-
-			<button ng-click="resignShow(event);" style="background:black;color:white">DON'T DO THiS SHOW</button>
+				<button ng-click="resignShow(event);" style="background:black;color:white">DON'T DO THiS SHOW</button>
+			</div>
 		</div>
 	</div>
-</div>
+</section>

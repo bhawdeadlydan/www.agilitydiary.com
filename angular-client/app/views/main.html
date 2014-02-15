@@ -1,24 +1,21 @@
-<section>
+<section class="main">
 
-	<div>
+	<div class="container">
 
-		<div><br/><br/><br/>
+		<img src="{{ profile.User.profile.picture }}" />
+		<div ng-bind="profile.User.profile.name" />
 
-			<img src="{{ profile.User.profile.picture }}" />
-			<div ng-bind="profile.User.profile.name" />
-
-			<h2>Dogs</h2>
-
-			<div ng-show="!profile.Dogs.length">
-				You have no dogs
-			</div>
-
-			<a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs/add">Add</a>
-
-			<div ng-repeat="dog in profile.Dogs">
-				<div ng-bind="dog.Name" />
-				<div ng-bind="dog.Sex" />
-			</div>
+		<h2>Dogs</h2>
+		<div ng-show="!profile.Dogs.length">
+			You have no dogs
 		</div>
+
+		<a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs/add">Add</a>
+
+		<div ng-repeat="dog in profile.Dogs">
+			<div ng-bind="dog.Name" />
+			<div ng-bind="dog.Sex" />
+		</div>
+
 	</div>
 </section>
