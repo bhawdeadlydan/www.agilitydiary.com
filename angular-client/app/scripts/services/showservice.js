@@ -57,8 +57,8 @@ angular.module('browserAppApp')
 
 
 
-			module.enterShow = function (id, successCallback, errorCallback) {
-				var url = '/agility-diary/enterShow?id=' + id;
+			module.enterShow = function (opts, successCallback, errorCallback) {
+				var url = '/agility-diary/enterShow?id=' + opts.id;
 				return $http.get(url).success(successCallback).error(errorCallback);
 			};
 

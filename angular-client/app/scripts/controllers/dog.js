@@ -7,6 +7,11 @@ app.controller('DogController', [
 
 
 
+		/**
+		 * Module level variables
+		 */
+
+
 
 		$scope.dog = {
 			name: '',
@@ -16,12 +21,41 @@ app.controller('DogController', [
 
 
 
+		/**
+		 * Get the users profile
+		 */
+
+		function fetchProfile() {
+			ProfileService.get(function (data) {
+				$scope.profile = data;
+			}, function (error) {
+
+			});
+		}
+
+
+
+
+		$scope.deleteDog = function (dog) {
+			ProfileService.deleteDog({
+				_id: dog._id
+			}, function (data) {
+				$scope.profile = data;
+			}, function (error) {
+				console.log(error);
+			});
+		};
+
+
+
+
 		$scope.saveDog = function () {
 			ProfileService.addDog({
-				name: $scope.name,
-				sex: $scope.sex
+				name: $scope.dog.name,
+				sex: $scope.dog.sex
 			}, function (data) {
-				$location.path('#/');
+				$location.path('/dogs');
+				$scope.profile = data;
 			}, function (error) {
 				console.log(error);
 			});
@@ -38,6 +72,8 @@ app.controller('DogController', [
 		function main() {
 			var action = '';
 
+			fetchProfile();
+
 			if (typeof $route.current.$$route.action !== 'undefined') {
 				action = $route.current.$$route.action;
 			}
@@ -45,11 +81,19 @@ app.controller('DogController', [
 			console.log(action);
 			console.log($location.href);
 			console.log($routeParams.id);
-			console.log('Shows Controller');
+			console.log('Dog Controller');
 
 			switch (action) {
-			case '':
+			case 'details':
+				console.log('Details');
 
+				$scope.$watch('profile', function () {
+					_.each($scope.profile.Dogs, function (dogIterator) {
+						if (dogIterator._id == $routeParams.id) {
+							$scope.dog = dogIterator;
+						}
+					});
+				});
 			}
 		}
 

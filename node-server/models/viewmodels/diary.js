@@ -10,8 +10,8 @@ module.exports = function (data) {
 		var result = [];
 
 		_.each(data.Dogs, function (dogIterator) {
-			if (dogIterator.Status === 'enabled') {
-				result.push(dog);
+			if (dogIterator.Deleted === false) {
+				result.push(dogIterator);
 			}
 		});
 
@@ -26,7 +26,7 @@ module.exports = function (data) {
 
 		EnteredShows: data.EnteredShows,
 
-		Dogs: data.Dogs
+		Dogs: getEnabledDogs(data.Dogs)
 	};
 
 	return result;

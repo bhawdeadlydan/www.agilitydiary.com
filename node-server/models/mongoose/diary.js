@@ -15,6 +15,11 @@ var diarySchema = new mongoose.Schema({
 
 	Dogs: [
 		{
+			Deleted: {
+				type: Boolean,
+				default: false
+			},
+
 			Profile: {
 				Name: String,
 				DateOfBirth: Date,

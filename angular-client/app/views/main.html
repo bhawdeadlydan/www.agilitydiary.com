@@ -10,11 +10,15 @@
 			You have no dogs
 		</div>
 
-		<a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs/add">Add</a>
+		<a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs">Edit your dogs</a>
 
 		<div ng-repeat="dog in profile.Dogs">
-			<div ng-bind="dog.Name" />
-			<div ng-bind="dog.Sex" />
+			<div>
+				<div ng-bind="dog.Profile.Name" />
+
+			</div>
+
+
 		</div>
 
 	</div>

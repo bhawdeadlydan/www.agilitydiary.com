@@ -143,6 +143,8 @@ app.get('/agility-diary/show/categories', showController.categories);
 app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
 app.post('/agility-diary/addDog', userController.addDog);
+app.post('/agility-diary/deleteDog', userController.deleteDog);
+
 
 app.get('/agility-diary/enterShow', showController.enterShow);
 app.get('/agility-diary/resignShow', showController.resignShow);

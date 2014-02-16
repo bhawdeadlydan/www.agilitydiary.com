@@ -100,8 +100,6 @@ exports.userData = function (req, res) {
 
 
 exports.addDog = function (req, res) {
-	console.log(req.body);
-
 	User.findById(req.user.id, function (err, user) {
 		Diary.findOne({
 			User: user
@@ -109,7 +107,6 @@ exports.addDog = function (req, res) {
 			if (err) {
 				res.send(500, { error: 'Error' });
 			}
-
 
 			diary.Dogs.push({
 				Status: 'enabled',
@@ -121,7 +118,38 @@ exports.addDog = function (req, res) {
 
 			diary.save(function (err, diary) {
 				console.log(err);
-				res.send(diary);
+				res.send(DiaryViewModel(diary));
+			});
+
+
+		});
+	});
+};
+
+
+
+
+exports.deleteDog = function (req, res) {
+	User.findById(req.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (err) {
+				res.send(500, { error: 'Error' });
+			}
+
+			_.each(diary.Dogs, function (dog) {
+				if (dog._id.toString() == req.body._id.toString()) {
+					console.log('match');
+					dog.Deleted = true;
+				}
+			});
+
+			console.log(diary);
+
+			diary.save(function (err, diary) {
+				console.log(err);
+				res.send(DiaryViewModel(diary));
 			});
 
 
@@ -280,12 +308,12 @@ exports.postUpdatePassword = function (req, res, next) {
 		return res.redirect('/account');
 	}
 
-	User.findById(req.user.id, function(err, user) {
+	User.findById(req.user.id, function (err, user) {
 		if (err) return next(err);
 
 		user.password = req.body.password;
 
-		user.save(function(err) {
+		user.save(function (err) {
 			if (err) return next(err);
 			req.flash('success', { msg: 'Password has been changed.' });
 			res.redirect('/account');
@@ -299,8 +327,8 @@ exports.postUpdatePassword = function (req, res, next) {
  * @param {string} id
  */
 
-exports.postDeleteAccount = function(req, res, next) {
-	User.remove({ _id: req.user.id }, function(err) {
+exports.postDeleteAccount = function (req, res, next) {
+	User.remove({ _id: req.user.id }, function (err) {
 		if (err) return next(err);
 		req.logout();
 		res.redirect('/');
@@ -314,15 +342,15 @@ exports.postDeleteAccount = function(req, res, next) {
  * @param {string} id
  */
 
-exports.getOauthUnlink = function(req, res, next) {
+exports.getOauthUnlink = function (req, res, next) {
 	var provider = req.params.provider;
-	User.findById(req.user.id, function(err, user) {
+	User.findById(req.user.id, function (err, user) {
 		if (err) return next(err);
 
 		user[provider] = undefined;
-		user.tokens = _.reject(user.tokens, function(token) { return token.kind === provider; });
+		user.tokens = _.reject(user.tokens, function (token) { return token.kind === provider; });
 
-		user.save(function(err) {
+		user.save(function (err) {
 			if (err) return next(err);
 			req.flash('info', { msg: provider + ' account has been unlinked.' });
 			res.redirect('/account');
@@ -335,7 +363,7 @@ exports.getOauthUnlink = function(req, res, next) {
  * Log out.
  */
 
-exports.logout = function(req, res) {
+exports.logout = function (req, res) {
 	req.logout();
 	res.redirect('/');
 };

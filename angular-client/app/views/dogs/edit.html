@@ -1,0 +1,14 @@
+edit
+
+<a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs/add">Add</a>
+
+<div ng-repeat="dog in profile.Dogs">
+
+	<div>
+		<h2><a ng-href="#/dogs/{{ dog._id }}"><span ng-bind="dog.Profile.Name" ></span></a></h2>
+		Sex: <span ng-bind="dog.Profile.Sex" ></span>
+
+
+	</div>
+
+</div>

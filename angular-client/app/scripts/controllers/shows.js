@@ -52,6 +52,7 @@ app.controller('ShowsController', [
 				ShowService.resignShow(event._id, function () {
 
 					ShowService.userData({}, function (data) {
+						$scope.profile = data;
 						$scope.enteredShows = data.EnteredShows;
 					});
 
@@ -118,7 +119,8 @@ app.controller('ShowsController', [
 		$scope.enterShow = function (event) {
 			ShowService.enterShow({
 				id: event._id
-			}, function () {
+			}, function (data) {
+				$scope.profile = data;
 				$location.path('#/shows/entered');
 			}, function () {
 

@@ -38,18 +38,20 @@ app.controller('MainController', [
 		function main() {
 			var action = '';
 
-			if ((typeof $route.current.$$route.action !== 'undefined') && ($route.current.$$route.action !== null)) {
-				action = $route.current.$$route.action;
-			}
+			if (angular.isDefined($route.current)) {
+				if ((typeof $route.current.$$route.action !== 'undefined') && ($route.current.$$route.action !== null)) {
+					action = $route.current.$$route.action;
+				}
 
-			console.log(action);
-			console.log($location.href);
-			console.log($routeParams.id);
-			console.log('Shows Controller');
+				console.log(action);
+				console.log($location.href);
+				console.log($routeParams.id);
+				console.log('Shows Controller');
 
-			switch (action) {
-			case '':
-				fetchProfile();
+				switch (action) {
+				case '':
+					fetchProfile();
+				}
 			}
 		}
 

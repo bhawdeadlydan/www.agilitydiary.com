@@ -515,6 +515,7 @@ angular.module('browserAppApp')
 					console.log('ok');
 				} else {} */
 				map = new L.Map(element[0], opts);
+				map.attributionControl.setPrefix('');
 				//new L.Control.Zoom({ position: 'bottomleft' }).addTo(map);
 
 				map.setView([0, 0], 1);

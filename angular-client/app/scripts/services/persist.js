@@ -13,7 +13,6 @@ angular.module('browserAppApp')
 
 			return function (namespace, defaultValue) {
 				console.log(namespace);
-				debugger
 
 				if (typeof persist[namespace] === 'undefined') {
 					persist[namespace] = defaultValue;

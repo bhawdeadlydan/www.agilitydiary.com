@@ -23,6 +23,18 @@ angular.module('browserAppApp', [
 			action: 'add'
 		})
 
+		.when('/dogs', {
+			templateUrl: 'app/views/dogs/edit.html',
+			controller: 'DogController',
+			action: 'edit'
+		})
+
+		.when('/dogs/:id', {
+			templateUrl: 'app/views/dogs/details.html',
+			controller: 'DogController',
+			action: 'details'
+		})
+
 		.when('/shows/entered', {
 			templateUrl: 'app/views/shows/entered.html',
 			controller: 'ShowsController',

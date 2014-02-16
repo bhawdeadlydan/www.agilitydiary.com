@@ -24,16 +24,16 @@ angular.module('browserAppApp')
 					checkAgain = true;
 				}
 
-				if (checkAgain === true) {
+				//if (checkAgain === true) {
 					$http.get(url).success(function (data) {
 						profile = data;
 						successCallback(data);
 					}).error(function (err) {
 						errorCallback(err);
 					});
-				} else {
+				//} /else {
 					successCallback(profile);
-				}
+				//}
 			};
 
 
@@ -43,6 +43,19 @@ angular.module('browserAppApp')
 				var url = '/agility-diary/addDog';
 
 				$http.post(url, postData).success(function (data) {
+					profile = data;
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+			module.deleteDog = function (postData, successCallback, errorCallback) {
+				var url = '/agility-diary/deleteDog';
+
+				$http.post(url, postData).success(function (data) {
+					profile = data;
 					successCallback(data);
 				}).error(function (err) {
 					errorCallback(err);

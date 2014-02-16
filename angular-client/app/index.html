@@ -19,53 +19,55 @@
 		<!-- endbuild -->
 	</head>
 
-	<body ng-app="browserAppApp">
+	<body ng-app="browserAppApp" ng-controller="BaseController">
+		<div >
 
-		<!--[if lt IE 7]>
-			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
+			<!--[if lt IE 7]>
+				<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+			<![endif]-->
 
-		<header class="layoutHeader" role="banner">
+			<header class="layoutHeader" role="banner">
 
-			<a href="#/" class="brandLogo"><img src="/app/images/logo-AgilityDiary.png" alt="AgilityDiary" /> Agility Diary</a>
+				<a href="#/" class="brandLogo"><img src="/app/images/logo-AgilityDiary.png" alt="AgilityDiary" /> Agility Diary</a>
 
-			<nav class="navPrimary" role="navigation">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#navigation"></button>
+				<nav class="navPrimary" role="navigation">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#navigation"></button>
 
-				<a href="#home">Home</a>
-				<a ng-href="#/">Profile</a>
-				<a ng-href="#/shows/upcoming">Shows</a>
-				<a ng-href="#/shows/entered">Entered Shows</a>
-				<a ng-href="#/map">Map</a>
-				<a href="/account">Account</a>
+					<a href="#home">Home</a>
+					<a ng-href="#/">Profile</a>
+					<a ng-href="#/shows/upcoming">Shows</a>
+					<a ng-href="#/shows/entered">Entered Shows</a> <!--<span ng-bind="profile.EnteredShows.length">--></span>
+					<a ng-href="#/map">Map</a>
+					<a href="/account">Account</a>
 
-				<!-- <label>Search the site</label>
-				<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
-				<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a> -->
-			</nav>
+					<!-- <label>Search the site</label>
+					<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
+					<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a> -->
+				</nav>
 
-		</header>
+			</header>
 
-		<!--
-		<div class="btn-group btn-group-justified">
-			<a href="/auth/facebook" class="btn btn-facebook"><i class="fa fa-facebook"></i>Facebook</a>
-			<a href="/auth/twitter" class="btn btn-twitter"><i class="fa fa-twitter"></i>Twitter</a>
-			<a href="/auth/google" class="btn btn-google-plus"><i class="fa fa-google-plus"></i>Google</a>
+			<!--
+			<div class="btn-group btn-group-justified">
+				<a href="/auth/facebook" class="btn btn-facebook"><i class="fa fa-facebook"></i>Facebook</a>
+				<a href="/auth/twitter" class="btn btn-twitter"><i class="fa fa-twitter"></i>Twitter</a>
+				<a href="/auth/google" class="btn btn-google-plus"><i class="fa fa-google-plus"></i>Google</a>
 
-		</div>-->
+			</div>-->
 
-		<!-- Add your site or application content here -->
-		<div ng-view=""></div>
+			<!-- Add your site or application content here -->
+			<div ng-view=""></div>
 
-		<footer class="layoutFooter" role="contentinfo">
-			<div class="container">
-				<a href="">Contact</a>
+			<footer class="layoutFooter" role="contentinfo">
+				<div class="container">
+					<a href="">Contact</a>
 
-				<section class="copyright">
-					&copy; 2013 - 2014 AgilityDiary. All rights reserved.
-				</section>
-			</div>
-		</footer>
+					<section class="copyright">
+						&copy; 2013 - 2014 AgilityDiary. All rights reserved.
+					</section>
+				</div>
+			</footer>
+		</div>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 		<script>
@@ -108,11 +110,14 @@
 
 		<!-- build:js({.tmp,app}) scripts/scripts.js -->
 		<script src="app/scripts/app.js"></script>
+		<script src="app/scripts/controllers/base.js"></script>
+		<script src="app/scripts/controllers/dog.js"></script>
 		<script src="app/scripts/controllers/main.js"></script>
 		<script src="app/scripts/controllers/shows.js"></script>
 		<script src="app/scripts/controllers/map.js"></script>
 		<script src="app/scripts/directives/leaflet.js"></script>
 		<script src="app/scripts/services/showservice.js"></script>
+		<script src="app/scripts/services/persist.js"></script>
 		<script src="app/scripts/services/geoposition.js"></script>
 		<script src="app/scripts/services/settings.js"></script>
 		<script src="app/scripts/services/mapdata.js"></script>
