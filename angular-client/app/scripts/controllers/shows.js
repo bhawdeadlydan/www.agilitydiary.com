@@ -18,6 +18,7 @@ app.controller('ShowsController', [
 		$scope.bounds = {};
 		$scope.searchText = '';
 		$scope.markers = {};
+		$scope.attending = false;
 
 
 
@@ -102,6 +103,13 @@ app.controller('ShowsController', [
 					draggable: false
 					//html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
 				};
+
+				debugger
+				_.each($scope.profile.EnteredShows, function (show) {
+					if (show._id === id) {
+						$scope.attending = true;
+					}
+				});
 
 				$scope.markers.Location = newMarker;
 			}, function (err) {

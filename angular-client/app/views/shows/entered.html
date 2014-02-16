@@ -6,7 +6,7 @@
 			<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
 				<h2>Event</h2>
 
-				<div ng-bind="event.Name" />
+				<a ng-href="#/shows/details/{{ event._id }}"><div ng-bind="event.Name" /></a>
 				club: <div ng-bind="event.Club" />
 				show date: <div ng-bind="event.ShowDate" />
 				show end: <div ng-bind="event.ShowEnd" />

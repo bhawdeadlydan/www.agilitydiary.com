@@ -59,7 +59,10 @@
 				<p>Close: <span ng-bind="show.ClosingDate" /></p>
 				<p>Enter: <span ng-bind="show.EntriesTo" /></p>
 
-				<button class="button attendButton" ng-click="enterShow(show);">Attending?</button>
+
+				<button class="button attendButton" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
+
+				<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">DON'T DO THiS SHOW</button>
 
 				<p><a href="#">Is this your show?</a></p>
 			</section>
