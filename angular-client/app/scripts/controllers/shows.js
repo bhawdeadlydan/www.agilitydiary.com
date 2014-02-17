@@ -104,7 +104,6 @@ app.controller('ShowsController', [
 					//html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
 				};
 
-				debugger
 				_.each($scope.profile.EnteredShows, function (show) {
 					if (show._id === id) {
 						$scope.attending = true;
