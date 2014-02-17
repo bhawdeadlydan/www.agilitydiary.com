@@ -12,8 +12,8 @@ block content
       .form-group.formText
         label(for='name') Name
         input(type='text', name='name', id='name', value='#{user.profile.name}')
-      .form-group.formRadioWrapper
-        label(for='name') Gender
+      fieldset.form-group.formRadioWrapper
+        legend(for='name') Gender
         label Male
         input(type='radio', checked=user.profile.gender=='male', name='gender', value='male', data-toggle='radio')
 

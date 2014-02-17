@@ -20,9 +20,6 @@
  * @section        layoutFooter
  */
 .layoutFooter {
-
-    @include container;
-
     background: $color-layout-footer-bg;
     color: $color-footer-copy;
     padding: 2em 0 100px 0;

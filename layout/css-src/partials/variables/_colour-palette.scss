@@ -62,7 +62,7 @@ $color-nav-primary-active  :    $color-brand;
 
 $color-button              :    lighten($color-black, 15%); // output = #262626
 $color-border              :    lighten($color-black, 83%); // output = #d4d4d4
-$color-shadow              :    lighten($color-black, 30%); // output = #4d4d4d
+$color-shadow              :    #ddd;
 $color-drop-shadow         :    darken($color-white, 13%); // output = #dedede
 
 $color-mark                :    $color-brand-complementary1;

@@ -900,9 +900,16 @@ label {
  */
 /* line 21, ../../layout/css-src/partials/elements/form/_textarea.scss */
 textarea {
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
   font-family: 'Open Sans', sans-serif;
-  margin: .5em 0;
-  padding: .5em;
+  border: 1px solid #d4d4d4;
+  box-shadow: inset 0 1px 3px #dddddd;
+  margin: .5em .6em;
+  padding: .5em .6em;
   width: 100%;
 }
 
@@ -926,11 +933,18 @@ textarea {
  */
 /* line 21, ../../layout/css-src/partials/elements/form/_input.scss */
 input {
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
   font-family: 'Open Sans', sans-serif;
-  margin: .5em 0;
-  padding: .5em;
+  border: 1px solid #d4d4d4;
+  box-shadow: inset 0 1px 3px #dddddd;
+  margin: .5em .6em;
+  padding: .5em .6em;
 }
-/* line 29, ../../layout/css-src/partials/elements/form/_input.scss */
+/* line 32, ../../layout/css-src/partials/elements/form/_input.scss */
 input[type="email"], input[type="password"], input[type="text"] {
   width: 74.57627%;
   float: right;
@@ -1063,22 +1077,9 @@ input[type="email"], input[type="password"], input[type="text"] {
  */
 /* line 22, ../../layout/css-src/partials/default-layout/_layout-footer.scss */
 .layoutFooter {
-  *zoom: 1;
-  max-width: 71em;
-  _width: 71em;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin-left: auto;
-  margin-right: auto;
   background: #73afaa;
   color: #d8d8d8;
   padding: 2em 0 100px 0;
-}
-/* line 38, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.layoutFooter:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 /**

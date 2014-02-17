@@ -19,10 +19,13 @@
  * @section        input
  */
 input {
+    @include border-radius(.25em);
     @include default-font-stack;
 
-    margin: .5em 0;
-    padding: .5em;
+    border: 1px solid $color-border;
+    box-shadow: inset 0 1px 3px $color-shadow;
+    margin: .5em .6em;
+    padding: .5em .6em;
 
     &[type="email"],
     &[type="password"],
