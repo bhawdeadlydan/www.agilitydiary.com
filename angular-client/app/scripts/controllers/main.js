@@ -38,6 +38,8 @@ app.controller('MainController', [
 		function main() {
 			var action = '';
 
+			console.log('This is a feature');
+
 			if (angular.isDefined($route.current)) {
 				if ((typeof $route.current.$$route.action !== 'undefined') && ($route.current.$$route.action !== null)) {
 					action = $route.current.$$route.action;
