@@ -1191,15 +1191,26 @@ input[type="email"], input[type="password"], input[type="text"] {
 .navPrimary a {
   color: #262626;
   display: inline-block;
-  padding: 1em;
+  padding: .25em .5em;
 }
 /* line 34, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a.active, .navPrimary a:hover {
-  color: #d8d8d8;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+  background: #93c2be;
+  color: white;
   text-decoration: none;
 }
-/* line 41, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 44, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary .active {
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
   font-weight: bold;
 }
 
