@@ -18,9 +18,32 @@
  */
 .tabs {
     border-bottom: 1px solid $color-border;
-    margin-top: 1em;
+    margin: 1em 0;
+    padding: 0 1em;
 
-    &:hover {
-        text-decoration: none;
+    a {
+        background: $color-tab;
+        border-bottom: 1px solid $color-tab;
+        color: $color-white;
+        display: inline-block;
+        margin-bottom: -1px;
+        padding: .25em .5em;
+
+        &:hover {
+            background: $color-tab-hover;
+            text-decoration: none;
+        }
+
+        &.active {
+            background: $color-white;
+            border: 1px solid $color-border;
+            border-bottom: none;
+            color: $color-tab;
+        }
     }
+
+    .count {
+        @include font-size(1.2);        
+    }
+
 }

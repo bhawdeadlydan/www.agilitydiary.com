@@ -23,12 +23,11 @@
 			</ul>
 		</nav>
 
-		<div class="tabs">
-			<ol>
-				<li class="selected"><a href="#">Upcoming events <span class="result-count" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }}</span></a></li>
-				<li><a href="#">Past events</a></li>
-			</ol>
-		</div>
+		<nav class="tabs">
+			<a class="active" href="#">Upcoming events <span class="count" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">({{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }})</span></a>
+			<a href="#">Past events</a>
+			<a href="/#/shows/entered">Entered</a>
+		</nav>
 
 		<ol class="monthList">
 			<li>

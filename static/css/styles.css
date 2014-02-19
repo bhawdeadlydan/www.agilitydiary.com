@@ -1503,6 +1503,56 @@ input[type="email"], input[type="password"], input[type="text"] {
 }
 
 /**
+ * @description    styling for the tabs class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-12 13:50
+ *
+ *
+ *     @example
+ *                 <a class="tabs" href="/">AgilityDiary</a>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        tabs
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-tabs.scss */
+.tabs {
+  border-bottom: 1px solid #d4d4d4;
+  margin: 1em 0;
+  padding: 0 1em;
+}
+/* line 24, ../../layout/css-src/partials/modules/_mod-tabs.scss */
+.tabs a {
+  background: #73afaa;
+  border-bottom: 1px solid #73afaa;
+  color: white;
+  display: inline-block;
+  margin-bottom: -1px;
+  padding: .25em .5em;
+}
+/* line 32, ../../layout/css-src/partials/modules/_mod-tabs.scss */
+.tabs a:hover {
+  background: #579893;
+  text-decoration: none;
+}
+/* line 37, ../../layout/css-src/partials/modules/_mod-tabs.scss */
+.tabs a.active {
+  background: white;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  color: #73afaa;
+}
+/* line 45, ../../layout/css-src/partials/modules/_mod-tabs.scss */
+.tabs .count {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+
+/**
  * @section        Plugins
  */
 /**
