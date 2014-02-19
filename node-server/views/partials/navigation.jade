@@ -1,14 +1,7 @@
 nav.navPrimary(role='navigation')
-  a(href='/') Home
-  a(href='/#/shows/upcoming') Shows
-
-
-  if !user
-    a(class=title=='Login'?'active':undefined, href='/login') Login
-    a(class=title=='Create Account'?'active':undefined, href='/signup') Create Account
+  if user
     a(href='/account') My Account
     a(href='/logout') Logout
-  else
     if 1==2
       a(class=title=='Account Management'?'active':undefined, href='/account', data-toggle='dropdown')
         if user.profile.picture
