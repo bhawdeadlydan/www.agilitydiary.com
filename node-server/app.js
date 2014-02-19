@@ -20,6 +20,7 @@ var expressValidator = require('express-validator');
 
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
+var commentsController = require('./controllers/comment');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 var showController = require('./controllers/show');
@@ -148,6 +149,9 @@ app.get('/agility-diary/userData', userController.userData);
 app.post('/agility-diary/user/add-dog', userController.addDog);
 app.post('/agility-diary/user/delete-dog', userController.deleteDog);
 app.post('/agility-diary/user/add-result', userController.addResult);
+
+app.post('/agility-diary/comments/add', commentsController.addComment);
+app.get('/agility-diary/comments/get', commentsController.getComments);
 
 app.get('/agility-diary/enterShow', userController.enterShow);
 app.get('/agility-diary/resignShow', userController.resignShow);
