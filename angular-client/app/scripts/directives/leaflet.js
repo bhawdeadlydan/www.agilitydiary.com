@@ -530,7 +530,7 @@ angular.module('browserAppApp')
 				$scope.leaflet.maxZoom = !!(attrs.defaults && $scope.defaults.maxZoom) ? parseInt($scope.defaults.maxZoom, 14) : defaults.maxZoom;
 				$scope.leaflet.tileLayer = !!(attrs.defaults && $scope.defaults.tileLayer) ? $scope.defaults.tileLayer : defaults.tileLayer;
 				$scope.leaflet.bounceOnAdd = true;
-				if((attrs.bounce !== 'undefined' ) && (attrs.bounce == 'true')) { bounceOnAdd = true; }
+				if ((attrs.bounce !== 'undefined' ) && (attrs.bounce == 'true')) { bounceOnAdd = true; }
 				bounceOnAdd = true;
 				$scope.mapBounds = null;
 

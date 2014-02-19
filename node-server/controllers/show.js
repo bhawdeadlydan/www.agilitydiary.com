@@ -45,110 +45,26 @@ exports.categories = function (req, res) {
 
 
 
+/**
+ * List upcoming shows
+ */
+exports.upcomingList = function (req, res) {
+	Show.find({
+		ParsedDate: {
+			$gte: new Date()
+		}
+	})
+	.sort({
+		ParsedDate: 1
+	})
+	.exec(function (err, data) {
+		var result = [];
 
-exports.enterShow = function (req, res) {
-	User.findById(req.user.id, function (err, user) {
-		console.log(user);
-
-		Show.findOne({
-			_id: req.query.id
-		}, function (err, show) {
-
-			Diary.find({
-				User: user
-			}, function (err, diary) {
-
-				if (diary.length === 0) {
-					console.log('No diary entry');
-
-					diary = Diary.create({
-						User: user,
-						EnteredShows: [
-							show
-						]
-					}, function (err, diary) {
-						if (err) {
-							console.log(err);
-						} else {
-							res.send(diary);
-						}
-					});
-				} else {
-
-					var isAdded = false;
-					_.each(diary[0].EnteredShows, function (iterator) {
-						if(iterator.equals(show._id) === true) {
-							isAdded = true;
-						}
-					});
-
-					if (isAdded === false) {
-						diary[0].EnteredShows.push(show);
-					}
-
-					diary[0].save(function (err, diary) {
-						console.log('saved');
-
-						res.send(diary);
-					});
-				}
-
-			});
-
+		_.each(data, function (iterator) {
+			result.push(ShowViewModel(iterator));
 		});
-	});
-};
 
-
-
-
-exports.resignShow = function (req, res) {
-	User.findById(req.user.id, function (err, user) {
-		console.log(user);
-
-		Show.findOne({
-			_id: req.query.id
-		}, function (err, show) {
-
-			Diary.findOne({
-				User: user
-			}, function (err, diary) {
-
-				if (diary === null) {
-					console.log('No diary entry');
-
-					diary = Diary.create({
-						User: user,
-						EnteredShows: [
-
-						]
-					}, function (err, diary) {
-						if (err) {
-							console.log(err);
-						} else {
-							res.send(diary);
-						}
-					});
-				} else {
-
-					var isAdded = false;
-					_.each(diary.EnteredShows, function (iterator) {
-						if(iterator.equals(req.query.id) === true) {
-
-							diary.EnteredShows.remove(iterator);
-						}
-					});
-
-					diary.save(function (err, diary) {
-						console.log('saved');
-
-						res.send(diary);
-					});
-				}
-
-			});
-
-		});
+		res.send(result);
 	});
 };
 
@@ -156,21 +72,48 @@ exports.resignShow = function (req, res) {
 
 
 /**
- * List upcoming shows
+ * List previous shows
  */
-exports.upcoming = function(req, res) {
+exports.previousList = function (req, res) {
 	Show.find({
 		ParsedDate: {
-			$gt: new Date()
+			$lt: new Date()
+		}
+	})
+	.sort({
+		ParsedDate: -1
+	})
+	.exec(function (err, data) {
+		var result = [];
+
+		_.each(data, function (iterator) {
+			result.push(ShowViewModel(iterator));
+		});
+
+		res.send(result);
+	});
+};
+
+
+
+
+
+/**
+ * List upcoming shows
+ */
+exports.todaysList = function (req, res) {
+	Show.find({
+		ParsedDate: {
+			$eq: new Date()
 		}
 	})
 	.sort({
 		ParsedDate: 1
 	})
-	.exec(function(err, data) {
+	.exec(function (err, data) {
 		var result = [];
 
-		_.each(data, function(iterator) {
+		_.each(data, function (iterator) {
 			result.push(ShowViewModel(iterator));
 		});
 
