@@ -32,7 +32,7 @@ exports.getComments = function (request, response) {
 
 	query.populate('User');
 	query.sort({
-		DateTime: -1
+		DateTime: 1
 	});
 	query.exec(function (err, comments) {
 		//comments.populate('User', function (err, comments) {
