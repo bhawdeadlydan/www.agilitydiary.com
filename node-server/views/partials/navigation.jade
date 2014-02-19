@@ -1,15 +1,18 @@
 nav.navPrimary(role='navigation')
-  a(href='/') Profile
+  a(href='/') Home
   a(href='/#/shows/upcoming') Shows
-  a(href='/#/shows/map') Maps
-    if !user
-      a(class=title=='Login'?'active':undefined, href='/login') Login
-      a(class=title=='Create Account'?'active':undefined, href='/signup') Create Account
-    else
+
+  if !user
+    a(class=title=='Login'?'active':undefined, href='/login') Login
+    a(class=title=='Create Account'?'active':undefined, href='/signup') Create Account
+    a(href='/account') My Account
+    a(href='/logout') Logout
+  else
+    if 1==2
       a(class=title=='Account Management'?'active':undefined, href='/account', data-toggle='dropdown')
         if user.profile.picture
           img.profile-image(src='#{user.profile.picture}')
         | #{user.profile.name || user.email || user.id}&nbsp;
         i.caret
       a(href='/account') My Account
-      a(href='/logout') Logout
+

@@ -38,6 +38,7 @@ app.controller('ShowsController', [
 		$scope.resignShow = resignShow;
 		$scope.enterShow = enterShow;
 		$scope.controls.saveRecord = saveRecord;
+		$scope.filterResultsForShow = filterResultsForShow;
 
 
 
@@ -46,6 +47,21 @@ app.controller('ShowsController', [
 		 */
 
 		$scope.$watch('profile', profileHasChanged);
+
+
+
+
+		function filterResultsForShow(list) {
+			var results = [];
+
+			_.each(list, function (item) {
+				if (item.Show === $scope.id) {
+					results.push(item);
+				}
+			});
+
+			return results;
+		}
 
 
 

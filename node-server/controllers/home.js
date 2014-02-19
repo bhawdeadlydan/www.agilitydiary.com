@@ -5,5 +5,11 @@
 var path = require('path');
 
 exports.index = function (req, res) {
-	res.sendfile(path.join(__dirname, '..', '..', 'angular-client', 'app', 'index.html'));
+	if (req.user) {
+		res.sendfile(path.join(__dirname, '..', '..', 'angular-client', 'app', 'index.html'));
+	} else {
+		res.render('account/login.jade', {
+			title: 'Login'
+		});
+	}
 };

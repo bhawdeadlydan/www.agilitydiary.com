@@ -1,29 +1,32 @@
 <section class="details">
 
 
-
-
-
-
 	<div class="container">
 
 
 
 		<div class="contentWrapper">
 			<section class="contentMain">
-				<h1 ng-bind="show.Name"></h1>
+				<a ng-href="#/shows/details/{{ id }}"><h1 ng-bind="show.Name"></h1></a>
 
 
 				<div class="container" ng-show="enterResults">
 		<div ng-repeat="dog in profile.Dogs">
 			<span ng-bind="dog.Profile.Name" ></span>
 
-			<div ng-repeat="result in dog.Results">
-				<div ng-show="result.Show==id">
-					Time: <span ng-bind="result.Time" />
-					Points: <span ng-bind="result.Points" />
-				</div>
-			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Time</th>
+						<th>Points</th>
+					</tr>
+				</thead>
+
+				<tr ng-repeat="result in filterResultsForShow(dog.Results)">
+					<td><span ng-bind="result.Time" /><td>
+					<td><span ng-bind="result.Points" /></td>
+				</tr>
+			</table>
 		</div>
 
 		Enter results
