@@ -124,24 +124,6 @@ app.controller('ShowsController', [
 
 
 
-		function resignShow(event) {
-			ShowService.resignShow(event._id, function () {
-
-				ShowService.userData({}, function (data) {
-					$scope.profile = data;
-					$scope.enteredShows = data.EnteredShows;
-				});
-
-				checkAttending();
-
-			}, function () {
-
-			});
-		}
-
-
-
-
 		function fetchCategories() {
 			ShowService.categories(function (data) {
 				$scope.categories = data;
@@ -228,11 +210,32 @@ app.controller('ShowsController', [
 
 		function enterShow(event) {
 			ShowService.enterShow({
-				id: event._id
+				id: $scope.id
 			}, function (data) {
-				$scope.profile = data;
-				checkAttending();
+				//$scope.profile = data;
+				//checkAttending();
 				//$location.path('#/shows/entered');
+				//details($scope.id);
+				fetchProfile();
+			}, function () {
+
+			});
+		}
+
+
+
+
+		function resignShow(event) {
+			ShowService.resignShow($scope.id, function () {
+
+				ShowService.userData({}, function (data) {
+					fetchProfile();
+					//$scope.profile = data;
+					//$scope.enteredShows = data.EnteredShows;
+				});
+
+				//checkAttending();
+
 			}, function () {
 
 			});

@@ -87,7 +87,7 @@ exports.enterShow = function (req, res) {
 						if (err) {
 							console.log(err);
 						} else {
-							res.send(DiaryViewModel(diary));
+							sendDiary(res, diary);
 						}
 					});
 				} else {
@@ -104,9 +104,7 @@ exports.enterShow = function (req, res) {
 					}
 
 					diary[0].save(function (err, diary) {
-						console.log('saved');
-
-						res.send(DiaryViewModel(diary));
+						sendDiary(res, diary);
 					});
 				}
 
@@ -143,7 +141,7 @@ exports.resignShow = function (req, res) {
 						if (err) {
 							console.log(err);
 						} else {
-							res.send(DiaryViewModel(diary));
+							sendDiary(res, diary);
 						}
 					});
 				} else {
@@ -156,10 +154,10 @@ exports.resignShow = function (req, res) {
 						}
 					});
 
-					diary.save(function (err, diary) {
+					diary.save(function (err, diary2) {
 						console.log('saved');
 
-						res.send(DiaryViewModel(diary));
+						sendDiary(res, diary2);
 					});
 				}
 
@@ -172,16 +170,20 @@ exports.resignShow = function (req, res) {
 
 
 
-exports.userData = function (req, res) {
-	function sendDiary(diary) {
-		diary.populate('EnteredShows', function (err, diary) {
-			diary.populate('User', function (err, diary) {
-				res.send(DiaryViewModel(diary));
-			});
+function sendDiary(res, diary) {
+	diary.populate('EnteredShows', function (err, diary) {
+		diary.populate('User', function (err, diary) {
+			var value = DiaryViewModel(diary);
+			console.log(value);
+			res.send(value);
 		});
-	}
+	});
+}
 
 
+
+
+exports.userData = function (req, res) {
 	User.findById(req.user.id, function (err, user) {
 		Diary.findOne({
 			User: user
@@ -195,11 +197,11 @@ exports.userData = function (req, res) {
 					if (err) {
 						res.send(500, { error: 'Error' });
 					} else {
-						sendDiary(diary);
+						sendDiary(res, diary);
 					}
 				});
 			} else {
-				sendDiary(diary);
+				sendDiary(res, diary);
 			}
 		});
 	});
