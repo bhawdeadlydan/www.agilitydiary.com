@@ -1,0 +1,29 @@
+/**
+ * @description    input styling
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-19 19:45
+ *
+ *
+ *     @example
+ *                 <select></select>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+
+
+/**
+ * @section        select
+ */
+select {
+    @include border-radius(.25em);
+    @include default-font-stack;
+
+    border: 1px solid $color-border;
+    box-shadow: inset 0 1px 3px $color-shadow;
+    margin: .5em .6em;
+    padding: .5em .6em;
+}
