@@ -1,12 +1,15 @@
-edit
+<section class="">
 
-<a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs/add">Add</a>
+	<div class="container">
+		<h1>My dogs</h1>
 
-<div ng-repeat="dog in profile.Dogs">
+		<p><a ng-href="#/dogs/add">Add</a></p>
 
-	<div>
-		<h2><a ng-href="#/dogs/{{ dog._id }}"><span ng-bind="dog.Profile.Name" ></span></a></h2>
-		Sex: <span ng-bind="dog.Profile.Sex" ></span>
+		<div ng-repeat="dog in profile.Dogs">
+			<div>
+				<h2><a ng-href="#/dogs/{{ dog._id }}" ng-bind="dog.Profile.Name"></a></h2>
+				<!-- Sex: <span ng-bind="dog.Profile.Sex" ></span> -->
+			</div>
+		</div>
 	</div>
-
-</div>
+</section>
