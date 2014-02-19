@@ -40,16 +40,25 @@ angular.module('browserAppApp', [
 			controller: 'ShowsController',
 			action: 'entered'
 		})
+
 		.when('/shows/upcoming', {
 			templateUrl: 'app/views/shows/upcoming.html',
 			controller: 'ShowsController',
 			action: 'upcoming'
 		})
+
+		.when('/shows/previous', {
+			templateUrl: 'app/views/shows/upcoming.html',
+			controller: 'ShowsController',
+			action: 'previous'
+		})
+
 		.when('/shows/details/:id', {
 			templateUrl: 'app/views/shows/details.html',
 			controller: 'ShowsController',
 			action: 'details'
 		})
+
 		.when('/shows', {
 			templateUrl: 'app/views/shows/entered.html',
 			controller: 'ShowsController',
@@ -60,6 +69,7 @@ angular.module('browserAppApp', [
 			templateUrl: 'app/views/enteredShows.html',
 			controller: 'EnteredShowsController'
 		})
+
 		.otherwise({
 			redirectTo: '/'
 		});

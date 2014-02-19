@@ -1,5 +1,33 @@
 <section class="details">
 
+	<div class="enterYourResults" ng-show="enterResults" style="width: 100%; border: green; background-color: #00ff00; padding: 1em">
+		Enter results
+
+		<div ng-repeat="dog in profile.Dogs">
+			<a ng-href="#/dogs/{{ dog._id }}"><span ng-bind="dog.Profile.Name" ></span></a>
+
+			<div>
+				<label>Judge<label>
+				<input type="textbox" />
+			</div>
+
+			<div>
+				<label>Fails<label>
+				<input type="textbox" />
+			</div>
+
+			<div>
+				<label>Time<label>
+				<input type="textbox" />
+
+			</div>
+
+			<button>Save</button>
+
+
+		</div>
+	</div>
+
 	<div>
 		<leaflet style="height: 300px"
 			id="geo-wrapper"

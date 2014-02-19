@@ -1,8 +1,15 @@
 var app = angular.module('browserAppApp');
 
 app.controller('ShowsController', [
-	'$scope', 'Mapdata', 'ShowService', 'PersistService', '$location', '$route', '$routeParams',
-	function ($scope, Mapdata, ShowService, PersistService, $location, $route, $routeParams) {
+	'$scope',
+	'Mapdata',
+	'ShowService',
+	'PersistService',
+	'ProfileService',
+	'$location',
+	'$route',
+	'$routeParams',
+	function ($scope, Mapdata, ShowService, PersistService, ProfileService, $location, $route, $routeParams) {
 		"use strict";
 
 		/**
@@ -19,6 +26,66 @@ app.controller('ShowsController', [
 		$scope.searchText = '';
 		$scope.markers = {};
 		$scope.attending = false;
+		$scope.id = null;
+		$scope.profile = {};
+
+
+		/**
+		 * click handlers
+		 */
+
+		$scope.resignShow = resignShow;
+		$scope.enterShow = enterShow;
+
+
+		/**
+		 * Scope watchers
+		 */
+
+		$scope.$watch('profile', profileHasChanged);
+
+
+
+
+		function profileHasChanged() {
+			checkAttending();
+		}
+
+
+
+
+		function errorHandler(error) {
+
+		}
+
+
+
+
+		function updateShowData(data) {
+			$scope.upcomingShows = data;
+		}
+
+
+
+
+		/**
+		 * Upcoming Shows
+		 */
+
+		function fetchPreviousShows() {
+			ShowService.previousShows(updateShowData, updateShowData, errorHandler);
+		}
+
+
+
+
+		/**
+		 * Todays Shows
+		 */
+
+		function fetchTodaysShows() {
+			ShowService.todaysShows(updateShowData, updateShowData, errorHandler);
+		}
 
 
 
@@ -47,20 +114,29 @@ app.controller('ShowsController', [
 		function fetchEnteredShows() {
 			ShowService.userData({}, function (data) {
 				$scope.enteredShows = data.EnteredShows;
-			});
 
-			$scope.resignShow = function (event) {
-				ShowService.resignShow(event._id, function () {
-
-					ShowService.userData({}, function (data) {
-						$scope.profile = data;
-						$scope.enteredShows = data.EnteredShows;
-					});
-
-				}, function () {
-
+				_.each($scope.enteredShows, function (showIterator) {
+					showIterator.enterResults = checkIsTodayOrHasHappened(new Date(showIterator.ParsedDate));
 				});
-			};
+			});
+		}
+
+
+
+
+		function resignShow(event) {
+			ShowService.resignShow(event._id, function () {
+
+				ShowService.userData({}, function (data) {
+					$scope.profile = data;
+					$scope.enteredShows = data.EnteredShows;
+				});
+
+				checkAttending();
+
+			}, function () {
+
+			});
 		}
 
 
@@ -80,6 +156,35 @@ app.controller('ShowsController', [
 
 
 
+		function checkAttending() {
+			$scope.attending = false;
+
+			console.log('Checking attending');
+
+			_.each($scope.profile.EnteredShows, function (show) {
+				if (angular.equals(show._id, $scope.id)) {
+					$scope.attending = true;
+				}
+			});
+		}
+
+
+
+
+		function checkIsTodayOrHasHappened(testDate) {
+			var today,
+				midnightTonight,
+				parseDate;
+
+			today = new Date();
+			midnightTonight = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59);
+
+			return (testDate.getTime() <= midnightTonight.getTime());
+		}
+
+
+
+
 		/**
 		 * Show Details
 		 */
@@ -93,6 +198,8 @@ app.controller('ShowsController', [
 				$scope.center.lng = data.Location.Longitude;
 				$scope.center.zoom = 15;
 
+				$scope.enterResults = checkIsTodayOrHasHappened(new Date($scope.show.ParsedDate));
+
 				var newMarker = {
 					_id: data._id,
 					lat: data.Location.Latitude,
@@ -104,11 +211,7 @@ app.controller('ShowsController', [
 					//html: '<span><a href="#/shows/details/' + item._id + '">' + item.name + '</a></span>'
 				};
 
-				_.each($scope.profile.EnteredShows, function (show) {
-					if (show._id === id) {
-						$scope.attending = true;
-					}
-				});
+				checkAttending();
 
 				$scope.markers.Location = newMarker;
 			}, function (err) {
@@ -123,16 +226,17 @@ app.controller('ShowsController', [
 		 * Click Handlers
 		 */
 
-		$scope.enterShow = function (event) {
+		function enterShow(event) {
 			ShowService.enterShow({
 				id: event._id
 			}, function (data) {
 				$scope.profile = data;
-				$location.path('#/shows/entered');
+				checkAttending();
+				//$location.path('#/shows/entered');
 			}, function () {
 
 			});
-		};
+		}
 
 
 
@@ -194,10 +298,27 @@ app.controller('ShowsController', [
 
 
 		/**
+		 * Get the users profile
+		 */
+
+		function fetchProfile() {
+			ProfileService.get(function (data) {
+				$scope.profile = data;
+			}, function (error) {
+
+			});
+		}
+
+
+
+
+		/**
 		 * Main function
 		 */
 
 		function main() {
+			fetchProfile();
+
 			var action = '';
 
 			if (typeof $route.current.$$route.action !== 'undefined') {
@@ -211,12 +332,17 @@ app.controller('ShowsController', [
 
 			switch (action) {
 			case 'details':
-				details($routeParams.id);
+				$scope.id = $routeParams.id;
+				details($scope.id);
 				break;
 
 			case 'entered':
 				fetchCategories();
 				fetchEnteredShows();
+				break;
+
+			case 'previous':
+				fetchPreviousShows();
 				break;
 
 			case 'upcoming':
@@ -225,6 +351,17 @@ app.controller('ShowsController', [
 				fetchUpcomingShows();
 			}
 		}
+
+
+
+
+		function controllerDestroy() {
+			console.log('Controller is being destroyed');
+		}
+
+
+
+		$scope.$on('$destroy', controllerDestroy);
 
 
 

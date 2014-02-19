@@ -134,20 +134,22 @@ app.use(express.errorHandler());
  * Routes
  */
 
-app.get('/map/shows/list', showController.list);
-app.get('/map/shows/upcoming', showController.upcoming);
+app.get('/agility-diary/shows/list', showController.list);
+app.get('/agility-diary/shows/upcoming', showController.upcomingList);
+app.get('/agility-diary/shows/previous', showController.previousList);
+app.get('/agility-diary/shows/todays', showController.todaysList);
 
 app.get('/agility-diary/show/details', showController.details);
 app.get('/agility-diary/show/categories', showController.categories);
 
 app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
+
 app.post('/agility-diary/addDog', userController.addDog);
 app.post('/agility-diary/deleteDog', userController.deleteDog);
 
-
-app.get('/agility-diary/enterShow', showController.enterShow);
-app.get('/agility-diary/resignShow', showController.resignShow);
+app.get('/agility-diary/enterShow', userController.enterShow);
+app.get('/agility-diary/resignShow', userController.resignShow);
 
 
 

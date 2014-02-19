@@ -10,15 +10,52 @@ angular.module('browserAppApp')
 		function ShowService($resource, $http, Authenticationservice, Settings) {
 			var module = {};
 			var caches = {
-				upcomingShows: {}
+				upcomingShows: {},
+				previousShows: {},
+				todaysShows: {}
 			};
 
 
+
+			module.previousShows = function (initCallback, successCallback, errorCallback) {
+				var url = '/agility-diary/shows/previous';
+
+				console.log(caches.previousShows);
+				initCallback(caches.previousShows);
+
+				$http.get(url).success(function (data) {
+					caches.previousShows = data;
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
 			module.upcomingShows = function (initCallback, successCallback, errorCallback) {
-				var url = '/map/shows/upcoming';
+				var url = '/agility-diary/shows/upcoming';
 
 				console.log(caches.upcomingShows);
 				initCallback(caches.upcomingShows);
+
+				$http.get(url).success(function (data) {
+					caches.upcomingShows = data;
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
+			module.todaysShows = function (initCallback, successCallback, errorCallback) {
+				var url = '/agility-diary/shows/todays';
+
+				console.log(caches.todaysShows);
+				initCallback(caches.todaysShows);
 
 				$http.get(url).success(function (data) {
 					caches.upcomingShows = data;
@@ -59,21 +96,27 @@ angular.module('browserAppApp')
 
 			module.enterShow = function (opts, successCallback, errorCallback) {
 				var url = '/agility-diary/enterShow?id=' + opts.id;
-				return $http.get(url).success(successCallback).error(errorCallback);
+				return $http
+					.get(url)
+					.success(successCallback)
+					.error(errorCallback);
 			};
 
 
 
 
-			module.resignShow = function(id, successCallback, errorCallback) {
+			module.resignShow = function (id, successCallback, errorCallback) {
 				var url = '/agility-diary/resignShow?id=' + id;
-				return $http.get(url).success(successCallback).error(errorCallback);
+				return $http
+					.get(url)
+					.success(successCallback)
+					.error(errorCallback);
 			};
 
 
 
 
-			module.userData = function(opts, successCallback, errorCallback) {
+			module.userData = function (opts, successCallback, errorCallback) {
 				var session_data,
 					url;
 
