@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width" />
 
 		<!-- build:css styles/vendor.css -->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<link rel="stylesheet" href="/static/css/styles.css">
 		<!-- bower:css -->
 		<!-- endbower -->
@@ -20,7 +21,7 @@
 	</head>
 
 	<body ng-app="browserAppApp" ng-controller="BaseController">
-		<div >
+		<div>
 
 			<!--[if lt IE 7]>
 				<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -31,13 +32,10 @@
 				<a href="#/" class="brandLogo"><img src="/app/images/logo-AgilityDiary.png" alt="AgilityDiary" /> Agility Diary</a>
 
 				<nav class="navPrimary" role="navigation">
-					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#navigation"></button>
-
-					<a href="#home">Home</a>
 					<a ng-href="#/">Profile</a>
 					<a ng-href="#/shows/upcoming">Shows</a>
 					<a ng-href="#/shows/entered">Entered Shows</a> <!--<span ng-bind="profile.EnteredShows.length">--></span>
-					<a ng-href="#/map">Map</a>
+					<a ng-href="#/map">Maps</a>
 					<a href="/account">Account</a>
 
 					<!-- <label>Search the site</label>
@@ -60,7 +58,7 @@
 
 			<footer class="layoutFooter" role="contentinfo">
 				<div class="container">
-					<a href="">Contact</a>
+					<a href="/contact">Contact</a>
 
 					<section class="copyright">
 						&copy; 2013 - 2014 AgilityDiary. All rights reserved.
@@ -87,6 +85,7 @@
 		<script src="app/scripts/lib/geoposition/geoPosition.js"></script>
 		<script src="app/scripts/lib/jquery/jquery-1.8.3.min.js"></script>
 		<script src="app/scripts/lib/leaflet/leaflet.js"></script>
+		<script src="app/scripts/lib/parsley/parsley.min.js"></script>
 		<script src="app/scripts/lib/leaflet.bouncemarker/bouncemarker.js"></script>
 		<!--  -->
 

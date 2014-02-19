@@ -28,10 +28,13 @@
 
         color: $color-nav-primary;
         display: inline-block;
-        padding: 1em;
+        padding: .25em .5em;
 
         &.active,
         &:hover {
+            @include border-radius(.5em);
+
+            background: #93c2be;
             color: $color-nav-primary-hover;
             text-decoration: none;
         }
@@ -39,7 +42,7 @@
     }
 
     .active {
-        font-weight: bold;
+        @include border-radius(.5em);
     }
 
 }

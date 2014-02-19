@@ -13,14 +13,16 @@ html
 
     title #{title} - AgilityDiary
 
+    link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', rel='stylesheet')
     link(href='/static/css/styles.css?v=#{cacheBuster}', rel='stylesheet')
 
     script(src='/js/lib/jquery-2.1.0.min.js?v=#{cacheBuster}')
+    script(src='/js/lib/parsley.min.js?v=#{cacheBuster}')
     script(src='/js/lib/bootstrap.min.js?v=#{cacheBuster}')
     script(src='/js/main.js?v=#{cacheBuster}')
   body
     header.layoutHeader(role='banner')
-      a.brandLogo
+      a.brandLogo(href='/')
         img(src='/app/images/logo-AgilityDiary.png', alt='AgilityDiary')
         | AgilityDiary
       include partials/navigation
