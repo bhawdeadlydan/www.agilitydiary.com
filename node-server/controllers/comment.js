@@ -35,8 +35,6 @@ exports.getComments = function (request, response) {
 		DateTime: 1
 	});
 	query.exec(function (err, comments) {
-		//comments.populate('User', function (err, comments) {
-			response.send(comments);
-		//});
+		response.send(comments);
 	});
 };

@@ -138,3 +138,5 @@ public/app/bower_components/underscore/test/vendor/runner.js
 public/app/bower_components/underscore/underscore-min.js
 public/app/bower_components/underscore/underscore-min.map
 public/app/bower_components/underscore/underscore.js
+workspace/photos
+workspace/uploads

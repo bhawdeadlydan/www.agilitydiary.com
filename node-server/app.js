@@ -26,6 +26,8 @@ var contactController = require('./controllers/contact');
 var showController = require('./controllers/show');
 var eventController = require('./controllers/event');
 var venueController = require('./controllers/venue');
+var uploadController = require('./controllers/upload');
+uploadController.uploadPath = __dirname + '/../workspace/photos';
 var agilitynetbridgeController = require('./controllers/agilitynetbridge');
 
 
@@ -79,6 +81,11 @@ app.use(express.compress());
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.cookieParser());
+app.use(express.bodyParser({
+	uploadDir: __dirname + '/../workspace/uploads',
+	keepExtensions: true
+}));
+app.use(express.limit('5mb'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(expressValidator());
@@ -110,6 +117,11 @@ app.use('app', express.static(__dirname + '../angular-client/app'));
 
 app.use('/static', function (req, res) {
 	var pathName = path.join(__dirname, '..', 'static', req.path);
+	res.sendfile(pathName);
+});
+
+app.use('/workspace/photos', function (req, res) {
+	var pathName = path.join(__dirname, '..', 'workspace/photos', req.path);
 	res.sendfile(pathName);
 });
 
@@ -155,6 +167,8 @@ app.get('/agility-diary/comments/get', commentsController.getComments);
 
 app.get('/agility-diary/enterShow', userController.enterShow);
 app.get('/agility-diary/resignShow', userController.resignShow);
+
+app.post('/agility-diary/uploadFile', uploadController.uploadFile);
 
 
 

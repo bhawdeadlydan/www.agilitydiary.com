@@ -5,6 +5,15 @@
 		<img src="{{ profile.User.profile.picture }}" />
 		<div ng-bind="profile.User.profile.name" />
 
+		<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
+			<span class="dz-message"></span>
+			<span data-dz-name=""></span>
+			<span data-dz-details=""></span>
+			 <span data-dz-size=""></span>
+			 <span data-dz-errormessage=""></span>
+		</div>
+
+
 		<h2><a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs">Dogs</a></h2>
 
 
@@ -29,3 +38,13 @@
 
 	</div>
 </section>
+
+<style >
+.uploadImage {
+    background: palegreen;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+}</style>
