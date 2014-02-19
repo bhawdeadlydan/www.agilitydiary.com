@@ -9,7 +9,8 @@ app.controller('ShowsController', [
 	'$location',
 	'$route',
 	'$routeParams',
-	function ($scope, Mapdata, ShowService, PersistService, ProfileService, $location, $route, $routeParams) {
+	'CommentsService',
+	function ($scope, Mapdata, ShowService, PersistService, ProfileService, $location, $route, $routeParams, CommentsService) {
 		"use strict";
 
 		/**
@@ -29,6 +30,7 @@ app.controller('ShowsController', [
 		$scope.id = null;
 		$scope.profile = {};
 		$scope.controls = {};
+		$scope.comments = {};
 
 
 		/**

@@ -1,4 +1,6 @@
 nav.navPrimary(role='navigation')
+  if !user
+    a(href='/signup') Sign up
   if user
     a(href='/account') My Account
     if 1==2
