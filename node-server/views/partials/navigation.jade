@@ -1,8 +1,8 @@
 nav.navPrimary(role='navigation')
   if user
     a(href='/account') My Account
-    a(href='/logout') Logout
     if 1==2
+      a(href='/logout') Logout
       a(class=title=='Account Management'?'active':undefined, href='/account', data-toggle='dropdown')
         if user.profile.picture
           img.profile-image(src='#{user.profile.picture}')
