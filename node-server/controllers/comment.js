@@ -26,9 +26,15 @@ exports.addComment = function (request, response) {
 
 
 exports.getComments = function (request, response) {
-	Comment.find({
+	var query = Comment.find({
 		Item: request.itemId
-	}, function (err, comments) {
+	});
+
+	query.populate('User');
+	query.sort({
+		DateTime: -1
+	});
+	query.exec(function (err, comments) {
 		//comments.populate('User', function (err, comments) {
 			response.send(comments);
 		//});
