@@ -9,11 +9,6 @@
 				<input id="addDogName" type="text" ng-model="dog.name" />
 			</div>
 
-			<div class="formField formInput formText">
-				<label for="addDogBreed">Breed</label>
-				<input id="addDogBreed" type="text" ng-model="dog.breed" />
-			</div>
-
 			<div class="formField formSelect">
 				<label for="addDogBreed">Breed</label>
 				<select name="select" id="addDogBreed" ng-model="dog.breed" ng-options="breed.name for breed in breedOptions"></select>
@@ -47,8 +42,6 @@
 			<div class="formField formSelect">
 				<label for="addDogSex">Sex</label>
 				<select name="select" id="addDogSex" ng-model="dog.sex" ng-options="sex.name for sex in sexOptions" ng-required="true"></select>
-
-				You chose {{ dog.sex.value }}
 			</div>
 
 			<div class="formField formInput formText">

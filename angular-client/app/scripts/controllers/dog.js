@@ -14,9 +14,17 @@ app.controller('DogController', [
 
 
 		$scope.dog = {
-			name: '',
-			sex: '',
-			kcgrade: ''
+      name: '',
+      breed: '',
+			kcheight: '',
+      kcgrade: '',
+      kcregisteredname: '',
+      kcregisterednumber: '',
+      dateofbirth: '',
+      sex: '',
+      microchip: '',
+			tattoo: ''
+
 		};
 		$scope.sexOptions = [
 			{ name: 'Dog', value: 'Dog' },
