@@ -2,6 +2,7 @@ nav.navPrimary(role='navigation')
   a(href='/') Home
   a(href='/#/shows/upcoming') Shows
 
+
   if !user
     a(class=title=='Login'?'active':undefined, href='/login') Login
     a(class=title=='Create Account'?'active':undefined, href='/signup') Create Account
@@ -15,4 +16,3 @@ nav.navPrimary(role='navigation')
         | #{user.profile.name || user.email || user.id}&nbsp;
         i.caret
       a(href='/account') My Account
-
