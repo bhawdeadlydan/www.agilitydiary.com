@@ -2,8 +2,11 @@
 var _ = require('underscore');
 var uploadPath = '';
 var fs = require('fs');
+var fsExtra = require('fs.extra');
 var util = require('util');
 var path = require('path');
+var uuid = require('node-uuid');
+
 var User = require('../models/mongoose/user');
 
 exports.uploadFile = function (request, response) {
@@ -18,27 +21,39 @@ exports.uploadFile = function (request, response) {
 		var originalExtension = originalFilename.split('.');
 		originalExtension = originalExtension[originalExtension.length - 1];
 
-		var newFileName = user._id + '.' + originalExtension;
-		var outPath = path.resolve(__dirname + '/../../workspace/photos/' + newFileName);
+		var userDirectory = path.resolve(__dirname + '/../../workspace/photos/' + user._id + '/');
+		var today = new Date();
 
-		console.log(tempPath);
-		console.log(outPath);
+		var stampedDirectory = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate() + '/';
+		var newDirectory = userDirectory + '/' + stampedDirectory;
 
-		instream = fs.createReadStream(tempPath);
-		outstream = fs.createWriteStream(outPath);
+		console.log(newDirectory);
 
-		util.pump(instream, outstream, function (err) {
-			if (err) {
-				console.log(err);
-			} else {
+		fsExtra.mkdirRecursive(newDirectory, function() {
+			var newFileName = stampedDirectory + uuid.v4() + '.' + originalExtension;
+			var outPath = userDirectory + '/' + newFileName;
 
-				user.profile.picture = '/workspace/photos/' + newFileName;
+			console.log(tempPath);
+			console.log(outPath);
 
-				user.save(function (err, user) {
-					response.send(200);
-				});
-			}
+			instream = fs.createReadStream(tempPath);
+			outstream = fs.createWriteStream(outPath);
+
+			util.pump(instream, outstream, function (err) {
+				if (err) {
+					console.log(err);
+				} else {
+
+					user.profile.picture = '/workspace/photos/' + user._id + '/' + newFileName;
+
+					user.save(function (err, user) {
+						response.send(200);
+					});
+				}
+			});
 		});
+
+
 	});
 };
 

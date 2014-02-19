@@ -24,7 +24,7 @@ app.controller('MainController', [
 			ProfileService.get(function (data) {
 				$scope.profile = data;
 			}, function (error) {
-
+				debugger;
 			});
 		}
 
@@ -60,8 +60,8 @@ app.controller('MainController', [
 
 			profileDropzone.on('complete', function file() {
 				profileDropzone.removeFile(file);
+				profileDropzone.removeAllFiles();
 				fetchProfile();
-				$location.path('#/');
 			});
 		}
 
