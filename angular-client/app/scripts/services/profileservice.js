@@ -40,7 +40,7 @@ angular.module('browserAppApp')
 
 
 			module.addDog = function (postData, successCallback, errorCallback) {
-				var url = '/agility-diary/addDog';
+				var url = '/agility-diary/user/add-dog';
 
 				$http.post(url, postData).success(function (data) {
 					profile = data;
@@ -51,8 +51,18 @@ angular.module('browserAppApp')
 			};
 
 
+
+			module.addResult = function (data) {
+				var url = '/agility-diary/user/add-result';
+
+				return $http.post(url, data);
+			};
+
+
+
+
 			module.deleteDog = function (postData, successCallback, errorCallback) {
-				var url = '/agility-diary/deleteDog';
+				var url = '/agility-diary/user/delete-dog';
 
 				$http.post(url, postData).success(function (data) {
 					profile = data;

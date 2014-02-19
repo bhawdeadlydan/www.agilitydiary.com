@@ -28,6 +28,7 @@ app.controller('ShowsController', [
 		$scope.attending = false;
 		$scope.id = null;
 		$scope.profile = {};
+		$scope.controls = {};
 
 
 		/**
@@ -36,6 +37,8 @@ app.controller('ShowsController', [
 
 		$scope.resignShow = resignShow;
 		$scope.enterShow = enterShow;
+		$scope.controls.saveRecord = saveRecord;
+
 
 
 		/**
@@ -199,6 +202,37 @@ app.controller('ShowsController', [
 			}, function (err) {
 				// failed
 			});
+		}
+
+
+
+
+		function saveRecordError(response) {
+			console.log(response);
+		}
+
+
+
+
+		function saveRecord() {
+			if (!$scope.form.$valid) {
+				return;
+			}
+
+			var data = {
+				dogId: $scope.controls.dogId,
+				showId: $scope.id,
+				class: $scope.controls.class,
+				time: $scope.controls.time,
+				faults: $scope.controls.faults,
+				place: $scope.controls.place,
+				judge: $scope.controls.judge,
+				points: $scope.controls.points
+			};
+
+			ProfileService.addResult(data)
+				.success(fetchProfile)
+				.error(saveRecordError);
 		}
 
 

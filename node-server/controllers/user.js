@@ -210,6 +210,40 @@ exports.userData = function (req, res) {
 
 
 
+exports.addResult = function (request, response) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (err) {
+				response.send(500, { error: 'Error' });
+			}
+
+			_.each(diary.Dogs, function (dog) {
+				if (dog._id.toString() == request.body.dogId.toString()) {
+					console.log('match');
+					dog.Results.push({
+						Show: request.body.showId,
+						Class: request.body.class,
+						Time: request.body.time,
+						Faults: request.body.faults,
+						Place: request.body.place,
+						Judge: request.body.judge,
+						Points: request.body.points
+					});
+
+					diary.save(function (err, diary) {
+						response.send(200);
+					});
+				}
+			});
+		});
+	});
+};
+
+
+
+
 exports.addDog = function (req, res) {
 	User.findById(req.user.id, function (err, user) {
 		Diary.findOne({

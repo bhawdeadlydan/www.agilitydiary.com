@@ -25,7 +25,30 @@ var diarySchema = new mongoose.Schema({
 				DateOfBirth: Date,
 				Photo: String,
 				Sex: String
-			}
+			},
+
+			Results: [
+				{
+					Show: {
+						type: mongoose.Schema.Types.ObjectId,
+						ref: 'Show'
+					},
+
+					Class: String,
+
+					Date: Date,
+
+					Time: String,
+
+					Faults: String,
+
+					Place: String,
+
+					Judge: String,
+
+					Points: String
+				}
+			]
 		}
 	]
 });

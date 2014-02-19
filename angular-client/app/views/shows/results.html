@@ -1,0 +1,141 @@
+<section class="details">
+
+
+
+
+
+
+	<div class="container">
+
+
+
+		<div class="contentWrapper">
+			<section class="contentMain">
+				<h1 ng-bind="show.Name"></h1>
+
+
+				<div class="container" ng-show="enterResults">
+		<div ng-repeat="dog in profile.Dogs">
+			<span ng-bind="dog.Profile.Name" ></span>
+
+			<div ng-repeat="result in dog.Results">
+				<div ng-show="result.Show==id">
+					Time: <span ng-bind="result.Time" />
+					Points: <span ng-bind="result.Points" />
+				</div>
+			</div>
+		</div>
+
+		Enter results
+			<form name="form">
+
+					<div ng-repeat="dog in profile.Dogs">
+						<input type="radio"
+							ng-model="controls.dogId"
+							ng-value="dog._id"
+							/>
+
+						<label><span ng-bind="dog.Profile.Name" ></span></label>
+						<a ng-href="#/dogs/{{ dog._id }}">View</a>
+					</div>
+
+
+					<div>
+					<label for="class">Class</label>
+					<input type="textbox"
+						id="class"
+						name="class"
+						ng-model="controls.class"
+						ng-required="true"
+						/>
+					</div>
+
+					<div>
+					<label for="time">Time</label>
+					<input type="textbox"
+						id="time"
+						name="time"
+						ng-model="controls.time"
+						ng-required="true"
+						/>
+					</div>
+
+					<div>
+
+					<label for="faults">Faults</label>
+					<input type="textbox"
+						id="faults"
+						name="faults"
+						ng-model="controls.faults"
+						ng-required="true"
+						/>
+					</div>
+
+					<div>
+
+					<label for="Place">Place</label>
+					<input type="textbox"
+						id="Place"
+						name="Place"
+						ng-model="controls.place"
+						ng-required="true"
+						/>
+					</div>
+
+					<div>
+
+					<label for="judge">Judge's name</label>
+					<input type="textbox"
+						id="judge"
+						name="judge"
+						ng-model="controls.judge"
+						/>
+					</div>
+
+					<div>
+
+					<label for="points">Agility warrant points</label>
+					<input type="textbox"
+						id="points"
+						name="points"
+						ng-model="controls.points"
+						/>
+					</div>
+
+
+
+
+				<button ng-click="controls.saveRecord()">Save</button>
+			</form>
+
+
+
+	</div>
+			</section>
+
+			<section class="contentSub">
+				<p>Show Type: <span ng-bind="show.Meta.ShowType" /></p>
+
+				<h2>Show dates</h2>
+				<p>From: <span ng-bind="show.ShowDate" />
+				<br />To: <span ng-bind="show.ShowEnd" /></p>
+
+				<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>
+
+				<h2>Entries</h2>
+				<p>Close: <span ng-bind="show.ClosingDate" /></p>
+				<p>Enter: <span ng-bind="show.EntriesTo" /></p>
+
+
+				<button class="button attendButton" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
+
+				<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">DON'T DO THiS SHOW</button>
+
+				<p><a href="#">Is this your show?</a></p>
+			</section>
+		</div>
+
+
+	</div>
+
+</section>

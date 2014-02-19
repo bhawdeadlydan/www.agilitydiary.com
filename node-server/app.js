@@ -145,8 +145,9 @@ app.get('/agility-diary/show/categories', showController.categories);
 app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
 
-app.post('/agility-diary/addDog', userController.addDog);
-app.post('/agility-diary/deleteDog', userController.deleteDog);
+app.post('/agility-diary/user/add-dog', userController.addDog);
+app.post('/agility-diary/user/delete-dog', userController.deleteDog);
+app.post('/agility-diary/user/add-result', userController.addResult);
 
 app.get('/agility-diary/enterShow', userController.enterShow);
 app.get('/agility-diary/resignShow', userController.resignShow);
