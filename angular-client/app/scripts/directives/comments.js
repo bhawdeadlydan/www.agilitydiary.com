@@ -20,15 +20,23 @@ angular.module('browserAppApp')
 			},
 			controller: function ($scope, $element) {
 
-				function commentSuccess() {
+				$timeout(loadComments, 1000);
+
+				function loadComments() {
 					CommentsService.getComments($scope.item)
 						.success(function (data) {
 							$scope.commentList = data;
-							$scope.message = '';
+
+							$timeout(loadComments, 1000);
 						})
 						.error(function (data) {
-
+							$timeout(loadComments, 1000);
 						});
+				}
+
+				function commentSuccess() {
+					//loadComments();
+					$scope.message = '';
 				}
 
 				$scope.addComment = function () {
