@@ -1,10 +1,8 @@
 nav.navPrimary(role='navigation')
-
   a(href='/') Profile
   a(href='/#/shows/upcoming') Shows
   a(href='/#/shows/entered') Entered Shows
   a(href='/#/shows/map') Maps
-  a(href='/contact') Contact
     if !user
       a(class=title=='Login'?'active':undefined, href='/login') Login
       a(class=title=='Create Account'?'active':undefined, href='/signup') Create Account
