@@ -29,8 +29,14 @@ angular.module('browserAppApp', [
 			action: 'edit'
 		})
 
-		.when('/dogs/:id', {
+		.when('/dogs/edit/:id', {
 			templateUrl: 'app/views/dogs/add.html',
+			controller: 'DogController',
+			action: 'edit'
+		})
+
+		.when('/dogs/:id', {
+			templateUrl: 'app/views/dogs/details.html',
 			controller: 'DogController',
 			action: 'details'
 		})
