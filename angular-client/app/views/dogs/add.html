@@ -3,7 +3,7 @@
 	<div class="container">
 		<h1>Add a dog</h1>
 
-		<form>
+		<form name="form">
 			<div class="formField formInput formText">
 				<label for="addDogName">Name</label>
 				<input id="addDogName" type="text" ng-model="dog.name" />
@@ -36,7 +36,7 @@
 
 			<div class="formField formInput formText">
 				<label for="addDogDateOfBirth">Date of birth</label>
-				<input id="addDogDateOfBirth" type="text" ng-model="dog.dateofbirth" />
+				<input id="addDogDateOfBirth" type="date" ng-model="dog.dateofbirth" />
 			</div>
 
 			<div class="formField formSelect">
