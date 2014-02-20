@@ -17,8 +17,15 @@
  * @section        brandLogo
  */
 .brandLogo {
+    @include font-size(3.0);
+
     color: $color-copy;
+    font-weight: bold;
     margin-right: 2em;
+
+    &:hover {
+        text-decoration: none;
+    }
 
     img {
         text-align: center;

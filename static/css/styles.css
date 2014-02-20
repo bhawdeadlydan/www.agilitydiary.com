@@ -1269,10 +1269,17 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo {
+  font-size: 30px;
+  font-size: 3rem;
   color: #262626;
+  font-weight: bold;
   margin-right: 2em;
 }
-/* line 23, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 26, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+.brandLogo:hover {
+  text-decoration: none;
+}
+/* line 30, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo img {
   text-align: center;
   vertical-align: middle;
