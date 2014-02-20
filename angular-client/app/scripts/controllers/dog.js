@@ -302,8 +302,13 @@ app.controller('DogController', [
 			console.log('Dog Controller');
 
 			switch (action) {
+      case 'add':
+        $scope.message = 'Add dog';
+        break;
+
 			case 'edit':
-				console.log('Edit');
+        $scope.message = 'Edit dog';
+				console.log('Edit dog');
 
 				$scope.$watch('profile', function () {
 					_.each($scope.profile.Dogs, function (dogIterator) {
