@@ -25,7 +25,9 @@ angular.module('browserAppApp')
 				function loadComments() {
 					CommentsService.getComments($scope.item)
 						.success(function (data) {
-							$scope.commentList = data;
+							if (!angular.equals($scope.commentList, data)) {
+								$scope.commentList = data;
+							}
 
 							$timeout(loadComments, 1000);
 						})

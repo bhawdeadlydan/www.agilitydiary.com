@@ -67,7 +67,31 @@
 				<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">DON'T DO THiS SHOW</button>
 
 				<p><a href="#">Is this your show?</a></p>
+
+				<h2>Attending</h2>
+
+				<span ng-repeat="attending in show.Attending">
+					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
+				</span>
+
+				<h2>Photos</h2>
+
+				<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
+					<span class="dz-message"></span>
+					<span data-dz-name=""></span>
+					<span data-dz-details=""></span>
+					<span data-dz-size=""></span>
+					<span data-dz-errormessage=""></span>
+				</div>
+
+
+				<span ng-repeat="photo in show.UserPhotos">
+					<img src="{{ photo.Path }}_80x60" />
+				</span>
+
+
 			</section>
+
 		</div>
 
 		<comments item="id" ></comments>

@@ -25,6 +25,9 @@ var userSchema = new mongoose.Schema({
 	}
 });
 
+
+
+
 /**
  * Hash the password for security.
  */

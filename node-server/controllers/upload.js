@@ -1,3 +1,5 @@
+var User = require('../models/mongoose/user');
+
 // upload controller
 var _ = require('underscore');
 var uploadPath = '';
@@ -8,27 +10,7 @@ var path = require('path');
 var uuid = require('node-uuid');
 var gm = require('gm');
 var imageMagick = gm.subClass({ imageMagick: true });
-var User = require('../models/mongoose/user');
 
-
-
-
-exports.uploadFile = UploadManager({
-	scale: [
-		{
-			width: 200,
-			height: 100
-		}
-	]
-}, function (request, response, data) {
-	User.findById(request.user.id, function (err, user) {
-		user.profile.picture = data.assetPath + '/' + _.findWhere(data.scaled, { width: 200 }).url;
-
-		user.save(function (err, user) {
-			response.send(200);
-		});
-	});
-});
 
 
 
@@ -48,11 +30,8 @@ function UploadManager(options, fn) {
 		data.originalFilename = fileItem.file.originalFilename;
 		data.originalExtension = data.originalFilename.split('.');
 		data.originalExtension = '.' + data.originalExtension[data.originalExtension.length - 1];
-
 		data.photosLocalDirectory = path.resolve(__dirname + '/../../workspace/photos/');
-
 		data.stampedDirectory = request.user.id + '/' + today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate() + '/' + data.uuid;
-
 		data.newLocalDirectory = data.photosLocalDirectory + '/' + data.stampedDirectory;
 
 		console.log(data.newDirectory);
@@ -87,10 +66,10 @@ function UploadManager(options, fn) {
 							var newScaledObject = {
 								width: width,
 								height: height,
-								name: 'source_' + width + 'x' + height + data.originalExtension
+								name: data.newUrlPath + '_' + width + 'x' + height
 							};
 
-							newScaledObject.localPath = data.newLocalDirectory + '/' + newScaledObject.name;
+							newScaledObject.localPath = path.resolve(__dirname + '/../..') + '/' + newScaledObject.name;
 							newScaledObject.url = data.stampedDirectory + '/' + newScaledObject.name;
 
 							data.scaled.push(newScaledObject);
@@ -129,3 +108,4 @@ function UploadManager(options, fn) {
 
 
 exports.uploadPath = uploadPath;
+exports.UploadManager = UploadManager;

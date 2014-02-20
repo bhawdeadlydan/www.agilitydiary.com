@@ -24,7 +24,7 @@ app.controller('MainController', [
 			ProfileService.get(function (data) {
 				$scope.profile = data;
 			}, function (error) {
-				debugger;
+
 			});
 		}
 
@@ -56,7 +56,7 @@ app.controller('MainController', [
 				}
 			}
 
-			var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/uploadFile' });
+			var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
 
 			profileDropzone.on('complete', function file() {
 				profileDropzone.removeFile(file);

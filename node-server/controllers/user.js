@@ -8,6 +8,33 @@ var DiaryViewModel = require('../models/viewmodels/diary');
 var Show = require('../models/mongoose/show');
 var ShowViewModel = require('../models/viewmodels/show');
 
+var Upload = require('./upload.js');
+
+
+
+exports.uploadFile = Upload.UploadManager({
+	scale: [
+		{
+			width: 200,
+			height: 100
+		},
+		{
+			width: 80,
+			height: 60
+		}
+	]
+}, function (request, response, data) {
+	User.findById(request.user.id, function (err, user) {
+		user.profile.picture =  data.newUrlPath; //data.assetPath + '/' + _.findWhere(data.scaled, { width: 200 }).url;
+
+		user.save(function (err, user) {
+			response.send(200);
+		});
+	});
+});
+
+
+
 
 
 function checkUserData(req) {
@@ -63,6 +90,26 @@ function createNewDiaryForUser(user, done) {
 
 
 
+function addUserToShow(show, user, success) {
+	show.Attending.push(user);
+	show.save(function () {
+		success();
+	});
+}
+
+
+
+
+function removeUserFromShow(show, user, success) {
+	show.Attending.splice(show.Attending.indexOf(user), 1);
+	show.save(function () {
+		success();
+	});
+}
+
+
+
+
 exports.enterShow = function (req, res) {
 	User.findById(req.user.id, function (err, user) {
 		console.log(user);
@@ -104,7 +151,9 @@ exports.enterShow = function (req, res) {
 					}
 
 					diary[0].save(function (err, diary) {
-						sendDiary(res, diary);
+						addUserToShow(show, user, function () {
+							sendDiary(res, diary);
+						});
 					});
 				}
 
@@ -148,7 +197,7 @@ exports.resignShow = function (req, res) {
 
 					var isAdded = false;
 					_.each(diary.EnteredShows, function (iterator) {
-						if(iterator.equals(req.query.id) === true) {
+						if (iterator.equals(req.query.id) === true) {
 
 							diary.EnteredShows.remove(iterator);
 						}
@@ -157,7 +206,9 @@ exports.resignShow = function (req, res) {
 					diary.save(function (err, diary2) {
 						console.log('saved');
 
-						sendDiary(res, diary2);
+						removeUserFromShow(show, user, function () {
+							sendDiary(res, diary2);
+						});
 					});
 				}
 

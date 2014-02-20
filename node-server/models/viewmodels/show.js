@@ -78,6 +78,10 @@ module.exports = function (data, done) {
 		Meta: {
 			ShowTypeColour: typeof data.Meta.ShowTypeColour !== 'undefined' ? data.Meta.ShowTypeColour : '',
 			ShowType: getShowType(data)
-		}
+		},
+
+		Attending: data.Attending,
+
+		UserPhotos: data.UserPhotos
 	};
-}
+};

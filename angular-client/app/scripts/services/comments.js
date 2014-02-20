@@ -9,7 +9,7 @@ angular.module('browserAppApp')
 		function CommentsService($resource, $http, Settings) {
 			var module = {},
 				profile = {},
-				lastChecked = new Date(2000, 1, 1);
+				lastChecked = new Date(4000, 1, 1);
 
 			module.getComments = function (id) {
 				var url = '/agility-diary/comments/get?itemId=' + id;

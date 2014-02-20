@@ -3,7 +3,7 @@
 <div>Comments</div>
 
 <div ng-repeat="comment in commentList">
-	<img src="{{ comment.User.profile.picture }}" /> <span ng-bind="comment.User.profile.name"></span>
+	<img src="{{ comment.User.profile.picture }}_80x60" /> <span ng-bind="comment.User.profile.name"></span>
 	on <span ng-bind="comment.DateTime|date:'medium'"></span>
 	<div ng-bind="comment.Message" ></div>
 </div>
