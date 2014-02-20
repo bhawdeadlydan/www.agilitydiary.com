@@ -4,6 +4,36 @@ var Show = require('../models/mongoose/show');
 var ShowViewModel = require('../models/viewmodels/show');
 var Diary = require('../models/mongoose/diary');
 var User = require('../models/mongoose/user');
+var Upload = require('./upload.js');
+
+
+
+exports.userUploadPhoto = Upload.UploadManager({
+	scale: [
+		{
+			width: 200,
+			height: 100
+		},
+		{
+			width: 80,
+			height: 60
+		}
+	]
+}, function (request, response, data) {
+	Show.findOne({
+		_id: request.query.id
+	}).exec(function (err, show) {
+		show.UserPhotos.push({
+			Path: data.newUrlPath,
+			User: request.user
+		});
+		show.save(function (err, show) {
+			response.send(200);
+		});
+	});
+});
+
+
 
 
 /**
@@ -24,7 +54,7 @@ exports.list = function (req, res) {
 exports.details = function (req, res) {
 	Show.findOne({
 		_id: req.query.id
-	}).exec(function (err, data) {
+	}).populate('Attending').exec(function (err, data) {
 		res.send(ShowViewModel(data));
 	});
 };

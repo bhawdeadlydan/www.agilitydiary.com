@@ -26,8 +26,8 @@ var contactController = require('./controllers/contact');
 var showController = require('./controllers/show');
 var eventController = require('./controllers/event');
 var venueController = require('./controllers/venue');
-var uploadController = require('./controllers/upload');
-uploadController.uploadPath = __dirname + '/../workspace/photos';
+//var uploadController = require('./controllers/upload');
+//uploadController.uploadPath = __dirname + '/../workspace/photos';
 var agilitynetbridgeController = require('./controllers/agilitynetbridge');
 
 
@@ -154,6 +154,7 @@ app.get('/agility-diary/shows/todays', showController.todaysList);
 
 app.get('/agility-diary/show/details', showController.details);
 app.get('/agility-diary/show/categories', showController.categories);
+app.post('/agility-diary/show/user-upload-photo', showController.userUploadPhoto);
 
 app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
@@ -168,7 +169,7 @@ app.get('/agility-diary/comments/get', commentsController.getComments);
 app.get('/agility-diary/enterShow', userController.enterShow);
 app.get('/agility-diary/resignShow', userController.resignShow);
 
-app.post('/agility-diary/uploadFile', uploadController.uploadFile);
+app.post('/agility-diary/user/uploadFile', userController.uploadFile);
 
 
 

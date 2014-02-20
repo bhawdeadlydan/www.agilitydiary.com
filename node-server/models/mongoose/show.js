@@ -39,7 +39,24 @@ var showSchema = mongoose.Schema({
 
 	Meta: {
 		ShowTypeColour: String
-	}
+	},
+
+	Attending: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User'
+		}
+	],
+
+	UserPhotos: [
+		{
+			Path: String,
+			User: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'User'
+			}
+		}
+	]
 });
 
 

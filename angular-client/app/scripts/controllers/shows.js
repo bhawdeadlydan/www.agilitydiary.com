@@ -389,6 +389,16 @@ app.controller('ShowsController', [
 			case 'details':
 				$scope.id = $routeParams.id;
 				details($scope.id);
+
+				var profileDropzone = new Dropzone('div#uploadProfileImage', {
+					url: '/agility-diary/show/user-upload-photo?id=' + $scope.id
+				});
+
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					details($scope.id);
+				});
 				break;
 
 			case 'entered':
@@ -405,6 +415,9 @@ app.controller('ShowsController', [
 				fetchCategories();
 				fetchUpcomingShows();
 			}
+
+
+
 		}
 
 
