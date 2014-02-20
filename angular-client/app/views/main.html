@@ -1,8 +1,7 @@
 <section class="main">
 
 	<div class="container">
-
-		<img src="{{ profile.User.profile.picture }}_200x100" />
+		<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
 
 		<div ng-bind="profile.User.profile.name" />
 

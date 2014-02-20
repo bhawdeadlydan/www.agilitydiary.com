@@ -7,7 +7,7 @@
 
 		<div ng-repeat="dog in profile.Dogs">
 			<div>
-				<h2><a ng-href="#/dogs/{{ dog._id }}" ng-bind="dog.Profile.Name"></a></h2>
+				<img src="{{ dog.Profile.Photo | imageSize: '132x100' }}" /> <h2><a ng-href="#/dogs/{{ dog._id }}" ng-bind="dog.Profile.Name"></a></h2>
 			</div>
 		</div>
 	</div>

@@ -4,7 +4,8 @@ angular.module('browserAppApp', [
 	'ngCookies',
 	'ngResource',
 	'ngSanitize',
-	'ngRoute'
+	'ngRoute',
+	'imageFilters'
 ])
 .config(function ($routeProvider, $locationProvider) {
 	$routeProvider
@@ -26,7 +27,7 @@ angular.module('browserAppApp', [
 		.when('/dogs', {
 			templateUrl: 'app/views/dogs/list.html',
 			controller: 'DogController',
-			action: 'edit'
+			action: 'list'
 		})
 
 		.when('/dogs/edit/:id', {

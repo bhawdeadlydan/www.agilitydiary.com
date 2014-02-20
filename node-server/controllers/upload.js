@@ -34,7 +34,7 @@ function UploadManager(options, fn) {
 		data.stampedDirectory = request.user.id + '/' + today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate() + '/' + data.uuid;
 		data.newLocalDirectory = data.photosLocalDirectory + '/' + data.stampedDirectory;
 
-		console.log(data.newDirectory);
+		//console.log(data.newDirectory);
 
 		fsExtra.mkdirRecursive(data.newLocalDirectory, function () {
 			data.outPath = data.newLocalDirectory + '/' + 'source' + data.originalExtension;

@@ -302,12 +302,16 @@ app.controller('DogController', [
 			console.log('Dog Controller');
 
 			switch (action) {
-      case 'add':
-        $scope.message = 'Add dog';
-        break;
+			case 'list':
+
+				break;
+
+			case 'add':
+				$scope.message = 'Add dog';
+				break;
 
 			case 'edit':
-        $scope.message = 'Edit dog';
+				$scope.message = 'Edit dog';
 				console.log('Edit dog');
 
 				$scope.$watch('profile', function () {
@@ -319,13 +323,14 @@ app.controller('DogController', [
 							$scope.dog.dateofbirth = dogIterator.Profile.DateOfBirth;
 							$scope.dog.photo = dogIterator.Profile.Photo;
 							$scope.dog.breed = dogIterator.Profile.Breed;
-							if(angular.isDefined(dogIterator.Profile.KennelClub)) {
+
+							if (angular.isDefined(dogIterator.Profile.KennelClub)) {
 								$scope.dog.kcheight = dogIterator.Profile.KennelClub.Height;
 								$scope.dog.kcgrade = dogIterator.Profile.KennelClub.Grade;
 								$scope.dog.kcregisteredname = dogIterator.Profile.KennelClub.RegisteredName;
 								$scope.dog.kcregisterednumber = dogIterator.Profile.KennelClub.RegisteredNumber;
-
 							}
+
 							$scope.dog.micrcohip = dogIterator.Profile.Microchip;
 						}
 					});

@@ -92,7 +92,7 @@ exports.setDogProfilePhoto = Upload.UploadManager({
 
 			_.each(diary.Dogs, function (dog) {
 				if (dog._id.toString() === request.query.id.toString()) {
-					dog.Profile.Profile = data.newUrlPath;
+					dog.Profile.Photo = data.newUrlPath;
 				}
 			});
 
@@ -416,20 +416,18 @@ exports.deleteDog = function (req, res) {
 			}
 
 			_.each(diary.Dogs, function (dog) {
-				if (dog._id.toString() == req.body._id.toString()) {
-					console.log('match');
-					dog.Deleted = true;
+				if ((typeof dog !== 'undefined') && (typeof req.body._id !== 'undefined')) {
+					if (dog._id.toString() == req.body._id.toString()) {
+						dog.Deleted = true;
+					}
 				}
 			});
 
 			console.log(diary);
 
 			diary.save(function (err, diary) {
-				console.log(err);
 				res.send(DiaryViewModel(diary));
 			});
-
-
 		});
 	});
 };
