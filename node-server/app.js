@@ -162,6 +162,10 @@ app.get('/agility-diary/userData', userController.userData);
 app.post('/agility-diary/user/add-dog', userController.addDog);
 app.post('/agility-diary/user/delete-dog', userController.deleteDog);
 app.post('/agility-diary/user/add-result', userController.addResult);
+app.post('/agility-diary/user/add-dog-photo', userController.addDogPhoto);
+app.post('/agility-diary/user/add-dog-profile-photo', userController.setDogProfilePhoto);
+
+
 
 app.post('/agility-diary/comments/add', commentsController.addComment);
 app.get('/agility-diary/comments/get', commentsController.getComments);

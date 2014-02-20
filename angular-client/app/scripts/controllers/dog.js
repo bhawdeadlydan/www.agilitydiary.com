@@ -325,7 +325,17 @@ app.controller('DogController', [
 						}
 					});
 				});
-			break;
+
+				var profileDropzone = new Dropzone('div#addImage', {
+					url: '/agility-diary/user/add-dog-profile-photo?id=' + $routeParams.id
+				});
+
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					fetchProfile();
+				});
+				break;
 			case 'details':
 				console.log('Details');
 
@@ -335,6 +345,16 @@ app.controller('DogController', [
 							$scope.dog = dogIterator;
 						}
 					});
+				});
+
+				var profileDropzone = new Dropzone('div#addImage', {
+					url: '/agility-diary/user/add-dog-photo?id=' + $routeParams.id
+				});
+
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					fetchProfile();
 				});
 			}
 		}
