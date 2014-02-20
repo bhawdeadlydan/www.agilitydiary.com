@@ -4,7 +4,7 @@
 
 		<a ng-href="#/dogs"><< Dogs</a>
 
-		<h1>{{ dog.Profile.Name }}</h1>
+		<h1>Dog: {{ dog.Profile.Name }}</h1>
 
 		<p>Breed: {{ dog.Profile.Breed }}</p>
 		<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
@@ -17,10 +17,10 @@
 		<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
 		<p>Photo: {{ dog.Profile.Photo }}</p>
 
-    <h2>Results</h2>
-    <p>[[ results here ]]</p>
+		<h2>Results</h2>
+		<p>[[ results here ]]</p>
 
-    <button ng-click="">Edit</button>
+		<a ng-href="#/dogs/edit/{{ dog._id }}">Edit</a>
 		<button ng-click="deleteDog(dog)">Remove</button>
 
 	</div>
