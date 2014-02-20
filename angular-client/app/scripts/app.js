@@ -30,7 +30,7 @@ angular.module('browserAppApp', [
 		})
 
 		.when('/dogs/:id', {
-			templateUrl: 'app/views/dogs/details.html',
+			templateUrl: 'app/views/dogs/add.html',
 			controller: 'DogController',
 			action: 'details'
 		})
