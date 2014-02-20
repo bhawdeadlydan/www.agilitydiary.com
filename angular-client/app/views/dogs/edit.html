@@ -5,7 +5,7 @@
 
 		<h1>Edit {{ dog.name }}</h1>
 
-		<form name="form">
+		<form name="form" parsley-validate>
 			<div class="formField formInput formText">
 				<label for="addDogName">Name</label>
 				<input id="addDogName" type="text" ng-model="dog.name" />

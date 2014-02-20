@@ -6,30 +6,28 @@ block content
 
   form(action='/account/profile', method='POST')
     fieldset
-      .form-group.formEmail
+      .formField.formEmail
         label(for='email') Email
         input(type='email', name='email', id='email', value='#{user.email}')
 
-      .form-group.formText
+      .formField.formText
         label(for='name') Name
         input(type='text', name='name', id='name', value='#{user.profile.name}')
 
-      .form-group.formSubmit
+      .formField.formButtons
         input(type='submit', value='Update Profile')
-
-
 
   h2 Change Password
 
   form.form-horizontal(action='/account/password', method='POST')
     fieldset
-      .form-group.formPassword
+      .formField.formPassword
         label(for='password') New Password
         input(type='password', name='password', id='password')
-      .form-group.formPassword
+      .formField.formPassword
         label(for='confirmPassword') Confirm Password
         input(type='password', name='confirmPassword', id='confirmPassword')
-      .form-group.formButton
+      .formField.formButtons
         button(type='submit') Change Password
 
   a(href='/logout') Logout
