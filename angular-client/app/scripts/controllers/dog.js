@@ -302,6 +302,30 @@ app.controller('DogController', [
 			console.log('Dog Controller');
 
 			switch (action) {
+			case 'edit':
+				console.log('Edit');
+
+				$scope.$watch('profile', function () {
+					_.each($scope.profile.Dogs, function (dogIterator) {
+						if (dogIterator._id == $routeParams.id) {
+							$scope.dog._id = dogIterator.id;
+							$scope.dog.name = dogIterator.Profile.Name;
+							$scope.dog.sex = dogIterator.Profile.Sex;
+							$scope.dog.dateofbirth = dogIterator.Profile.DateOfBirth;
+							$scope.dog.photo = dogIterator.Profile.Photo;
+							$scope.dog.breed = dogIterator.Profile.Breed;
+							if(angular.isDefined(dogIterator.Profile.KennelClub)) {
+								$scope.dog.kcheight = dogIterator.Profile.KennelClub.Height;
+								$scope.dog.kcgrade = dogIterator.Profile.KennelClub.Grade;
+								$scope.dog.kcregisteredname = dogIterator.Profile.KennelClub.RegisteredName;
+								$scope.dog.kcregisterednumber = dogIterator.Profile.KennelClub.RegisteredNumber;
+
+							}
+							$scope.dog.micrcohip = dogIterator.Profile.Microchip;
+						}
+					});
+				});
+			break;
 			case 'details':
 				console.log('Details');
 
