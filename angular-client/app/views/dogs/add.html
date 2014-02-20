@@ -1,9 +1,10 @@
 <section class="dogs add">
 
 	<div class="container">
+
 		<h1>Add a dog</h1>
 
-		<form name="form">
+		<form name="form" parsley-validate>
 			<div class="formField formInput formText">
 				<label for="addDogName">Name</label>
 				<input id="addDogName" type="text" ng-model="dog.name" />
@@ -54,10 +55,10 @@
 				<input id="addDogTattooNo" type="text" ng-model="dog.tattoo" />
 			</div>
 
-      <div class="formField formInput formUpload">
-        <label for="addDogPhoto">Upload a photo</label>
-        <input id="addDogPhoto" type="text" ng-model="dog.photo" />
-      </div>
+			<div class="formField formInput formUpload">
+				<label for="addDogPhoto">Upload a photo</label>
+				<input id="addDogPhoto" type="text" ng-model="dog.photo" />
+			</div>
 
 			<div class="formField formButtons">
 				<button ng-click="saveDog();">

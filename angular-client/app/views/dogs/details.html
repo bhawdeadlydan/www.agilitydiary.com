@@ -2,7 +2,7 @@
 
 	<div class="container">
 
-		<a ng-href="#/dogs"><< Dogs</a>
+		<p><a ng-href="#/dogs"><< Dogs</a></p>
 
 		<h1>Dog: {{ dog.Profile.Name }}</h1>
 
@@ -21,8 +21,6 @@
 		<p>[[ results here ]]</p>
 
 		<a ng-href="#/dogs/edit/{{ dog._id }}">Edit</a>
-		<button ng-click="deleteDog(dog)">Remove</button>
-
 	</div>
 
 	<div class="uploadImage" id="addImage" style="">⇧ Upload Photo
