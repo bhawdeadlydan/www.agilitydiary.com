@@ -23,7 +23,8 @@ app.controller('DogController', [
       dateofbirth: '',
       sex: '',
       microchip: '',
-			tattoo: ''
+      tattoo: '',
+			photo: ''
 
 		};
 		$scope.sexOptions = [
@@ -43,7 +44,8 @@ app.controller('DogController', [
 		$scope.kcheightOptions = [
 			{ name: 'Small', value: 'Small' },
 			{ name: 'Medium', value: 'Medium' },
-			{ name: 'Large', value: 'Large' }
+      { name: 'Large', value: 'Large' },
+			{ name: 'To be measured', value: 'To be measured' }
 		];
 		$scope.breedOptions = [
       { name: 'Affenpinscher', value: 'Affenpinscher' },

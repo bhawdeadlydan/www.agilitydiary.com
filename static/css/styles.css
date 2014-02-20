@@ -947,10 +947,9 @@ input {
 }
 /* line 32, ../../layout/css-src/partials/elements/form/_input.scss */
 input[type="email"], input[type="password"], input[type="text"] {
-  width: 74.57627%;
-  float: right;
-  margin-right: 0;
-  *margin-left: -1em;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
   display: inline;
 }
 
@@ -1637,7 +1636,8 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-form-buttons.scss */
 .formButtons {
-  text-align: right;
+  padding: 1em 0;
+  text-align: center;
 }
 
 /**

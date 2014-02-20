@@ -30,6 +30,6 @@ input {
     &[type="email"],
     &[type="password"],
     &[type="text"] {
-        @include span-columns(9 omega,12);
+        @include span-columns(6,12);
     }
 }
