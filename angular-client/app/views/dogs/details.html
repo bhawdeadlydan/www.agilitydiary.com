@@ -1,5 +1,28 @@
-<a ng-href="#/dogs">Back</a>
+<section class="dogs details">
 
-<h1>{{ dog.Profile.Name }}</h1>
+	<div class="container">
 
-<button ng-click="deleteDog(dog)">Delete</button>
+		<a ng-href="#/dogs"><< Dogs</a>
+
+		<h1>{{ dog.Profile.Name }}</h1>
+
+		<p>Breed: {{ dog.Profile.Breed }}</p>
+		<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
+		<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
+		<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
+		<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
+		<p>Date of birth: {{ dog.Profile.DateOfBirth }}</p>
+		<p>Sex: {{ dog.Profile.Sex }}</p>
+		<p>Microchip No: {{ dog.Profile.Microchip }}</p>
+		<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
+		<p>Photo: {{ dog.Profile.Photo }}</p>
+
+    <h2>Results</h2>
+    <p>[[ results here ]]</p>
+
+    <button ng-click="">Edit</button>
+		<button ng-click="deleteDog(dog)">Remove</button>
+
+	</div>
+
+</section>

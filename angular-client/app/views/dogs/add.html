@@ -1,19 +1,70 @@
-<section>
-	<h1>Add dog</h1>
+<section class="dogs add">
 
-	<form>
-		<div>
-			<label>Name</label>
-			<input type="text" ng-model="dog.name" />
-		</div>
+	<div class="container">
+		<h1>Add a dog</h1>
 
-		<div>
-			<label>Sex</label>
-			<input type="text" ng-model="dog.sex" />
-		</div>
+		<form>
+			<div class="formField formInput formText">
+				<label for="addDogName">Name</label>
+				<input id="addDogName" type="text" ng-model="dog.name" />
+			</div>
 
-		<button ng-click="saveDog();">
-			Save
-		</button>
-	</form>
+			<div class="formField formSelect">
+				<label for="addDogBreed">Breed</label>
+				<select name="select" id="addDogBreed" ng-model="dog.breed" ng-options="breed.name for breed in breedOptions"></select>
+			</div>
+
+			<div class="formField formSelect">
+				<label for="addDogKCheight">KC Height</label>
+				<select name="select" id="addDogKCheight" ng-model="dog.kcheight" ng-options="kcheight.name for kcheight in kcheightOptions"></select>
+			</div>
+
+			<div class="formField formSelect">
+				<label for="addDogKCgrade">KC Grade</label>
+				<select name="select" id="addDogKCgrade" ng-model="dog.kcgrade" ng-options="kcgrade.name for kcgrade in kcgradeOptions" ng-required="true"></select>
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="addDogKCregisteredName">KC Registered Name</label>
+				<input id="addDogKCregisteredName" type="text" ng-model="dog.kcregisteredname" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="addDogKCregisteredNumber">KC Registered Number</label>
+				<input id="addDogKCregisteredNumber" type="text" ng-model="dog.kcregisterednumber" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="addDogDateOfBirth">Date of birth</label>
+				<input id="addDogDateOfBirth" type="text" ng-model="dog.dateofbirth" />
+			</div>
+
+			<div class="formField formSelect">
+				<label for="addDogSex">Sex</label>
+				<select name="select" id="addDogSex" ng-model="dog.sex" ng-options="sex.name for sex in sexOptions" ng-required="true"></select>
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="addDogMicrochipNo">Microchip No</label>
+				<input id="addDogMicrochipNo" type="text" ng-model="dog.microchip" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="addDogTattooNo">Tattoo No</label>
+				<input id="addDogTattooNo" type="text" ng-model="dog.tattoo" />
+			</div>
+
+      <div class="formField formInput formUpload">
+        <label for="addDogPhoto">Upload a photo</label>
+        <input id="addDogPhoto" type="text" ng-model="dog.photo" />
+      </div>
+
+			<div class="formField formButtons">
+				<button ng-click="saveDog();">
+					Save
+				</button>
+			</div>
+		</form>
+	</div>
+
 </section>

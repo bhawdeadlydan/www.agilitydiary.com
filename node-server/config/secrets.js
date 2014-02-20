@@ -1,8 +1,6 @@
 module.exports = {
 	db: 'Boxa',
-	// db: '127.0.0.1',
 	dbconnection: 'mongodb://Boxa:27017/agilitynet',
-	// dbconnection: 'mongodb://127.0.0.1:27017/agilitynet',
 
 	sendgrid: {
 		user: 'Your SendGrid Username',

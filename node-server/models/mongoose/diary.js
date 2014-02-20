@@ -24,7 +24,16 @@ var diarySchema = new mongoose.Schema({
 				Name: String,
 				DateOfBirth: Date,
 				Photo: String,
-				Sex: String
+				Sex: String,
+				Breed: String,
+				KennelClub: {
+					Height: String,
+					Grade: String,
+					RegisteredName: String,
+					RegisteredNumber: String
+				},
+				Microchip: String,
+				Tattoo: String
 			},
 
 			Results: [

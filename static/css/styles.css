@@ -878,6 +878,7 @@ label {
   cursor: pointer;
   margin: .5em 0;
   padding: .5em;
+  text-align: right;
 }
 
 /**
@@ -946,11 +947,42 @@ input {
 }
 /* line 32, ../../layout/css-src/partials/elements/form/_input.scss */
 input[type="email"], input[type="password"], input[type="text"] {
-  width: 74.57627%;
-  float: right;
-  margin-right: 0;
-  *margin-left: -1em;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
   display: inline;
+}
+
+/**
+ * @description    input styling
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-19 19:45
+ *
+ *
+ *     @example
+ *                 <select></select>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+/**
+ * @section        select
+ */
+/* line 21, ../../layout/css-src/partials/elements/form/_select.scss */
+select {
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid #d4d4d4;
+  box-shadow: inset 0 1px 3px #dddddd;
+  margin: .5em .6em;
+  padding: .5em .6em;
 }
 
 /**
@@ -1003,6 +1035,7 @@ input[type="email"], input[type="password"], input[type="text"] {
   padding-right: 1em;
   margin-left: auto;
   margin-right: auto;
+  padding: 1em;
 }
 /* line 38, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .container:after {
@@ -1236,10 +1269,17 @@ input[type="email"], input[type="password"], input[type="text"] {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo {
+  font-size: 30px;
+  font-size: 3rem;
   color: #262626;
+  font-weight: bold;
   margin-right: 2em;
 }
-/* line 23, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 26, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+.brandLogo:hover {
+  text-decoration: none;
+}
+/* line 30, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo img {
   text-align: center;
   vertical-align: middle;
@@ -1551,6 +1591,60 @@ input[type="email"], input[type="password"], input[type="text"] {
 .tabs .count {
   font-size: 12px;
   font-size: 1.2rem;
+}
+
+/**
+ * @section        Modules: forms
+ */
+/**
+ * @description    styling for the formField class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-19 19:21
+ *
+ *
+ *     @example
+ *                 <div class="formField">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        formField
+ */
+/* line 22, ../../layout/css-src/partials/modules/_mod-form-field.scss */
+.formField {
+  width: 100%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/**
+ * @description    styling for the formButtons class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-19 19:25
+ *
+ *
+ *     @example
+ *                 <div class="formButtons"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        formButtons
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-form-buttons.scss */
+.formButtons {
+  padding: 1em 0;
+  text-align: center;
 }
 
 /**

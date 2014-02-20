@@ -24,7 +24,7 @@ angular.module('browserAppApp', [
 		})
 
 		.when('/dogs', {
-			templateUrl: 'app/views/dogs/edit.html',
+			templateUrl: 'app/views/dogs/list.html',
 			controller: 'DogController',
 			action: 'edit'
 		})

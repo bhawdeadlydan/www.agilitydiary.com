@@ -257,7 +257,18 @@ exports.addDog = function (req, res) {
 				Status: 'enabled',
 				Profile: {
 					Name: req.body.name,
-					Sex: req.body.sex
+					Sex: req.body.sex,
+					DateOfBirth: req.body.dateofbirth,
+					Photo: req.body.photo,
+					Breed: req.body.breed,
+					KennelClub: {
+						Height: req.body.kcheight,
+						Grade: req.body.kcgrade,
+						RegisteredName: req.body.kcregisteredname,
+						RegisteredNumber: req.body.kcregisterednumber
+					},
+					Microchip: req.body.microchip,
+					Tattoo: req.body.tattoo
 				}
 			});
 

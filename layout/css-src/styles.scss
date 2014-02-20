@@ -92,6 +92,7 @@
 @import "partials/elements/form/label";
 @import "partials/elements/form/textarea";
 @import "partials/elements/form/input";
+@import "partials/elements/form/select";
 @import "partials/elements/form/button";
 
 /**
@@ -126,6 +127,12 @@
 @import "partials/modules/mod-event-list";
 @import "partials/modules/mod-month-list";
 @import "partials/modules/mod-tabs";
+
+/**
+ * @section        Modules: forms
+ */
+@import "partials/modules/mod-form-field";
+@import "partials/modules/mod-form-buttons";
 
 /**
  * @section        Plugins

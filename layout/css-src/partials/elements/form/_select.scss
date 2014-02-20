@@ -3,11 +3,11 @@
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-02-15 08:40
+ *        @date    2014-02-19 19:45
  *
  *
  *     @example
- *                 <input></input>
+ *                 <select></select>
  *
  *
  *        @type    element
@@ -16,9 +16,9 @@
 
 
 /**
- * @section        input
+ * @section        select
  */
-input {
+select {
     @include border-radius(.25em);
     @include default-font-stack;
 
@@ -26,10 +26,4 @@ input {
     box-shadow: inset 0 1px 3px $color-shadow;
     margin: .5em .6em;
     padding: .5em .6em;
-
-    &[type="email"],
-    &[type="password"],
-    &[type="text"] {
-        @include span-columns(6,12);
-    }
 }
