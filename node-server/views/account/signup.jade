@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  form.form-horizontal(id='signup-form', method='POST')
+  form(id='signup-form', method='POST', parsley-validate)
     h1 Signup
     .formField.formEmail
       label(for='email') Email

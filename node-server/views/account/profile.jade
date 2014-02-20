@@ -4,7 +4,7 @@ block content
   h1 Account
   h2 Profile Information
 
-  form(action='/account/profile', method='POST')
+  form(action='/account/profile', method='POST', parsley-validate)
     fieldset
       .formField.formEmail
         label(for='email') Email
