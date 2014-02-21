@@ -241,6 +241,42 @@
 }
 
 /**
+ * @description    font stack mixins
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 09:50
+ *
+ *
+ *     @example
+ *
+ *
+ *
+ *        @type    mixin
+ *       @notes    Remove text-shadow in selection highlight: h5bp.com/i
+ *                 These selection declarations have to be separate.
+ *                 Customize the background color to match your design.
+ *      @ignore
+ */
+/**
+ *     @section   moz-selection
+ */
+/* line 24, ../../layout/css-src/partials/global/_selection.scss */
+::-moz-selection {
+  background: rgba(0, 0, 0, 0.1);
+  text-shadow: none;
+}
+
+/**
+ *     @section   selection
+ */
+/* line 32, ../../layout/css-src/partials/global/_selection.scss */
+::selection {
+  background: rgba(0, 0, 0, 0.1);
+  text-shadow: none;
+}
+
+/**
  * @description    normalize reset stylesheet
  *
  *      @author    normalize.css v2.1.2 | MIT License | git.io/normalize
@@ -327,7 +363,7 @@ dfn {
  */
 /* line 85, ../../layout/css-src/partials/global/_normalize.scss */
 mark {
-  background: #dfcdb4;
+  background: rgba(0, 0, 0, 0.1);
   color: #262626;
 }
 
@@ -1591,6 +1627,87 @@ select {
 .tabs .count {
   font-size: 12px;
   font-size: 1.2rem;
+}
+
+/**
+ * @description    styling for the dogs module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 09:00
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        dogsList
+ */
+/**
+ * @section        dogProfilePicture
+ */
+/* line 25, ../../layout/css-src/partials/modules/_mod-dogs.scss */
+.dogProfilePicture {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+  display: inline-block;
+  height: 64px;
+  line-height: 0;
+  margin: 1em;
+  text-align: center;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  width: 64px;
+}
+/* line 38, ../../layout/css-src/partials/modules/_mod-dogs.scss */
+.dogProfilePicture:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 43, ../../layout/css-src/partials/modules/_mod-dogs.scss */
+.lt-ie9 .dogProfilePicture {
+  color: transparent;
+}
+/* line 47, ../../layout/css-src/partials/modules/_mod-dogs.scss */
+.dogProfilePicture img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  max-width: 100%;
+}
+/* line 51, ../../layout/css-src/partials/modules/_mod-dogs.scss */
+.dogProfilePicture img:hover {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+/* line 58, ../../layout/css-src/partials/modules/_mod-dogs.scss */
+.dogProfilePicture span {
+  display: block;
+  margin-top: 1.5em;
 }
 
 /**
