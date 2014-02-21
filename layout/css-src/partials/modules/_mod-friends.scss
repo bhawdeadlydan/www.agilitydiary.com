@@ -24,4 +24,7 @@
  */
 .friendProfilePicture {
     @extend %circleAvatar;
+    height: 32px;
+    margin: .5em;
+    width: 32px;
 }

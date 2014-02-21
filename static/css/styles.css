@@ -692,11 +692,11 @@ html {
  */
 /* line 21, ../../layout/css-src/partials/elements/_body.scss */
 body {
+  background: #73afaa;
+  color: #343434;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   font-size: 1.8rem;
-  background: white;
-  color: #343434;
   line-height: 1.5em;
   margin: 0;
 }
@@ -1234,6 +1234,31 @@ select {
 }
 
 /**
+ * @description    Styling for the wrapper
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-10-21 12:23
+ *
+ *
+ *     @example
+ *                 <div class="wrapper">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    layout
+ *       @notes
+ */
+/**
+ * @section        wrapper
+ */
+/* line 23, ../../layout/css-src/partials/default-layout/_wrapper.scss */
+.wrapper {
+  background: white;
+}
+
+/**
  * @description    Styling for the content wrapper
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
@@ -1739,6 +1764,13 @@ select {
 /**
  * @section        friendProfilePicture
  */
+/* line 25, ../../layout/css-src/partials/modules/_mod-friends.scss */
+.friendProfilePicture {
+  height: 32px;
+  margin: .5em;
+  width: 32px;
+}
+
 /**
  * @description    styling for the dogs module
  *
