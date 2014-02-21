@@ -21,7 +21,7 @@ angular.module('browserAppApp')
 
 			module.previousShows = function (initCallback, successCallback, errorCallback) {
 				if (caches.previousShows !== null) {
-					successCallback(caches.upcomingShows);
+					successCallback(caches.previousShows);
 				} else {
 					var url = '/agility-diary/shows/previous';
 
@@ -72,7 +72,6 @@ angular.module('browserAppApp')
 			module.todaysShows = function (initCallback, successCallback, errorCallback) {
 				var url = '/agility-diary/shows/todays';
 
-				console.log(caches.todaysShows);
 				initCallback(caches.todaysShows);
 
 				$http.get(url).success(function (data) {

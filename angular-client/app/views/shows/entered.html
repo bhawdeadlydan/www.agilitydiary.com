@@ -40,7 +40,7 @@
 
 				<div class="eventListWrapper">
 					<ol class="eventList">
-						<li class="event" ng-repeat="event in filteredShows">
+						<li class="event" ng-repeat="event in enteredShows">
 
 							<div class="eventDate">
 								<span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
@@ -52,7 +52,7 @@
 								<div class="meta">
 									<a class="tag" href="#" ng-bind="event.Meta.ShowType" />
 									<a class="tag" href="#" ng-bind="event.Club" />
-									<a class="tag entered" href="#">Entered</a>
+									<a class="tag entered" href="#" ng-show="hasUserEnteredShow(event)">Entered</a>
 									<a class="tag entered" href="#">Camping</a>
 								</div>
 

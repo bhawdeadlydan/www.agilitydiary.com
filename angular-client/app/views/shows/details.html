@@ -70,11 +70,16 @@
 
 				<h2>Attending</h2>
 
+				<span ng-show="show.Attending.length===0">
+					Nobody
+				</span>
+
 				<span ng-repeat="attending in show.Attending">
 					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
 				</span>
 
 				<h2>Photos</h2>
+
 
 				<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 					<span class="dz-message"></span>
@@ -83,6 +88,11 @@
 					<span data-dz-size=""></span>
 					<span data-dz-errormessage=""></span>
 				</div>
+
+				<span ng-show="show.UserPhotos.length===0">
+					No photos
+				</span>
+
 
 
 				<span ng-repeat="photo in show.UserPhotos">

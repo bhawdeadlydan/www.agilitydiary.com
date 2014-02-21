@@ -19,14 +19,12 @@ app.controller('BaseController', [
 
 		function fetchProfile() {
 			ProfileService.get(function (data) {
-				console.log('Profile loaded');
 				$scope.profile = data;
 			}, function (error) {
 
 			});
 		}
 
-		console.log('BaseController');
 		fetchProfile();
 	}
 ]);
