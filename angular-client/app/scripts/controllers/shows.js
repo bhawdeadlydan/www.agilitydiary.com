@@ -123,6 +123,8 @@ app.controller('ShowsController', [
 
 
 		function updateShowData(data) {
+			$scope.stopSpinner();
+
 			$scope.upcomingShows = data;
 			filterShows();
 		}
@@ -135,6 +137,8 @@ app.controller('ShowsController', [
 		 */
 
 		function fetchPreviousShows() {
+			$scope.startSpinner();
+
 			ShowService.previousShows(updateShowData, updateShowData, errorHandler);
 		}
 
@@ -157,11 +161,15 @@ app.controller('ShowsController', [
 		 */
 
 		function fetchUpcomingShows() {
+			$scope.startSpinner();
+
 			ShowService.upcomingShows(function (data) {
 				$scope.upcomingShows = data;
 			}, function (data) {
 				$scope.upcomingShows = data;
+				$scope.stopSpinner();
 			}, function (err) {
+				$scope.stopSpinner();
 				// failed
 			});
 		}

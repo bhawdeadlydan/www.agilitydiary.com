@@ -121,8 +121,8 @@
 				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
 			</p>
 
-			<p>@@ limit this to 3 upcoming entered shows</p>
-			<div ng-repeat="show in profile.EnteredShows">
+
+			<div ng-repeat="show in profile.EnteredShows|limitTo: 3">
 				<a ng-href="#/shows/details/{{ show._id }}"  ng-bind="show.Name"></a> on <span ng-bind="show.Date"></span>
 			</div>
 
