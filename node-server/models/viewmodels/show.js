@@ -58,7 +58,7 @@ module.exports = function (data, done) {
 		ParsedEnd: data.ParsedEnd,
 		ParsedClosingDate: data.ParsedClosingDate,
 
-		NumberOfDays: (data.ParsedEnd - data.ParsedDate),
+		//NumberOfDays: Math.round(Math.abs((new Date(data.ParsedEnd).getTime() - new Date(data.ParsedDate)).getTime())/(24*60*60*1000))),
 
 		Venue: {
 			Name: data.Venue.Name,

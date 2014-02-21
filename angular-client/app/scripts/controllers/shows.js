@@ -41,6 +41,7 @@ app.controller('ShowsController', [
 		$scope.enterShow = enterShow;
 		$scope.controls.saveRecord = saveRecord;
 		$scope.filterResultsForShow = filterResultsForShow;
+		$scope.hasUserEnteredShow = hasUserEnteredShow;
 
 
 		$scope.filteredShows = [];
@@ -60,6 +61,21 @@ app.controller('ShowsController', [
 			});
 
 			$scope.filteredShows = results;
+		}
+
+
+
+
+		function hasUserEnteredShow(show) {
+			var entered = false;
+
+			_.each($scope.profile.EnteredShows, function (iterShow) {
+				if (show._id == iterShow._id) {
+					entered = true;
+				}
+			});
+
+			return entered;
 		}
 
 
