@@ -10,26 +10,28 @@ angular.module('browserAppApp')
 		function ShowService($resource, $http, Authenticationservice, Settings) {
 			var module = {};
 			var caches = {
-				upcomingShows: {},
-				previousShows: {},
+				upcomingShows: null,
+				previousShows: null,
 				todaysShows: {},
-				enteredShows: {}
+				enteredShows: {},
+				categories: null
 			};
 
 
 
 			module.previousShows = function (initCallback, successCallback, errorCallback) {
-				var url = '/agility-diary/shows/previous';
+				if (caches.previousShows !== null) {
+					successCallback(caches.upcomingShows);
+				} else {
+					var url = '/agility-diary/shows/previous';
 
-				console.log(caches.previousShows);
-				initCallback(caches.previousShows);
-
-				$http.get(url).success(function (data) {
-					caches.previousShows = data;
-					successCallback(data);
-				}).error(function (err) {
-					errorCallback(err);
-				});
+					$http.get(url).success(function (data) {
+						caches.previousShows = data;
+						successCallback(data);
+					}).error(function (err) {
+						errorCallback(err);
+					});
+				}
 			};
 
 
@@ -50,17 +52,18 @@ angular.module('browserAppApp')
 
 
 			module.upcomingShows = function (initCallback, successCallback, errorCallback) {
-				var url = '/agility-diary/shows/upcoming';
+				if (caches.upcomingShows !== null) {
+					successCallback(caches.upcomingShows);
+				} else {
+					var url = '/agility-diary/shows/upcoming';
 
-				console.log(caches.upcomingShows);
-				initCallback(caches.upcomingShows);
-
-				$http.get(url).success(function (data) {
-					caches.upcomingShows = data;
-					successCallback(data);
-				}).error(function (err) {
-					errorCallback(err);
-				});
+					$http.get(url).success(function (data) {
+						caches.upcomingShows = data;
+						successCallback(data);
+					}).error(function (err) {
+						errorCallback(err);
+					});
+				}
 			};
 
 
@@ -84,13 +87,19 @@ angular.module('browserAppApp')
 
 
 			module.categories = function (successCallback, errorCallback) {
-				var url = '/agility-diary/show/categories';
+				if (caches.categories !== null) {
+					successCallback(caches.categories);
+				} else {
+					var url = '/agility-diary/show/categories';
 
-				$http.get(url).success(function (data) {
-					successCallback(data);
-				}).error(function (err) {
-					errorCallback(err);
-				});
+					$http.get(url).success(function (data) {
+						caches.categories = data;
+
+						successCallback(data);
+					}).error(function (err) {
+						errorCallback(err);
+					});
+				}
 			};
 
 

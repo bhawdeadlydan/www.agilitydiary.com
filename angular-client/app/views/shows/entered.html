@@ -4,7 +4,7 @@
 		<section>
 			<h1>Shows</h1>
 
-			<p ng-show="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">No shows</p>
+			<p ng-show="filteredShows.length===0">No shows</p>
 
 			<label>Search</label>
 			<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
@@ -24,7 +24,7 @@
 		</nav>
 
 		<nav class="tabs">
-			<a href="#/shows/upcoming">Upcoming shows <span class="count" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">({{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }})</span></a>
+			<a href="#/shows/upcoming">Upcoming shows</a>
 			<a href="#/shows/previous">Previous shows</a>
 			<a class="active"  href="#/shows/entered">Entered</a>
 		</nav>
@@ -38,7 +38,7 @@
 
 				<div class="eventListWrapper">
 					<ol class="eventList">
-						<li class="event" ng-repeat="event in enteredShows | filter: showHasSelectedCategory | filter: showIsInSearch">
+						<li class="event" ng-repeat="event in filteredShows">
 
 							<div class="eventDate">
 								<span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
