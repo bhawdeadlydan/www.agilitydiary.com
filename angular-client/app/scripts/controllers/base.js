@@ -35,6 +35,7 @@ app.controller('BaseController', [
 
 
 		function startSpinner() {
+
 			var opts = {
 				lines: 13, // The number of lines to draw
 				length: 20, // The length of each line
@@ -50,7 +51,7 @@ app.controller('BaseController', [
 				hwaccel: false, // Whether to use hardware acceleration
 				className: 'spinner', // The CSS class to assign to the spinner
 				zIndex: 2e9, // The z-index (defaults to 2000000000)
-				top: 'auto', // Top position relative to parent in px
+				top: ($(window).height()/2) - 100, // Top position relative to parent in px
 				left: 'auto' // Left position relative to parent in px
 			};
 

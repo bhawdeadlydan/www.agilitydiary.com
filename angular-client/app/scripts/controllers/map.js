@@ -232,6 +232,8 @@ angular.module('browserAppApp')
 
 		function getVenueData() {
 			Mapdata.venues({}, function(data) {
+				$scope.stopSpinner();
+
 				_.each(data, function(item) {
 					if(typeof item.location !== 'undefined') {
 						var newMarker = {
@@ -261,6 +263,8 @@ angular.module('browserAppApp')
 
 
 		function main() {
+			$scope.startSpinner();
+
 			bindMapToScope();
 			newSearch();
 

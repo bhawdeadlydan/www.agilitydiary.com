@@ -10,30 +10,38 @@ angular.module('browserAppApp')
 		function ProfileService($resource, $http, Authenticationservice, Settings) {
 			var module = {},
 				profile = {},
-				lastChecked = new Date(2000, 1, 1);
+				lastChecked = new Date(2000, 1, 1).getTime();
 
 
 
 
 			module.get = function (successCallback, errorCallback) {
 				var url = '/agility-diary/userData',
-					checkAgain = true,
-					millisecondsSinceChecked = new Date() - lastChecked;
+					checkAgain = false,
+					millisecondsSinceChecked = new Date().getTime() - lastChecked;
 
 				if (millisecondsSinceChecked > 10 * 1000) {
 					checkAgain = true;
+					lastChecked = new Date().getTime();
 				}
 
-				//if (checkAgain === true) {
+				if (checkAgain === true) {
 					$http.get(url).success(function (data) {
 						profile = data;
 						successCallback(data);
 					}).error(function (err) {
 						errorCallback(err);
 					});
-				//} /else {
+				} else {
 					successCallback(profile);
-				//}
+				}
+			};
+
+
+
+
+			module.invalidateCache = function () {
+				lastChecked = new Date(2000, 1, 1).getTime();
 			};
 
 

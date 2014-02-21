@@ -47,7 +47,7 @@ function getShowType(data) {
  */
 module.exports = function (data, done) {
 	return {
-		_id: data._id,
+		_id: typeof data._id !== 'undefined' ? data._id : null,
 		Name: data.Name,
 		Club: data.Club,
 		ShowDate: data.ShowDate,
