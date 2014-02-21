@@ -22,6 +22,8 @@ app.controller('MainController', [
 		 */
 
 		function fetchProfile() {
+			ProfileService.invalidateCache();
+
 			ProfileService.get(function (data) {
 				$scope.profile = data;
 			}, function (error) {
