@@ -17,6 +17,18 @@
 		<div class="contentWrapper">
 			<section class="contentMain">
 
+				<h2>Details</h2>
+
+				<p>Breed: {{ dog.Profile.Breed }}</p>
+				<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
+				<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
+				<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
+				<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
+				<p>Date of birth: {{ dog.Profile.DateOfBirth | date:'mediumDate' }}</p>
+				<p>Sex: {{ dog.Profile.Sex }}</p>
+				<p>Microchip No: {{ dog.Profile.Microchip }}</p>
+				<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
+
 				<!-- <h2>Results</h2>
 				<p>@@only list this dog's results here</p>
 				<div ng-repeat="dog in profile.Dogs">
@@ -61,16 +73,6 @@
 
 			<section class="contentSub">
 				<a ng-href="#/dogs/edit/{{ dog._id }}">Edit details</a>
-
-				<p>Breed: {{ dog.Profile.Breed }}</p>
-				<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
-				<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
-				<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
-				<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
-				<p>Date of birth: {{ dog.Profile.DateOfBirth | date:'mediumDate' }}</p>
-				<p>Sex: {{ dog.Profile.Sex }}</p>
-				<p>Microchip No: {{ dog.Profile.Microchip }}</p>
-				<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
 
 			</section>
 
