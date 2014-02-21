@@ -37,6 +37,76 @@ exports.uploadFile = Upload.UploadManager({
 
 
 
+exports.addDogPhoto = Upload.UploadManager({
+	scale: [
+		{
+			width: 200,
+			height: 100
+		},
+		{
+			width: 80,
+			height: 60
+		}
+	]
+}, function (request, response, data) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+
+			_.each(diary.Dogs, function (dog) {
+				if (dog._id.toString() === request.query.id.toString()) {
+					dog.Photos.push({
+						Path: data.newUrlPath
+					});
+				}
+			});
+
+			diary.save(function (err, diary) {
+				response.send(200);
+			});
+		});
+	});
+});
+
+
+
+
+
+exports.setDogProfilePhoto = Upload.UploadManager({
+	scale: [
+		{
+			width: 200,
+			height: 100
+		},
+		{
+			width: 80,
+			height: 60
+		}
+	]
+}, function (request, response, data) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+
+			_.each(diary.Dogs, function (dog) {
+				if (dog._id.toString() === request.query.id.toString()) {
+					dog.Profile.Photo = data.newUrlPath;
+				}
+			});
+
+			diary.save(function (err, diary) {
+				response.send(200);
+			});
+		});
+	});
+});
+
+
+
+
+
 function checkUserData(req) {
 	User.findById(req.user.id, function (err, user) {
 		console.log(user);
@@ -346,20 +416,18 @@ exports.deleteDog = function (req, res) {
 			}
 
 			_.each(diary.Dogs, function (dog) {
-				if (dog._id.toString() == req.body._id.toString()) {
-					console.log('match');
-					dog.Deleted = true;
+				if ((typeof dog !== 'undefined') && (typeof req.body._id !== 'undefined')) {
+					if (dog._id.toString() == req.body._id.toString()) {
+						dog.Deleted = true;
+					}
 				}
 			});
 
 			console.log(diary);
 
 			diary.save(function (err, diary) {
-				console.log(err);
 				res.send(DiaryViewModel(diary));
 			});
-
-
 		});
 	});
 };

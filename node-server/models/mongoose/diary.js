@@ -57,6 +57,12 @@ var diarySchema = new mongoose.Schema({
 
 					Points: String
 				}
+			],
+
+			Photos: [
+				{
+					Path: String,
+				}
 			]
 		}
 	]
