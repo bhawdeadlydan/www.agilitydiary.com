@@ -68,8 +68,8 @@ $color-border              :    lighten($color-black, 83%); // output = #d4d4d4
 $color-shadow              :    #ddd;
 $color-drop-shadow         :    darken($color-white, 13%); // output = #dedede
 
-$color-mark                :    $color-brand-complementary1;
-$color-selection           :    $color-brand-complementary2;
+$color-mark                :    rgba(0,0,0,0.1);
+$color-selection           :    rgba(0,0,0,0.1);
 
 $color-show                :    green;
 $color-hide                :    red;

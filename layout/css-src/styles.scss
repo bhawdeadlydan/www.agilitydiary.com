@@ -57,7 +57,7 @@
  * @section        Global
  */
 @include border-box-sizing;
-// @import "partials/global/selection";
+@import "partials/global/selection";
 @import "partials/global/normalize";
 
 /**
@@ -127,6 +127,7 @@
 @import "partials/modules/mod-event-list";
 @import "partials/modules/mod-month-list";
 @import "partials/modules/mod-tabs";
+@import "partials/modules/mod-dogs";
 
 /**
  * @section        Modules: forms

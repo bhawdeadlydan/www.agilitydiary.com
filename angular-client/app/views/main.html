@@ -1,10 +1,10 @@
-<section class="main">
+<section class="main profile">
 
 	<div class="container">
 
 		<img src="{{ profile.User.profile.picture }}_200x100" />
 
-		<div ng-bind="profile.User.profile.name" />
+		<h1 ng-bind="profile.User.profile.name" />
 
 		<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 			<span class="dz-message"></span>
@@ -14,38 +14,41 @@
 			 <span data-dz-errormessage=""></span>
 		</div>
 
+		<section class="dogsList">
+			<h2><a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs">Dogs</a></h2>
 
-		<h2><a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs">Dogs</a></h2>
+			<p ng-show="!profile.Dogs.length">
+				You have no dogs
+			</p>
 
-
-		<div ng-show="!profile.Dogs.length">
-			You have no dogs
-		</div>
-
-
-
-		<div ng-repeat="dog in profile.Dogs">
 			<div>
-				<a ng-href="#/dogs/{{ dog._id }}"><div ng-bind="dog.Profile.Name" /></a>
-
+				<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
+					<img src="http://placedog.com/64/64" alt="" />
+					<br /><span ng-bind="dog.Profile.Name" />
+				</a>
 			</div>
-		</div>
+		</section>
 
-		<h2>Entered Shows</h2>
+		<section class="enteredShowsList">
+			<h2>Entered Shows</h2>
 
-		<div ng-repeat="show in profile.EnteredShows">
-			<a ng-href="#/shows/details/{{ show._id }}"><div ng-bind="show.Name"></div></a>
-		</div>
+			<p ng-show="!profile.EnteredShows.length">
+				You have not entered any shows, <a href="#/shows/upcoming">enter some shows</a>
+			</p>
+			<div ng-repeat="show in profile.EnteredShows">
+				<a ng-href="#/shows/details/{{ show._id }}"><div ng-bind="show.Name"></div></a>
+			</div>
+		</section>
 
 	</div>
 </section>
 
 <style >
 .uploadImage {
-    background: palegreen;
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
+	background: palegreen;
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
 }</style>

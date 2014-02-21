@@ -1,0 +1,62 @@
+/**
+ * @description    styling for the dogs module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 09:00
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        dogsList
+ */
+.dogsList {
+
+}
+
+/**
+ * @section        dogProfilePicture
+ */
+.dogProfilePicture {
+    border: 2px solid rgba(255,255,255,0.4);
+    @include border-radius(50%);
+    @include box-shadow(rgba(0,0,0,0.4) 0px 0px 5px);
+    display: inline-block;
+    height: 64px;
+    line-height: 0;
+    margin: 1em;
+    text-align: center;
+    @include transition-timing-function(linear);
+    @include transition-duration(0.25s);
+    width: 64px;
+
+    &:hover {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .lt-ie9 & {
+        color: transparent;
+    }
+
+    img {
+        @include border-radius(50%);
+        max-width: 100%;
+
+        &:hover {
+            border: 2px solid rgba(255,255,255,0.8);
+            @include transition-timing-function(ease-out);
+            @include transition-duration(0.25s);
+        }
+    }
+
+    span {
+        display: block;
+        margin-top: 1.5em;
+    }
+}
