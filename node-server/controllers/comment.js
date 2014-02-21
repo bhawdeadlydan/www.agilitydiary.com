@@ -13,11 +13,15 @@ var ShowViewModel = require('../models/viewmodels/show');
 
 
 exports.addComment = function (request, response) {
+	console.log(request.body);
+	console.log(request.body.itemId);
+	var item = mongoose.Types.ObjectId(request.body.itemId);
+
 	User.findById(request.user.id, function (err, user) {
 		Comment.create({
 			User: user,
 			Message: request.body.message,
-			Item: request.body.itemId
+			Item: item
 		}, function (err, comment) {
 			response.send(200);
 		});
@@ -27,7 +31,7 @@ exports.addComment = function (request, response) {
 
 exports.getComments = function (request, response) {
 	var query = Comment.find({
-		Item: request.itemId
+		Item: mongoose.Types.ObjectId(request.query.itemId)
 	});
 
 	query.populate('User');

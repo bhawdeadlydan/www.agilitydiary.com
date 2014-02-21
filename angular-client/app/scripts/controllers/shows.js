@@ -133,8 +133,8 @@ app.controller('ShowsController', [
 		 */
 
 		function fetchEnteredShows() {
-			ShowService.userData({}, function (data) {
-				$scope.enteredShows = data.EnteredShows;
+			ShowService.enteredShows({}, function (data) {
+				$scope.enteredShows = data;
 
 				_.each($scope.enteredShows, function (showIterator) {
 					showIterator.enterResults = checkIsTodayOrHasHappened(new Date(showIterator.ParsedDate));
@@ -328,6 +328,8 @@ app.controller('ShowsController', [
 		 */
 
 		$scope.showHasSelectedCategory = function (item) {
+			console.log(item);
+			console.log($scope.selectedCategories);
 			return $scope.selectedCategories.indexOf(item.Meta.ShowType) !== -1;
 		};
 
@@ -390,15 +392,17 @@ app.controller('ShowsController', [
 				$scope.id = $routeParams.id;
 				details($scope.id);
 
-				var profileDropzone = new Dropzone('div#uploadProfileImage', {
-					url: '/agility-diary/show/user-upload-photo?id=' + $scope.id
-				});
+				if (document.querySelector('div#uploadProfileImage') !== null) {
+					var profileDropzone = new Dropzone('div#uploadProfileImage', {
+						url: '/agility-diary/show/user-upload-photo?id=' + $scope.id
+					});
 
-				profileDropzone.on('complete', function file() {
-					profileDropzone.removeFile(file);
-					profileDropzone.removeAllFiles();
-					details($scope.id);
-				});
+					profileDropzone.on('complete', function file() {
+						profileDropzone.removeFile(file);
+						profileDropzone.removeAllFiles();
+						details($scope.id);
+					});
+				}
 				break;
 
 			case 'entered':
@@ -407,6 +411,7 @@ app.controller('ShowsController', [
 				break;
 
 			case 'previous':
+				fetchCategories();
 				fetchPreviousShows();
 				break;
 

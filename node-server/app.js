@@ -149,6 +149,7 @@ app.use(express.errorHandler());
 
 app.get('/agility-diary/shows/list', showController.list);
 app.get('/agility-diary/shows/upcoming', showController.upcomingList);
+app.get('/agility-diary/shows/entered', showController.enteredList);
 app.get('/agility-diary/shows/previous', showController.previousList);
 app.get('/agility-diary/shows/todays', showController.todaysList);
 

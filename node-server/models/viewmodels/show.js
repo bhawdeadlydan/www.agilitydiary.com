@@ -58,6 +58,8 @@ module.exports = function (data, done) {
 		ParsedEnd: data.ParsedEnd,
 		ParsedClosingDate: data.ParsedClosingDate,
 
+		NumberOfDays: (data.ParsedEnd - data.ParsedDate),
+
 		Venue: {
 			Name: data.Venue.Name,
 			Address: data.Venue.Address,

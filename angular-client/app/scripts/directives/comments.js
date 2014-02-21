@@ -1,5 +1,5 @@
 angular.module('browserAppApp')
-	.directive('comments', ['$rootScope', '$timeout', 'CommentsService', function popup($rootScope, $timeout, CommentsService) {
+	.directive('comments', ['$rootScope', '$timeout', '$interval', 'CommentsService', function popup($rootScope, $timeout, $interval, CommentsService) {
 		return {
 			templateUrl: 'app/templates/directives/comments.html',
 			restrict: 'E',
@@ -7,34 +7,43 @@ angular.module('browserAppApp')
 				'item': '=',
 			},
 			link: function link(scope, element, attrs) {
+				var timeoutId;
+
 				scope.commentList = {};
 
 				console.log('link comments');
-				CommentsService.getComments(scope.item)
+				/*CommentsService.getComments(scope.item)
 					.success(function (data) {
 						scope.commentList = data;
 					})
 					.error(function (data) {
 
-					});
+					});*/
+
+
+				timeoutId = $interval(function () {
+					loadComments();
+				}, 5000);
+
+				element.on('$destroy', function () {
+					$interval.cancel(timeoutId);
+				});
+
+
+				function loadComments() {
+					CommentsService.getComments(scope.item)
+						.success(function (data) {
+							if (!angular.equals(scope.commentList, data)) {
+								scope.commentList = data;
+							}
+						})
+						.error(function (data) {
+
+						});
+				}
 			},
 			controller: function ($scope, $element) {
 
-				$timeout(loadComments, 1000);
-
-				function loadComments() {
-					CommentsService.getComments($scope.item)
-						.success(function (data) {
-							if (!angular.equals($scope.commentList, data)) {
-								$scope.commentList = data;
-							}
-
-							$timeout(loadComments, 1000);
-						})
-						.error(function (data) {
-							$timeout(loadComments, 1000);
-						});
-				}
 
 				function commentSuccess() {
 					//loadComments();
