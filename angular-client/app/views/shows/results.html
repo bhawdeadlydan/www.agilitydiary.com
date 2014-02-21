@@ -25,98 +25,72 @@
 						<table>
 							<thead>
 								<tr>
+									<th>Date</th>
+									<th>Show</th>
+									<th>Class</th>
 									<th>Time</th>
-									<th>Points</th>
+									<th>Faults</th>
+									<th>Place</th>
+									<th>Judge's name</th>
+									<th>Agility Warrant Points</th>
 								</tr>
 							</thead>
 
 							<tr ng-repeat="result in filterResultsForShow(dog.Results)">
+								<td></td>
+								<td></td>
+								<td></td>
 								<td><span ng-bind="result.Time" /><td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td><span ng-bind="result.Points" /></td>
 							</tr>
 						</table>
 					</div>
 
 
-			<form name="form">
+					<form name="form" parsley-validate>
 
-					<div ng-repeat="dog in profile.Dogs">
-						<input type="radio"
-							ng-model="controls.dogId"
-							ng-value="dog._id"
-							/>
+						<div class="formField formInput formRadio" ng-repeat="dog in profile.Dogs">
+							<input type="radio" ng-model="controls.dogId" ng-value="dog._id" />
+							<label for=""><span ng-bind="dog.Profile.Name"></span></label>
+							<a ng-href="#/dogs/{{ dog._id }}">View</a>
+						</div>
 
-						<label><span ng-bind="dog.Profile.Name" ></span></label>
-						<a ng-href="#/dogs/{{ dog._id }}">View</a>
+						<div class="formField formInput formText">
+							<label for="class">Class</label>
+							<input type="textbox" id="class" name="class" ng-model="controls.class" ng-required="true" />
+						</div>
+
+						<div class="formField formInput formText">
+							<label for="time">Time</label>
+							<input type="textbox" id="time" name="time" ng-model="controls.time" ng-required="true" />
+						</div>
+
+					<div class="formField formInput formText">
+						<label for="faults">Faults</label>
+						<input type="textbox" id="faults" name="faults" ng-model="controls.faults" ng-required="true" />
 					</div>
 
-
-					<div>
-					<label for="class">Class</label>
-					<input type="textbox"
-						id="class"
-						name="class"
-						ng-model="controls.class"
-						ng-required="true"
-						/>
+					<div class="formField formInput formText">
+						<label for="Place">Place</label>
+						<input type="textbox" id="Place" name="Place" ng-model="controls.place" ng-required="true" />
 					</div>
 
-					<div>
-					<label for="time">Time</label>
-					<input type="textbox"
-						id="time"
-						name="time"
-						ng-model="controls.time"
-						ng-required="true"
-						/>
+					<div class="formField formInput formText">
+						<label for="judge">Judge's name</label>
+						<input type="textbox" id="judge" name="judge" ng-model="controls.judge" />
 					</div>
 
-					<div>
-
-					<label for="faults">Faults</label>
-					<input type="textbox"
-						id="faults"
-						name="faults"
-						ng-model="controls.faults"
-						ng-required="true"
-						/>
+					<div class="formField formInput formText">
+						<label for="points">Agility warrant points</label>
+						<input type="textbox" id="points" name="points" ng-model="controls.points" />
 					</div>
 
-					<div>
-
-					<label for="Place">Place</label>
-					<input type="textbox"
-						id="Place"
-						name="Place"
-						ng-model="controls.place"
-						ng-required="true"
-						/>
+					<div class="formField formButtons">
+						<button ng-click="controls.saveRecord()">Save</button>
 					</div>
-
-					<div>
-
-					<label for="judge">Judge's name</label>
-					<input type="textbox"
-						id="judge"
-						name="judge"
-						ng-model="controls.judge"
-						/>
-					</div>
-
-					<div>
-
-					<label for="points">Agility warrant points</label>
-					<input type="textbox"
-						id="points"
-						name="points"
-						ng-model="controls.points"
-						/>
-					</div>
-
-
-
-
-				<button ng-click="controls.saveRecord()">Save</button>
 			</form>
 
 	</div>
