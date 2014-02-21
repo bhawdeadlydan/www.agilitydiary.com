@@ -2,27 +2,38 @@
 
 	<div class="container">
 
-		<p><a ng-href="#/dogs"><< Dogs</a></p>
+		<div class="contentWrapper">
+			<section class="contentMain">
 
-		<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+				<p><a ng-href="#/dogs"><< Dogs</a></p>
 
-		<h1>Dog: {{ dog.Profile.Name }}</h1>
+				<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
 
-		<p>Breed: {{ dog.Profile.Breed }}</p>
-		<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
-		<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
-		<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
-		<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
-		<p>Date of birth: {{ dog.Profile.DateOfBirth }}</p>
-		<p>Sex: {{ dog.Profile.Sex }}</p>
-		<p>Microchip No: {{ dog.Profile.Microchip }}</p>
-		<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
+				<h1>{{ dog.Profile.Name }}</h1>
+
+				<h2>Results</h2>
 
 
-		<h2>Results</h2>
-		<p>[[ results here ]]</p>
 
-		<a ng-href="#/dogs/edit/{{ dog._id }}">Edit</a>
+			</section>
+
+			<section class="contentSub">
+				<a ng-href="#/dogs/edit/{{ dog._id }}">Edit details</a>
+
+				<p>Breed: {{ dog.Profile.Breed }}</p>
+				<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
+				<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
+				<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
+				<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
+				<p>Date of birth: {{ dog.Profile.DateOfBirth | date:'mediumDate' }}</p>
+				<p>Sex: {{ dog.Profile.Sex }}</p>
+				<p>Microchip No: {{ dog.Profile.Microchip }}</p>
+				<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
+
+			</section>
+
+		</div>
+
 	</div>
 
 	<div class="uploadImage" id="addImage" style="">⇧ Upload Photo

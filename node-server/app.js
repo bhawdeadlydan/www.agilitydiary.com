@@ -161,6 +161,7 @@ app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
 
 app.post('/agility-diary/user/add-dog', userController.addDog);
+app.post('/agility-diary/user/update-dog', userController.updateDog);
 app.post('/agility-diary/user/delete-dog', userController.deleteDog);
 app.post('/agility-diary/user/add-result', userController.addResult);
 app.post('/agility-diary/user/add-dog-photo', userController.addDogPhoto);

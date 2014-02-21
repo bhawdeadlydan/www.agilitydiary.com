@@ -21,10 +21,12 @@
 			</p>
 
 			<div>
-				<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
-					<img src="http://placedog.com/64/64" alt="" />
-					<br /><span ng-bind="dog.Profile.Name" />
-				</a>
+				<div ng-repeat="dog in profile.Dogs" >
+					<a  ng-href="#/dogs/{{ dog._id }}">
+						<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+						<br /><span ng-bind="dog.Profile.Name" />
+					</a>
+				</div>
 			</div>
 		</section>
 

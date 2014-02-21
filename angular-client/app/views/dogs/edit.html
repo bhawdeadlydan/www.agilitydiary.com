@@ -3,7 +3,7 @@
 	<div class="container">
     <p><a ng-href="#/dogs"><< Dogs</a></p>
 
-		<h1><img src="{{ dog.photo }}_80x60" /> Edit {{ dog.name }}</h1>
+		<h1><img src="{{ dog.photo }}_80x60" /> Edit <a ng-href="#/dogs/{{ dog._id }}">{{ dog.name }}</a></h1>
 
 		<form name="form" parsley-validate>
 			<div class="formField formInput formText">
@@ -56,10 +56,7 @@
 				<input id="addDogTattooNo" type="text" ng-model="dog.tattoo" />
 			</div>
 
-			<div class="formField formInput formUpload">
-				<label for="addDogPhoto">Upload a photo</label>
-				<input id="addDogPhoto" type="text" ng-model="dog.photo" />
-			</div>
+
 
 			<div class="formField formButtons">
 				<button ng-click="saveDog();">

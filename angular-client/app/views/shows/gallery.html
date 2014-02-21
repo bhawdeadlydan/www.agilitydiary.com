@@ -1,29 +1,15 @@
 <section class="details">
 
 
-
 	<div class="container">
 
 		<h1 ng-bind="show.Name"></h1>
 
 		<nav class="tabs">
-			<a class="active" ng-href="#/shows/details/{{ id }}">Details</a>
+			<a ng-href="#/shows/details/{{ id }}">Details</a>
 			<a ng-href="#/shows/results/{{ id }}">View/enter results</a>
-			<a ng-href="#/shows/photos/{{ id }}">Photos</a>
+			<a class="active"   ng-href="#/shows/photos/{{ id }}">Photos</a>
 		</nav>
-
-
-		<div>
-			<leaflet style="height: 300px"
-				id="geo-wrapper"
-				elementcacheid="search/geo-wrapper"
-				fullsize="false"
-				center="centre"
-				bounds="bounds"
-				scrollwheelzoom="false"
-				dragging="true"
-				clickmarker="Location"></leaflet>
-		</div>
 
 
 		<!-- <div class="blog-meta">
@@ -40,72 +26,8 @@
 
 		<div class="contentWrapper">
 			<section class="contentMain">
+				<a ng-href="#/shows/details/{{ id }}"><h1 ng-bind="show.Name"></h1></a>
 
-				<p>
-					<a href="#"><span ng-bind="show.Venue.Name" /></a>,
-					<span ng-bind="show.Venue.Address" />,
-					<span ng-bind="show.Venue.PostCode" />
-
-					<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a> |
-					Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
-				</p>
-
-				<p>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a> | Website: <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a></p>
-
-				<!--<section class="introduction">
-					<img alt="Placeholder" src="http://placehold.it/200x150/CCCCCC/FFFFFF.png" ng-bind="show.Logo" />
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, cupiditate, aperiam eius quod harum sit quo repellendus.</p>
-				</section>-->
-
-
-				<comments item="id" ></comments>
-
-			</section>
-
-
-
-
-			<section class="contentSub">
-				<br/>
-				<div>
-					<span class="tag" ng-bind="show.Meta.ShowType" />
-				</div>
-
-
-				<div>
-					<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
-				</div>
-
-				<!--<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>-->
-
-				<span ng-show="entriesOpen">
-					<p>Entries close: <span ng-bind="show.ClosingDate" /></p>
-
-
-					<button class="button attendButton" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
-
-					<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">Not attending</button>
-				</span>
-				<span ng-hide="entriesOpen">
-					Entries closed
-				</span>
-
-				<span ng-show="show.EntriesTo">
-					<p>Enter: <span ng-bind="show.EntriesTo" /></p>
-				</span>
-
-				<p><a href="#">Is this your show?</a></p>
-
-
-				<span ng-show="show.Attending.length===0">
-					Nobody
-				</span>
-
-				<span ng-repeat="attending in show.Attending">
-					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
-				</span>
-
-				<h2><a ng-href="#/shows/photos/{{ id }}">Photos</a></h2>
 
 
 				<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
@@ -123,7 +45,7 @@
 
 
 				<span ng-repeat="photo in show.UserPhotos">
-					<img src="{{ photo.Path }}_80x60" />
+					<img src="{{ photo.Path }}_200x100" />
 				</span>
 
 

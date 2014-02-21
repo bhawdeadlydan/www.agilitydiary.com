@@ -1,35 +1,43 @@
 <section class="details">
 
-
 	<div class="container">
 
+		<h1 ng-bind="show.Name"></h1>
+
+		<nav class="tabs">
+			<a ng-href="#/shows/details/{{ id }}">Details</a>
+			<a class="active"  ng-href="#/shows/results/{{ id }}">View/enter results</a>
+			<a ng-href="#/shows/photos/{{ id }}">Photos</a>
+		</nav>
 
 
 		<div class="contentWrapper">
 			<section class="contentMain">
-				<a ng-href="#/shows/details/{{ id }}"><h1 ng-bind="show.Name"></h1></a>
 
 
 				<div class="container" >
-		<div ng-repeat="dog in profile.Dogs">
-			<span ng-bind="dog.Profile.Name" ></span>
 
-			<table>
-				<thead>
-					<tr>
-						<th>Time</th>
-						<th>Points</th>
-					</tr>
-				</thead>
 
-				<tr ng-repeat="result in filterResultsForShow(dog.Results)">
-					<td><span ng-bind="result.Time" /><td>
-					<td><span ng-bind="result.Points" /></td>
-				</tr>
-			</table>
-		</div>
 
-		Enter results
+					<div ng-repeat="dog in profile.Dogs">
+						<span ng-bind="dog.Profile.Name" ></span>
+
+						<table>
+							<thead>
+								<tr>
+									<th>Time</th>
+									<th>Points</th>
+								</tr>
+							</thead>
+
+							<tr ng-repeat="result in filterResultsForShow(dog.Results)">
+								<td><span ng-bind="result.Time" /><td>
+								<td><span ng-bind="result.Points" /></td>
+							</tr>
+						</table>
+					</div>
+
+
 			<form name="form">
 
 					<div ng-repeat="dog in profile.Dogs">
@@ -110,34 +118,6 @@
 
 				<button ng-click="controls.saveRecord()">Save</button>
 			</form>
-
-
-
-	</div>
-			</section>
-
-			<section class="contentSub">
-				<p>Show Type: <span ng-bind="show.Meta.ShowType" /></p>
-
-				<h2>Show dates</h2>
-				<p>From: <span ng-bind="show.ShowDate" />
-				<br />To: <span ng-bind="show.ShowEnd" /></p>
-
-				<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>
-
-				<h2>Entries</h2>
-				<p>Close: <span ng-bind="show.ClosingDate" /></p>
-				<p>Enter: <span ng-bind="show.EntriesTo" /></p>
-
-
-				<button class="button attendButton" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
-
-				<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">DON'T DO THiS SHOW</button>
-
-				<p><a href="#">Is this your show?</a></p>
-			</section>
-		</div>
-
 
 	</div>
 
