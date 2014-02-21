@@ -18,7 +18,7 @@ app.controller('ShowsController', [
 		 */
 
 		$scope.upcomingShows = {};
-		$scope.selectedCategories = PersistService('shows.selectedCategories', []);
+		$scope.selectedCategories = []; //PersistService('shows.selectedCategories', []);
 		$scope.enteredShows = {};
 		$scope.categories = {};
 		$scope.details = {};
@@ -183,8 +183,6 @@ app.controller('ShowsController', [
 		function checkAttending() {
 			$scope.attending = false;
 
-			console.log('Checking attending');
-
 			_.each($scope.profile.EnteredShows, function (show) {
 				if (angular.equals(show._id, $scope.id)) {
 					$scope.attending = true;
@@ -247,7 +245,6 @@ app.controller('ShowsController', [
 
 
 		function saveRecordError(response) {
-			console.log(response);
 		}
 
 
@@ -349,8 +346,6 @@ app.controller('ShowsController', [
 		 */
 
 		$scope.showHasSelectedCategory = function (item) {
-			console.log(item);
-			console.log($scope.selectedCategories);
 			return $scope.selectedCategories.indexOf(item.Meta.ShowType) !== -1;
 		};
 
@@ -403,11 +398,6 @@ app.controller('ShowsController', [
 				action = $route.current.$$route.action;
 			}
 
-			console.log(action);
-			console.log($location.href);
-			console.log($routeParams.id);
-			console.log('Shows Controller');
-
 			switch (action) {
 			case 'details':
 				$scope.id = $routeParams.id;
@@ -441,16 +431,12 @@ app.controller('ShowsController', [
 				fetchCategories();
 				fetchUpcomingShows();
 			}
-
-
-
 		}
 
 
 
 
 		function controllerDestroy() {
-			console.log('Controller is being destroyed');
 		}
 
 
