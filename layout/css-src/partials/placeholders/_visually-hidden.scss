@@ -1,5 +1,5 @@
 /**
- * @description    visuallyhidden helper class
+ * @description    visuallyhidden placeholder
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
@@ -7,9 +7,9 @@
  *
  *
  *     @example
- *                 <div class="visuallyhidden"></div>
- *
- *
+ *                 .element p {
+ *                      @extend %visuallyhidden;
+ *                  }
  *
  *        @type    mixin
  *       @notes    Hide only visually, but have it available for screenreaders: h5bp.com/v
