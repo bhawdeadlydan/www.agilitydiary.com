@@ -5,6 +5,73 @@
 
 		<h1 ng-bind="profile.User.profile.name" />
 
+		<div class="contentWrapper">
+			<section class="contentMain">
+
+				<div class="latestResults">
+					<h2>My latest results</h2>
+					<p>@@last shows results here</p>
+					<a href="#">View all your results</a>
+				</div>
+
+				<div class="newsfeed">
+					<h2>Newsfeed</h2>
+					<p>@@newsfeed here</p>
+				</div>
+
+				<div class="pictures">
+					<h2>Pictures</h2>
+					<p>@@Pictures here</p>
+					<a href="#">View all my pictures</a>
+				</div>
+
+				<section class="suggestedShows">
+					<h2>Suggested shows</h2>
+					<p>@@suggested shows here</p>
+				</section>
+
+			</section>
+			<section class="contentSub">
+
+				<section class="enteredShowsList">
+					<h2>My upcoming shows</h2>
+
+					<p ng-show="!profile.EnteredShows.length">
+						You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
+					</p>
+
+					<p>@@ limit this to 3 upcoming entered shows</p>
+					<div ng-repeat="show in profile.EnteredShows">
+						<strong><a ng-href="#/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong> at:
+							<a href="#"><span ng-bind="show.Venue.Name" /></a>,
+							<span ng-bind="show.Venue.Address" />,
+							<span ng-bind="show.Venue.PostCode" />
+							on <strong><span ng-bind="show.ShowDate" /></strong> to <strong><span ng-bind="show.ShowEnd" /></strong>
+							<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a> |
+							Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
+					</div>
+
+					<p><a ng-href="#/shows/entered">View all your entered Shows</a></p>
+				</section>
+
+				<section class="dogsList">
+					<h2><a ng-href="#/dogs">Dogs</a></h2>
+
+					<p ng-show="!profile.Dogs.length">
+						You have no dogs
+					</p>
+
+					<div>
+						<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
+							<img src="http://placedog.com/64/64" alt="" />
+							<br /><span ng-bind="dog.Profile.Name" />
+						</a>
+					</div>
+				</section>
+
+			</section>
+		</div>
+
 		<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 			<span class="dz-message"></span>
 			<span data-dz-name=""></span>
@@ -13,61 +80,11 @@
 			 <span data-dz-errormessage=""></span>
 		</div>
 
-		<div class="latestResults">
-			<h2>Your latest results</h2>
-			<p>@@last shows results here</p>
-			<a href="#">View all your results</a>
-		</div>
 
-		<div class="newsfeed">
-			<h2>Newsfeed</h2>
-			<p>@@newsfeed here</p>
-		</div>
-
-		<div class="pictures">
-			<h2>Pictures</h2>
-			<p>@@Pictures here</p>
-			<a href="#">View all your pictures</a>
-		</div>
-
-		<section class="dogsList">
-			<h2><a ng-href="#/dogs">Dogs</a></h2>
-
-			<p ng-show="!profile.Dogs.length">
-				You have no dogs
-			</p>
-
-			<div>
-				<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
-					<img src="http://placedog.com/64/64" alt="" />
-					<br /><span ng-bind="dog.Profile.Name" />
-				</a>
-			</div>
-		</section>
-
-		<section class="enteredShowsList">
-			<h2>Your next shows are</h2>
-
-			<p ng-show="!profile.EnteredShows.length">
-				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
-			</p>
-
-			<p>@@ limit this to 3 upcoming entered shows</p>
-			<div ng-repeat="show in profile.EnteredShows">
-				<a ng-href="#/shows/details/{{ show._id }}"  ng-bind="show.Name"></a> on <span ng-bind="show.Date"></span>
-			</div>
-
-			<h3><a ng-href="#/shows/entered">View all your entered Shows</a></h3>
-		</section>
-
-		<section class="suggestedShows">
-			<h2>Suggested shows</h2>
-			<p>@@suggested shows here</p>
-		</section>
 
 		<section class="friendsList">
 
-			@@make friends
+			<p>@@make friends</p>
 			<h2><a ng-href="#/friends">Friends</a></h2>
 
 			<p ng-show="!profile.Friends.length">
