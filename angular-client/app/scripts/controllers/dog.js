@@ -260,6 +260,7 @@ app.controller('DogController', [
 				_id: dog._id
 			}, function (data) {
 				$scope.profile = data;
+				$location.path('/dogs');
 			}, function (error) {
 				console.log(error);
 			});
@@ -271,12 +272,21 @@ app.controller('DogController', [
 		$scope.saveDog = function () {
 			var data = $scope.dog;
 
-			ProfileService.addDog(data, function (data) {
-				$location.path('/dogs');
-				$scope.profile = data;
-			}, function (error) {
-				console.log(error);
-			});
+			if (angular.isDefined($scope.dog._id)) {
+				ProfileService.updateDog(data, function (data) {
+					$location.path('/dogs');
+					$scope.profile = data;
+				}, function (error) {
+					console.log(error);
+				});
+			} else {
+				ProfileService.addDog(data, function (data) {
+					$location.path('/dogs');
+					$scope.profile = data;
+				}, function (error) {
+					console.log(error);
+				});
+			}
 		};
 
 
@@ -317,7 +327,7 @@ app.controller('DogController', [
 				$scope.$watch('profile', function () {
 					_.each($scope.profile.Dogs, function (dogIterator) {
 						if (dogIterator._id == $routeParams.id) {
-							$scope.dog._id = dogIterator.id;
+							$scope.dog._id = dogIterator._id;
 							$scope.dog.name = dogIterator.Profile.Name;
 							$scope.dog.sex = dogIterator.Profile.Sex;
 							$scope.dog.dateofbirth = dogIterator.Profile.DateOfBirth;

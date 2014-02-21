@@ -2,6 +2,7 @@ var app = angular.module('browserAppApp');
 
 app.controller('ShowsController', [
 	'$scope',
+	'$rootScope',
 	'Mapdata',
 	'ShowService',
 	'PersistService',
@@ -10,12 +11,15 @@ app.controller('ShowsController', [
 	'$route',
 	'$routeParams',
 	'CommentsService',
-	function ($scope, Mapdata, ShowService, PersistService, ProfileService, $location, $route, $routeParams, CommentsService) {
+	function ($scope, $rootScope, Mapdata, ShowService, PersistService, ProfileService, $location, $route, $routeParams, CommentsService) {
 		"use strict";
 
 		/**
 		 * Setup scope
 		 */
+		$rootScope.homeSectionClass = '';
+		$rootScope.showsSectionClass = 'active';
+		$rootScope.mapSectionClass = '';
 
 		$scope.upcomingShows = {};
 		$scope.selectedCategories = []; //PersistService('shows.selectedCategories', []);
@@ -223,6 +227,24 @@ app.controller('ShowsController', [
 
 
 
+		function checkClosed() {
+			var today,
+				parseDate,
+				midnightThisMorning;
+
+			$scope.entriesOpen = true;
+
+			today = new Date();
+			midnightThisMorning = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+
+			var closeDate = new Date($scope.show.ParsedDate);
+
+			$scope.entriesOpen = closeDate < midnightThisMorning;
+		}
+
+
+
+
 		/**
 		 * Show Details
 		 */
@@ -250,6 +272,7 @@ app.controller('ShowsController', [
 				};
 
 				checkAttending();
+				checkClosed();
 
 				$scope.markers.Location = newMarker;
 			}, function (err) {
@@ -303,6 +326,8 @@ app.controller('ShowsController', [
 				//$location.path('#/shows/entered');
 				//details($scope.id);
 				fetchProfile();
+				details($scope.id);
+
 			}, function () {
 
 			});
@@ -316,6 +341,7 @@ app.controller('ShowsController', [
 
 				ShowService.userData({}, function (data) {
 					fetchProfile();
+					details($scope.id);
 					//$scope.profile = data;
 					//$scope.enteredShows = data.EnteredShows;
 				});

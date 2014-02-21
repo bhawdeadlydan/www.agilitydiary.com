@@ -52,6 +52,21 @@ angular.module('browserAppApp')
 
 
 
+
+			module.updateDog = function (postData, successCallback, errorCallback) {
+				var url = '/agility-diary/user/update-dog';
+
+				$http.post(url, postData).success(function (data) {
+					profile = data;
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
 			module.addResult = function (data) {
 				var url = '/agility-diary/user/add-result';
 

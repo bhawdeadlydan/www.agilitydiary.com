@@ -21,6 +21,10 @@ exports.uploadFile = Upload.UploadManager({
 		{
 			width: 80,
 			height: 60
+		},
+		{
+			width: 64,
+			height: 64
 		}
 	]
 }, function (request, response, data) {
@@ -46,6 +50,10 @@ exports.addDogPhoto = Upload.UploadManager({
 		{
 			width: 80,
 			height: 60
+		},
+		{
+			width: 64,
+			height: 64
 		}
 	]
 }, function (request, response, data) {
@@ -222,7 +230,7 @@ exports.enterShow = function (req, res) {
 
 					diary[0].save(function (err, diary) {
 						addUserToShow(show, user, function () {
-							sendDiary(res, diary);
+							res.send(200);
 						});
 					});
 				}
@@ -277,7 +285,7 @@ exports.resignShow = function (req, res) {
 						console.log('saved');
 
 						removeUserFromShow(show, user, function () {
-							sendDiary(res, diary2);
+							res.send(200);
 						});
 					});
 				}
@@ -295,7 +303,6 @@ function sendDiary(res, diary) {
 	diary.populate('EnteredShows', function (err, diary) {
 		diary.populate('User', function (err, diary) {
 			var value = DiaryViewModel(diary);
-			console.log(value);
 			res.send(value);
 		});
 	});
@@ -390,6 +397,49 @@ exports.addDog = function (req, res) {
 					},
 					Microchip: req.body.microchip,
 					Tattoo: req.body.tattoo
+				}
+			});
+
+			diary.save(function (err, diary) {
+				console.log(err);
+				res.send(DiaryViewModel(diary));
+			});
+
+
+		});
+	});
+};
+
+
+
+
+exports.updateDog = function (req, res) {
+	User.findById(req.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (err) {
+				res.send(500, { error: 'Error' });
+			}
+
+			_.each(diary.Dogs, function (dog) {
+				if (dog._id == req.body._id) {
+
+					console.log('found dog');
+
+					dog.Profile.Name = req.body.name;
+					dog.Profile.Sex = req.body.sex;
+					dog.Profile.DateOfBirth = req.body.dateofbirth;
+					dog.Profile.Photo = req.body.photo;
+					dog.Profile.Breed = req.body.breed;
+
+					dog.Profile.KennelClub.Height = req.body.kcheight;
+					dog.Profile.KennelClub.Grade = req.body.kcgrade;
+					dog.Profile.KennelClub.RegisteredName = req.body.kcregisteredname;
+					dog.Profile.KennelClub.RegisteredNumber = req.body.kcregisterednumber;
+
+					dog.Profile.Microchip = req.body.microchip;
+					dog.Profile.Tattoo = req.body.tattoo;
 				}
 			});
 

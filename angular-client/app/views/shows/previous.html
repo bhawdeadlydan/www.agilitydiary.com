@@ -2,17 +2,12 @@
 
 	<div class="container">
 		<section>
-			<h1>Shows</h1>
-
-			<p ng-show="filteredShows.length===0">No shows</p>
-
-			<label>Search</label>
-			<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
+			<input type="search" name="search" placeholder="Search" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
 		</section>
 
 		<nav class="widgetCategories">
-			<div class="widget-title">Filter by:</div>
+
 			<ul>
 				<li ng-repeat="category in categories">
 					<a class="category" href="" ng-click="categoryClick(category);">
@@ -30,6 +25,8 @@
 		</nav>
 
 		<ol class="monthList">
+			<li ng-show="filteredShows.length===0">No shows found</li>
+
 			<li>
 				<div class="monthWrapper">
 					<h3>February

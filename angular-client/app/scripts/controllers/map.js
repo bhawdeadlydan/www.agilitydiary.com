@@ -1,5 +1,6 @@
 angular.module('browserAppApp')
-	.controller('MapController', ['$scope', '$timeout', 'GeopositionService', 'Settings', 'Mapdata', function ($scope, $timeout, GeopositionService, Settings, Mapdata) {
+	.controller('MapController', ['$scope', '$rootScope', '$timeout', 'GeopositionService', 'Settings', 'Mapdata',
+		function ($scope, $rootScope, $timeout, GeopositionService, Settings, Mapdata) {
 		"use strict";
 
 		var _searchData,
@@ -10,7 +11,9 @@ angular.module('browserAppApp')
 		$scope.controls = {};
 		$scope.events = {};
 
-
+		$rootScope.homeSectionClass = '';
+		$rootScope.showsSectionClass = '';
+		$rootScope.mapSectionClass = 'active';
 
 
 		/**

@@ -66,6 +66,12 @@ angular.module('browserAppApp', [
 			action: 'details'
 		})
 
+		.when('/shows/photos/:id', {
+			templateUrl: 'app/views/shows/gallery.html',
+			controller: 'ShowsController',
+			action: 'details'
+		})
+
 		.when('/shows/results/:id', {
 			templateUrl: 'app/views/shows/results.html',
 			controller: 'ShowsController',
