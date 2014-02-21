@@ -1,19 +1,17 @@
-<section class="upcoming">
+<section class="shows entered">
 
 	<div class="container">
 		<section>
 			<h1>Shows</h1>
-
-			<p ng-show="filteredShows.length===0">No shows</p>
 
 			<label>Search</label>
 			<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
 		</section>
 
-		<nav class="widgetCategories">
-			<div class="widget-title">Filter by:</div>
+		<nav class="categories">
 			<ul>
+				<li><strong>Filter by:</strong></li>
 				<li ng-repeat="category in categories">
 					<a class="category" href="" ng-click="categoryClick(category);">
 					<span class="show" ng-show="isCategorySelected(category);">✓</span>
@@ -26,8 +24,12 @@
 		<nav class="tabs">
 			<a href="#/shows/upcoming">Upcoming shows</a>
 			<a href="#/shows/previous">Previous shows</a>
-			<a class="active"  href="#/shows/entered">Entered</a>
+			<a class="active" href="#/shows/entered">Entered</a>
 		</nav>
+
+		<p ng-show="filteredShows.length===0">
+			You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
+		</p>
 
 		<ol class="monthList">
 			<li>
@@ -47,11 +49,11 @@
 							<div class="eventShortDetail">
 								<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
 
-								<div class="meta">
-									<a class="tag" href="#" ng-bind="event.Meta.ShowType" />
-									<a class="tag" href="#" ng-bind="event.Club" />
-									<a class="tag entered" href="#" ng-show="hasUserEnteredShow(event)">Entered</a>
-									<a class="tag entered" href="#">Camping</a>
+								<div class="meta tags">
+									<a class="tag tagShowType event.Meta.ShowType" href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
+									<a class="tag tagClub" href="#" title="Filter by {{ event.Club }} shows only" ng-bind="event.Club" />
+									<a class="tag tagEntered" href="#" title="Filter by entered shows only" ng-show="hasUserEnteredShow(event)">Entered</a>
+									<a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping</a>
 								</div>
 
 								<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>

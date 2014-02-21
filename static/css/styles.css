@@ -692,11 +692,11 @@ html {
  */
 /* line 21, ../../layout/css-src/partials/elements/_body.scss */
 body {
+  background: #73afaa;
+  color: #343434;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   font-size: 1.8rem;
-  background: white;
-  color: #343434;
   line-height: 1.5em;
   margin: 0;
 }
@@ -1234,6 +1234,31 @@ select {
 }
 
 /**
+ * @description    Styling for the wrapper
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-10-21 12:23
+ *
+ *
+ *     @example
+ *                 <div class="wrapper">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    layout
+ *       @notes
+ */
+/**
+ * @section        wrapper
+ */
+/* line 23, ../../layout/css-src/partials/default-layout/_wrapper.scss */
+.wrapper {
+  background: white;
+}
+
+/**
  * @description    Styling for the content wrapper
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
@@ -1463,10 +1488,10 @@ select {
 }
 
 /**
- * @description    styling for the tag class
+ * @description    styling for the tags module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
+ *     @version    0.2
  *        @date    2014-02-12 13:01
  *
  *
@@ -1478,21 +1503,31 @@ select {
  */
 /**
  * @section        tag
+ * @example        <a class="tag" href="/">AgilityDiary</a>
  */
-/* line 19, ../../layout/css-src/partials/modules/_mod-tag.scss */
+/* line 20, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tag {
+  background: rgba(0, 0, 0, 0.5);
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   -ms-border-radius: 0.25em;
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
-  background: rgba(0, 0, 0, 0.5);
   color: white;
   padding: .25em .5em;
 }
 
 /**
- * @description    styling for the category class
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType" href="/">AgilityDiary</a>
+ */
+/* line 31, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagShowType {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/**
+ * @description    styling for the categories module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
@@ -1500,7 +1535,6 @@ select {
  *
  *
  *     @example
- *                 <a class="category" href="/">AgilityDiary</a>
  *
  *        @type    module
  *       @notes
@@ -1508,11 +1542,11 @@ select {
 /**
  * @section        category
  */
-/* line 19, ../../layout/css-src/partials/modules/_mod-category.scss */
+/* line 18, ../../layout/css-src/partials/modules/_mod-categories.scss */
 .category {
   margin-right: 1em;
 }
-/* line 22, ../../layout/css-src/partials/modules/_mod-category.scss */
+/* line 21, ../../layout/css-src/partials/modules/_mod-categories.scss */
 .category:hover {
   text-decoration: none;
 }
@@ -1690,7 +1724,7 @@ select {
   border-bottom: 1px solid #73afaa;
   color: white;
   display: inline-block;
-  margin-bottom: -1px;
+  margin-bottom: -2px;
   padding: .25em .5em;
 }
 /* line 32, ../../layout/css-src/partials/modules/_mod-tabs.scss */
@@ -1730,6 +1764,13 @@ select {
 /**
  * @section        friendProfilePicture
  */
+/* line 25, ../../layout/css-src/partials/modules/_mod-friends.scss */
+.friendProfilePicture {
+  height: 32px;
+  margin: .5em;
+  width: 32px;
+}
+
 /**
  * @description    styling for the dogs module
  *

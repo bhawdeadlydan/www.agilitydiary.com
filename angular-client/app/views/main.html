@@ -13,6 +13,23 @@
 			 <span data-dz-errormessage=""></span>
 		</div>
 
+		<div class="latestResults">
+			<h2>Your latest results</h2>
+			<p>@@last shows results here</p>
+			<a href="#">View all your results</a>
+		</div>
+
+		<div class="newsfeed">
+			<h2>Newsfeed</h2>
+			<p>@@newsfeed here</p>
+		</div>
+
+		<div class="pictures">
+			<h2>Pictures</h2>
+			<p>@@Pictures here</p>
+			<a href="#">View all your pictures</a>
+		</div>
+
 		<section class="dogsList">
 			<h2><a ng-href="#/dogs">Dogs</a></h2>
 
@@ -31,17 +48,28 @@
 		</section>
 
 		<section class="enteredShowsList">
-			<h2><a ng-href="#/shows/entered">Entered Shows</a></h2>
+			<h2>Your next shows are</h2>
 
 			<p ng-show="!profile.EnteredShows.length">
-				You have not entered any shows, <a href="#/shows/upcoming">enter some shows</a>
+				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
 			</p>
+
+			<p>@@ limit this to 3 upcoming entered shows</p>
 			<div ng-repeat="show in profile.EnteredShows">
-				<a ng-href="#/shows/details/{{ show._id }}"><div ng-bind="show.Name"></div></a>
+				<a ng-href="#/shows/details/{{ show._id }}"  ng-bind="show.Name"></a> on <span ng-bind="show.Date"></span>
 			</div>
+
+			<h3><a ng-href="#/shows/entered">View all your entered Shows</a></h3>
+		</section>
+
+		<section class="suggestedShows">
+			<h2>Suggested shows</h2>
+			<p>@@suggested shows here</p>
 		</section>
 
 		<section class="friendsList">
+
+			@@make friends
 			<h2><a ng-href="#/friends">Friends</a></h2>
 
 			<p ng-show="!profile.Friends.length">
