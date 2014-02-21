@@ -20,6 +20,7 @@
 		<!-- endbuild -->
 	</head>
 
+
 	<body ng-app="browserAppApp" ng-controller="BaseController">
 		<div>
 
@@ -32,9 +33,9 @@
 				<a href="#/" class="brandLogo"><img src="/app/images/logo-AgilityDiary.png" alt="AgilityDiary" /> Agility Diary</a>
 
 				<nav class="navPrimary" role="navigation">
-					<a ng-href="#/">Home</a>
-					<a ng-href="#/shows/upcoming">Shows</a>
-					<a ng-href="#/map">Map</a>
+					<a ng-class="homeSectionClass" ng-href="#/">Home</a>
+					<a ng-class="showsSectionClass" ng-href="#/shows/upcoming">Shows</a>
+					<a ng-class="mapSectionClass" ng-href="#/map">Map</a>
 					<a href="/account">Account</a>
 
 					<!-- <label>Search the site</label>

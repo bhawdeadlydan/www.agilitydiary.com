@@ -1,8 +1,8 @@
 var app = angular.module('browserAppApp');
 
 app.controller('MainController', [
-	'$scope', 'Mapdata', 'ShowService', 'ProfileService', '$location', '$route', '$routeParams',
-	function ($scope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams) {
+	'$scope', '$rootScope', 'Mapdata', 'ShowService', 'ProfileService', '$location', '$route', '$routeParams',
+	function ($scope, $rootScope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams) {
 		"use strict";
 
 
@@ -12,8 +12,9 @@ app.controller('MainController', [
 		 */
 
 		$scope.profile = {};
-
-
+		$rootScope.homeSectionClass = 'active';
+		$rootScope.showsSectionClass = '';
+		$rootScope.mapSectionClass = '';
 
 
 		/**

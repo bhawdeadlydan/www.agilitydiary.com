@@ -2,6 +2,7 @@ var app = angular.module('browserAppApp');
 
 app.controller('ShowsController', [
 	'$scope',
+	'$rootScope',
 	'Mapdata',
 	'ShowService',
 	'PersistService',
@@ -10,12 +11,15 @@ app.controller('ShowsController', [
 	'$route',
 	'$routeParams',
 	'CommentsService',
-	function ($scope, Mapdata, ShowService, PersistService, ProfileService, $location, $route, $routeParams, CommentsService) {
+	function ($scope, $rootScope, Mapdata, ShowService, PersistService, ProfileService, $location, $route, $routeParams, CommentsService) {
 		"use strict";
 
 		/**
 		 * Setup scope
 		 */
+		$rootScope.homeSectionClass = '';
+		$rootScope.showsSectionClass = 'active';
+		$rootScope.mapSectionClass = '';
 
 		$scope.upcomingShows = {};
 		$scope.selectedCategories = []; //PersistService('shows.selectedCategories', []);
