@@ -4,7 +4,7 @@
 
 		<p><a ng-href="#/dogs"><< Dogs</a></p>
 
-		<img src="{{ dog.Profile.Photo }}_200x100" />
+		<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
 
 		<h1>Dog: {{ dog.Profile.Name }}</h1>
 

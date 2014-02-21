@@ -43,6 +43,26 @@ app.controller('ShowsController', [
 		$scope.filterResultsForShow = filterResultsForShow;
 
 
+		$scope.filteredShows = [];
+
+
+
+
+		function filterShows() {
+			var results = [];
+
+			_.each($scope.enteredShows, function (item) {
+				if (showHasSelectedCategory(item)) {
+					if (showIsInSearch(item)) {
+						results.push(item);
+					}
+				}
+			});
+
+			$scope.filteredShows = results;
+		}
+
+
 
 		/**
 		 * Scope watchers
@@ -84,6 +104,7 @@ app.controller('ShowsController', [
 
 		function updateShowData(data) {
 			$scope.upcomingShows = data;
+			filterShows();
 		}
 
 
