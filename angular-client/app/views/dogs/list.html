@@ -3,13 +3,30 @@
 	<div class="container">
 		<h1>My dogs</h1>
 
-		<p><a ng-href="#/dogs/add">Add a dog</a></p>
+		<div class="contentWrapper">
+			<div class="contentMain">
 
-		<div ng-repeat="dog in profile.Dogs">
-			<div>
-				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
-				<a ng-href="#/dogs/{{ dog._id }}" ng-bind="dog.Profile.Name"></a>
+				<section class="dogsList">
+
+					<p ng-show="!profile.Dogs.length">
+						You have no dogs yet, would you like to <a ng-href="#/dogs/add">add a dog</a>?
+					</p>
+
+					<div>
+						<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
+							<img src="http://placedog.com/64/64" alt="" />
+							<br /><span ng-bind="dog.Profile.Name" />
+						</a>
+					</div>
+				</section>
+
+			</div>
+			<div class="contentSub">
+
+				<p><a ng-href="#/dogs/add">add a dog</a></p>
+
 			</div>
 		</div>
+
 	</div>
 </section>

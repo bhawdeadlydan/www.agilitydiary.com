@@ -1278,6 +1278,11 @@ select {
 /**
  * @section        contentWrapper
  */
+/* line 23, ../../layout/css-src/partials/default-layout/_content-wrapper.scss */
+.contentWrapper {
+  padding: 0 1em;
+}
+
 /**
  * @description    Styling for the main content
  *
