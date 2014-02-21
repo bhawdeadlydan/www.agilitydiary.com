@@ -194,7 +194,7 @@
  * @section        Placeholders
  */
 /**
- * @description    visuallyhidden helper class
+ * @description    visuallyhidden placeholder
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
@@ -202,9 +202,9 @@
  *
  *
  *     @example
- *                 <div class="visuallyhidden"></div>
- *
- *
+ *                 .element p {
+ *                      @extend %visuallyhidden;
+ *                  }
  *
  *        @type    mixin
  *       @notes    Hide only visually, but have it available for screenreaders: h5bp.com/v
@@ -230,6 +230,88 @@
  *                 when navigated to via the keyboard: h5bp.com/p
  *                 <div class="visuallyhidden focusable"></div>
  */
+/**
+ * @description    circleAvatar placeholder
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 10:31
+ *
+ *
+ *     @example
+ *                 .element p {
+ *                      @extend %circleAvatar;
+ *                  }
+ *
+ *        @type    mixin
+ *       @notes
+ *      @ignore
+ */
+/**
+ * @section        circleAvatar
+ */
+/* line 22, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.friendProfilePicture, .dogProfilePicture {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+  display: inline-block;
+  height: 64px;
+  line-height: 0;
+  margin: 1em;
+  text-align: center;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  width: 64px;
+}
+/* line 35, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.friendProfilePicture:hover, .dogProfilePicture:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 40, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.lt-ie9 .friendProfilePicture, .lt-ie9 .dogProfilePicture {
+  color: transparent;
+}
+/* line 44, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.friendProfilePicture img, .dogProfilePicture img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  max-width: 100%;
+}
+/* line 48, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.friendProfilePicture img:hover, .dogProfilePicture img:hover {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+/* line 55, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.friendProfilePicture span, .dogProfilePicture span {
+  display: block;
+  margin-top: 1.5em;
+}
+
 /**
  * @section        Global
  */
@@ -1630,6 +1712,25 @@ select {
 }
 
 /**
+ * @description    styling for the friends module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 10:29
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        friendsList
+ */
+/**
+ * @section        friendProfilePicture
+ */
+/**
  * @description    styling for the dogs module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
@@ -1648,68 +1749,6 @@ select {
 /**
  * @section        dogProfilePicture
  */
-/* line 25, ../../layout/css-src/partials/modules/_mod-dogs.scss */
-.dogProfilePicture {
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-  display: inline-block;
-  height: 64px;
-  line-height: 0;
-  margin: 1em;
-  text-align: center;
-  -webkit-transition-timing-function: linear;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  transition-timing-function: linear;
-  -webkit-transition-duration: 0.25s;
-  -moz-transition-duration: 0.25s;
-  -o-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-  width: 64px;
-}
-/* line 38, ../../layout/css-src/partials/modules/_mod-dogs.scss */
-.dogProfilePicture:hover {
-  font-weight: bold;
-  text-decoration: none;
-}
-/* line 43, ../../layout/css-src/partials/modules/_mod-dogs.scss */
-.lt-ie9 .dogProfilePicture {
-  color: transparent;
-}
-/* line 47, ../../layout/css-src/partials/modules/_mod-dogs.scss */
-.dogProfilePicture img {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  max-width: 100%;
-}
-/* line 51, ../../layout/css-src/partials/modules/_mod-dogs.scss */
-.dogProfilePicture img:hover {
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-  -webkit-transition-duration: 0.25s;
-  -moz-transition-duration: 0.25s;
-  -o-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-}
-/* line 58, ../../layout/css-src/partials/modules/_mod-dogs.scss */
-.dogProfilePicture span {
-  display: block;
-  margin-top: 1.5em;
-}
-
 /**
  * @section        Modules: forms
  */

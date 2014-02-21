@@ -14,7 +14,7 @@
 		</div>
 
 		<section class="dogsList">
-			<h2><a class="blog-link btn btn-lg btn-embossed btn-primary" ng-href="#/dogs">Dogs</a></h2>
+			<h2><a ng-href="#/dogs">Dogs</a></h2>
 
 			<p ng-show="!profile.Dogs.length">
 				You have no dogs
@@ -29,13 +29,28 @@
 		</section>
 
 		<section class="enteredShowsList">
-			<h2>Entered Shows</h2>
+			<h2><a ng-href="#/shows/entered">Entered Shows</a></h2>
 
 			<p ng-show="!profile.EnteredShows.length">
 				You have not entered any shows, <a href="#/shows/upcoming">enter some shows</a>
 			</p>
 			<div ng-repeat="show in profile.EnteredShows">
 				<a ng-href="#/shows/details/{{ show._id }}"><div ng-bind="show.Name"></div></a>
+			</div>
+		</section>
+
+		<section class="friendsList">
+			<h2><a ng-href="#/friends">Friends</a></h2>
+
+			<p ng-show="!profile.Friends.length">
+				Aww you haven't added any friends yet, <a href="#">Add some friends</a>
+			</p>
+
+			<div>
+				<a class="friendProfilePicture" ng-repeat="friend in profile.Friends" ng-href="#/friends/{{ friend._id }}">
+					<img src="http://placedog.com/64/64" alt="" />
+					<br /><span ng-bind="friend.Profile.Name" />
+				</a>
 			</div>
 		</section>
 

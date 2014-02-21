@@ -1,9 +1,9 @@
 /**
- * @description    styling for the dogs module
+ * @description    styling for the friends module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
  *     @version    0.1
- *        @date    2014-02-21 09:00
+ *        @date    2014-02-21 10:29
  *
  *
  *     @example
@@ -13,15 +13,15 @@
  */
 
 /**
- * @section        dogsList
+ * @section        friendsList
  */
-.dogsList {
+.friendsList {
 
 }
 
 /**
- * @section        dogProfilePicture
+ * @section        friendProfilePicture
  */
-.dogProfilePicture {
+.friendProfilePicture {
     @extend %circleAvatar;
 }
