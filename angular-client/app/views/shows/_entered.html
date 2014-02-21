@@ -1,0 +1,63 @@
+<section class="entered">
+	<div>
+		<h1>entered shows</h1>
+
+		<div ng-repeat="event in enteredShows">
+			<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
+				<h2>Event</h2>
+
+				<a ng-href="#/shows/details/{{ event._id }}"><div ng-bind="event.Name" /></a>
+				club: <div ng-bind="event.Club" />
+				show date: <div ng-bind="event.ShowDate" />
+				show end: <div ng-bind="event.ShowEnd" />
+				closing date: <div ng-bind="event.ClosingDate" />
+
+				entries to: <div ng-bind="event.EntriesTo" />
+		logo
+				<div ng-bind="event.Logo" />
+
+		website
+				<div ng-bind="event.Website" />
+
+				venue
+				<div ng-bind="event.Venue.Name" />
+				<div ng-bind="event.Venue.Address" />
+				<div ng-bind="event.Venue.PostCode" />
+
+				Show Type Colour: <div ng-bind="event.Venue.Meta.ShowTypeColour" />
+
+				<div ng-show="event.enterResults" style=" border: green; background-color: #00ff00; padding: 1em">
+					<div class="enterYourResults" >
+						Enter results
+
+						<div ng-repeat="dog in profile.Dogs">
+							<a ng-href="#/dogs/{{ dog._id }}"><span ng-bind="dog.Profile.Name" ></span></a>
+
+							<div>
+								<label>Judge<label>
+								<input type="textbox" />
+							</div>
+
+							<div>
+								<label>Fails<label>
+								<input type="textbox" />
+							</div>
+
+							<div>
+								<label>Time<label>
+								<input type="textbox" />
+
+							</div>
+
+							<button>Save</button>
+
+
+						</div>
+					</div>
+				</div>
+
+				<button ng-click="resignShow(event);" style="background:black;color:white">DON'T DO THiS SHOW</button>
+			</div>
+		</div>
+	</div>
+</section>

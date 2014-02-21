@@ -24,8 +24,8 @@
 		</nav>
 
 		<nav class="tabs">
-			<a class="active" href="#/shows/upcoming">Upcoming shows <span class="count" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">({{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }})</span></a>
-			<a href="#/shows/previous">Previous shows</a>
+			<a href="#/shows/upcoming">Upcoming shows <span class="count" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">({{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }})</span></a>
+			<a class="active"  href="#/shows/previous">Previous shows</a>
 			<a href="#/shows/entered">Entered</a>
 		</nav>
 

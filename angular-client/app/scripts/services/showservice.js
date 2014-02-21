@@ -12,7 +12,8 @@ angular.module('browserAppApp')
 			var caches = {
 				upcomingShows: {},
 				previousShows: {},
-				todaysShows: {}
+				todaysShows: {},
+				enteredShows: {}
 			};
 
 
@@ -25,6 +26,20 @@ angular.module('browserAppApp')
 
 				$http.get(url).success(function (data) {
 					caches.previousShows = data;
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
+			module.enteredShows = function (initCallback, successCallback, errorCallback) {
+				var url = '/agility-diary/shows/entered';
+
+				$http.get(url).success(function (data) {
+					caches.enteredShows = data;
 					successCallback(data);
 				}).error(function (err) {
 					errorCallback(err);

@@ -127,6 +127,39 @@ exports.previousList = function (req, res) {
 
 
 
+/**
+ * List previous shows
+ */
+exports.enteredList = function (request, res) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+
+			Show.find({
+				_id: {
+					$in: diary.EnteredShows
+				}
+			})
+			.sort({
+				ParsedDate: -1
+			})
+			.exec(function (err, data) {
+				var result = [];
+
+				_.each(data, function (iterator) {
+					result.push(ShowViewModel(iterator));
+				});
+
+				res.send(result);
+			});
+		});
+	});
+};
+
+
+
+
 
 /**
  * List upcoming shows

@@ -1,63 +1,100 @@
-<section class="entered">
-	<div>
-		<h1>entered shows</h1>
+<section class="upcoming">
 
-		<div ng-repeat="event in enteredShows">
-			<div style="border-left: solid 5px {{ event.Meta.ShowTypeColour }}">
-				<h2>Event</h2>
+	<div class="container">
+		<section>
+			<h1>Shows</h1>
 
-				<a ng-href="#/shows/details/{{ event._id }}"><div ng-bind="event.Name" /></a>
-				club: <div ng-bind="event.Club" />
-				show date: <div ng-bind="event.ShowDate" />
-				show end: <div ng-bind="event.ShowEnd" />
-				closing date: <div ng-bind="event.ClosingDate" />
+			<p ng-show="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">No shows</p>
 
-				entries to: <div ng-bind="event.EntriesTo" />
-		logo
-				<div ng-bind="event.Logo" />
+			<label>Search</label>
+			<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
+			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
+		</section>
 
-		website
-				<div ng-bind="event.Website" />
+		<nav class="widgetCategories">
+			<div class="widget-title">Filter by:</div>
+			<ul>
+				<li ng-repeat="category in categories">
+					<a class="category" href="" ng-click="categoryClick(category);">
+					<span class="show" ng-show="isCategorySelected(category);">✓</span>
+					<span class="hide" ng-hide="isCategorySelected(category);">✗</span>
+					{{ category }}</a>
+				</li>
+			</ul>
+		</nav>
 
-				venue
-				<div ng-bind="event.Venue.Name" />
-				<div ng-bind="event.Venue.Address" />
-				<div ng-bind="event.Venue.PostCode" />
+		<nav class="tabs">
+			<a href="#/shows/upcoming">Upcoming shows <span class="count" ng-hide="!(upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length">({{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length }} show{{ (upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch).length === 1 ? '' : 's' }})</span></a>
+			<a href="#/shows/previous">Previous shows</a>
+			<a class="active"  href="#/shows/entered">Entered</a>
+		</nav>
 
-				Show Type Colour: <div ng-bind="event.Venue.Meta.ShowTypeColour" />
-
-				<div ng-show="event.enterResults" style=" border: green; background-color: #00ff00; padding: 1em">
-					<div class="enterYourResults" >
-						Enter results
-
-						<div ng-repeat="dog in profile.Dogs">
-							<a ng-href="#/dogs/{{ dog._id }}"><span ng-bind="dog.Profile.Name" ></span></a>
-
-							<div>
-								<label>Judge<label>
-								<input type="textbox" />
-							</div>
-
-							<div>
-								<label>Fails<label>
-								<input type="textbox" />
-							</div>
-
-							<div>
-								<label>Time<label>
-								<input type="textbox" />
-
-							</div>
-
-							<button>Save</button>
-
-
-						</div>
-					</div>
+		<ol class="monthList">
+			<li>
+				<div class="monthWrapper">
+					<h3>February
+					<br/><span class="year">2014</span></h3>
 				</div>
 
-				<button ng-click="resignShow(event);" style="background:black;color:white">DON'T DO THiS SHOW</button>
-			</div>
-		</div>
+				<div class="eventListWrapper">
+					<ol class="eventList">
+						<li class="event" ng-repeat="event in enteredShows | filter: showHasSelectedCategory | filter: showIsInSearch">
+
+							<div class="eventDate">
+								<span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
+							</div>
+
+							<div class="eventShortDetail">
+								<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
+
+								<div class="meta">
+									<a class="tag" href="#" ng-bind="event.Meta.ShowType" />
+									<a class="tag" href="#" ng-bind="event.Club" />
+									<a class="tag entered" href="#">Entered</a>
+									<a class="tag entered" href="#">Camping</a>
+								</div>
+
+								<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
+
+								<div>Venue:
+									<a href="#"><span ng-bind="event.Venue.Name" /></a>,
+									<span ng-bind="event.Venue.Address" />,
+									<span ng-bind="event.Venue.PostCode" />
+								</div>
+
+								<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
+
+								<!-- <div class="widget">
+									<div class="widget-title">Classes</div>
+									<span class="label label-default"><span class="fui-tag"></span> small</span>
+									<span class="label label-default"><span class="fui-tag"></span> medium</span>
+									<span class="label label-default"><span class="fui-tag"></span> large</span>
+									<span class="label label-default"><span class="fui-tag"></span> jumping</span>
+								</div> -->
+							</div>
+						</li>
+					</ol>
+				</div>
+			</li>
+		</ol>
+
+		<!--/// PAGINATION ///-->
+		<!--<div class="pagination pagination-minimal">
+			<ul>
+				<li class="previous">
+					<a href="#" class="fui-arrow-left"></a>
+				</li>
+
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+
+				<li class="next">
+					<a href="#" class="fui-arrow-right"></a>
+				</li>
+			</ul>
+		</div>-->
 	</div>
 </section>

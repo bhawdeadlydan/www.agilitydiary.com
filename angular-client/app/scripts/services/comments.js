@@ -21,7 +21,7 @@ angular.module('browserAppApp')
 				var url = '/agility-diary/comments/add';
 
 				return $http.post(url, {
-					itemId: data.id,
+					itemId: data.itemId,
 					message: data.message
 				});
 			};

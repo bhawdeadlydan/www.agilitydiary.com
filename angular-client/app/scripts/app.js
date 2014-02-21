@@ -55,7 +55,7 @@ angular.module('browserAppApp', [
 		})
 
 		.when('/shows/previous', {
-			templateUrl: 'app/views/shows/upcoming.html',
+			templateUrl: 'app/views/shows/previous.html',
 			controller: 'ShowsController',
 			action: 'previous'
 		})
