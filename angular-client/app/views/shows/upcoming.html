@@ -36,7 +36,7 @@
 
 				<div class="eventListWrapper">
 					<ol class="eventList">
-						<li class="event" ng-repeat="event in upcomingShows | filter: showHasSelectedCategory | filter: showIsInSearch">
+						<li class="event" ng-repeat="event in filteredShows">
 
 							<div class="eventDate">
 								<span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />

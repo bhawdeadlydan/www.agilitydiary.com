@@ -57,8 +57,8 @@ app.controller('ShowsController', [
 			var results = [];
 
 			_.each($scope.enteredShows, function (item) {
-				if (showHasSelectedCategory(item)) {
-					if (showIsInSearch(item)) {
+				if ($scope.showHasSelectedCategory(item)) {
+					if ($scope.showIsInSearch(item)) {
 						results.push(item);
 					}
 				}
@@ -125,7 +125,7 @@ app.controller('ShowsController', [
 		function updateShowData(data) {
 			$scope.stopSpinner();
 
-			$scope.upcomingShows = data;
+			$scope.enteredShows = data;
 			filterShows();
 		}
 
@@ -164,10 +164,11 @@ app.controller('ShowsController', [
 			$scope.startSpinner();
 
 			ShowService.upcomingShows(function (data) {
-				$scope.upcomingShows = data;
+				$scope.enteredShows = data;
 			}, function (data) {
-				$scope.upcomingShows = data;
+				$scope.enteredShows = data;
 				$scope.stopSpinner();
+				filterShows();
 			}, function (err) {
 				$scope.stopSpinner();
 				// failed
@@ -375,6 +376,8 @@ app.controller('ShowsController', [
 			} else {
 				$scope.selectedCategories.splice($scope.selectedCategories.indexOf(category), 1);
 			}
+
+			filterShows();
 		};
 
 
