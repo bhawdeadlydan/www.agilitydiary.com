@@ -50,7 +50,7 @@
 								<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
 
 								<div class="meta tags">
-									<a class="tag tagShowType" href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
+									<a class="tag tagShowType event.Meta.ShowType" href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
 									<a class="tag tagClub" href="#" title="Filter by {{ event.Club }} shows only" ng-bind="event.Club" />
 									<a class="tag tagEntered" href="#" title="Filter by entered shows only" ng-show="hasUserEnteredShow(event)">Entered</a>
 									<a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping</a>

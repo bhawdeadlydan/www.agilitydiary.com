@@ -1463,10 +1463,10 @@ select {
 }
 
 /**
- * @description    styling for the tag class
+ * @description    styling for the tags module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
+ *     @version    0.2
  *        @date    2014-02-12 13:01
  *
  *
@@ -1478,17 +1478,27 @@ select {
  */
 /**
  * @section        tag
+ * @example        <a class="tag" href="/">AgilityDiary</a>
  */
-/* line 19, ../../layout/css-src/partials/modules/_mod-tag.scss */
+/* line 20, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tag {
+  background: rgba(0, 0, 0, 0.5);
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   -ms-border-radius: 0.25em;
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
-  background: rgba(0, 0, 0, 0.5);
   color: white;
   padding: .25em .5em;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType" href="/">AgilityDiary</a>
+ */
+/* line 31, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagShowType {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /**

@@ -1,8 +1,8 @@
 /**
- * @description    styling for the tag class
+ * @description    styling for the tags module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
+ *     @version    0.2
  *        @date    2014-02-12 13:01
  *
  *
@@ -15,11 +15,19 @@
 
 /**
  * @section        tag
+ * @example        <a class="tag" href="/">AgilityDiary</a>
  */
 .tag {
-    @include border-radius(.25em);
-
     background: rgba(0,0,0,0.5);
+    @include border-radius(.25em);
     color: $color-white;
     padding: .25em .5em;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType" href="/">AgilityDiary</a>
+ */
+.tagShowType {
+    background: rgba(0,0,0,0.5);
 }
