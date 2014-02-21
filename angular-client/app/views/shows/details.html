@@ -91,34 +91,32 @@
 				</span>
 
 				<span ng-show="show.EntriesTo">
-					<p>Enter: <span ng-bind="show.EntriesTo" /></p>
+					<p>Entries to <span ng-bind="show.EntriesTo" /></p>
 				</span>
 
 				<p><a href="#">Is this your show?</a></p>
 
 
 				<span ng-show="show.Attending.length===0">
-					Nobody
+					Nobody attending
 				</span>
 
 				<span ng-repeat="attending in show.Attending">
 					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
 				</span>
 
-				<h2><a ng-href="#/shows/photos/{{ id }}">Photos</a></h2>
 
-
-				<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
+				<!--<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 					<span class="dz-message"></span>
 					<span data-dz-name=""></span>
 					<span data-dz-details=""></span>
 					<span data-dz-size=""></span>
 					<span data-dz-errormessage=""></span>
-				</div>
+				</div>-->
 
-				<span ng-show="show.UserPhotos.length===0">
-					No photos
-				</span>
+				<div ng-show="show.UserPhotos.length===0">
+
+				</div>
 
 
 
