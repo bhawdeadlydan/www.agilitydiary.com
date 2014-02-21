@@ -65,15 +65,24 @@
 					<p>@@similar shows here</p>
 				</section>
 
+			-->
+
+				<section class="listAttendees">
+					<h2>Who else is attending this show</h2>
+
+					<div ng-show="show.UserPhotos.length===0"></div>
+
+					<span ng-repeat="photo in show.UserPhotos">
+						<img src="{{ photo.Path }}_80x60" />
+					</span>
+				</section>
+
 				<section class="comments">
 					<h2>Comments</h2>
 					<p>@@Show following sentence if there are no comments available for this show yet</p>
 					<p>There are currently no comments for this show, please add a comment</p>
 					<comments item="id" ></comments>
-				</section>-->
-
-
-				<comments item="id" ></comments>
+				</section>
 
 			</section>
 
@@ -127,13 +136,6 @@
 				  <p>@@share this show here</p>
 				</section>
 
-				<h2>Results</h2>
-				<p><a ng-href="#/shows/results/{{ id }}">View/enter results</a></p>
-
-				<h2>Photos</h2>
-
-				<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
-
 				<!--<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 					<span class="dz-message"></span>
 					<span data-dz-name=""></span>
@@ -141,14 +143,6 @@
 					<span data-dz-size=""></span>
 					<span data-dz-errormessage=""></span>
 				</div>-->
-
-				<div ng-show="show.UserPhotos.length===0">
-
-				</div>
-
-				<span ng-repeat="photo in show.UserPhotos">
-					<img src="{{ photo.Path }}_80x60" />
-				</span>
 
 			</section>
 

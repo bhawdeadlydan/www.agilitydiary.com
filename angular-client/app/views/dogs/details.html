@@ -2,16 +2,52 @@
 
 	<div class="container">
 
+		<p><a ng-href="#/dogs"><< Return to all dogs</a></p>
+
+		<h1>{{ dog.Profile.Name }}</h1>
+
+		<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>
+
+		<nav class="tabs">
+			<a class="active" ng-href="#/dogs/details/{{ id }}">Details</a>
+			<a ng-href="#/dogs/results/{{ id }}">View/enter results</a>
+			<a ng-href="#/dogs/photos/{{ id }}">Photos</a>
+		</nav>
+
 		<div class="contentWrapper">
 			<section class="contentMain">
 
-				<p><a ng-href="#/dogs"><< Dogs</a></p>
+				<!-- <h2>Results</h2>
+				<p>@@only list this dog's results here</p>
+				<div ng-repeat="dog in profile.Dogs">
+					<h3 ng-bind="dog.Profile.Name"></h3>
 
-				<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+					<table>
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Show</th>
+								<th>Class</th>
+								<th>Time</th>
+								<th>Faults</th>
+								<th>Place</th>
+								<th>Judge's name</th>
+								<th>Agility Warrant Points</th>
+							</tr>
+						</thead>
 
-				<h1>{{ dog.Profile.Name }}</h1>
-
-				<h2>Results</h2>
+						<tr ng-repeat="result in filterResultsForShow(dog.Results)">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><span ng-bind="result.Time" /><td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><span ng-bind="result.Points" /></td>
+						</tr>
+					</table>
+				</div>
 
 				<div class="uploadImage" id="addImage" style="">⇧ Upload Photo
 					<span class="dz-message"></span>
@@ -19,7 +55,7 @@
 					<span data-dz-details=""></span>
 					<span data-dz-size=""></span>
 					<span data-dz-errormessage=""></span>
-				</div>
+				</div> -->
 
 			</section>
 

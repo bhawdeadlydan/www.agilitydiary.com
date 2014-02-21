@@ -17,38 +17,7 @@
 
 				<div class="container" >
 
-
-
-					<div ng-repeat="dog in profile.Dogs">
-						<span ng-bind="dog.Profile.Name" ></span>
-
-						<table>
-							<thead>
-								<tr>
-									<th>Date</th>
-									<th>Show</th>
-									<th>Class</th>
-									<th>Time</th>
-									<th>Faults</th>
-									<th>Place</th>
-									<th>Judge's name</th>
-									<th>Agility Warrant Points</th>
-								</tr>
-							</thead>
-
-							<tr ng-repeat="result in filterResultsForShow(dog.Results)">
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><span ng-bind="result.Time" /><td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><span ng-bind="result.Points" /></td>
-							</tr>
-						</table>
-					</div>
-
+					<h2>Add results</h2>
 
 					<form name="form" parsley-validate>
 
@@ -92,6 +61,38 @@
 						<button ng-click="controls.saveRecord()">Save</button>
 					</div>
 			</form>
+
+			<h2>Results</h2>
+
+			<div ng-repeat="dog in profile.Dogs">
+				<h3 ng-bind="dog.Profile.Name"></h3>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Show</th>
+							<th>Class</th>
+							<th>Time</th>
+							<th>Faults</th>
+							<th>Place</th>
+							<th>Judge's name</th>
+							<th>Agility Warrant Points</th>
+						</tr>
+					</thead>
+
+					<tr ng-repeat="result in filterResultsForShow(dog.Results)">
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><span ng-bind="result.Time" /><td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><span ng-bind="result.Points" /></td>
+					</tr>
+				</table>
+			</div>
 
 	</div>
 
