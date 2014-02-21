@@ -46,6 +46,18 @@
 					<img alt="Placeholder" src="http://placehold.it/200x150/CCCCCC/FFFFFF.png" ng-bind="show.Logo" />
 					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, cupiditate, aperiam eius quod harum sit quo repellendus.</p>
 				</section>
+
+				<section class="pastShows">
+					<h2>List past shows</h2>
+					<p>@@past shows here</p>
+				</section>
+
+				<section class="comments">
+					<h2>Comments</h2>
+					<p>@@Show following sentence if there are no comments available for this show yet</p>
+					<p>There are currently no comments for this show, please add a comment</p>
+					<comments item="id" ></comments>
+				</section>
 			</section>
 
 			<section class="contentSub">
@@ -64,22 +76,26 @@
 
 				<button class="button attendButton" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
 
-				<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">DON'T DO THiS SHOW</button>
+				<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">Withdraw from this show</button>
 
 				<p><a href="#">Is this your show?</a></p>
 
 				<h2>Attending</h2>
 
 				<span ng-show="show.Attending.length===0">
-					Nobody
+					No-one is attending this show yet, be the first
 				</span>
+
+				<section class="shareThis">
+				  <h2>Share this show</h2>
+				  <p>@@share this show here</p>
+				</section>
 
 				<span ng-repeat="attending in show.Attending">
 					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
 				</span>
 
 				<h2>Photos</h2>
-
 
 				<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 					<span class="dz-message"></span>
@@ -93,18 +109,15 @@
 					No photos
 				</span>
 
-
-
 				<span ng-repeat="photo in show.UserPhotos">
 					<img src="{{ photo.Path }}_80x60" />
 				</span>
-
 
 			</section>
 
 		</div>
 
-		<comments item="id" ></comments>
+
 
 		<!-- <div class="widget">
 			<div class="widget-title">Categories</div>
@@ -127,29 +140,6 @@
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> as you want</span></a>
 			<a href="#"><span class="label label-default"><span class="fui-tag"></span> why not</span></a>
 		</div> -->
-
-		<hr />
-		<h2>TODO: </h2>
-		<ul>
-			<li>List who else is attending this show</li>
-			<li>Add weather</li>
-			<li>Track/bookmark/favourite show</li>
-			<li>Nearby</li>
-			<li>Stalls</li>
-			<li>Past events</li>
-			<li>Share this event</li>
-			<li>Tags/tagged</li>
-			<li>Satnav</li>
-			<li>Camping</li>
-			<li>Venue page</li>
-			<li>Special events</li>
-			<li>Show coments</li>
-			<li>Facilities</li>
-			<li>photos</li>
-			<li>How many days?</li>
-			<li>Announcements/news</li>
-			<li>Results</li>
-		</ul>
 	</div>
 
 </section>
