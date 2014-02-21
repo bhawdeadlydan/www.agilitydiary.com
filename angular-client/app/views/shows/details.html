@@ -1,7 +1,5 @@
 <section class="details">
 
-	<a ng-href="#/shows/results/{{ id }}">View/enter results</a>
-
 	<div>
 		<leaflet style="height: 300px"
 			id="geo-wrapper"
@@ -52,6 +50,11 @@
 					<p>@@past shows here</p>
 				</section>
 
+				<section class="similarShows">
+					<h2>Similar shows</h2>
+					<p>@@similar shows here</p>
+				</section>
+
 				<section class="comments">
 					<h2>Comments</h2>
 					<p>@@Show following sentence if there are no comments available for this show yet</p>
@@ -86,14 +89,17 @@
 					No-one is attending this show yet, be the first
 				</span>
 
+				<span ng-repeat="attending in show.Attending">
+					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
+				</span>
+
 				<section class="shareThis">
 				  <h2>Share this show</h2>
 				  <p>@@share this show here</p>
 				</section>
 
-				<span ng-repeat="attending in show.Attending">
-					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
-				</span>
+				<h2>Results</h2>
+				<p><a ng-href="#/shows/results/{{ id }}">View/enter results</a></p>
 
 				<h2>Photos</h2>
 

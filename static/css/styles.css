@@ -692,7 +692,7 @@ html {
  */
 /* line 21, ../../layout/css-src/partials/elements/_body.scss */
 body {
-  background: #73afaa;
+  background: white;
   color: #343434;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
