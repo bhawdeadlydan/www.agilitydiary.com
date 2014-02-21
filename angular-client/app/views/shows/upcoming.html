@@ -1,4 +1,4 @@
-<section class="upcoming">
+<section class="shows upcoming">
 
 	<div class="container">
 		<section>
@@ -6,26 +6,25 @@
 
 			<p ng-show="filteredShows.length===0">No shows</p>
 
-
 			<label>Search</label>
 			<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
 		</section>
 
-		<nav class="widgetCategories">
-			<div class="widget-title">Filter by:</div>
-			<ul>
-				<li ng-repeat="category in categories">
-					<a class="category" href="" ng-click="categoryClick(category);">
-					<span class="show" ng-show="isCategorySelected(category);">✓</span>
-					<span class="hide" ng-hide="isCategorySelected(category);">✗</span>
-					{{ category }}</a>
-				</li>
-			</ul>
-		</nav>
+    <nav class="categories">
+      <ul>
+        <li><strong>Filter by:</strong></li>
+        <li ng-repeat="category in categories">
+          <a class="category" href="" ng-click="categoryClick(category);">
+          <span class="show" ng-show="isCategorySelected(category);">✓</span>
+          <span class="hide" ng-hide="isCategorySelected(category);">✗</span>
+          {{ category }}</a>
+        </li>
+      </ul>
+    </nav>
 
 		<nav class="tabs">
-			<a  class="active"  href="#/shows/upcoming">Upcoming shows</a>
+			<a  class="active" href="#/shows/upcoming">Upcoming shows</a>
 			<a href="#/shows/previous">Previous shows</a>
 			<a href="#/shows/entered">Entered</a>
 		</nav>

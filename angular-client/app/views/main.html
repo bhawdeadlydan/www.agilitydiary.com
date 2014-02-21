@@ -32,7 +32,7 @@
 			<h2><a ng-href="#/shows/entered">Entered Shows</a></h2>
 
 			<p ng-show="!profile.EnteredShows.length">
-				You have not entered any shows, <a href="#/shows/upcoming">enter some shows</a>
+				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
 			</p>
 			<div ng-repeat="show in profile.EnteredShows">
 				<a ng-href="#/shows/details/{{ show._id }}"><div ng-bind="show.Name"></div></a>
