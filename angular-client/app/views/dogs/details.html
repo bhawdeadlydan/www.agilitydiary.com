@@ -2,11 +2,23 @@
 
 	<div class="container">
 
-		<p><a ng-href="#/dogs"><< Return to all dogs</a></p>
+		<span>
+			<a ng-href="#/"><img class="dogProfilePicture"  src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
+		</span>
+
+		<span ng-repeat="dog in profile.Dogs" >
+			<a ng-href="#/dogs/{{ dog._id }}">
+				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+			</a>
+		</span>
+
+
+
+		<!--<p><a ng-href="#/dogs"><< Return to all dogs</a></p>-->
 
 		<h1>{{ dog.Profile.Name }}</h1>
 
-		<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>
+		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
 
 		<nav class="tabs">
 			<a class="active" ng-href="#/dogs/details/{{ id }}">Details</a>

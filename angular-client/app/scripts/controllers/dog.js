@@ -5,7 +5,7 @@ app.controller('DogController', [
 	function DogController($scope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams) {
 		"use strict";
 
-
+		$scope.profile = {};
 
 		/**
 		 * Module level variables

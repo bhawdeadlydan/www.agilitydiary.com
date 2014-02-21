@@ -1,7 +1,18 @@
 <section class="main profile">
 
-	<div class="container">
-		<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+	<div style="background: url({{ profile.User.profile.backgroundpicture }} ) center no-repeat; background-size: cover; ">
+		<span>
+			<a ng-href="#/"><img class="dogProfilePicture"  src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
+		</span>
+
+		<span ng-repeat="dog in profile.Dogs" >
+			<a ng-href="#/dogs/{{ dog._id }}">
+				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+			</a>
+		</span>
+	</div>
+
+	<div class="container" >
 
 		<h1 ng-bind="profile.User.profile.name" />
 
@@ -76,6 +87,17 @@
 
 			</section>
 		</div>
+
+		<h1>Background</h1>
+
+		<div class="uploadImage" id="uploadProfileBackgroundImage" style="">⇧ Upload Photo
+			<span class="dz-message"></span>
+			<span data-dz-name=""></span>
+			<span data-dz-details=""></span>
+			 <span data-dz-size=""></span>
+			 <span data-dz-errormessage=""></span>
+		</div>
+<h1>normal avatar</h1>
 
 		<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 			<span class="dz-message"></span>

@@ -176,6 +176,7 @@ app.get('/agility-diary/enterShow', userController.enterShow);
 app.get('/agility-diary/resignShow', userController.resignShow);
 
 app.post('/agility-diary/user/uploadFile', userController.uploadFile);
+app.post('/agility-diary/user/uploadBackgroundFile', userController.uploadBackgroundFile);
 
 
 

@@ -66,6 +66,16 @@ app.controller('MainController', [
 				profileDropzone.removeAllFiles();
 				fetchProfile();
 			});
+
+
+
+			var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', { url: '/agility-diary/user/uploadBackgroundFile' });
+
+			profileDropzone.on('complete', function file() {
+				profileDropzone.removeFile(file);
+				profileDropzone.removeAllFiles();
+				fetchProfile();
+			});
 		}
 
 

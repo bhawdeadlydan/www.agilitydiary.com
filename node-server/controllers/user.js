@@ -40,6 +40,34 @@ exports.uploadFile = Upload.UploadManager({
 
 
 
+exports.uploadBackgroundFile = Upload.UploadManager({
+	scale: [
+		{
+			width: 200,
+			height: 100
+		},
+		{
+			width: 80,
+			height: 60
+		},
+		{
+			width: 64,
+			height: 64
+		}
+	]
+}, function (request, response, data) {
+	User.findById(request.user.id, function (err, user) {
+		user.profile.backgroundpicture =  data.newUrlPath; //data.assetPath + '/' + _.findWhere(data.scaled, { width: 200 }).url;
+
+		user.save(function (err, user) {
+			response.send(200);
+		});
+	});
+});
+
+
+
+
 
 exports.addDogPhoto = Upload.UploadManager({
 	scale: [
