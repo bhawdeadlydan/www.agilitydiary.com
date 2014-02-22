@@ -1,0 +1,49 @@
+/**
+ * @description    styling for the avatar module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 18:58
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        avatar
+ */
+.avatar {
+    @extend %circleAvatar;
+}
+
+/**
+ * @section        myAvatar
+ */
+.myAvatar {
+    height: 120px;
+    width: 120px;
+
+    .profileHeader & {
+        margin-bottom: 1em;
+        margin-top: -60px;
+    }
+}
+
+/**
+ * @section        dogAvatar
+ */
+.dogAvatar {
+
+}
+
+/**
+ * @section        friendAvatar
+ */
+.friendAvatar {
+    height: 32px;
+    margin: .5em;
+    width: 32px;
+}

@@ -1,13 +1,14 @@
 <section class="main profile">
 
-	<div style="background: url({{ profile.User.profile.backgroundpicture }} ) center no-repeat; background-size: cover; ">
-		<span>
-			<a ng-href="#/"><img class="dogProfilePicture"  src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
-		</span>
+	<div class="profileHeader" style="background-image: url({{ profile.User.profile.backgroundpicture }} )">
+
+		<div class="avatar myAvatar">
+			<a ng-href="#/"><img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
+		</div>
 
 		<span ng-repeat="dog in profile.Dogs" >
-			<a ng-href="#/dogs/{{ dog._id }}">
-				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+			<a class="avatar dogAvatar" ng-href="#/dogs/{{ dog._id }}">
+				<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
 			</a>
 		</span>
 	</div>
@@ -20,6 +21,7 @@
 			<a href="#">Profile</a>
 			<a class="active"  href="#/shows/previous">Dogs</a>
 			<a href="#/shows/entered">Photos</a>
+			<a href="#/shows/entered">Friends</a>
 		</nav>
 
 		<div class="contentWrapper">
@@ -36,10 +38,10 @@
 					<p>@@newsfeed here</p>
 				</div>
 
-				<div class="pictures">
-					<h2>Pictures</h2>
-					<p>@@Pictures here</p>
-					<a href="#">View all my pictures</a>
+				<div class="photos">
+					<h2>Latest photos</h2>
+					<p>@@Latest photos here</p>
+					<a href="#">View all my photos</a>
 				</div>
 
 				<section class="suggestedShows">
@@ -57,48 +59,56 @@
 						You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
 					</p>
 
-					<div ng-repeat="show in profile.EnteredShows |  limitTo: 3">
-						<strong><a ng-href="#/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong> at:
-							<a href="#"><span ng-bind="show.Venue.Name" /></a>,
-							<span ng-bind="show.Venue.Address" />,
-							<span ng-bind="show.Venue.PostCode" />
-							on <strong><span ng-bind="show.ShowDate" /></strong> to <strong><span ng-bind="show.ShowEnd" /></strong>
-							<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a> |
-							Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
-					</div>
+					<p ng-repeat="show in profile.EnteredShows |  limitTo: 3">
+						<strong><a ng-href="#/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong>
+						<br /><a href="#"><span ng-bind="show.Venue.Name" /></a>,
+						<br /><span ng-bind="show.Venue.Address" />,
+						<br /><span ng-bind="show.Venue.PostCode" />
+						<br /><span ng-bind="show.ShowDate" /> to <span ng-bind="show.ShowEnd" />
+						<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+						<br />Lat: <span ng-bind="show.Location.Latitude" />,
+						<br />Long: <span ng-bind="show.Location.Longitude" />
+					</p>
 
 					<p><a ng-href="#/shows/entered">View all your entered Shows</a></p>
 				</section>
 
-				<section class="dogsList">
-					<h2><a ng-href="#/dogs">Dogs</a></h2>
 
-					<p ng-show="!profile.Dogs.length">
-						You have no dogs yet, would you like to <a ng-href="#/dogs/add">add a dog</a>?
-					</p>
-
-					<div>
-						<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
-							<img src="http://placedog.com/64/64" alt="" />
-							<br /><span ng-bind="dog.Profile.Name" />
-						</a>
-					</div>
-				</section>
 
 			</section>
 		</div>
 
-		<h1>Background</h1>
 
+		<section class="friendsList">
+			<h2><a ng-href="#/friends">Friends</a></h2>
+
+			<p>@@make friends here</p>
+
+			<p ng-show="!profile.Friends.length">
+				Aww you haven't added any friends yet, <a href="#">Add some friends</a>
+			</p>
+
+			<div>
+				<a class="avatar friendAvatar" ng-repeat="friend in profile.Friends" ng-href="#/friends/{{ friend._id }}">
+					<img src="http://placedog.com/64/64" alt="" />
+					<br /><span ng-bind="friend.Profile.Name" />
+				</a>
+			</div>
+		</section>
+
+
+
+		<h1 style="clear:both;">@@Background</h1>
 		<div class="uploadImage" id="uploadProfileBackgroundImage" style="">⇧ Upload Photo
 			<span class="dz-message"></span>
 			<span data-dz-name=""></span>
 			<span data-dz-details=""></span>
-			 <span data-dz-size=""></span>
-			 <span data-dz-errormessage=""></span>
+			<span data-dz-size=""></span>
+			<span data-dz-errormessage=""></span>
 		</div>
-<h1>normal avatar</h1>
 
+
+		<h1>@@normal avatar</h1>
 		<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
 			<span class="dz-message"></span>
 			<span data-dz-name=""></span>
@@ -107,68 +117,9 @@
 			 <span data-dz-errormessage=""></span>
 		</div>
 
-		<div class="latestResults">
-			<h2>Your latest results</h2>
-			<p>@@last shows results here</p>
-			<a href="#">View all your results</a>
-		</div>
-
-		<div class="newsfeed">
-			<h2>Newsfeed</h2>
-			<p>@@newsfeed here</p>
-		</div>
-
-		<div class="pictures">
-			<h2>Pictures</h2>
-			<p>@@Pictures here</p>
-			<a href="#">View all your pictures</a>
-		</div>
-
-		<section class="dogsList">
-			<h2><a ng-href="#/dogs">Dogs</a></h2>
-
-			<p ng-show="!profile.Dogs.length">
-				You have no dogs
-			</p>
-
-			<div>
-				<div ng-repeat="dog in profile.Dogs" >
-					<a  ng-href="#/dogs/{{ dog._id }}">
-						<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
-						<br /><span ng-bind="dog.Profile.Name" />
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<section class="enteredShowsList">
-			<h2>Your next shows are</h2>
-
-			<p ng-show="!profile.EnteredShows.length">
-				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
-			</p>
 
 
-			<div ng-repeat="show in profile.EnteredShows|limitTo: 3">
-				<a ng-href="#/shows/details/{{ show._id }}"  ng-bind="show.Name"></a> on <span ng-bind="show.Date"></span>
-			</div>
 
-		<section class="friendsList">
-
-			<p>@@make friends</p>
-			<h2><a ng-href="#/friends">Friends</a></h2>
-
-			<p ng-show="!profile.Friends.length">
-				Aww you haven't added any friends yet, <a href="#">Add some friends</a>
-			</p>
-
-			<div>
-				<a class="friendProfilePicture" ng-repeat="friend in profile.Friends" ng-href="#/friends/{{ friend._id }}">
-					<img src="http://placedog.com/64/64" alt="" />
-					<br /><span ng-bind="friend.Profile.Name" />
-				</a>
-			</div>
-		</section>
 
 	</div>
 </section>

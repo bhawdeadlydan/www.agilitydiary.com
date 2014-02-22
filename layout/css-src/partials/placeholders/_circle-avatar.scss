@@ -20,13 +20,15 @@
  * @section        circleAvatar
  */
 %circleAvatar {
-    border: 2px solid rgba(255,255,255,0.4);
-    @include border-radius(50%);
-    @include box-shadow(rgba(0,0,0,0.4) 0px 0px 5px);
+    background-color: $color-white;
+    border: 3px solid rgba(255,255,255,0);
+    @include border-radius(100%);
+    @include box-shadow(rgba(0,0,0,0.3) 0px 1px 1px);
     display: inline-block;
     height: 64px;
     line-height: 0;
     margin: 1em;
+    overflow: hidden;
     text-align: center;
     @include transition-timing-function(linear);
     @include transition-duration(0.25s);
@@ -42,7 +44,7 @@
     }
 
     img {
-        @include border-radius(50%);
+        @include border-radius(100%);
         max-width: 100%;
 
         &:hover {
