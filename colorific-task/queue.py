@@ -7,9 +7,10 @@ import optparse
 import json
 import shutil
 import pika
+import logging
+logging.basicConfig()
 
 import colorific
-
 from colorific import rgb_to_hex
 
 import settings
