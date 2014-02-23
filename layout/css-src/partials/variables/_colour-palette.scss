@@ -20,6 +20,7 @@
 */
 $color-black:             #000;
 $color-white:             #fff;
+$color-red:               #b02035;
 
 /**
 * @section        Set Brand Colour
@@ -67,8 +68,10 @@ $color-nav-primary-active  :    $color-white;
 $color-tab                 :    $color-brand;
 $color-tab-hover           :    darken($color-brand, 10%);
 
-$color-button              :    $color-brand;
-$color-button-copy         :    $color-white;
+$color-action              :    $color-brand;
+$color-action-copy         :    $color-white;
+
+$color-warning             :    $color-red;
 
 $color-border              :    lighten($color-black, 83%); // output = #d4d4d4
 $color-shadow              :    #ddd;

@@ -3,14 +3,14 @@ extends ../layout
 block content
   form(method='POST', parsley-validate)
     h1 Sign In
-    .formField.formButtons
-      a.btn.btn-facebook(href='/auth/facebook')
+    .formField.formActions
+      a.action.btn-facebook(href='/auth/facebook')
         i.fa.fa-facebook
         | Facebook
-      a.btn.btn-twitter(href='/auth/twitter')
+      a.action.btn-twitter(href='/auth/twitter')
         i.fa.fa-twitter
         | Twitter
-      a.btn.btn-google-plus(href='/auth/google')
+      a.action.btn-google-plus(href='/auth/google')
         i.fa.fa-google-plus
         | Google
     .formField.formEmail
@@ -19,7 +19,7 @@ block content
     .formField.formPassword
       label.control-label(for='username') Password
       input.form-control(type='password', name='password', id='password', placeholder='Password')
-    .formField.formButtons
-      button(type='submit')
+    .formField.formActions
+      button.action(type='submit')
         i.fa.fa-unlock-alt
         | Login

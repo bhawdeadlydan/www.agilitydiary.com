@@ -14,8 +14,8 @@ block content
         label(for='name') Name
         input(type='text', name='name', id='name', value='#{user.profile.name}')
 
-      .formField.formButtons
-        input(type='submit', value='Update Profile')
+      .formField.formActions
+        input.action(type='submit', value='Update Profile')
 
   h2 Change Password
 
@@ -27,24 +27,24 @@ block content
       .formField.formPassword
         label(for='confirmPassword') Confirm Password
         input(type='password', name='confirmPassword', id='confirmPassword')
-      .formField.formButtons
-        button(type='submit') Change Password
+      .formField.formActions
+        button.action(type='submit') Change Password
 
   a(href='/logout') Logout
   if 1==2
     h2 Linked Accounts
 
     if user.google
-      p: a(href='/account/unlink/google') Unlink your Google account
+      p: a.action(href='/account/unlink/google') Unlink your Google account
     else
-      p: a(href='/auth/google') Link your Google account
+      p: a.action(href='/auth/google') Link your Google account
 
     if user.facebook
-      p: a(href='/account/unlink/facebook') Unlink your Facebook account
+      p: a.action(href='/account/unlink/facebook') Unlink your Facebook account
     else
-      p: a(href='/auth/facebook') Link your Facebook account
+      p: a.action(href='/auth/facebook') Link your Facebook account
 
     if user.twitter
-      p: a(href='/account/unlink/twitter') Unlink your Twitter account
+      p: a.action(href='/account/unlink/twitter') Unlink your Twitter account
     else
-      p: a(href='/auth/twitter') Link your Twitter account
+      p: a.action(href='/auth/twitter') Link your Twitter account

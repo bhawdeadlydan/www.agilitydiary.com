@@ -1,0 +1,46 @@
+/**
+ * @description    styling for the action module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.3
+ *        @date    2014-02-22 15:00
+ *
+ *
+ *     @example
+ *                 <div class="action"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        action
+ */
+.action {
+    background-color: $color-action;
+    border: none;
+    @include border-radius(5px);
+    color: $color-action-copy;
+    cursor: pointer;
+    display: block;
+    @include font-size(2.4);
+    line-height: 1;
+    text-align: center;
+    padding: .5em 1em;
+
+    &:hover {
+        background-color: lighten($color-action, 15%);
+    }
+}
+
+/**
+ * @section        extend .action
+ */
+.warning {
+    background-color: $color-warning;
+
+    &:hover {
+        background-color: lighten($color-warning, 15%);
+    }
+
+}
