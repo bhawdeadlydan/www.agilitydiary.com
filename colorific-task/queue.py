@@ -16,8 +16,11 @@ import settings
 
 
 def connect_to_queue():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(settings.RABBITMQ))
+    connection = pika.BlockingConnection(
+        pika.ConnectionParameters(settings.RABBITMQ)
+    )
     channel = connection.channel()
+    channel.exchange_declare(exchange='')
 
     return connection, channel
 
@@ -59,7 +62,7 @@ def callback(ch, method, properties, body):
     data = json.loads(body)
     print " [x] Received %r" % (data,)
 
-    reply(ch, data.sender.queue, 'received')
+    reply(ch, data['sender']['queue'], 'received')
 
 
 def queue_watcher(settings):
