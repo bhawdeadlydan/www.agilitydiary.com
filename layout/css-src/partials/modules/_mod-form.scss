@@ -1,20 +1,24 @@
 /**
- * @description    styling for the formField class
+ * @description    styling for the form module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
- *        @date    2014-02-19 19:21
+ *     @version    0.3
+ *        @date    2014-02-19 19:25
  *
  *
  *     @example
- *                 <div class="formField">
- *
- *                 </div>
- *
  *
  *        @type    module
  *       @notes
  */
+
+/**
+ * @section        formActions
+ */
+.formActions {
+    padding: 1em 0;
+    text-align: center;
+}
 
 /**
  * @section        formField

@@ -909,10 +909,11 @@ strong {
  */
 /* line 22, ../../layout/css-src/partials/elements/form/_form.scss */
 form {
+  float: left;
   margin-bottom: 1em;
   padding: 1em;
 }
-/* line 26, ../../layout/css-src/partials/elements/form/_form.scss */
+/* line 27, ../../layout/css-src/partials/elements/form/_form.scss */
 form > :first-child {
   margin-top: 0;
 }
@@ -1855,24 +1856,24 @@ select {
 }
 
 /**
- * @description    styling for the buttons moduke
+ * @description    styling for the action module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.2
+ *     @version    0.3
  *        @date    2014-02-22 15:00
  *
  *
  *     @example
- *                 <div class="buttons"></div>
+ *                 <div class="action"></div>
  *
  *        @type    module
  *       @notes
  */
 /**
- * @section        button
+ * @section        action
  */
-/* line 19, ../../layout/css-src/partials/modules/_mod-buttons.scss */
-.button {
+/* line 19, ../../layout/css-src/partials/modules/_mod-action.scss */
+.action {
   background-color: #73afaa;
   border: none;
   -webkit-border-radius: 5px;
@@ -1889,31 +1890,49 @@ select {
   text-align: center;
   padding: .5em 1em;
 }
+/* line 31, ../../layout/css-src/partials/modules/_mod-action.scss */
+.action:hover {
+  background-color: #a4cbc8;
+}
 
 /**
- * @section        Modules: forms
+ * @section        extend .action
  */
+/* line 39, ../../layout/css-src/partials/modules/_mod-action.scss */
+.warning {
+  background-color: #b02035;
+}
+/* line 42, ../../layout/css-src/partials/modules/_mod-action.scss */
+.warning:hover {
+  background-color: #dc4057;
+}
+
 /**
- * @description    styling for the formField class
+ * @description    styling for the form module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
- *        @date    2014-02-19 19:21
+ *     @version    0.3
+ *        @date    2014-02-19 19:25
  *
  *
  *     @example
- *                 <div class="formField">
- *
- *                 </div>
- *
  *
  *        @type    module
  *       @notes
  */
 /**
+ * @section        formActions
+ */
+/* line 18, ../../layout/css-src/partials/modules/_mod-form.scss */
+.formActions {
+  padding: 1em 0;
+  text-align: center;
+}
+
+/**
  * @section        formField
  */
-/* line 22, ../../layout/css-src/partials/modules/_mod-form-field.scss */
+/* line 26, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formField {
   width: 100%;
   float: left;
