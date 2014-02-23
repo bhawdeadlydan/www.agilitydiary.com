@@ -15,7 +15,7 @@ import settings
 
 
 def connect_to_queue():
-    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+    connection = pika.BlockingConnection(pika.ConnectionParameters(settings.RABBITMQ))
     channel = connection.channel()
 
     return connection, channel
