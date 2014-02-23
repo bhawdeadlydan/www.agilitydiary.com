@@ -10,7 +10,7 @@ import pika
 import colorific
 from colorific.palette import (
     extract_colors, print_colors, save_palette_as_image, color_stream_mt,
-    color_stream_st)
+    color_stream_st, rgb_to_hex)
 import settings
 
 
@@ -33,12 +33,10 @@ def read_file_queue(settings, input_files):
             max_colors=5,
             n_quantized=100)
 
-        colour_data = print_colors(filename, palette)
-        parsed_data = colour_data.split()[1].split(',')
-
         data = {
-            'filename': input_file,
-            'data': parsed_data
+            'filename': filename,
+            'colours': [rgb_to_hex(c.value) for c in palette.colors],
+            'background': palette.bgcolor and rgb_to_hex(palette.bgcolor.value) or ''
         }
 
         out_file = os.path.join(settings.OUTPUT_FILE_QUEUE, input_file + '_data.json')
