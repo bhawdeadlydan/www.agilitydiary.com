@@ -1,0 +1,29 @@
+/**
+ * @description    styling for the profile module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 18:46
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        profileHeader
+ */
+.profileHeader {
+    background-size: cover;
+    background: $color-profile-header-bg -60px center no-repeat;
+    height: auto;
+    margin-top: 450px;
+    margin-bottom: 50px;
+    text-align: center;
+
+    img {
+        vertical-align: middle;
+    }
+}

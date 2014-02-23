@@ -1,0 +1,30 @@
+/**
+ * @description    styling for the buttons moduke
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.2
+ *        @date    2014-02-22 15:00
+ *
+ *
+ *     @example
+ *                 <div class="buttons"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        button
+ */
+.button {
+    background-color: $color-button;
+    border: none;
+    @include border-radius(5px);
+    color: $color-button-copy;
+    cursor: pointer;
+    display: block;
+    @include font-size(2.4);
+    line-height: 1;
+    text-align: center;
+    padding: .5em 1em;
+}

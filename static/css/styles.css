@@ -251,20 +251,22 @@
  * @section        circleAvatar
  */
 /* line 22, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
-.friendProfilePicture, .dogProfilePicture {
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+.avatar {
+  background-color: white;
+  border: 3px solid rgba(255, 255, 255, 0);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 1px;
   display: inline-block;
   height: 64px;
   line-height: 0;
   margin: 1em;
+  overflow: hidden;
   text-align: center;
   -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
@@ -276,26 +278,26 @@
   transition-duration: 0.25s;
   width: 64px;
 }
-/* line 35, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
-.friendProfilePicture:hover, .dogProfilePicture:hover {
+/* line 37, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.avatar:hover {
   font-weight: bold;
   text-decoration: none;
 }
-/* line 40, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
-.lt-ie9 .friendProfilePicture, .lt-ie9 .dogProfilePicture {
+/* line 42, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.lt-ie9 .avatar {
   color: transparent;
 }
-/* line 44, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
-.friendProfilePicture img, .dogProfilePicture img {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+/* line 46, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.avatar img {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
   max-width: 100%;
 }
-/* line 48, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
-.friendProfilePicture img:hover, .dogProfilePicture img:hover {
+/* line 50, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.avatar img:hover {
   border: 2px solid rgba(255, 255, 255, 0.8);
   -webkit-transition-timing-function: ease-out;
   -moz-transition-timing-function: ease-out;
@@ -306,8 +308,8 @@
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
 }
-/* line 55, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
-.friendProfilePicture span, .dogProfilePicture span {
+/* line 57, ../../layout/css-src/partials/placeholders/_circle-avatar.scss */
+.avatar span {
   display: block;
   margin-top: 1.5em;
 }
@@ -1104,10 +1106,10 @@ select {
 }
 
 /**
- * @description    button styling
+ * @description    buttons module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
+ *     @version    0.2
  *        @date    2014-02-15 08:40
  *
  *
@@ -1203,7 +1205,6 @@ select {
  */
 /* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
 .layoutHeader {
-  background: #73afaa;
   padding: 1em;
 }
 
@@ -1228,8 +1229,6 @@ select {
  */
 /* line 22, ../../layout/css-src/partials/default-layout/_layout-footer.scss */
 .layoutFooter {
-  background: #73afaa;
-  color: #d8d8d8;
   padding: 2em 0 100px 0;
 }
 
@@ -1767,16 +1766,6 @@ select {
  * @section        friendsList
  */
 /**
- * @section        friendProfilePicture
- */
-/* line 25, ../../layout/css-src/partials/modules/_mod-friends.scss */
-.friendProfilePicture {
-  height: 32px;
-  margin: .5em;
-  width: 32px;
-}
-
-/**
  * @description    styling for the dogs module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
@@ -1793,8 +1782,114 @@ select {
  * @section        dogsList
  */
 /**
- * @section        dogProfilePicture
+ * @description    styling for the profile module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 18:46
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
  */
+/**
+ * @section        profileHeader
+ */
+/* line 18, ../../layout/css-src/partials/modules/_mod-profile.scss */
+.profileHeader {
+  background-size: cover;
+  background: rgba(0, 0, 0, 0.5) -60px center no-repeat;
+  height: auto;
+  margin-top: 450px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+/* line 26, ../../layout/css-src/partials/modules/_mod-profile.scss */
+.profileHeader img {
+  vertical-align: middle;
+}
+
+/**
+ * @description    styling for the avatar module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-21 18:58
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        avatar
+ */
+/**
+ * @section        myAvatar
+ */
+/* line 25, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.myAvatar {
+  height: 120px;
+  width: 120px;
+}
+/* line 29, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.profileHeader .myAvatar {
+  margin-bottom: 1em;
+  margin-top: -60px;
+}
+
+/**
+ * @section        dogAvatar
+ */
+/**
+ * @section        friendAvatar
+ */
+/* line 45, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.friendAvatar {
+  height: 32px;
+  margin: .5em;
+  width: 32px;
+}
+
+/**
+ * @description    styling for the buttons moduke
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.2
+ *        @date    2014-02-22 15:00
+ *
+ *
+ *     @example
+ *                 <div class="buttons"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        button
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-buttons.scss */
+.button {
+  background-color: #73afaa;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 1;
+  text-align: center;
+  padding: .5em 1em;
+}
+
 /**
  * @section        Modules: forms
  */
@@ -1824,29 +1919,6 @@ select {
   float: left;
   margin-right: 1.69492%;
   display: inline;
-}
-
-/**
- * @description    styling for the formButtons class
- *
- *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
- *        @date    2014-02-19 19:25
- *
- *
- *     @example
- *                 <div class="formButtons"></div>
- *
- *        @type    module
- *       @notes
- */
-/**
- * @section        formButtons
- */
-/* line 19, ../../layout/css-src/partials/modules/_mod-form-buttons.scss */
-.formButtons {
-  padding: 1em 0;
-  text-align: center;
 }
 
 /**

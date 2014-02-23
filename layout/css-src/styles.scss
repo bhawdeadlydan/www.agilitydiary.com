@@ -130,12 +130,15 @@
 @import "partials/modules/mod-tabs";
 @import "partials/modules/mod-friends";
 @import "partials/modules/mod-dogs";
+@import "partials/modules/mod-profile";
+@import "partials/modules/mod-avatar";
+@import "partials/modules/mod-buttons";
 
 /**
  * @section        Modules: forms
  */
 @import "partials/modules/mod-form-field";
-@import "partials/modules/mod-form-buttons";
+// @import "partials/modules/mod-form-buttons";
 
 /**
  * @section        Plugins
