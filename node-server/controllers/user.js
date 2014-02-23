@@ -12,6 +12,54 @@ var Upload = require('./upload.js');
 
 
 
+// tasks
+var secrets = require('../config/secrets');
+var q = 'colorific';
+
+var amqplib = require('amqplib');
+
+
+open = amqplib.connect(secrets.amqp);
+
+// Publisher
+open.then(function (conn) {
+	var ok = conn.createChannel();
+
+	ok = ok.then(function (ch) {
+		//ch.assertQueue('colorific');
+		var data = {
+			filename: '/var/www/sdfsdfsdfdsfs',
+			sender: {
+				queue: 'colorific-return'
+			}
+		};
+		var serialized = JSON.stringify(data);
+		ch.sendToQueue('colorific', new Buffer(serialized));
+	});
+
+	return ok;
+}).then(null, console.warn);
+
+
+
+// Consumer
+open.then(function(conn) {
+	var ok = conn.createChannel();
+	ok = ok.then(function(ch) {
+		ch.assertQueue('colorific-return');
+		ch.consume(q, function(msg) {
+			if (msg !== null) {
+				console.log(msg.content.toString());
+				ch.ack(msg);
+			}
+		});
+	});
+	return ok;
+}).then(null, console.warn);
+
+
+
+
 exports.uploadFile = Upload.UploadManager({
 	scale: [
 		{

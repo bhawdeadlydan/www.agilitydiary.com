@@ -7,11 +7,16 @@ import optparse
 import json
 import shutil
 import pika
+
 import colorific
 
-from colorific.palette import (
-    extract_colors, print_colors, save_palette_as_image, color_stream_mt,
-    color_stream_st, rgb_to_hex)
+from colorific extract_colors
+from colorific print_colors
+from colorific save_palette_as_image
+from colorific color_stream_mt
+from colorific color_stream_st
+from colorific rgb_to_hex
+
 import settings
 
 
@@ -47,17 +52,30 @@ def read_file_queue(settings, input_files):
         shutil.move(filename, os.path.join(settings.PROCESSED_FILE_QUEUE, input_file))
 
 
+def reply(channel, queue, body):
+    channel.queue_declare(queue=queue)
+    channel.basic_publish(exchange='',
+        routing_key=queue,
+        body=body
+    )
+
+
+def callback(ch, method, properties, body):
+    data = json.loads(body)
+    print " [x] Received %r" % (data,)
+
+    reply(ch, data.sender.queue, 'received')
+
+
 def queue_watcher(settings):
     connection, channel = connect_to_queue()
-    channel.queue_declare(queue='colorific')
-
-    def callback(ch, method, properties, body):
-        print " [x] Received %r" % (body,)
+    channel.queue_declare(queue=settings.QUEUE_NAME)
 
     channel.basic_consume(
         callback,
-        queue='colorific',
-        no_ack=True)
+        queue=settings.QUEUE_NAME,
+        no_ack=False
+    )
 
     print ' [*] Waiting for messages. To exit press CTRL+C'
     channel.start_consuming()

@@ -38,7 +38,7 @@
     "connect-mongo": "~0.4.0",
     "xml2js": "0.4.1",
     "yo": "1.1.2",
-    "amqplib": "~0.1.1",
+    "amqplib": "~0.1.2",
     "moment": "~2.5.1",
     "moment-timezone": "0.0.3",
     "q": "~1.0.0",
