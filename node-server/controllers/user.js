@@ -118,6 +118,10 @@ exports.setDogProfilePhoto = Upload.UploadManager({
 		{
 			width: 80,
 			height: 60
+		},
+		{
+			width: 64,
+			height: 64
 		}
 	]
 }, function (request, response, data) {

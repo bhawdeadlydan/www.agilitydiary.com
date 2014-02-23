@@ -5,6 +5,16 @@
 
 		<h1><img src="{{ dog.photo }}_80x60" /> Edit <a ng-href="#/dogs/{{ dog._id }}">{{ dog.name }}</a></h1>
 
+
+	<div class="uploadImage" id="addImage" style="">⇧ Upload Photo
+		<span class="dz-message"></span>
+		<span data-dz-name=""></span>
+		<span data-dz-details=""></span>
+		<span data-dz-size=""></span>
+		<span data-dz-errormessage=""></span>
+	</div>
+
+
 		<form name="form" parsley-validate>
 			<div class="formField formInput formText">
 				<label for="addDogName">Name</label>
@@ -69,14 +79,6 @@
 	</div>
 
 
-
-	<div class="uploadImage" id="addImage" style="">⇧ Upload Photo
-		<span class="dz-message"></span>
-		<span data-dz-name=""></span>
-		<span data-dz-details=""></span>
-		<span data-dz-size=""></span>
-		<span data-dz-errormessage=""></span>
-	</div>
 
 
 </section>
