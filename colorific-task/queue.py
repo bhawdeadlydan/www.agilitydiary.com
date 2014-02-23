@@ -10,12 +10,7 @@ import pika
 
 import colorific
 
-from colorific extract_colors
-from colorific print_colors
-from colorific save_palette_as_image
-from colorific color_stream_mt
-from colorific color_stream_st
-from colorific rgb_to_hex
+from colorific import rgb_to_hex
 
 import settings
 
