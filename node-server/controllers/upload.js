@@ -76,20 +76,44 @@ function UploadManager(options, fn) {
 
 							console.log('From: ' + data.outPath);
 							console.log('To:  ' + newScaledObject.localPath);
+							console.log(width);
+							console.log(height);
 
-							imageMagick(data.outPath)
-								.resize(width, height)
-								.autoOrient()
-								.write(newScaledObject.localPath, function (err) {
-									if (err) {
-										console.log(err);
-									}
-									if (!err) {
-										console.log(' hooray! ');
-										scaleIndex++;
-										scaleNextItem();
-									}
-								});
+							if (width !== height) {
+								imageMagick(data.outPath)
+									.resize(width, height)
+									.autoOrient()
+									.write(newScaledObject.localPath, function (err) {
+										if (err) {
+											console.log(err);
+										}
+										if (!err) {
+											console.log(' hooray! ');
+											scaleIndex++;
+											scaleNextItem();
+										}
+									});
+							} else {
+								var z = height;
+								if (z < width) z = width;
+
+								console.log('with crop');
+								imageMagick(data.outPath)
+									.resize(z)
+									.gravity('center')
+									.extent(width, height)
+									.write(newScaledObject.localPath, function (err) {
+										if (err) {
+											console.log(err);
+										}
+										if (!err) {
+											console.log(' hooray! ');
+											scaleIndex++;
+											scaleNextItem();
+										}
+									});
+
+							}
 						} else {
 							finishedScaling();
 						}
