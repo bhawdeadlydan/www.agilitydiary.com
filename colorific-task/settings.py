@@ -9,7 +9,7 @@ PROCESSED_FILE_QUEUE = os.path.join(WORKSPACE, "queue/processed/")
 
 
 def create_directory(directory_name):
-    if not os.path.exist(directory_name):
+    if not os.path.exists(directory_name):
         os.makedirs(directory_name)
 
 
