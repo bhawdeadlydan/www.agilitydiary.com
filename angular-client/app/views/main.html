@@ -64,7 +64,11 @@
 						<br /><a href="#"><span ng-bind="show.Venue.Name" /></a>,
 						<br /><span ng-bind="show.Venue.Address" />,
 						<br /><span ng-bind="show.Venue.PostCode" />
-						<br /><span ng-bind="show.ShowDate" /> to <span ng-bind="show.ShowEnd" />
+
+						<br /><span ng-bind="show.ShowDate" />
+							<span ng-show="show.ShowDate !== show.ShowEnd"> to <span ng-bind="show.ShowEnd" />
+
+						</span>
 						<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
 						<br />Lat: <span ng-bind="show.Location.Latitude" />,
 						<br />Long: <span ng-bind="show.Location.Longitude" />

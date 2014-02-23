@@ -40,7 +40,7 @@
 						<li class="event" ng-repeat="event in filteredShows">
 
 							<div class="eventDate">
-								<span ng-bind="event.ShowDate" /> to <span ng-bind="event.ShowEnd" />
+                <span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span>
 							</div>
 
 							<div class="eventShortDetail">
