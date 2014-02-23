@@ -8,6 +8,7 @@ import json
 import shutil
 import pika
 import colorific
+
 from colorific.palette import (
     extract_colors, print_colors, save_palette_as_image, color_stream_mt,
     color_stream_st, rgb_to_hex)
@@ -25,7 +26,7 @@ def read_file_queue(settings, input_files):
     for input_file in input_files:
         filename = os.path.join(settings.INPUT_FILE_QUEUE, input_file)
 
-        palette = extract_colors(
+        palette = colorific.extract_colors(
             filename,
             min_saturation=0.05,
             min_prominence=0.01,
@@ -63,4 +64,5 @@ def queue_watcher(settings):
 
 
 if __name__=="__main__":
-    queue_watcher(settings)
+    #queue_watcher(settings)
+    read_file_queue(settings, os.listdir(settings.INPUT_FILE_QUEUE))

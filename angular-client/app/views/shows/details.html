@@ -39,16 +39,25 @@
 		<div class="contentWrapper">
 			<section class="contentMain">
 
-				<p>
-					<a href="#"><span ng-bind="show.Venue.Name" /></a>,
-					<span ng-bind="show.Venue.Address" />,
-					<span ng-bind="show.Venue.PostCode" />
+				<p ng-show="show.Venue.Name.length!==0">
+					<a href="#" ng-bind="show.Venue.Name"></a>
+					<span ng-show="show.Venue.Address.length!==0">
+						, <span ng-bind="show.Venue.Address" />
+					</span>
+					<span ng-show="show.Venue.PostCode.length!==0">
+						, <span ng-bind="show.Venue.PostCode" />
+					</span>
 
 					<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a> |
 					Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
 				</p>
 
-				<p>Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a> | Website: <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a></p>
+				<p ng-show="show.Club.length!==0">
+					Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a>
+
+				<span ng-show="show.Website.length!==0">
+				 | Website: <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a>
+				</span></p>
 
 				<!--<section class="introduction">
 					<img alt="Placeholder" src="http://placehold.it/200x150/CCCCCC/FFFFFF.png" ng-bind="show.Logo" />
@@ -90,50 +99,41 @@
 
 
 			<section class="contentSub">
-				<br/>
 				<div>
 					<span class="tag" ng-bind="show.Meta.ShowType" />
 				</div>
 
-
-				<div>
+				<p>
 					<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
-				</div>
+				</p>
 
 				<!--<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>-->
 
-				<span ng-show="entriesOpen">
-					<p>Entries close: <span ng-bind="show.ClosingDate" /></p>
+				<p ng-show="entriesOpen">Entries close: <span ng-bind="show.ClosingDate" /></p>
 
-
-					<button class="button attendButton" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
-
-					<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">Not attending</button>
-				</span>
-				<span ng-hide="entriesOpen">
+				<p ng-hide="entriesOpen">
 					Entries closed
-				</span>
+				</p>
 
-				<button ng-click="resignShow(show);"  ng-show="attending" style="background:black;color:white">Withdraw from this show</button>
-
-				<span ng-show="show.EntriesTo">
-					<p>Entries to <span ng-bind="show.EntriesTo" /></p>
-				</span>
+				<p ng-show="show.EntriesTo">Entries to <span ng-bind="show.EntriesTo" /></p>
 
 				<p><a href="#">Is this your show?</a></p>
 
-
-				<span ng-show="show.Attending.length===0">
+				<p ng-show="show.Attending.length===0">
 					No-one is attending this show yet, be the first
-				</span>
+				</p>
 
-				<span ng-repeat="attending in show.Attending">
+				<button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
+
+				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">Not attending</button>
+
+				<p ng-repeat="attending in show.Attending">
 					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
-				</span>
+				</p>
 
 				<section class="shareThis">
-				  <h2>Share this show</h2>
-				  <p>@@share this show here</p>
+					<h2>Share this show</h2>
+					<p>@@share this show here</p>
 				</section>
 
 				<!--<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo

@@ -334,7 +334,7 @@ app.controller('ShowsController', [
 				//checkAttending();
 				//$location.path('#/shows/entered');
 				//details($scope.id);
-				fetchProfile();
+				fetchProfile(true);
 				details($scope.id);
 
 			}, function () {
@@ -349,7 +349,7 @@ app.controller('ShowsController', [
 			ShowService.resignShow($scope.id, function () {
 
 				ShowService.userData({}, function (data) {
-					fetchProfile();
+					fetchProfile(true);
 					details($scope.id);
 					//$scope.profile = data;
 					//$scope.enteredShows = data.EnteredShows;
@@ -427,7 +427,10 @@ app.controller('ShowsController', [
 		 * Get the users profile
 		 */
 
-		function fetchProfile() {
+		function fetchProfile(invalidate_cache) {
+      if (angular.isDefined(invalidate_cache) && invalidate_cache === true) {
+        ProfileService.invalidateCache();
+      }
 			ProfileService.get(function (data) {
 				$scope.profile = data;
 			}, function (error) {
