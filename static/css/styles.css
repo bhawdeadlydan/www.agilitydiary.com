@@ -1796,19 +1796,57 @@ select {
  *       @notes
  */
 /**
- * @section        profileHeader
+ * @section        profile
  */
-/* line 18, ../../layout/css-src/partials/modules/_mod-profile.scss */
-.profileHeader {
+/**
+ * @section        profileWrapper
+ */
+/* line 25, ../../layout/css-src/partials/modules/_mod-profile.scss */
+.profileWrapper {
+  position: relative;
+}
+
+/**
+ * @section        profileCover
+ */
+/* line 32, ../../layout/css-src/partials/modules/_mod-profile.scss */
+.profileCover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background: rgba(0, 0, 0, 0.5) -60px center no-repeat;
+  height: 450px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/**
+ * @description    styling for the hero module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-24 10:59
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        hero
+ */
+/* line 18, ../../layout/css-src/partials/modules/_mod-hero.scss */
+.hero {
   height: auto;
-  margin-top: 450px;
+  margin-top: 410px;
   margin-bottom: 50px;
   text-align: center;
 }
-/* line 26, ../../layout/css-src/partials/modules/_mod-profile.scss */
-.profileHeader img {
+/* line 25, ../../layout/css-src/partials/modules/_mod-hero.scss */
+.hero img {
   vertical-align: middle;
 }
 
@@ -1828,18 +1866,19 @@ select {
 /**
  * @section        avatar
  */
+/* line 21, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.hero .avatar {
+  margin-bottom: 1em;
+  margin-top: -60px;
+}
+
 /**
  * @section        myAvatar
  */
-/* line 25, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 30, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .myAvatar {
   height: 120px;
   width: 120px;
-}
-/* line 29, ../../layout/css-src/partials/modules/_mod-avatar.scss */
-.profileHeader .myAvatar {
-  margin-bottom: 1em;
-  margin-top: -60px;
 }
 
 /**

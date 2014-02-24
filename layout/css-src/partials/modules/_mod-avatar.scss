@@ -17,6 +17,11 @@
  */
 .avatar {
     @extend %circleAvatar;
+
+    .hero & {
+        margin-bottom: 1em;
+        margin-top: -60px;
+    }
 }
 
 /**
@@ -25,11 +30,6 @@
 .myAvatar {
     height: 120px;
     width: 120px;
-
-    .profileHeader & {
-        margin-bottom: 1em;
-        margin-top: -60px;
-    }
 }
 
 /**
