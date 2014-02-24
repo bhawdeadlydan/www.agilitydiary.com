@@ -17,11 +17,20 @@
  * @section        brandLogo
  */
 .brandLogo {
-    @include font-size(3.0);
-
+    bottom: 0;
+    // @include box-shadow(red 2px 2px 10px);
     color: $color-copy;
+    display: block;
+    @include font-size(3.0);
     font-weight: bold;
+    height: 72px;
+    left:.5em;
     margin-right: 2em;
+    position: absolute;
+    right: 0;
+    top: .5em;
+    width: 72px;
+    z-index: 999999;
 
     &:hover {
         text-decoration: none;

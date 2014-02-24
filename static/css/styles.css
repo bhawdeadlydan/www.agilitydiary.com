@@ -1204,11 +1204,6 @@ select {
 /**
  * @section        layoutHeader
  */
-/* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
-.layoutHeader {
-  padding: 1em;
-}
-
 /**
  * @description    Stying for the main layout footer
  *
@@ -1417,17 +1412,26 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo {
+  bottom: 0;
+  color: #262626;
+  display: block;
   font-size: 30px;
   font-size: 3rem;
-  color: #262626;
   font-weight: bold;
+  height: 72px;
+  left: .5em;
   margin-right: 2em;
+  position: absolute;
+  right: 0;
+  top: .5em;
+  width: 72px;
+  z-index: 999999;
 }
-/* line 26, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 35, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo:hover {
   text-decoration: none;
 }
-/* line 30, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 39, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo img {
   text-align: center;
   vertical-align: middle;
@@ -1806,11 +1810,6 @@ select {
 /**
  * @section        profileWrapper
  */
-/* line 25, ../../layout/css-src/partials/modules/_mod-profile.scss */
-.profileWrapper {
-  position: relative;
-}
-
 /**
  * @section        profileCover
  */
@@ -1902,10 +1901,15 @@ select {
 /**
  * @section        avatar
  */
+/* line 45, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.avatar {
+  margin: .5em;
+}
+
 /**
  * @section        primaryAvatar
  */
-/* line 57, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 53, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .primaryAvatar {
   height: 120px;
   width: 120px;
@@ -1914,7 +1918,7 @@ select {
 /**
  * @section        secondaryAvatar
  */
-/* line 65, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 61, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .secondaryAvatar {
   margin: .5em;
 }
@@ -1922,7 +1926,7 @@ select {
 /**
  * @section        friendAvatar
  */
-/* line 72, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 68, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .friendAvatar {
   height: 32px;
   margin: .5em;
