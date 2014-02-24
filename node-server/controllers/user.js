@@ -44,9 +44,9 @@ open.then(function (conn) {
 		var data = {
 			filename: '/var/www/sdfsdfsdfdsfs',
 			sender: {
-				queue: 'colorificreturn2'
-			},
-			api: 'http://192.168.1.122/agility-diary/user/setProfileColours'
+				queue: 'colorificreturn2',
+				api: 'http://192.168.1.122/agility-diary/user/setProfileColours'
+			}
 		};
 		console.log('5');
 		var serialized = JSON.stringify(data);
