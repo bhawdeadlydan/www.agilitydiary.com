@@ -45,7 +45,8 @@ open.then(function (conn) {
 			filename: '/var/www/sdfsdfsdfdsfs',
 			sender: {
 				queue: 'colorificreturn2'
-			}
+			},
+			api: 'http://192.168.1.122/agility-diary/user/setProfileColours'
 		};
 		console.log('5');
 		var serialized = JSON.stringify(data);
@@ -181,6 +182,15 @@ exports.addDogPhoto = Upload.UploadManager({
 		});
 	});
 });
+
+
+
+
+exports.setProfileColours = function (request, response) {
+	console.log(request.body);
+
+	res.send(200);
+};
 
 
 
