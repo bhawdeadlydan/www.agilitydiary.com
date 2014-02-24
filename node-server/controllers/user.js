@@ -17,7 +17,7 @@ var secrets = require('../config/secrets');
 var q = 'colorific';
 
 var amqplib = require('amqplib');
-
+var when = require('when');
 
 open = amqplib.connect(secrets.amqp);
 
@@ -61,23 +61,28 @@ open.then(function (conn) {
 
 
 
-
+open2 = amqplib.connect(secrets.amqp);
 
 // Consumer
-open.then(function (conn) {
+open2.then(function (conn) {
 	var ok = conn.createChannel();
 
 	ok = ok.then(function (ch) {
-		console.log(ch);
-		ch.assertQueue('colorificreturn2');
-		ch.consume('colorificreturn2', function (msg) {
-			console.log('ret');
-			if (msg !== null) {
-				console.log('return message');
-				console.log(msg.content.toString());
-				ch.ack(msg);
-			}
-		});
+		return when.all([
+				ch.assertQueue('colorificreturn2'),
+				ch.assertExchange('amq.direct', 'direct'),
+				ch.bindQueue('colorificreturn2', 'amq.direct', '#'),
+				ch.consume('colorificreturn2', function (msg) {
+					console.log('ret');
+					if (msg !== null) {
+						console.log('return message');
+						console.log(msg.content.toString());
+						ch.ack(msg);
+					}
+				})
+			]
+		);
+
 	});
 	return ok;
 }).then(null, console.warn);

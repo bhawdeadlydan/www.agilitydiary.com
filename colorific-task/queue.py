@@ -8,14 +8,19 @@ import json
 import shutil
 import pika
 import logging
-logging.basicConfig()
+#logging.basicConfig()
 
 import colorific
 from colorific import rgb_to_hex
 
+
+from httplib2 import Http
+from urllib import urlencode
 import settings
 
 CONNECTION = None
+
+
 
 def connect_to_queue():
     connection = pika.BlockingConnection(
@@ -57,14 +62,16 @@ def read_file_queue(settings, input_files):
         shutil.move(filename, os.path.join(settings.PROCESSED_FILE_QUEUE, input_file))
 
 
-def reply(channel, queue, body):
+def reply(channel, api, body):
     #result = channel.queue_declare(queue=queue)
-    channel2 = CONNECTION.channel()
-    print('reply')
-    channel2.basic_publish(exchange='amq.direct',
-        routing_key=queue,
-        body=body
-    )
+    #channel2 = CONNECTION.channel()
+    #print('reply')
+    #channel2.basic_publish(exchange='amq.direct',
+    #    routing_key=queue,
+    #    body=body
+    #)
+    h = Http()
+    resp, content = h.request(api, "POST", urlencode(body))
 
 
 def callback(channel, method, properties, body):
@@ -73,7 +80,7 @@ def callback(channel, method, properties, body):
 
     channel.basic_ack(delivery_tag = method.delivery_tag)
 
-    reply(channel, data['sender']['queue'], 'received')
+    reply(channel, data['sender']['api'], 'received')
 
 def queue_watcher(settings):
     connection, channel= connect_to_queue()
