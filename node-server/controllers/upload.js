@@ -13,8 +13,14 @@ var imageMagick = gm.subClass({ imageMagick: true });
 
 
 
-
-
+/**
+ * Upload Manager decorator function for uploading files
+ *
+ * calls fn with a new parameter data
+ *
+ * data.uuid 			unique ID
+ * data.outPath			path for the file on filesystem
+ */
 function UploadManager(options, fn) {
 	function UploadModelHandlerPrototype(request, response) {
 
