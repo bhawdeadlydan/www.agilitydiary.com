@@ -6,6 +6,8 @@ WORKSPACE = os.path.abspath("../workspace/colorific")
 INPUT_FILE_QUEUE = os.path.join(WORKSPACE, "queue/in")
 OUTPUT_FILE_QUEUE = os.path.join(WORKSPACE, "queue/out/")
 PROCESSED_FILE_QUEUE = os.path.join(WORKSPACE, "queue/processed/")
+RABBITMQ = 'localhost'
+QUEUE_NAME = 'colorific'
 
 
 def create_directory(directory_name):

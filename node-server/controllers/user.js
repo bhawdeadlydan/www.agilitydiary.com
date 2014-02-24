@@ -12,6 +12,84 @@ var Upload = require('./upload.js');
 
 
 
+// tasks
+var secrets = require('../config/secrets');
+var q = 'colorific';
+
+var amqplib = require('amqplib');
+var when = require('when');
+
+open = amqplib.connect(secrets.amqp);
+
+
+
+
+
+// Publisher
+open.then(function (conn) {
+	console.log('1');
+	var ok = conn.createChannel();
+
+	console.log('2');
+	ok = ok.then(function (ch) {
+
+		console.log('3');
+		//var commonOptions = {durable: false, noAck: false};
+		//ch.assertQueue('colorific');
+		//
+		//console.log('4');
+		console.log('3.4');
+		ch.assertExchange('amq.direct', 'direct');
+		console.log('3.5');
+		var data = {
+			filename: '/var/www/sdfsdfsdfdsfs',
+			sender: {
+				queue: 'colorificreturn2'
+			},
+			api: 'http://192.168.1.122/agility-diary/user/setProfileColours'
+		};
+		console.log('5');
+		var serialized = JSON.stringify(data);
+		console.log('6');
+		ch.sendToQueue('colorific', new Buffer(serialized));
+		console.log('6.5');
+	});
+
+	console.log('7');
+
+	return ok;
+}).then(null, console.warn);
+
+
+
+open2 = amqplib.connect(secrets.amqp);
+
+// Consumer
+open2.then(function (conn) {
+	var ok = conn.createChannel();
+
+	ok = ok.then(function (ch) {
+		return when.all([
+				ch.assertQueue('colorificreturn2'),
+				ch.assertExchange('amq.direct', 'direct'),
+				ch.bindQueue('colorificreturn2', 'amq.direct', '#'),
+				ch.consume('colorificreturn2', function (msg) {
+					console.log('ret');
+					if (msg !== null) {
+						console.log('return message');
+						console.log(msg.content.toString());
+						ch.ack(msg);
+					}
+				})
+			]
+		);
+
+	});
+	return ok;
+}).then(null, console.warn);
+
+
+
 exports.uploadFile = Upload.UploadManager({
 	scale: [
 		{
@@ -104,6 +182,15 @@ exports.addDogPhoto = Upload.UploadManager({
 		});
 	});
 });
+
+
+
+
+exports.setProfileColours = function (request, response) {
+	console.log(request.body);
+
+	res.send(200);
+};
 
 
 

@@ -7,16 +7,32 @@ import optparse
 import json
 import shutil
 import pika
+import logging
+#logging.basicConfig()
+
 import colorific
-#from colorific.palette import (
-#    extract_colors, print_colors, save_palette_as_image, color_stream_mt,
-#    color_stream_st)
+from colorific import rgb_to_hex
+
+
+from httplib2 import Http
+from urllib import urlencode
 import settings
+
+CONNECTION = None
+
 
 
 def connect_to_queue():
-    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+    connection = pika.BlockingConnection(
+        pika.ConnectionParameters(settings.RABBITMQ)
+    )
+    global CONNECTION
+    CONNECTION = connection
+
     channel = connection.channel()
+
+    channel.exchange_declare(exchange='amq.direct', type='direct', durable=True)
+
 
     return connection, channel
 
@@ -33,12 +49,10 @@ def read_file_queue(settings, input_files):
             max_colors=5,
             n_quantized=100)
 
-        colour_data = colorific.print_colors(filename, palette)
-        parsed_data = colour_data.split()[1].split(',')
-
         data = {
-            'filename': input_file,
-            'data': parsed_data
+            'filename': filename,
+            'colours': [rgb_to_hex(c.value) for c in palette.colors],
+            'background': palette.bgcolor and rgb_to_hex(palette.bgcolor.value) or ''
         }
 
         out_file = os.path.join(settings.OUTPUT_FILE_QUEUE, input_file + '_data.json')
@@ -48,17 +62,35 @@ def read_file_queue(settings, input_files):
         shutil.move(filename, os.path.join(settings.PROCESSED_FILE_QUEUE, input_file))
 
 
-def queue_watcher(settings):
-    connection, channel = connect_to_queue()
-    channel.queue_declare(queue='colorific')
+def reply(channel, api, body):
+    #result = channel.queue_declare(queue=queue)
+    #channel2 = CONNECTION.channel()
+    #print('reply')
+    #channel2.basic_publish(exchange='amq.direct',
+    #    routing_key=queue,
+    #    body=body
+    #)
+    h = Http()
+    resp, content = h.request(api, "POST", urlencode(body))
 
-    def callback(ch, method, properties, body):
-        print " [x] Received %r" % (body,)
+
+def callback(channel, method, properties, body):
+    data = json.loads(body)
+    print " [x] Received %r" % (data,)
+
+    channel.basic_ack(delivery_tag = method.delivery_tag)
+
+    reply(channel, data['sender']['api'], 'received')
+
+def queue_watcher(settings):
+    connection, channel= connect_to_queue()
+    channel.queue_declare(queue=settings.QUEUE_NAME)
 
     channel.basic_consume(
         callback,
-        queue='colorific',
-        no_ack=True)
+        queue=settings.QUEUE_NAME,
+        no_ack=False
+    )
 
     print ' [*] Waiting for messages. To exit press CTRL+C'
     channel.start_consuming()
