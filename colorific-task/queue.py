@@ -10,6 +10,7 @@ import pika
 import uuid
 import logging
 import urllib
+import urllib2
 #logging.basicConfig()
 
 import colorific
@@ -69,7 +70,7 @@ def read_file_queue(settings, input_files):
 
 
 
-def reply(channel, api, body):
+def reply(channel, url, body):
     #result = channel.queue_declare(queue=queue)
     #channel2 = CONNECTION.channel()
     #print('reply')
@@ -77,10 +78,11 @@ def reply(channel, api, body):
     #    routing_key=queue,
     #    body=body
     #)
-    h = Http()
     data = urlencode(body)
     print(data)
-    resp, content = h.request(api, "POST", data)
+    req = urllib2.Request(url, data)
+    response = urllib2.urlopen(req)
+    the_page = response.read()
 
 
 
@@ -103,7 +105,9 @@ def callback(channel, method, properties, body):
     out_data = process_file(new_filename, filename)
     out_data['return_data'] = data['returnData'];
 
-    reply(channel, data['sender']['api'], out_data )
+    return_url = data['sender']['api']
+
+    reply(channel, return_url, out_data )
 
 
 
