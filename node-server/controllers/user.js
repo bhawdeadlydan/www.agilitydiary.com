@@ -12,6 +12,19 @@ var Upload = require('./upload.js');
 var Tasks = require('./tasks');
 
 
+var os = require('os');
+
+
+var interfaces = os.networkInterfaces();
+var addresses = [];
+for (k in interfaces) {
+    for (k2 in interfaces[k]) {
+        var address = interfaces[k][k2];
+        if (address.family == 'IPv4' && !address.internal) {
+            addresses.push(address.address)
+        }
+    }
+}
 
 
 
@@ -92,13 +105,15 @@ exports.uploadBackgroundFile = Upload.UploadManager({
 		user.profile.backgroundpicture =  data.newUrlPath; //data.assetPath + '/' + _.findWhere(data.scaled, { width: 200 }).url;
 
 		user.save(function (err, user) {
+			console.log(request.app.settings);
+			var port = request.app.settings.port;
 
 			Tasks.colorific({
 				filename: data.outPath,
-				fileUrl: 'http://192.168.1.122:3000' + data.newUrlPath,
+				fileUrl: 'http://' + addresses[0] + ':' + port + data.newUrlPath,
 				sender: {
 					queue: 'colorificreturn2',
-					api: 'http://192.168.1.122:3000/agility-diary/user/setProfileColours'
+					api: 'http://' + addresses[0] + ':' + port + '/agility-diary/user/setProfileColours'
 				},
 				returnData: request.user.id
 			});
@@ -154,7 +169,29 @@ exports.addDogPhoto = Upload.UploadManager({
 exports.setProfileColours = function (request, response) {
 	console.log(request.body);
 
-	response.send(200);
+	var userId = request.body.return_data;
+
+	User.findById(userId, function (err, user) {
+		var colourData = JSON.parse(request.body.colours.replace(/'/g, '"'));
+		var selected = true;
+
+		user.profile.colours = [];
+
+		_.each(colourData, function (colour) {
+			user.profile.colours.push({
+				colour: colour,
+				selected: selected
+			});
+
+			if (selected === true) {
+				selected = false;
+			}
+		});
+
+		user.save(function (err, user) {
+			response.send(200);
+		});
+	});
 };
 
 

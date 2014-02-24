@@ -30,6 +30,7 @@
 
 		<h1 ng-bind="profile.User.profile.name" />
 
+
 		<nav class="tabs">
 			<a class="active" href="#">Profile</a>
 			<a href="#/shows/previous">Dogs</a>
@@ -39,6 +40,7 @@
 
 		<div class="contentWrapper">
 			<section class="contentMain">
+
 
 				<div class="latestResults">
 					<h2>My latest results</h2>
@@ -61,6 +63,11 @@
 					<h2>Suggested shows</h2>
 					<p>@@suggested shows here</p>
 				</section>
+
+				<div ng-repeat="colourLoop in profile.User.profile.colours">
+				<div style="background-color: {{ colourLoop.colour }}">&nbsp;
+				</div>
+			</div>
 
 			</section>
 			<section class="contentSub">
