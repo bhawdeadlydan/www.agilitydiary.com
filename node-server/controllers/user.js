@@ -26,11 +26,13 @@ open.then(function (conn) {
 	var ok = conn.createChannel();
 
 	ok = ok.then(function (ch) {
+		var commonOptions = {durable: false, noAck: false};
 		//ch.assertQueue('colorific');
+		ch.assertExchange('amq.direct');
 		var data = {
 			filename: '/var/www/sdfsdfsdfdsfs',
 			sender: {
-				queue: 'colorific-return'
+				queue: 'colorificreturn'
 			}
 		};
 		var serialized = JSON.stringify(data);
@@ -43,12 +45,13 @@ open.then(function (conn) {
 
 
 // Consumer
-open.then(function(conn) {
+open.then(function (conn) {
 	var ok = conn.createChannel();
-	ok = ok.then(function(ch) {
-		ch.assertQueue('colorific-return');
-		ch.consume(q, function(msg) {
+	ok = ok.then(function (ch) {
+		ch.assertQueue('colorificreturn');
+		ch.consume(q, function (msg) {
 			if (msg !== null) {
+				console.log('return message');
 				console.log(msg.content.toString());
 				ch.ack(msg);
 			}

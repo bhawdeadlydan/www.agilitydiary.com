@@ -21,7 +21,7 @@ def connect_to_queue():
         pika.ConnectionParameters(settings.RABBITMQ)
     )
     channel = connection.channel()
-    channel.exchange_declare(exchange='')
+    channel.exchange_declare(exchange='amq.direct')
 
     return connection, channel
 
@@ -52,18 +52,20 @@ def read_file_queue(settings, input_files):
 
 
 def reply(channel, queue, body):
-    channel.queue_declare(queue=queue)
-    channel.basic_publish(exchange='',
+    result = channel.queue_declare(queue=queue)
+    channel.basic_publish(exchange='amq.direct',
         routing_key=queue,
         body=body
     )
 
 
-def callback(ch, method, properties, body):
+def callback(channel, method, properties, body):
     data = json.loads(body)
     print " [x] Received %r" % (data,)
 
-    reply(ch, data['sender']['queue'], 'received')
+    channel.basic_ack(delivery_tag = method.delivery_tag)
+
+    reply(channel, data['sender']['queue'], 'received')
 
 
 def queue_watcher(settings):
