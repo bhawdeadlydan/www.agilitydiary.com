@@ -9,56 +9,9 @@ var Show = require('../models/mongoose/show');
 var ShowViewModel = require('../models/viewmodels/show');
 
 var Upload = require('./upload.js');
+var Tasks = require('./tasks');
 
 
-
-// tasks
-var secrets = require('../config/secrets');
-var q = 'colorific';
-
-var amqplib = require('amqplib');
-//var when = require('when');
-
-open = amqplib.connect(secrets.amqp);
-
-
-
-
-
-// Publisher
-open.then(function (conn) {
-	console.log('1');
-	var ok = conn.createChannel();
-
-	console.log('2');
-	ok = ok.then(function (ch) {
-
-		console.log('3');
-		//var commonOptions = {durable: false, noAck: false};
-		//ch.assertQueue('colorific');
-		//
-		//console.log('4');
-		console.log('3.4');
-		ch.assertExchange('amq.direct', 'direct');
-		console.log('3.5');
-		var data = {
-			filename: '/var/www/sdfsdfsdfdsfs',
-			sender: {
-				queue: 'colorificreturn2',
-				api: 'http://192.168.1.122:3000/agility-diary/user/setProfileColours'
-			}
-		};
-		console.log('5');
-		var serialized = JSON.stringify(data);
-		console.log('6');
-		ch.sendToQueue('colorific', new Buffer(serialized));
-		console.log('6.5');
-	});
-
-	console.log('7');
-
-	return ok;
-}).then(null, console.warn);
 
 
 
@@ -139,6 +92,16 @@ exports.uploadBackgroundFile = Upload.UploadManager({
 		user.profile.backgroundpicture =  data.newUrlPath; //data.assetPath + '/' + _.findWhere(data.scaled, { width: 200 }).url;
 
 		user.save(function (err, user) {
+
+			Tasks.colorific({
+				filename: data.outPath,
+				sender: {
+					queue: 'colorificreturn2',
+					api: 'http://192.168.1.122:3000/agility-diary/user/setProfileColours'
+				},
+				returnData: request.user.id
+			});
+
 			response.send(200);
 		});
 	});
