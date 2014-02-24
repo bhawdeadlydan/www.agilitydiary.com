@@ -21,12 +21,16 @@ var amqplib = require('amqplib');
 
 open = amqplib.connect(secrets.amqp);
 
+
+
+
+
 // Publisher
 open.then(function (conn) {
 	console.log('1');
 	var ok = conn.createChannel();
 
-console.log('2');
+	console.log('2');
 	ok = ok.then(function (ch) {
 
 		console.log('3');
@@ -40,13 +44,14 @@ console.log('2');
 		var data = {
 			filename: '/var/www/sdfsdfsdfdsfs',
 			sender: {
-				queue: 'colorificreturn'
+				queue: 'colorificreturn2'
 			}
 		};
 		console.log('5');
 		var serialized = JSON.stringify(data);
 		console.log('6');
 		ch.sendToQueue('colorific', new Buffer(serialized));
+		console.log('6.5');
 	});
 
 	console.log('7');
@@ -56,12 +61,17 @@ console.log('2');
 
 
 
+
+
 // Consumer
 open.then(function (conn) {
 	var ok = conn.createChannel();
+
 	ok = ok.then(function (ch) {
-		ch.assertQueue('colorificreturn');
-		ch.consume(q, function (msg) {
+		console.log(ch);
+		ch.assertQueue('colorificreturn2');
+		ch.consume('colorificreturn2', function (msg) {
+			console.log('ret');
 			if (msg !== null) {
 				console.log('return message');
 				console.log(msg.content.toString());
@@ -71,7 +81,6 @@ open.then(function (conn) {
 	});
 	return ok;
 }).then(null, console.warn);
-
 
 
 

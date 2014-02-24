@@ -15,13 +15,19 @@ from colorific import rgb_to_hex
 
 import settings
 
+CONNECTION = None
 
 def connect_to_queue():
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(settings.RABBITMQ)
     )
+    global CONNECTION
+    CONNECTION = connection
+
     channel = connection.channel()
+
     channel.exchange_declare(exchange='amq.direct', type='direct', durable=True)
+
 
     return connection, channel
 
@@ -53,8 +59,9 @@ def read_file_queue(settings, input_files):
 
 def reply(channel, queue, body):
     #result = channel.queue_declare(queue=queue)
+    channel2 = CONNECTION.channel()
     print('reply')
-    channel.basic_publish(exchange='amq.direct',
+    channel2.basic_publish(exchange='amq.direct',
         routing_key=queue,
         body=body
     )
@@ -68,9 +75,8 @@ def callback(channel, method, properties, body):
 
     reply(channel, data['sender']['queue'], 'received')
 
-
 def queue_watcher(settings):
-    connection, channel = connect_to_queue()
+    connection, channel= connect_to_queue()
     channel.queue_declare(queue=settings.QUEUE_NAME)
 
     channel.basic_consume(
