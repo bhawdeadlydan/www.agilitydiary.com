@@ -17,7 +17,7 @@ var secrets = require('../config/secrets');
 var q = 'colorific';
 
 var amqplib = require('amqplib');
-var when = require('when');
+//var when = require('when');
 
 open = amqplib.connect(secrets.amqp);
 
@@ -45,7 +45,7 @@ open.then(function (conn) {
 			filename: '/var/www/sdfsdfsdfdsfs',
 			sender: {
 				queue: 'colorificreturn2',
-				api: 'http://192.168.1.122/agility-diary/user/setProfileColours'
+				api: 'http://192.168.1.122:3000/agility-diary/user/setProfileColours'
 			}
 		};
 		console.log('5');
@@ -62,9 +62,10 @@ open.then(function (conn) {
 
 
 
-open2 = amqplib.connect(secrets.amqp);
+//open2 = amqplib.connect(secrets.amqp);
 
 // Consumer
+/*
 open2.then(function (conn) {
 	var ok = conn.createChannel();
 
@@ -87,7 +88,7 @@ open2.then(function (conn) {
 	});
 	return ok;
 }).then(null, console.warn);
-
+*/
 
 
 exports.uploadFile = Upload.UploadManager({
@@ -189,7 +190,7 @@ exports.addDogPhoto = Upload.UploadManager({
 exports.setProfileColours = function (request, response) {
 	console.log(request.body);
 
-	res.send(200);
+	response.send(200);
 };
 
 
