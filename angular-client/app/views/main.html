@@ -1,15 +1,15 @@
 <section class="main profile">
 
-	<!-- <div class="profileHeader" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"> -->
 	<div class="profileWrapper">
-		<div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')">
+		<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"> -->
+		<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )">
 			<div class="hero">
 
 				<div class="container">
 					<div class="avatar myAvatar">
 						<a ng-href="#/">
-							<!-- <img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /> -->
-							<img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" />
+							<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+							<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
 						</a>
 
 						<!-- <img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /> -->
@@ -17,8 +17,8 @@
 
 					<span ng-repeat="dog in profile.Dogs" >
 						<a class="avatar dogAvatar" ng-href="#/dogs/{{ dog._id }}">
-							<!-- <img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /> -->
-							<img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" />
+							<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+							<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
 						</a>
 					</span>
 				</div>
