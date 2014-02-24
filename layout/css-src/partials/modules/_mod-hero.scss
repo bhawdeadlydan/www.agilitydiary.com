@@ -16,11 +16,13 @@
  * @section        hero
  */
 .hero {
-    // background: $color-hero-bg center center no-repeat;
+
     height: auto;
-    margin-top: 410px;
-    margin-bottom: 50px;
+    // margin-top: 350px;
+    margin-bottom: 100px;
+    padding-top: 350px;
     text-align: center;
+    z-index: 10000;
 
     img {
         vertical-align: middle;

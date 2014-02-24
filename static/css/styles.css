@@ -1798,6 +1798,11 @@ select {
 /**
  * @section        profile
  */
+/* line 18, ../../layout/css-src/partials/modules/_mod-profile.scss */
+.profile {
+  position: relative;
+}
+
 /**
  * @section        profileWrapper
  */
@@ -1811,11 +1816,12 @@ select {
  */
 /* line 32, ../../layout/css-src/partials/modules/_mod-profile.scss */
 .profileCover {
+  background: transparent top center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 450px;
+  height: 400px;
   left: 0;
   position: absolute;
   right: 0;
@@ -1841,11 +1847,12 @@ select {
 /* line 18, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero {
   height: auto;
-  margin-top: 410px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+  padding-top: 350px;
   text-align: center;
+  z-index: 10000;
 }
-/* line 25, ../../layout/css-src/partials/modules/_mod-hero.scss */
+/* line 27, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero img {
   vertical-align: middle;
 }
