@@ -1,8 +1,8 @@
 <section class="main profile">
 
-	<div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div>
+	<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div> -->
 
-		<!-- <div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div> -->
+		<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div>
 		<div class="hero">
 
 			<div class="container avatarContainer">
@@ -19,7 +19,7 @@
 				<div class="secondaryAvatarContainer">
 					<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
 						<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
-						<img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" />
+						<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
 					</a>
 				</div>
 			</div>
