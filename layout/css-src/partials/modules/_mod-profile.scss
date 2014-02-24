@@ -13,17 +13,27 @@
  */
 
 /**
- * @section        profileHeader
+ * @section        profile
  */
-.profileHeader {
-    background-size: cover;
-    background: $color-profile-header-bg -60px center no-repeat;
-    height: auto;
-    margin-top: 450px;
-    margin-bottom: 50px;
-    text-align: center;
+.profile {
 
-    img {
-        vertical-align: middle;
-    }
+}
+
+/**
+ * @section        profileWrapper
+ */
+.profileWrapper {
+    position: relative;
+}
+
+/**
+ * @section        profileCover
+ */
+.profileCover {
+    @include background-size(cover);
+    height: 450px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
 }

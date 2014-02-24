@@ -128,7 +128,9 @@
 				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">Not attending</button>
 
 				<p ng-repeat="attending in show.Attending">
-					<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" />
+					<a href="/"><img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
+					<img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
+					</a>
 				</p>
 
 				<section class="shareThis">
