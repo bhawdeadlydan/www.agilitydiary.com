@@ -23,21 +23,33 @@ open = amqplib.connect(secrets.amqp);
 
 // Publisher
 open.then(function (conn) {
+	console.log('1');
 	var ok = conn.createChannel();
 
+console.log('2');
 	ok = ok.then(function (ch) {
-		var commonOptions = {durable: false, noAck: false};
+
+		console.log('3');
+		//var commonOptions = {durable: false, noAck: false};
 		//ch.assertQueue('colorific');
-		ch.assertExchange('amq.direct');
+		//
+		//console.log('4');
+		console.log('3.4');
+		ch.assertExchange('amq.direct', 'direct');
+		console.log('3.5');
 		var data = {
 			filename: '/var/www/sdfsdfsdfdsfs',
 			sender: {
 				queue: 'colorificreturn'
 			}
 		};
+		console.log('5');
 		var serialized = JSON.stringify(data);
+		console.log('6');
 		ch.sendToQueue('colorific', new Buffer(serialized));
 	});
+
+	console.log('7');
 
 	return ok;
 }).then(null, console.warn);

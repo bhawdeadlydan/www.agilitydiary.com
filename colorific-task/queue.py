@@ -21,7 +21,7 @@ def connect_to_queue():
         pika.ConnectionParameters(settings.RABBITMQ)
     )
     channel = connection.channel()
-    channel.exchange_declare(exchange='amq.direct')
+    channel.exchange_declare(exchange='amq.direct', type='direct', durable=True)
 
     return connection, channel
 
@@ -52,9 +52,10 @@ def read_file_queue(settings, input_files):
 
 
 def reply(channel, queue, body):
-    result = channel.queue_declare(queue=queue)
+    #result = channel.queue_declare(queue=queue)
+    print('reply')
     channel.basic_publish(exchange='amq.direct',
-        routing_key=queue,
+        routing_key='colorificreturn',
         body=body
     )
 
