@@ -12,31 +12,54 @@
  *       @notes
  */
 
+
+/**
+ * @section        avatarContainer
+ */
+.avatarContainer {
+    margin-top: -25px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+/**
+ * @section        primaryAvatarContainer
+ */
+.primaryAvatarContainer {
+    float: left;
+    width: 25%;
+}
+
+/**
+ * @section        secondaryAvatarContainer
+ */
+.secondaryAvatarContainer {
+    float: left;
+    margin-top: 2em;
+    width: 75%;
+}
+
 /**
  * @section        avatar
  */
 .avatar {
     @extend %circleAvatar;
-
-    .hero & {
-        margin-bottom: 1em;
-        margin-top: -60px;
-    }
+    margin: .5em;
 }
 
 /**
- * @section        myAvatar
+ * @section        primaryAvatar
  */
-.myAvatar {
+.primaryAvatar {
     height: 120px;
     width: 120px;
 }
 
 /**
- * @section        dogAvatar
+ * @section        secondaryAvatar
  */
-.dogAvatar {
-
+.secondaryAvatar {
+    margin: .5em;
 }
 
 /**

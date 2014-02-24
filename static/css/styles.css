@@ -1204,11 +1204,6 @@ select {
 /**
  * @section        layoutHeader
  */
-/* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
-.layoutHeader {
-  padding: 1em;
-}
-
 /**
  * @description    Stying for the main layout footer
  *
@@ -1417,17 +1412,26 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo {
+  bottom: 0;
+  color: #262626;
+  display: block;
   font-size: 30px;
   font-size: 3rem;
-  color: #262626;
   font-weight: bold;
+  height: 72px;
+  left: .5em;
   margin-right: 2em;
+  position: absolute;
+  right: 0;
+  top: .5em;
+  width: 72px;
+  z-index: 999999;
 }
-/* line 26, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 35, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo:hover {
   text-decoration: none;
 }
-/* line 30, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 39, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo img {
   text-align: center;
   vertical-align: middle;
@@ -1798,24 +1802,25 @@ select {
 /**
  * @section        profile
  */
-/**
- * @section        profileWrapper
- */
-/* line 25, ../../layout/css-src/partials/modules/_mod-profile.scss */
-.profileWrapper {
+/* line 18, ../../layout/css-src/partials/modules/_mod-profile.scss */
+.profile {
   position: relative;
 }
 
+/**
+ * @section        profileWrapper
+ */
 /**
  * @section        profileCover
  */
 /* line 32, ../../layout/css-src/partials/modules/_mod-profile.scss */
 .profileCover {
+  background: transparent center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 450px;
+  height: 400px;
   left: 0;
   position: absolute;
   right: 0;
@@ -1841,11 +1846,12 @@ select {
 /* line 18, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero {
   height: auto;
-  margin-top: 410px;
-  margin-bottom: 50px;
+  padding-top: 350px;
+  position: relative;
   text-align: center;
+  z-index: 10000;
 }
-/* line 25, ../../layout/css-src/partials/modules/_mod-hero.scss */
+/* line 27, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero img {
   vertical-align: middle;
 }
@@ -1864,30 +1870,63 @@ select {
  *       @notes
  */
 /**
- * @section        avatar
+ * @section        avatarContainer
  */
-/* line 21, ../../layout/css-src/partials/modules/_mod-avatar.scss */
-.hero .avatar {
-  margin-bottom: 1em;
-  margin-top: -60px;
+/* line 19, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.avatarContainer {
+  margin-top: -25px;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 /**
- * @section        myAvatar
+ * @section        primaryAvatarContainer
  */
-/* line 30, ../../layout/css-src/partials/modules/_mod-avatar.scss */
-.myAvatar {
+/* line 28, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.primaryAvatarContainer {
+  float: left;
+  width: 25%;
+}
+
+/**
+ * @section        secondaryAvatarContainer
+ */
+/* line 36, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.secondaryAvatarContainer {
+  float: left;
+  margin-top: 2em;
+  width: 75%;
+}
+
+/**
+ * @section        avatar
+ */
+/* line 45, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.avatar {
+  margin: .5em;
+}
+
+/**
+ * @section        primaryAvatar
+ */
+/* line 53, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.primaryAvatar {
   height: 120px;
   width: 120px;
 }
 
 /**
- * @section        dogAvatar
+ * @section        secondaryAvatar
  */
+/* line 61, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.secondaryAvatar {
+  margin: .5em;
+}
+
 /**
  * @section        friendAvatar
  */
-/* line 45, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 68, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .friendAvatar {
   height: 32px;
   margin: .5em;

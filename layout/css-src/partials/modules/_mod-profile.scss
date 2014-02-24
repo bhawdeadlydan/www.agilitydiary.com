@@ -16,22 +16,24 @@
  * @section        profile
  */
 .profile {
-
+    position: relative;
 }
 
 /**
  * @section        profileWrapper
  */
 .profileWrapper {
-    position: relative;
+
 }
 
 /**
  * @section        profileCover
  */
 .profileCover {
+    background: transparent center no-repeat;
     @include background-size(cover);
-    height: 450px;
+
+    height: 400px;
     left: 0;
     position: absolute;
     right: 0;

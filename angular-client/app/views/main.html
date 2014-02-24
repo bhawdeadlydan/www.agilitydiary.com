@@ -1,34 +1,31 @@
 <section class="main profile">
 
-	<div class="profileWrapper">
-		<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"> -->
-		<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )">
-			<div class="hero">
+	<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div> -->
 
-				<div class="container">
-					<div class="avatar myAvatar">
-						<a ng-href="#/">
-							<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
-							<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
-						</a>
+		<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div>
+		<div class="hero">
 
-						<!-- <img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /> -->
-					</div>
+			<div class="container avatarContainer">
+				<div class="primaryAvatarContainer">
+					<a ng-href="#/" class="avatar primaryAvatar">
+						<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+						<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
+					</a>
+					<h1 ng-bind="profile.User.profile.name" />
+				</div>
 
-					<span ng-repeat="dog in profile.Dogs" >
-						<a class="avatar dogAvatar" ng-href="#/dogs/{{ dog._id }}">
-							<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
-							<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
-						</a>
-					</span>
+				<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+
+				<div class="secondaryAvatarContainer">
+					<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+						<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+						<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
+					</a>
 				</div>
 			</div>
-		</div>
 	</div>
 
-	<div class="container" >
-
-		<h1 ng-bind="profile.User.profile.name" />
+	<div class="container">
 
 
 		<nav class="tabs">
