@@ -79,6 +79,7 @@ def reply(channel, api, body):
     #)
     h = Http()
     data = urlencode(body)
+    print(data)
     resp, content = h.request(api, "POST", data)
 
 
