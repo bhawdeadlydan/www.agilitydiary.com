@@ -55,7 +55,7 @@ def reply(channel, queue, body):
     #result = channel.queue_declare(queue=queue)
     print('reply')
     channel.basic_publish(exchange='amq.direct',
-        routing_key='colorificreturn',
+        routing_key=queue,
         body=body
     )
 
