@@ -80,7 +80,7 @@ def callback(channel, method, properties, body):
 
     channel.basic_ack(delivery_tag = method.delivery_tag)
 
-    reply(channel, data['sender']['api'], body)
+    reply(channel, data['sender']['api'], {'test': 'te'} )
 
 def queue_watcher(settings):
     connection, channel= connect_to_queue()
