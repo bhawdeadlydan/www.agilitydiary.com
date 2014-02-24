@@ -95,6 +95,7 @@ exports.uploadBackgroundFile = Upload.UploadManager({
 
 			Tasks.colorific({
 				filename: data.outPath,
+				fileUrl: 'http://192.168.1.122' + data.newUrlPath,
 				sender: {
 					queue: 'colorificreturn2',
 					api: 'http://192.168.1.122:3000/agility-diary/user/setProfileColours'

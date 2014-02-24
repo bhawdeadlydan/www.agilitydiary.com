@@ -9,6 +9,7 @@ import shutil
 import pika
 import uuid
 import logging
+import urllib
 #logging.basicConfig()
 
 import colorific
@@ -93,7 +94,10 @@ def callback(channel, method, properties, body):
     new_filename = str(uuid.uuid4())
     filename = os.path.join(settings.INPUT_FILE_QUEUE, new_filename)
 
-    shutil.copy(input_file, filename)
+    #shutil.copy(input_file, filename)
+    #response, content = h.request(data['fileUrl'])
+    urllib.urlretrieve(data['fileUrl'], filename)
+
 
     out_data = process_file(new_filename, filename)
     out_data['return_data'] = data['returnData'];
