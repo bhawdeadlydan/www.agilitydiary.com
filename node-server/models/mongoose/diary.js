@@ -13,6 +13,15 @@ var diarySchema = new mongoose.Schema({
 		}
 	],
 
+	Friends: [
+		{
+			LinkedUser: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'User'
+			}
+		}
+	],
+
 	Dogs: [
 		{
 			Deleted: {
@@ -44,17 +53,11 @@ var diarySchema = new mongoose.Schema({
 					},
 
 					Class: String,
-
 					Date: Date,
-
 					Time: String,
-
 					Faults: String,
-
 					Place: String,
-
 					Judge: String,
-
 					Points: String
 				}
 			],

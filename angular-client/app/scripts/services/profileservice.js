@@ -61,6 +61,20 @@ angular.module('browserAppApp')
 
 
 
+			module.setThemeMainColour = function (postData, successCallback, errorCallback) {
+				var url = '/agility-diary/user/setThemeMainColour';
+
+				$http.post(url, postData).success(function (data) {
+					profile = data;
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
 			module.updateDog = function (postData, successCallback, errorCallback) {
 				var url = '/agility-diary/user/update-dog';
 

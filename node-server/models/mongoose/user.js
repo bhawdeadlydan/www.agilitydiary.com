@@ -26,7 +26,10 @@ var userSchema = new mongoose.Schema({
 					default: false
 				}
 			}
-		]
+		],
+		theme: {
+			mainColour: String
+		}
 	},
 
 	Diary: {

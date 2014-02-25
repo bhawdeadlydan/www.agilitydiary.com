@@ -428,9 +428,10 @@ app.controller('ShowsController', [
 		 */
 
 		function fetchProfile(invalidate_cache) {
-      if (angular.isDefined(invalidate_cache) && invalidate_cache === true) {
-        ProfileService.invalidateCache();
-      }
+			if (angular.isDefined(invalidate_cache) && invalidate_cache === true) {
+				ProfileService.invalidateCache();
+			}
+
 			ProfileService.get(function (data) {
 				$scope.profile = data;
 			}, function (error) {

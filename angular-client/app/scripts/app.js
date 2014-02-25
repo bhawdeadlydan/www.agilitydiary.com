@@ -13,6 +13,7 @@ angular.module('browserAppApp', [
 			templateUrl: 'app/views/main.html',
 			controller: 'MainController'
 		})
+
 		.when('/map', {
 			templateUrl: 'app/views/map.html',
 			controller: 'MapController'
@@ -87,6 +88,11 @@ angular.module('browserAppApp', [
 		.when('/entered', {
 			templateUrl: 'app/views/enteredShows.html',
 			controller: 'EnteredShowsController'
+		})
+
+		.when('/users', {
+			templateUrl: 'app/views/users/list.html',
+			controller: 'RelationshipController'
 		})
 
 		.otherwise({

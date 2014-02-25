@@ -1,9 +1,10 @@
 var app = angular.module('browserAppApp');
 
 app.controller('MainController', [
-	'$scope', '$rootScope', 'Mapdata', 'ShowService', 'ProfileService', '$location', '$route', '$routeParams',
-	function ($scope, $rootScope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams) {
+	'$scope', '$rootScope', 'Mapdata', 'ShowService', 'ProfileService', 'SearchService', '$location', '$timeout', '$route', '$routeParams',
+	function ($scope, $rootScope, Mapdata, ShowService, ProfileService, SearchService, $location, $timeout, $route, $routeParams) {
 		"use strict";
+
 
 
 
@@ -15,6 +16,73 @@ app.controller('MainController', [
 		$rootScope.homeSectionClass = 'active';
 		$rootScope.showsSectionClass = '';
 		$rootScope.mapSectionClass = '';
+
+		/**
+		 * Post something
+		 */
+		$scope.post = {};
+		$scope.post.message = '';
+		$scope.post.click = postSomething;
+
+		$scope.quicksearch = {};
+		$scope.quicksearch.results = [];
+		$scope.quicksearch.query = '';
+		$scope.quicksearch.change = quickSearch;
+		$scope.quicksearch.timeout = null;
+		$scope.quicksearch.searching = false;
+
+
+		function quicksearchAddPaths(data) {
+			_.each(data.Results, function (item) {
+				switch (item.Type) {
+				case 'Show':
+					item.Path = '#/shows/details/' + item.Id;
+					break;
+
+				case 'User':
+					item.Path = '#/users/details/' + item.Id;
+					break;
+
+				case 'Venue':
+					item.Path = '#/users/details/' + item.Id;
+					break;
+
+				case 'Dog':
+					item.Path = '#/dogs/' + item.Id;
+					break;
+				}
+			});
+
+			return data;
+		}
+
+
+
+		function quickSearch() {
+			if ($scope.quicksearch.timeout !== null) {
+				$timeout.cancel($scope.quicksearch.timeout);
+			}
+
+			$scope.quicksearch.query = $scope.quicksearch.query.trim();
+
+			if ($scope.quicksearch.query === '') {
+				$scope.quicksearch.results = [];
+			} else {
+				$scope.quicksearch.timeout = $timeout(function () {
+					$scope.quicksearch.searching = true;
+
+					SearchService.quickSearch($scope.quicksearch.query, function (data) {
+						$scope.quicksearch.searching = false;
+
+						data = quicksearchAddPaths(data);
+						$scope.quicksearch.results = data;
+					}, function (error) {
+						$scope.quicksearch.searching = false;
+					});
+				}, 1000);
+			}
+		}
+
 
 
 		/**
@@ -29,6 +97,16 @@ app.controller('MainController', [
 			}, function (error) {
 
 			});
+		}
+
+
+
+
+		/**
+		 * Post Something Click Handler
+		 */
+		function postSomething() {
+
 		}
 
 
