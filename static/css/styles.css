@@ -1846,7 +1846,7 @@ select {
 /* line 18, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero {
   height: auto;
-  padding-top: 150px;
+  padding-top: 170px;
   position: relative;
   text-align: center;
   z-index: 10000;
@@ -1858,9 +1858,8 @@ select {
 /* line 29, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero .bio {
   background: rgba(255, 255, 255, 0.5);
-  margin: 0 auto;
   padding: 1em;
-  width: 75%;
+  padding-bottom: 50px;
 }
 
 /**
@@ -1881,7 +1880,7 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .avatarContainer {
-  margin-top: 25px;
+  margin-top: -70px;
   padding-bottom: 0;
   padding-top: 0;
 }
