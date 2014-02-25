@@ -1,8 +1,13 @@
-<section class="main profile">
+<style dynamic-style="profile"></style>
+
+
+
+<section class="main profile dynamicProfile">
 
 	<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div> -->
 
 		<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div>
+
 		<div class="hero">
 
 			<div class="container avatarContainer">
@@ -25,7 +30,32 @@
 			</div>
 	</div>
 
+
+
+	<section class="quicksearch" style="position: absolute; top: 0; right: 0; z-index: 99999;">
+		<span ng-show="quicksearch.searching">SPINNER</span>
+
+		<input type="search" placeholder="Search" ng-model="quicksearch.query" ng-change="quicksearch.change();" />
+
+		<ul style="background-color: #fff;">
+			<li ng-repeat="result in quicksearch.results.Results" ng-show="quicksearch.results.Results.length !== 0">
+				<img src="/path/to/types/{{ result.Type}}.png" />
+				<a href="" ng-href="{{ result.Path }}" title="{{ result.Type}}"><span ng-bind="result.Name" /></a>
+			</li>
+
+			<li ng-show="quicksearch.results.Results.length === 0">
+				Nothing found
+			</li>
+		</ul>
+
+	</section>
+
+
+
+
+
 	<div class="container">
+
 
 		<nav class="tabs">
 			<a class="active" href="#">Profile</a>
@@ -36,6 +66,13 @@
 
 		<div class="contentWrapper">
 			<section class="contentMain">
+
+				<div class="postSomething">
+					<form name="form">
+						<textarea ng-model="post.message" />
+						<button ng-click="post.click()" />
+					</form>
+				</div>
 
 				<div class="latestResults">
 					<h2>My latest results</h2>
@@ -58,6 +95,11 @@
 					<h2>Suggested shows</h2>
 					<p>@@suggested shows here</p>
 				</section>
+
+				<div ng-repeat="colourLoop in profile.User.profile.colours">
+				<div style="background-color: {{ colourLoop.colour }}">&nbsp;
+				</div>
+			</div>
 
 			</section>
 			<section class="contentSub">

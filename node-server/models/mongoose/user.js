@@ -17,7 +17,19 @@ var userSchema = new mongoose.Schema({
 		location: { type: String, default: '' },
 		website: { type: String, default: '' },
 		picture: { type: String, default: '' },
-		backgroundpicture: { type: String, default: '' }
+		backgroundpicture: { type: String, default: '' },
+		colours: [
+			{
+				colour: String,
+				selected: {
+					type: Boolean,
+					default: false
+				}
+			}
+		],
+		theme: {
+			mainColour: String
+		}
 	},
 
 	Diary: {

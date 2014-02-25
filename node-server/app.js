@@ -29,6 +29,7 @@ var venueController = require('./controllers/venue');
 //var uploadController = require('./controllers/upload');
 //uploadController.uploadPath = __dirname + '/../workspace/photos';
 var agilitynetbridgeController = require('./controllers/agilitynetbridge');
+var quicksearchController = require('./controllers/quicksearch');
 
 
 
@@ -151,6 +152,8 @@ if (hackyCors === true) {
 	});
 }
 
+quicksearchController.initialise();
+
 
 /**
  *
@@ -170,6 +173,7 @@ if (hackyCors === true) {
  *
  * Routes
  */
+app.get('/agility-diary/search/quicksearch', quicksearchController.search);
 
 app.get('/agility-diary/shows/list', showController.list);
 app.get('/agility-diary/shows/upcoming', showController.upcomingList);
@@ -191,6 +195,9 @@ app.post('/agility-diary/user/add-result', userController.addResult);
 app.post('/agility-diary/user/add-dog-photo', userController.addDogPhoto);
 app.post('/agility-diary/user/add-dog-profile-photo', userController.setDogProfilePhoto);
 app.post('/agility-diary/user/setProfileColours', userController.setProfileColours);
+app.post('/agility-diary/user/setThemeMainColour', userController.setThemeMainColour);
+
+app.get('/agility-diary/user/listUsers', userController.listUsers);
 
 
 app.post('/agility-diary/comments/add', commentsController.addComment);

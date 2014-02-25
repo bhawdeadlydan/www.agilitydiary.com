@@ -8,6 +8,8 @@ var DiaryViewModel = require('../models/viewmodels/diary');
 var Show = require('../models/mongoose/show');
 var ShowViewModel = require('../models/viewmodels/show');
 
+var networkConfiguration = require('../repositories/networkConfiguration');
+
 var Upload = require('./upload.js');
 var Tasks = require('./tasks');
 
@@ -89,16 +91,20 @@ exports.uploadBackgroundFile = Upload.UploadManager({
 	]
 }, function (request, response, data) {
 	User.findById(request.user.id, function (err, user) {
+		var ipAddress = networkConfiguration.getIpAddresses()[0];
+
 		user.profile.backgroundpicture =  data.newUrlPath; //data.assetPath + '/' + _.findWhere(data.scaled, { width: 200 }).url;
 
 		user.save(function (err, user) {
+			console.log(request.app.settings);
+			var port = request.app.settings.port;
 
 			Tasks.colorific({
 				filename: data.outPath,
-				fileUrl: 'http://192.168.1.122:3000' + data.newUrlPath,
+				fileUrl: 'http://' + ipAddress + ':' + port + data.newUrlPath,
 				sender: {
 					queue: 'colorificreturn2',
-					api: 'http://192.168.1.122:3000/agility-diary/user/setProfileColours'
+					api: 'http://' + ipAddress + ':' + port + '/agility-diary/user/setProfileColours'
 				},
 				returnData: request.user.id
 			});
@@ -152,9 +158,42 @@ exports.addDogPhoto = Upload.UploadManager({
 
 
 exports.setProfileColours = function (request, response) {
-	console.log(request.body);
+	var userId = request.body.return_data;
 
-	response.send(200);
+	User.findById(userId, function (err, user) {
+		var colourData = JSON.parse(request.body.colours.replace(/'/g, '"'));
+		var selected = true;
+
+		user.profile.colours = [];
+
+		_.each(colourData, function (colour) {
+			user.profile.colours.push({
+				colour: colour,
+				selected: selected
+			});
+
+			if (selected === true) {
+				selected = false;
+			}
+		});
+
+		user.save(function (err, user) {
+			response.send(200);
+		});
+	});
+};
+
+
+
+
+exports.setThemeMainColour = function (request, response) {
+	User.findById(request.user.id, function (err, user) {
+		user.profile.theme.mainColour = request.body.colour;
+
+		user.save(function (err, user) {
+			res.send(200);
+		});
+	});
 };
 
 
@@ -389,6 +428,53 @@ function sendDiary(res, diary) {
 			var value = DiaryViewModel(diary);
 			res.send(value);
 		});
+	});
+}
+
+
+
+
+
+exports.listUsers = function (request, response) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			listUsersData(function (diaryList) {
+				_.each(diaryList, function (item) {
+					console.log(item._id);
+					//var itemId = mongoose.Types.ObjectId(item._id);
+
+					if (_.contains(diary.Friends.LinkedUser, item._id)) {
+						item.IsFriend = true;
+					} else {
+						item.IsFriend = false;
+					}
+
+					console.log(item.IsFriend);
+				});
+
+				response.send(diaryList);
+			});
+		});
+	});
+};
+
+
+
+
+exports.listUsersData = listUsersData;
+
+
+
+
+function listUsersData(callback) {
+	Diary.find({
+
+	})
+	.populate('User')
+	.exec(function (err, diaryList) {
+		callback(diaryList);
 	});
 }
 

@@ -34,6 +34,7 @@ app.controller('BaseController', [
 
 
 
+
 		function startSpinner() {
 
 			var opts = {

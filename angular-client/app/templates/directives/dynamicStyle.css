@@ -1,0 +1,3 @@
+.dynamicProfile {
+	background-color: {{ dynamicProfileSelectedColour }};
+}

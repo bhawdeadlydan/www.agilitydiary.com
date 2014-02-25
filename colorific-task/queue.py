@@ -15,9 +15,6 @@ import urllib2
 
 import colorific
 from colorific import rgb_to_hex
-
-
-from httplib2 import Http
 from urllib import urlencode
 import settings
 

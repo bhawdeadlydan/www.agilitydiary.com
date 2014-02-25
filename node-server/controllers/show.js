@@ -75,10 +75,12 @@ exports.categories = function (req, res) {
 
 
 
-/**
- * List upcoming shows
- */
-exports.upcomingList = function (req, res) {
+exports.upcomingListData = upcomingListData;
+
+
+
+
+function upcomingListData(callback) {
 	Show.find({
 		ParsedDate: {
 			$gte: new Date()
@@ -88,6 +90,18 @@ exports.upcomingList = function (req, res) {
 		ParsedDate: 1
 	})
 	.exec(function (err, data) {
+		callback(data);
+	});
+}
+
+
+
+
+/**
+ * List upcoming shows
+ */
+exports.upcomingList = function (req, res) {
+	upcomingListData(function(data) {
 		var result = [];
 
 		_.each(data, function (iterator) {
