@@ -50,7 +50,7 @@
 					</span>
 
 					<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a> |
-					Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
+					<i class="fa fa-compass"> Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
 				</p>
 
 				<p ng-show="show.Club.length!==0">
@@ -131,7 +131,7 @@
 
 				<button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
 
-				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">Not attending</button>
+				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
 
 				<p ng-repeat="attending in show.Attending">
 					<a href="/">
