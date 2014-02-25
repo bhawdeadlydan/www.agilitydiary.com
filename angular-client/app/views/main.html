@@ -1,54 +1,34 @@
-<style dynamic-style="profile"></style>
-
+<style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 
 <section class="main profile dynamicProfile">
 
 	<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div> -->
 
-		<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div>
+	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div>
 
-		<div class="hero">
+	<div class="hero">
 
-			<div class="container avatarContainer">
-				<div class="primaryAvatarContainer">
-					<a ng-href="#/" class="avatar primaryAvatar">
-						<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
-						<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
-					</a>
-					<h1 ng-bind="profile.User.profile.name" />
-				</div>
-
-				<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
-
-				<div class="secondaryAvatarContainer">
-					<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-						<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
-						<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
-					</a>
-				</div>
+		<div class="container avatarContainer">
+			<div class="primaryAvatarContainer">
+				<a ng-href="#/" class="avatar primaryAvatar">
+					<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+					<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
+				</a>
+				<h1 ng-bind="profile.User.profile.name" ></h1>
 			</div>
+
+			<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+
+			<div class="secondaryAvatarContainer">
+				<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+					<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+					<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
+				</a>
+			</div>
+		</div>
 	</div>
 
-
-
-	<section class="quicksearch" style="position: absolute; top: 0; right: 0; z-index: 99999;">
-		<span ng-show="quicksearch.searching">SPINNER</span>
-
-		<input type="search" placeholder="Search" ng-model="quicksearch.query" ng-change="quicksearch.change();" />
-
-		<ul style="background-color: #fff;">
-			<li ng-repeat="result in quicksearch.results.Results" ng-show="quicksearch.results.Results.length !== 0">
-				<img src="/path/to/types/{{ result.Type}}.png" />
-				<a href="" ng-href="{{ result.Path }}" title="{{ result.Type}}"><span ng-bind="result.Name" /></a>
-			</li>
-
-			<li ng-show="quicksearch.results.Results.length === 0">
-				Nothing found
-			</li>
-		</ul>
-
-	</section>
 
 
 
@@ -98,6 +78,7 @@
 
 				<div ng-repeat="colourLoop in profile.User.profile.colours">
 				<div style="background-color: {{ colourLoop.colour }}">&nbsp;
+					<button ng-click="setThemeMainColour(colourLoop.colour);">Set this</button>
 				</div>
 			</div>
 

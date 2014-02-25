@@ -191,7 +191,7 @@ exports.setThemeMainColour = function (request, response) {
 		user.profile.theme.mainColour = request.body.colour;
 
 		user.save(function (err, user) {
-			res.send(200);
+			response.send(200);
 		});
 	});
 };

@@ -1,0 +1,42 @@
+
+	<!-- example CSS to show the box is spinning -->
+	<style>
+	input.searching {
+		border: solid 1px red;
+	}
+
+	.quicksearch li:hover {
+		cursor: pointer;
+		background: #aaa;
+	}
+	</style>
+
+
+	<section class="quicksearch">
+		<input type="search" ng-class="quicksearch.cssClass" placeholder="Search" ng-model="quicksearch.query" ng-change="quicksearch.change();" />
+
+		<ul>
+
+			<li ng-repeat="result in quicksearch.results.Results"
+				ng-click="navigateToItem(result.Path);"
+				ng-show="quicksearch.results.Results.length !== 0"
+				title="{{ result.Type}}">
+
+				<img src="{{ result.ImagePath | imageSize: '64x64' }}" />
+
+				<span ng-bind="result.Name" ></span>
+
+				<span style="font-size: 0.7em; color: #666;" ng-bind="result.Details"></span>
+			</li>
+
+			<li ng-show="quicksearch.results.Results && quicksearch.results.Results.length !== 0">
+				<hr />
+				<a href="">View results on map</a>
+			</li>
+
+			<li ng-show="quicksearch.results.Results.length === 0">
+				Nothing found
+			</li>
+		</ul>
+
+	</section>

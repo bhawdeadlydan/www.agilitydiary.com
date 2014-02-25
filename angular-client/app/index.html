@@ -23,6 +23,10 @@
 	<body ng-app="browserAppApp" ng-controller="BaseController">
 		<div id="spinner"></div>
 
+		<!-- quick search directive here -->
+		<!-- look in /templates/directives/quickSearch.html -->
+		<div quick-search ></div>
+
 
 		<div>
 
@@ -33,8 +37,8 @@
 			<header class="layoutHeader" role="banner">
 
 				<a href="#/" class="brandLogo"><img src="/app/images/logo-AgilityDiary.png" alt="AgilityDiary" />
-          <span>Agility Diary</span>
-        </a>
+          			<span>Agility Diary</span>
+        		</a>
 
 				<nav class="navPrimary" role="navigation" style="display: none;">
 					<a ng-class="homeSectionClass" ng-href="#/">Home</a>
@@ -125,6 +129,7 @@
 
 		<script src="app/scripts/directives/dynamicStyle.js"></script>
 		<script src="app/scripts/directives/leaflet.js"></script>
+		<script src="app/scripts/directives/quickSearch.js"></script>
 		<script src="app/scripts/directives/comments.js"></script>
 
 		<script src="app/scripts/filters/placeholder.js"></script>

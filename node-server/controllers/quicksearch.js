@@ -1,6 +1,8 @@
+"use strict";
+
+
 var _ = require('underscore');
 var mongoose = require('mongoose');
-
 var showController = require('./show.js');
 var userController = require('./user.js');
 var User = require('../models/mongoose/user');
@@ -9,9 +11,12 @@ var Venue = require('../models/mongoose/venue');
 var searchIndex;
 
 
+
+
 if (typeof searchIndex === 'undefined') {
 	searchIndex = [];
 }
+
 
 
 
@@ -47,7 +52,7 @@ function initialiseUsers(next) {
 				searchIndex.push({
 					Id: showItem._id,
 					Name: showItem.profile.name,
-					Avatar: showItem.profile.picture,
+					Img: showItem.profile.picture,
 					Type: 'User',
 					Details: showItem.profile.name,
 					Indexed: showItem.profile.name.toLowerCase()
@@ -121,7 +126,7 @@ function localQuicksearch(userId, searchQuery, callback) {
 						results.push({
 							Id: dog._id,
 							Name: dog.Profile.Name,
-							Avatar: dog.Profile.Photo,
+							Img: dog.Profile.Photo,
 							Type: 'Dog',
 							Details: dog.Profile.Breed
 						});
@@ -161,11 +166,15 @@ function globalQuickSearch(searchQuery) {
 function search(request, response) {
 	var searchQuery = request.query.q.toLowerCase();
 
-	localQuicksearch(request.user.id, searchQuery, function (localResults) {
-		var results = globalQuickSearch(searchQuery);
+	if (searchQuery.length < 4) {
+		response.send(200);
+	} else {
+		localQuicksearch(request.user.id, searchQuery, function (localResults) {
+			var results = globalQuickSearch(searchQuery);
 
-		response.send(ResultsViewModel(searchQuery, localResults.concat(results)));
-	});
+			response.send(ResultsViewModel(searchQuery, localResults.concat(results)));
+		});
+	}
 }
 
 
