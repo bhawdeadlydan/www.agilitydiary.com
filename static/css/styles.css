@@ -1846,14 +1846,21 @@ select {
 /* line 18, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero {
   height: auto;
-  padding-top: 350px;
+  padding-top: 150px;
   position: relative;
   text-align: center;
   z-index: 10000;
 }
-/* line 27, ../../layout/css-src/partials/modules/_mod-hero.scss */
+/* line 25, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero img {
   vertical-align: middle;
+}
+/* line 29, ../../layout/css-src/partials/modules/_mod-hero.scss */
+.hero .bio {
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
+  padding: 1em;
+  width: 75%;
 }
 
 /**
@@ -1874,7 +1881,7 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .avatarContainer {
-  margin-top: -25px;
+  margin-top: 25px;
   padding-bottom: 0;
   padding-top: 0;
 }
@@ -1894,7 +1901,7 @@ select {
 /* line 36, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .secondaryAvatarContainer {
   float: left;
-  margin-top: 2em;
+  margin-top: 30px;
   width: 75%;
 }
 

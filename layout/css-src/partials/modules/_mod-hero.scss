@@ -16,15 +16,20 @@
  * @section        hero
  */
 .hero {
-
     height: auto;
-    // margin-top: 350px;
-    padding-top: 350px;
+    padding-top: 150px;
     position: relative;
     text-align: center;
     z-index: 10000;
 
     img {
         vertical-align: middle;
+    }
+
+    .bio {
+        background: rgba(255,255,255,0.5);
+        margin: 0 auto;
+        padding: 1em;
+        width: 75%;
     }
 }
