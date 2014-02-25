@@ -1,0 +1,96 @@
+<style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
+
+
+<section class="main profile dynamicProfile">
+
+	<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div> -->
+
+	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div>
+
+	<div class="hero">
+
+		<div class="container avatarContainer">
+			<div class="primaryAvatarContainer">
+				<a ng-href="#/" class="avatar primaryAvatar">
+					<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+					<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
+				</a>
+				<h1 ng-bind="profile.User.profile.name" ></h1>
+			</div>
+
+			<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
+
+			<div class="secondaryAvatarContainer">
+				<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+					<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+					<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<div class="container">
+
+		<h1 style="clear:both;">Change your background by dragging a photo here</h1>
+		<div class="uploadImage" id="uploadProfileBackgroundImage" style="">⇧ Upload Photo
+			<span class="dz-message"></span>
+			<span data-dz-name=""></span>
+			<span data-dz-details=""></span>
+			<span data-dz-size=""></span>
+			<span data-dz-errormessage=""></span>
+		</div>
+
+
+		<h1>Change your avatar by dragging a photo here</h1>
+		<div class="uploadImage" id="uploadProfileImage" style="">⇧ Upload Photo
+			<span class="dz-message"></span>
+			<span data-dz-name=""></span>
+			<span data-dz-details=""></span>
+			 <span data-dz-size=""></span>
+			 <span data-dz-errormessage=""></span>
+		</div>
+
+
+				<div ng-repeat="colourLoop in profile.User.profile.colours">
+					<div style="background-color: {{ colourLoop.colour }}">&nbsp;
+						<button ng-click="setThemeMainColour(colourLoop.colour);">Make this the profile colour</button>
+					</div>
+				</div>
+
+
+
+		<section class="friendsList">
+			<h2><a ng-href="#/friends">Friends</a></h2>
+
+			<p>@@make friends here</p>
+
+			<p ng-show="!profile.Friends.length">
+				Aww you haven't added any friends yet, <a href="#">Add some friends</a>
+			</p>
+
+			<div>
+				<a class="avatar friendAvatar" ng-repeat="friend in profile.Friends" ng-href="#/friends/{{ friend._id }}">
+					<img src="http://placedog.com/64/64" alt="" />
+					<br /><span ng-bind="friend.Profile.Name" />
+				</a>
+			</div>
+		</section>
+
+
+	</div>
+</section>
+
+<style >
+.uploadImage {
+	background: palegreen;
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+}</style>

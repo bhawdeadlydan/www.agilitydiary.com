@@ -23,65 +23,21 @@ app.controller('MainController', [
 		$scope.post = {};
 		$scope.post.message = '';
 		$scope.post.click = postSomething;
-
-		$scope.quicksearch = {};
-		$scope.quicksearch.results = [];
-		$scope.quicksearch.query = '';
-		$scope.quicksearch.change = quickSearch;
-		$scope.quicksearch.timeout = null;
-		$scope.quicksearch.searching = false;
+		$scope.setThemeMainColour = setThemeMainColour;
 
 
-		function quicksearchAddPaths(data) {
-			_.each(data.Results, function (item) {
-				switch (item.Type) {
-				case 'Show':
-					item.Path = '#/shows/details/' + item.Id;
-					break;
 
-				case 'User':
-					item.Path = '#/users/details/' + item.Id;
-					break;
 
-				case 'Venue':
-					item.Path = '#/users/details/' + item.Id;
-					break;
 
-				case 'Dog':
-					item.Path = '#/dogs/' + item.Id;
-					break;
-				}
+		function setThemeMainColour(colour) {
+			ProfileService.setThemeMainColour({
+				colour: colour
+			}).success(fetchProfile)
+			.error(function() {
+
 			});
-
-			return data;
 		}
 
-
-
-		function quickSearch() {
-			if ($scope.quicksearch.timeout !== null) {
-				$timeout.cancel($scope.quicksearch.timeout);
-			}
-
-			$scope.quicksearch.query = $scope.quicksearch.query.trim();
-
-			if ($scope.quicksearch.query === '') {
-				$scope.quicksearch.results = [];
-			} else {
-				$scope.quicksearch.timeout = $timeout(function () {
-					$scope.quicksearch.searching = true;
-
-					SearchService.quickSearch($scope.quicksearch.query, function (data) {
-						$scope.quicksearch.searching = false;
-
-						data = quicksearchAddPaths(data);
-						$scope.quicksearch.results = data;
-					}, function (error) {
-						$scope.quicksearch.searching = false;
-					});
-				}, 1000);
-			}
-		}
 
 
 
@@ -137,23 +93,29 @@ app.controller('MainController', [
 				}
 			}
 
-			var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
+			try {
+				var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
 
-			profileDropzone.on('complete', function file() {
-				profileDropzone.removeFile(file);
-				profileDropzone.removeAllFiles();
-				fetchProfile();
-			});
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					fetchProfile();
+				});
+			} catch (e) {
 
+			}
 
+			try {
+				var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', { url: '/agility-diary/user/uploadBackgroundFile' });
 
-			var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', { url: '/agility-diary/user/uploadBackgroundFile' });
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					fetchProfile();
+				});
+			} catch (e) {
 
-			profileDropzone.on('complete', function file() {
-				profileDropzone.removeFile(file);
-				profileDropzone.removeAllFiles();
-				fetchProfile();
-			});
+			}
 		}
 
 

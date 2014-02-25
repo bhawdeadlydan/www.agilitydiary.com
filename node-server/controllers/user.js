@@ -92,6 +92,7 @@ exports.uploadBackgroundFile = Upload.UploadManager({
 }, function (request, response, data) {
 	User.findById(request.user.id, function (err, user) {
 		var ipAddress = networkConfiguration.getIpAddresses()[0];
+		console.log(ipAddress);
 
 		user.profile.backgroundpicture =  data.newUrlPath; //data.assetPath + '/' + _.findWhere(data.scaled, { width: 200 }).url;
 
@@ -191,7 +192,7 @@ exports.setThemeMainColour = function (request, response) {
 		user.profile.theme.mainColour = request.body.colour;
 
 		user.save(function (err, user) {
-			res.send(200);
+			response.send(200);
 		});
 	});
 };

@@ -13,8 +13,10 @@ function scanIpAddresses() {
 			}
 		}
 	}
-
 }
+
+
+scanIpAddresses();
 
 
 exports.getIpAddresses = function () {
