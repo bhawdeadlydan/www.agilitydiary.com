@@ -39,7 +39,8 @@
 		<div class="contentWrapper">
 			<section class="contentMain">
 
-				<p ng-show="show.Venue.Name.length!==0">
+				<p class="venue" ng-show="show.Venue.Name.length!==0">
+					<i class="fa fa-map-marker"></i>
 					<a href="#" ng-bind="show.Venue.Name"></a>
 					<span ng-show="show.Venue.Address.length!==0">
 						, <span ng-bind="show.Venue.Address" />
@@ -53,6 +54,7 @@
 				</p>
 
 				<p ng-show="show.Club.length!==0">
+					<i class="fa fa-group"></i>
 					Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a>
 
 				<span ng-show="show.Website.length!==0">
@@ -103,13 +105,17 @@
 					<span class="tag" ng-bind="show.Meta.ShowType" />
 				</div>
 
-				<p>
+				<p class="date showDate">
+					<i class="fa fa-calendar"></i>
 					<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
 				</p>
 
 				<!--<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>-->
 
-				<p ng-show="entriesOpen">Entries close: <span ng-bind="show.ClosingDate" /></p>
+				<p class="date closingDate" ng-show="entriesOpen">
+					<i class="fa fa-ticket"></i>
+					Entries close: <span ng-bind="show.ClosingDate" />
+				</p>
 
 				<p ng-hide="entriesOpen">
 					Entries closed
@@ -128,13 +134,14 @@
 				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">Not attending</button>
 
 				<p ng-repeat="attending in show.Attending">
-					<a href="/"><img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
-					<img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
+					<a href="/">
+						<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
+						<!-- <img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" /> -->
 					</a>
 				</p>
 
 				<section class="shareThis">
-					<h2>Share this show</h2>
+					<h2><i class="fa fa-share"></i> Share this show</h2>
 					<p>@@share this show here</p>
 				</section>
 
