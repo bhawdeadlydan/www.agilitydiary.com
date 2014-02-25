@@ -93,23 +93,29 @@ app.controller('MainController', [
 				}
 			}
 
-			var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
+			try {
+				var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
 
-			profileDropzone.on('complete', function file() {
-				profileDropzone.removeFile(file);
-				profileDropzone.removeAllFiles();
-				fetchProfile();
-			});
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					fetchProfile();
+				});
+			} catch (e) {
 
+			}
 
+			try {
+				var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', { url: '/agility-diary/user/uploadBackgroundFile' });
 
-			var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', { url: '/agility-diary/user/uploadBackgroundFile' });
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					fetchProfile();
+				});
+			} catch (e) {
 
-			profileDropzone.on('complete', function file() {
-				profileDropzone.removeFile(file);
-				profileDropzone.removeAllFiles();
-				fetchProfile();
-			});
+			}
 		}
 
 

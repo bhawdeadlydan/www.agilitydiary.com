@@ -14,6 +14,11 @@ angular.module('browserAppApp', [
 			controller: 'MainController'
 		})
 
+		.when('/profile', {
+			templateUrl: 'app/views/users/edit.html',
+			controller: 'MainController'
+		})
+
 		.when('/map', {
 			templateUrl: 'app/views/map.html',
 			controller: 'MapController'
