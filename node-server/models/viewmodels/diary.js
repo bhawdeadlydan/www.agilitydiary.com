@@ -26,6 +26,8 @@ module.exports = function (data) {
 
 		EnteredShows: data.EnteredShows,
 
+		Friends: data.Friends,
+
 		Dogs: getEnabledDogs(data.Dogs)
 	};
 

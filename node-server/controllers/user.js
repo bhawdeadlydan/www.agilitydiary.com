@@ -426,8 +426,10 @@ exports.resignShow = function (req, res) {
 function sendDiary(res, diary) {
 	diary.populate('EnteredShows', function (err, diary) {
 		diary.populate('User', function (err, diary) {
-			var value = DiaryViewModel(diary);
-			res.send(value);
+			diary.populate('Friends.LinkedUser', function (err, diary) {
+				var value = DiaryViewModel(diary);
+				res.send(value);
+			});
 		});
 	});
 }
@@ -441,19 +443,35 @@ exports.listUsers = function (request, response) {
 		Diary.findOne({
 			User: user
 		}, function (err, diary) {
-			listUsersData(function (diaryList) {
-				_.each(diaryList, function (item) {
-					console.log(item._id);
+			User.find({ }, function (err, diaryList) {
+				var item;
+
+				for(var i = 0; i < diaryList.length; i++) {
+					item = diaryList[i];
+					item.name = 'bob';
+
+					item.isFriend = 'false';
+
+					/*_.each(diary.Friends, function (linkedUserItem) {
+						if ((typeof linkedUserItem.LinkedUser !== 'undefined') && (linkedUserItem.LinkedUser !== null)){
+							if (linkedUserItem.LinkedUser.toString() == item._id) {
+								item.IsFriend = true;
+							}
+						}
+					});*/
+
 					//var itemId = mongoose.Types.ObjectId(item._id);
 
-					if (_.contains(diary.Friends.LinkedUser, item._id)) {
+					/*if (_.contains(diary.Friends.LinkedUser, item._id)) {
 						item.IsFriend = true;
 					} else {
 						item.IsFriend = false;
-					}
+					}*/
 
-					console.log(item.IsFriend);
-				});
+
+				};
+
+				//console.log(diaryList);
 
 				response.send(diaryList);
 			});
@@ -516,6 +534,68 @@ exports.userData = function (req, res) {
 				});
 			} else {
 				sendDiary(res, diary);
+			}
+		});
+	});
+};
+
+
+
+
+
+exports.addFriend = function (request, response) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (err) {
+				response.send(500, { error: 'Error' });
+			} else {
+				User.findById(request.body.userId, function (err, friendUser) {
+					if (err) {
+						response.send(500);
+					} else {
+						diary.Friends.push({
+							LinkedUser: friendUser
+						});
+
+						diary.save(function (err, diary) {
+							if (err) {
+								response.send(500);
+							} else {
+								response.send(200);
+							}
+						});
+					}
+				});
+			}
+		});
+	});
+};
+
+
+
+
+exports.removeFriend = function (request, response) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (err) {
+				response.send(500, { error: 'Error' });
+			} else {
+				var removeId = request.body.userId;
+
+				diary.Friends.splice(diary.Friends.indexOf(removeId), 1);
+
+				diary.save(function (err, diary) {
+					if (err) {
+						response.send(500);
+					} else {
+						response.send(200);
+					}
+				});
+
 			}
 		});
 	});

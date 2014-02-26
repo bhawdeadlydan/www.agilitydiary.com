@@ -102,7 +102,7 @@ angular.module('browserAppApp', [
 			controller: 'EnteredShowsController'
 		})
 
-		.when('/users', {
+		.when('/find/users', {
 			templateUrl: 'app/views/users/list.html',
 			controller: 'RelationshipController'
 		})

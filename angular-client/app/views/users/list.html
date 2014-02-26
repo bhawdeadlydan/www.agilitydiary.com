@@ -7,15 +7,15 @@
 			<div class="contentMain">
 
 				<div ng-repeat="loopUser in listUsers">
-					<img src="{{ loopUser.User.profile.picture | imageSize: '200x100' }}" />
+					<img src="{{ loopUser.profile.picture | imageSize: '200x100' }}" />
 
-					<a ng-href="/users/{{ loopUser.User._id }}"><span ng-bind="loopUser.User.profile.name" ></span></a>
 
-					{{ loopUser.User.IsFriend }}
 
-					<button ng-click="addFriend(loopUser);">Add friend</button>
+					<a ng-href="/users/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name" ></span></a>
 
-					<button ng-click="removeFriend(loopUser);">Remove friend</button>
+					<button ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Add friend</button>
+
+					<button ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Remove friend</button>
 				</div>
 
 			</div>
