@@ -22,6 +22,9 @@
 				<a ng-href="#/" class="avatar primaryAvatar">
 					<img src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
 				</a>
+
+				<h1><span ng-bind="profile.User.profile.name"></span> <a ng-href="#/profile">...</a></h1>
+
 			</div>
 
 			<div class="secondaryAvatarContainer">
@@ -91,7 +94,7 @@
 					</p>
 
 					<p ng-repeat="show in profile.EnteredShows | limitTo: 3">
-						<strong><a ng-href="#/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong>
+						<strong><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong>
 
 						<br /><i class="fa fa-calendar"></i>
 							<span ng-bind="show.ShowDate" />
@@ -117,7 +120,7 @@
 
 
 		<section class="friendsList">
-			<h2><a ng-href="#/friends">Friends</a></h2>
+			<h2><a ng-href="/friends">Friends</a></h2>
 
 			<p>@@make friends here</p>
 

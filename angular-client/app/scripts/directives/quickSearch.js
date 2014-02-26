@@ -50,6 +50,8 @@ angular.module('browserAppApp')
 
 
 					function navigateToItem(path) {
+						console.log('Quicksearch navigate to: ' + path);
+
 						cancelExistingSearch();
 						$scope.quicksearch.results = [];
 						$location.path(path);
@@ -65,19 +67,19 @@ angular.module('browserAppApp')
 
 							switch (item.Type) {
 							case 'Show':
-								item.Path = '#/shows/details/' + item.Id;
+								item.Path = '/shows/details/' + item.Id;
 								break;
 
 							case 'User':
-								item.Path = '#/users/details/' + item.Id;
+								item.Path = '/users/' + item.Id;
 								break;
 
 							case 'Venue':
-								item.Path = '#/users/details/' + item.Id;
+								item.Path = '/users/details/' + item.Id;
 								break;
 
 							case 'Dog':
-								item.Path = '#/dogs/' + item.Id;
+								item.Path = '/dogs/' + item.Id;
 								break;
 							}
 						});

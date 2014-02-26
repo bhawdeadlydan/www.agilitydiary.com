@@ -1,4 +1,11 @@
-'use strict';
+"use strict";
+
+// current top level paths
+// /dogs
+// /map
+// /profile
+// /shows
+// /users
 
 angular.module('browserAppApp', [
 	'ngCookies',
@@ -100,9 +107,15 @@ angular.module('browserAppApp', [
 			controller: 'RelationshipController'
 		})
 
-		.otherwise({
-			redirectTo: '/'
+		.when('/users/:id', {
+			templateUrl: 'app/views/users/public.html',
+			controller: 'MainController',
+			action: 'public'
 		});
 
- //   $locationProvider.html5Mode(true).hashPrefix('#');
+		//.otherwise({
+		///	redirectTo: '/'
+		//});
+
+		$locationProvider.html5Mode(true);//.hashPrefix('#');
 });
