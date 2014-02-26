@@ -69,4 +69,12 @@ userSchema.methods.comparePassword = function (candidatePassword, cb) {
 	});
 };
 
+userSchema.virtual('isFriend').get(function () {
+	return this.isFriendValue;
+});
+
+userSchema.virtual('isFriend').set(function (value) {
+	this.isFriendValue = value;
+});
+
 module.exports = mongoose.model('User', userSchema);

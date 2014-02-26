@@ -83,6 +83,28 @@ angular.module('browserAppApp')
 
 
 
+			module.addFriend = function (friendId, successCallback, errorCallback) {
+				var url = '/agility-diary/user/add-friend';
+
+				return $http.post(url, {
+					userId: friendId
+				});
+			};
+
+
+
+
+			module.removeFriend = function (friendId, successCallback, errorCallback) {
+				var url = '/agility-diary/user/remove-friend';
+
+				return $http.post(url, {
+					userId: friendId
+				});
+			};
+
+
+
+
 			module.updateDog = function (postData, successCallback, errorCallback) {
 				var url = '/agility-diary/user/update-dog';
 

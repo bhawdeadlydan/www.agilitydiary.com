@@ -110,19 +110,24 @@
 
 	<section class="panel friendsList">
 		<div class="container">
-			<h2><a ng-href="/friends">Friends</a></h2>
-
-			<p>@@make friends here</p>
+			<h2><a ng-href="/friends">Friends</a></h2>  <a ng-href="/find/users">All users</a>
 
 			<p ng-show="!profile.Friends.length">
 				Aww you haven't added any friends yet, <a href="/users">Add some friends</a>
 			</p>
 
 			<div>
-				<a class="avatar friendAvatar" ng-repeat="friend in profile.Friends" ng-href="/friends/{{ friend._id }}">
-					<img src="http://placedog.com/64/64" alt="" />
-					<br /><span ng-bind="friend.Profile.Name" />
+
+
+			<div ng-repeat="friend in profile.Friends">
+
+
+				<a  ng-href="/users/{{ friend.LinkedUser._id }}">
+					<br /><span ng-bind="friend.LinkedUser.profile.name" ></span>
+					<img class="avatar friendAvatar"  src="http://placedog.com/64/64" alt="" />
 				</a>
+
+			</div>
 			</div>
 		</div>
 	</section>

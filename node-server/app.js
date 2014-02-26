@@ -202,6 +202,9 @@ app.post('/agility-diary/user/add-dog-photo', userController.addDogPhoto);
 app.post('/agility-diary/user/add-dog-profile-photo', userController.setDogProfilePhoto);
 app.post('/agility-diary/user/setProfileColours', userController.setProfileColours);
 app.post('/agility-diary/user/setThemeMainColour', userController.setThemeMainColour);
+app.post('/agility-diary/user/add-friend', userController.addFriend);
+app.post('/agility-diary/user/remove-friend', userController.removeFriend);
+
 
 app.get('/agility-diary/user/listUsers', userController.listUsers);
 
