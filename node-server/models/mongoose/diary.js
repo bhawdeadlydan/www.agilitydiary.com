@@ -22,6 +22,17 @@ var diarySchema = new mongoose.Schema({
 		}
 	],
 
+	Photos: [
+		{
+			Path: String,
+
+			DateTime: {
+				type: Date,
+				default: Date.now
+			}
+		}
+	],
+
 	Dogs: [
 		{
 			Deleted: {

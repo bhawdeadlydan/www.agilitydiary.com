@@ -41,11 +41,20 @@
 
 	<section class="stripe">
 		<div class="container">
-			<h2>Post a message</h2>
+			<h2>What's on your mind?</h2>
 			<div class="postSomething">
 				<form name="form">
 					<textarea ng-model="post.message" />
-					<button ng-click="post.click()" />
+
+					<div class="uploadImage" id="uploadPhoto" style="">⇧ Upload Photo
+						<span class="dz-message"></span>
+						<span data-dz-name=""></span>
+						<span data-dz-details=""></span>
+						<span data-dz-size=""></span>
+						<span data-dz-errormessage=""></span>
+					</div>
+
+					<button ng-click="post.click()" class="button" >Post</button>
 				</form>
 			</div>
 		</div>
@@ -98,7 +107,9 @@
 	<section class="stripe photos">
 		<div class="container">
 			<h2><a href="#">Latest photos</a></h2>
-			<p>@@Latest photos here</p>
+			<div ng-repeat="photo in profile.Photos">
+				<img src="{{ photo.Path | imageSize: '200x150' }}" />
+			</div>
 			<a href="#">View all my photos</a>
 		</div>
 	</section>

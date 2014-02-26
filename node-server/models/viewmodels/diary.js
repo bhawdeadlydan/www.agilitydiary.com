@@ -28,7 +28,9 @@ module.exports = function (data) {
 
 		Friends: data.Friends,
 
-		Dogs: getEnabledDogs(data.Dogs)
+		Dogs: getEnabledDogs(data.Dogs),
+
+		Photos: data.Photos
 	};
 
 	return result;

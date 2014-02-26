@@ -114,6 +114,19 @@ app.controller('MainController', [
 			}
 
 			try {
+				var profileDropzone = new Dropzone('div#uploadPhoto', { url: '/agility-diary/user/upload-photo' });
+
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					fetchProfile();
+				});
+			} catch (e) {
+
+			}
+
+
+			try {
 				var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
 
 				profileDropzone.on('complete', function file() {
