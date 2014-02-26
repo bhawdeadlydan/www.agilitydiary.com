@@ -2075,6 +2075,32 @@ select {
 }
 
 /**
+ * @description    styling for the panel module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-26 12:41
+ *
+ *
+ *     @example
+ *                 <section class="brandLogo"></section>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        panel
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel {
+  border-bottom: 1px solid #d4d4d4;
+}
+/* line 22, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:last-child {
+  border: none;
+}
+
+/**
  * @section        Plugins
  */
 /**

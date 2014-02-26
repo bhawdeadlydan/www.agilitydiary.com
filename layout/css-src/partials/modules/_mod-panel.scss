@@ -1,0 +1,25 @@
+/**
+ * @description    styling for the panel module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-26 12:41
+ *
+ *
+ *     @example
+ *                 <section class="brandLogo"></section>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        panel
+ */
+.panel {
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+        border: none;
+    }
+}
