@@ -2047,6 +2047,34 @@ select {
  * @section        closingDate
  */
 /**
+ * @description    styling for the quickSearch module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.2
+ *        @date    2014-02-26 10:57
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        quickSearch
+ */
+/* line 18, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.quickSearch {
+  text-align: center;
+}
+/* line 21, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.quickSearch input {
+  background: white;
+  margin: 1em auto 0 auto;
+  text-align: left;
+  width: 50%;
+}
+
+/**
  * @section        Plugins
  */
 /**
