@@ -25,12 +25,14 @@ app.controller('RelationshipController', [
 		}
 
 		function scanForFriends() {
-			_.each($scope.listUsers, function(loopUser) {
+			_.each($scope.listUsers, function (loopUser) {
 				loopUser.isFriend = false;
 
-				_.each($scope.profile.Friends, function(loopFriend) {
-					if (loopFriend.LinkedUser == loopUser._id) {
-						loopUser.isFriend = true;
+				_.each($scope.profile.Friends, function (loopFriend) {
+					if ((loopFriend.LinkedUser !== null) && (angular.isDefined(loopFriend.LinkedUser._id))) {
+						if (loopFriend.LinkedUser._id == loopUser._id) {
+							loopUser.isFriend = true;
+						}
 					}
 				});
 			});
@@ -49,21 +51,21 @@ app.controller('RelationshipController', [
 		listUsers();
 		fetchProfile();
 
-		$scope.addFriend = function(user) {
-			ProfileService.addFriend(user._id).success(function() {
+		$scope.addFriend = function (user) {
+			ProfileService.addFriend(user._id).success(function () {
 				user.isFriend = true;
-			}).error(function() {
+			}).error(function () {
 
 			});
 		};
 
-		$scope.removeFriend = function(user) {
-			ProfileService.removeFriend(user._id).success(function() {
+		$scope.removeFriend = function (user) {
+			ProfileService.removeFriend(user._id).success(function () {
 				user.isFriend = false;
-			}).error(function() {
+			}).error(function () {
 
 			});
-		}
+		};
 
 	}
 ]);
