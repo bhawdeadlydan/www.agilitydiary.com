@@ -9,7 +9,7 @@
 				<div ng-repeat="loopUser in listUsers">
 					<img src="{{ loopUser.User.profile.picture | imageSize: '200x100' }}" />
 
-					<span ng-bind="loopUser.User.profile.name" ></span>
+					<a ng-href="/users/{{ loopUser.User._id }}"><span ng-bind="loopUser.User.profile.name" ></span></a>
 
 					{{ loopUser.User.IsFriend }}
 

@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
+		<base href="/" />
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>AgilityDiary</title>
@@ -27,13 +28,7 @@
 		<!-- look in /templates/directives/quickSearch.html -->
 		<div quick-search ></div>
 
-
 		<div>
-
-			<!--[if lt IE 7]>
-				<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-			<![endif]-->
-
 			<header class="layoutHeader" role="banner">
 
 				<a href="#/" class="brandLogo"><img src="/app/images/logo-AgilityDiary.png" alt="AgilityDiary" />
@@ -50,21 +45,13 @@
 					<input type="search" name="search" placeholder="Enter keywords here" ng-model="searchText"/>
 					<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a> -->
 				</nav>
-
 			</header>
 
-			<!--
-			<div class="btn-group btn-group-justified">
-				<a href="/auth/facebook" class="btn btn-facebook"><i class="fa fa-facebook"></i>Facebook</a>
-				<a href="/auth/twitter" class="btn btn-twitter"><i class="fa fa-twitter"></i>Twitter</a>
-				<a href="/auth/google" class="btn btn-google-plus"><i class="fa fa-google-plus"></i>Google</a>
-
-			</div>-->
 
 			<!-- Add your site or application content here -->
 			<div ng-view="" class="wrapper"></div>
 
-			<footer class="layoutFooter" role="contentinfo">
+			<!--<footer class="layoutFooter" role="contentinfo">
 				<div class="container">
 					<a href="/contact">Contact</a>
 
@@ -73,7 +60,10 @@
 					</section>
 				</div>
 			</footer>
+		-->
 		</div>
+
+
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 		<script>

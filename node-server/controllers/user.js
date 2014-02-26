@@ -343,7 +343,7 @@ exports.enterShow = function (req, res) {
 
 					var isAdded = false;
 					_.each(diary[0].EnteredShows, function (iterator) {
-						if(iterator.equals(show._id) === true) {
+						if (iterator.equals(show._id) === true) {
 							isAdded = true;
 						}
 					});
@@ -478,6 +478,21 @@ function listUsersData(callback) {
 		callback(diaryList);
 	});
 }
+
+
+
+
+exports.publicUserData = function (request, response) {
+	var id = request.query.id;
+
+	User.findById(id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			sendDiary(response, diary);
+		});
+	});
+};
 
 
 

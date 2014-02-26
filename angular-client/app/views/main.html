@@ -11,17 +11,17 @@
 
 		<div class="container avatarContainer">
 			<div class="primaryAvatarContainer">
-				<a ng-href="#/" class="avatar primaryAvatar">
+				<a ng-href="/" class="avatar primaryAvatar">
 					<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
 					<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
 				</a>
-				<h1 ng-bind="profile.User.profile.name" ></h1>
+				<h1><span ng-bind="profile.User.profile.name"></span> <a ng-href="#/profile">...</a></h1>
 			</div>
 
 			<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
 
 			<div class="secondaryAvatarContainer">
-				<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+				<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
 					<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
 					<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
 				</a>
@@ -88,7 +88,7 @@
 					</p>
 
 					<p ng-repeat="show in profile.EnteredShows | limitTo: 3">
-						<strong><a ng-href="#/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong>
+						<strong><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong>
 
 						<br /><i class="fa fa-calendar"></i>
 							<span ng-bind="show.ShowDate" />
@@ -114,7 +114,7 @@
 
 
 		<section class="friendsList">
-			<h2><a ng-href="#/friends">Friends</a></h2>
+			<h2><a ng-href="/friends">Friends</a></h2>
 
 			<p>@@make friends here</p>
 

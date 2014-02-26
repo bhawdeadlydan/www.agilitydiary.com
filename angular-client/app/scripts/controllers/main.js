@@ -1,9 +1,10 @@
+"use strict";
+
 var app = angular.module('browserAppApp');
 
 app.controller('MainController', [
 	'$scope', '$rootScope', 'Mapdata', 'ShowService', 'ProfileService', 'SearchService', '$location', '$timeout', '$route', '$routeParams',
 	function ($scope, $rootScope, Mapdata, ShowService, ProfileService, SearchService, $location, $timeout, $route, $routeParams) {
-		"use strict";
 
 
 
@@ -33,7 +34,7 @@ app.controller('MainController', [
 			ProfileService.setThemeMainColour({
 				colour: colour
 			}).success(fetchProfile)
-			.error(function() {
+			.error(function () {
 
 			});
 		}
@@ -50,6 +51,17 @@ app.controller('MainController', [
 
 			ProfileService.get(function (data) {
 				$scope.profile = data;
+			}, function (error) {
+
+			});
+		}
+
+
+
+
+		function fetchPublicProfile() {
+			ProfileService.getPublic($scope.publicId, function (data) {
+				$scope.publicProfile = data;
 			}, function (error) {
 
 			});
@@ -90,6 +102,14 @@ app.controller('MainController', [
 				switch (action) {
 				case '':
 					fetchProfile();
+					break;
+
+				case 'public':
+					$scope.publicId = $routeParams.id;
+					$scope.publicProfile = {};
+
+					fetchPublicProfile();
+					break;
 				}
 			}
 

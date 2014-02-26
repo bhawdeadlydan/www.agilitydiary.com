@@ -136,8 +136,14 @@ app.use(express.static(path.join(__dirname, '../angular-client'), { maxAge: week
 
 app.use(function (req, res) {
 	//res.sendfile(path.join(__dirname, '..', '/public', 'app','index.html'));
-	res.status(404);
-	res.render('404');
+	var accept = req.header('Accept');
+
+	if (accept.indexOf('text/html') !== -1) {
+		res.redirect('/#' + req.path);
+	} else {
+		res.status(404);
+		res.render('404');
+	}
 });
 app.use(express.errorHandler());
 
@@ -208,6 +214,7 @@ app.get('/agility-diary/resignShow', userController.resignShow);
 
 app.post('/agility-diary/user/uploadFile', userController.uploadFile);
 app.post('/agility-diary/user/uploadBackgroundFile', userController.uploadBackgroundFile);
+app.get('/agility-diary/user/public', userController.publicUserData);
 
 
 

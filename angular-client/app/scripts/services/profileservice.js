@@ -40,6 +40,19 @@ angular.module('browserAppApp')
 
 
 
+			module.getPublic = function (id, successCallback, errorCallback) {
+				var url = '/agility-diary/user/public?id=' + id;
+
+				$http.get(url).success(function (data) {
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
 			module.invalidateCache = function () {
 				lastChecked = new Date(2000, 1, 1).getTime();
 			};

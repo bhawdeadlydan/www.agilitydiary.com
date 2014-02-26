@@ -56,30 +56,15 @@
 		</div>
 
 
-				<div ng-repeat="colourLoop in profile.User.profile.colours">
-					<div style="background-color: {{ colourLoop.colour }}">&nbsp;
-						<button ng-click="setThemeMainColour(colourLoop.colour);">Make this the profile colour</button>
-					</div>
-				</div>
-
-
-
-		<section class="friendsList">
-			<h2><a ng-href="#/friends">Friends</a></h2>
-
-			<p>@@make friends here</p>
-
-			<p ng-show="!profile.Friends.length">
-				Aww you haven't added any friends yet, <a href="#">Add some friends</a>
-			</p>
-
-			<div>
-				<a class="avatar friendAvatar" ng-repeat="friend in profile.Friends" ng-href="#/friends/{{ friend._id }}">
-					<img src="http://placedog.com/64/64" alt="" />
-					<br /><span ng-bind="friend.Profile.Name" />
-				</a>
+		<div ng-repeat="colourLoop in profile.User.profile.colours">
+			<div style="background-color: {{ colourLoop.colour }}">&nbsp;
+				<button ng-click="setThemeMainColour(colourLoop.colour);">Make this the profile colour</button>
 			</div>
-		</section>
+
+		</div>
+		<div style="background-color: #fff">&nbsp;
+				<button ng-click="setThemeMainColour('#fff');">Make this the profile colour</button>
+			</div>
 
 
 	</div>
