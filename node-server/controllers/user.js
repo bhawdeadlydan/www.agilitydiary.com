@@ -558,7 +558,7 @@ exports.addDog = function (req, res) {
 					Name: req.body.name,
 					Sex: req.body.sex,
 					DateOfBirth: req.body.dateofbirth,
-					Photo: req.body.photo,
+					Photo: '',
 					Breed: req.body.breed,
 					KennelClub: {
 						Height: req.body.kcheight,

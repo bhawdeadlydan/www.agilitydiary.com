@@ -3,8 +3,7 @@
 
 <section class="main profile dynamicProfile">
 
-	<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div> -->
-	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture }} )"></div>
+	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture || 'app/images/profile-background.jpg' }} )"></div>
 
 	<div class="hero">
 
@@ -21,15 +20,13 @@
 
 			<div class="primaryAvatarContainer">
 				<a ng-href="#/" class="avatar primaryAvatar">
-					<img src="{{ profile.User.profile.picture | imageSize: '200x100' }}" />
-					<!-- <img src="/app/images/user.png" title="{{ profile.User.profile.name }}" alt="{{ profile.User.profile.name }}" /> -->
+					<img src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
 				</a>
 			</div>
 
 			<div class="secondaryAvatarContainer">
 				<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-					<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
-					<!-- <img src="/app/images/dog.png" title="{{ dog.Profile.Name }}" alt="{{ dog.Profile.Name }}" /> -->
+					<img src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 				</a>
 			</div>
 

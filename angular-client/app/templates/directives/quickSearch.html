@@ -5,10 +5,6 @@
 		border: solid 1px red;
 	}
 
-	.quicksearch input {
-		margin-left: 100px;
-	}
-
 	.quicksearch li:hover {
 		cursor: pointer;
 		background: #aaa;
@@ -16,7 +12,7 @@
 	</style>
 
 
-	<section class="quicksearch">
+	<section class="quickSearch">
 		<input type="search" ng-class="quicksearch.cssClass" placeholder="Search" ng-model="quicksearch.query" ng-change="quicksearch.change();" />
 
 		<ul>
