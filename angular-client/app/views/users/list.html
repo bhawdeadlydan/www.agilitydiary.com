@@ -13,9 +13,9 @@
 
 					<a ng-href="/users/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name" ></span></a>
 
-					<button ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Add friend</button>
+					<button class-"action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Add friend</button>
 
-					<button ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Remove friend</button>
+					<button class-"action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Remove friend</button>
 				</div>
 
 			</div>
