@@ -8,7 +8,7 @@
 	<header class="hero">
 
 		<div class="bio">
-			<h1 ng-bind="profile.User.profile.name" />
+			<h1><span ng-bind="profile.User.profile.name"></span> <a ng-href="#/profile">...</a></h1>
 			<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 			<p>
 				<i class="fa fa-map-marker"></i>
@@ -22,9 +22,6 @@
 				<a ng-href="/" class="avatar primaryAvatar">
 					<img src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
 				</a>
-
-				<h1><span ng-bind="profile.User.profile.name"></span> <a ng-href="#/profile">...</a></h1>
-
 			</div>
 
 			<div class="secondaryAvatarContainer">
@@ -39,14 +36,17 @@
 
 
 
-	<section class="stripe">
+	<section class="panel">
 		<div class="container">
 			<h2>What's on your mind?</h2>
 			<div class="postSomething">
 				<form name="form">
-					<textarea ng-model="post.message" />
 
-					<div class="uploadImage" id="uploadPhoto" style="">⇧ Upload Photo
+					<div class="formField formTextarea">
+						<textarea ng-model="post.message" />
+					</div>
+
+					<div class="uploadImage" id="uploadPhoto" style="">⇧ Add photo
 						<span class="dz-message"></span>
 						<span data-dz-name=""></span>
 						<span data-dz-details=""></span>
@@ -54,7 +54,10 @@
 						<span data-dz-errormessage=""></span>
 					</div>
 
-					<button ng-click="post.click()" class="button" >Post</button>
+					<div class="formField formActions">
+						<button class="action" ng-click="post.click()">Post</button>
+					</div>
+
 				</form>
 			</div>
 		</div>
@@ -63,7 +66,7 @@
 
 
 
-	<section class="stripe newsfeed">
+	<section class="panel newsfeed">
 		<div class="container">
 			<h2>Newsfeed</h2>
 		</div>
@@ -72,7 +75,7 @@
 
 
 
-	<section class="stripe enteredShowsList">
+	<section class="panel enteredShowsList">
 		<div class="container">
 			<h2><a href="/shows/upcoming">Shows</a></h2>
 
@@ -104,11 +107,11 @@
 
 
 
-	<section class="stripe photos">
+	<section class="panel photos">
 		<div class="container">
 			<h2><a href="#">Latest photos</a></h2>
 			<div ng-repeat="photo in profile.Photos">
-				<img src="{{ photo.Path | imageSize: '200x150' }}" />
+				<a ng-href="/photos/{{ photo._id }}"><img src="{{ photo.Path | imageSize: '200x150' }}" /></a>
 			</div>
 			<a href="#">View all my photos</a>
 		</div>
@@ -117,7 +120,7 @@
 
 
 
-	<section class="stripe friendsList">
+	<section class="panel friendsList">
 		<div class="container">
 			<h2><a ng-href="/friends">Friends</a></h2>  <a ng-href="/find/users">All users</a>
 
@@ -144,7 +147,7 @@
 
 
 
-	<section class="stripe">
+	<section class="panel">
 		<div class="container">
 			<h2><a ng-href="/dogs">Dogs</a></h2>
 		</div>

@@ -55,6 +55,11 @@ angular.module('browserAppApp', [
 			action: 'details'
 		})
 
+		.when('/photos/:id', {
+			templateUrl: 'app/views/photos/details.html',
+			controller: 'PhotoController'
+		})
+
 		.when('/shows/entered', {
 			templateUrl: 'app/views/shows/entered.html',
 			controller: 'ShowsController',
