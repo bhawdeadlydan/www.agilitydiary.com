@@ -1,32 +1,43 @@
-<section class="dogs edit">
 
-	<div class="container">
-		<h1>My dogs</h1>
 
-		<div class="contentWrapper">
-			<div class="contentMain">
+<style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
-				<section class="dogsList">
+<section class="main profile dynamicProfile" ng-show="profile">
 
-					<p ng-show="!profile.Dogs.length">
-						You have no dogs yet, would you like to <a class="action" ng-href="#/dogs/add">add a dog</a>?
-					</p>
+	<div ng-include src="'app/views/shared/header.html'"></div>
 
-					<div>
-						<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
-							<img src="http://placedog.com/64/64" alt="" />
-							<br /><span ng-bind="dog.Profile.Name" />
-						</a>
-					</div>
-				</section>
+	<section class="dogs edit">
 
+		<div class="container">
+			<h1>My dogs</h1>
+
+			<div class="contentWrapper">
+				<div class="contentMain">
+
+					<section class="dogsList">
+
+						<p ng-show="!profile.Dogs.length">
+							You have no dogs yet, would you like to <a class="action" ng-href="#/dogs/add">add a dog</a>?
+						</p>
+
+						<div>
+							<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
+								<img src="http://placedog.com/64/64" alt="" />
+								<br /><span ng-bind="dog.Profile.Name" />
+							</a>
+						</div>
+					</section>
+
+				</div>
+				<div class="contentSub">
+
+					<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
+
+				</div>
 			</div>
-			<div class="contentSub">
 
-				<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
-
-			</div>
 		</div>
+	</section>
 
-	</div>
+
 </section>

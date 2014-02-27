@@ -12,8 +12,6 @@ app.controller('MainController', [
 		/**
 		 * Module level variables
 		 */
-
-		$scope.profile = {};
 		$rootScope.homeSectionClass = 'active';
 		$rootScope.showsSectionClass = '';
 		$rootScope.mapSectionClass = '';
@@ -33,25 +31,8 @@ app.controller('MainController', [
 		function setThemeMainColour(colour) {
 			ProfileService.setThemeMainColour({
 				colour: colour
-			}).success(fetchProfile)
+			}).success($scope.fetchProfile)
 			.error(function () {
-
-			});
-		}
-
-
-
-
-		/**
-		 * Get the users profile
-		 */
-
-		function fetchProfile() {
-			ProfileService.invalidateCache();
-
-			ProfileService.get(function (data) {
-				$scope.profile = data;
-			}, function (error) {
 
 			});
 		}
@@ -101,7 +82,7 @@ app.controller('MainController', [
 
 				switch (action) {
 				case '':
-					fetchProfile();
+
 					break;
 
 				case 'public':
@@ -114,12 +95,25 @@ app.controller('MainController', [
 			}
 
 			try {
+				var profileDropzone = new Dropzone('div#uploadPhoto', { url: '/agility-diary/user/upload-photo' });
+
+				profileDropzone.on('complete', function file() {
+					profileDropzone.removeFile(file);
+					profileDropzone.removeAllFiles();
+					$scope.fetchProfile();
+				});
+			} catch (e) {
+
+			}
+
+
+			try {
 				var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
 
 				profileDropzone.on('complete', function file() {
 					profileDropzone.removeFile(file);
 					profileDropzone.removeAllFiles();
-					fetchProfile();
+					$scope.fetchProfile();
 				});
 			} catch (e) {
 
@@ -131,7 +125,7 @@ app.controller('MainController', [
 				profileDropzone.on('complete', function file() {
 					profileDropzone.removeFile(file);
 					profileDropzone.removeAllFiles();
-					fetchProfile();
+					$scope.fetchProfile();
 				});
 			} catch (e) {
 

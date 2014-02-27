@@ -10,7 +10,7 @@ app.controller('BaseController', [
 		 * Module level variables
 		 */
 
-		$scope.profile = {};
+		$scope.profile = null;
 
 		$rootScope.homeSectionClass = '';
 		$rootScope.showsSectionClass = '';
@@ -20,15 +20,21 @@ app.controller('BaseController', [
 		$scope.stopSpinner = stopSpinner;
 
 
+
+
 		/**
 		 * Get the users profile
 		 */
 
+		$scope.fetchProfile = fetchProfile;
+
 		function fetchProfile() {
+			ProfileService.invalidateCache();
+
 			ProfileService.get(function (data) {
 				$scope.profile = data;
 			}, function (error) {
-
+				// handle error here
 			});
 		}
 
@@ -52,7 +58,7 @@ app.controller('BaseController', [
 				hwaccel: false, // Whether to use hardware acceleration
 				className: 'spinner', // The CSS class to assign to the spinner
 				zIndex: 2e9, // The z-index (defaults to 2000000000)
-				top: ($(window).height()/2) - 100, // Top position relative to parent in px
+				top: ($(window).height()/2 ) - 100, // Top position relative to parent in px
 				left: 'auto' // Left position relative to parent in px
 			};
 

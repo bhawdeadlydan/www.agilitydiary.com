@@ -5,18 +5,7 @@ app.controller('RelationshipController', [
 	function RelationshipController($scope, Mapdata, ShowService, ProfileService, RelationshipService, $location, $route, $routeParams) {
 		"use strict";
 
-		$scope.profile = {};
 		$scope.listUsers = {};
-
-		function fetchProfile() {
-			ProfileService.invalidateCache();
-
-			ProfileService.get(function (data) {
-				$scope.profile = data;
-			}, function (error) {
-
-			});
-		}
 
 		$scope.$watch('profile', profileHasChanged);
 
@@ -49,7 +38,6 @@ app.controller('RelationshipController', [
 		}
 
 		listUsers();
-		fetchProfile();
 
 		$scope.addFriend = function (user) {
 			ProfileService.addFriend(user._id).success(function () {

@@ -1,7 +1,6 @@
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
-
-<section class="main profile dynamicProfile">
+<section class="main profile dynamicProfile" ng-show="profile">
 
 	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture || 'app/images/profile-background.jpg' }} )"></div>
 
@@ -20,13 +19,13 @@
 
 			<div class="primaryAvatarContainer">
 				<a ng-href="/" class="avatar primaryAvatar">
-					<img src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+					<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
 				</a>
 			</div>
 
 			<div class="secondaryAvatarContainer">
 				<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-					<img src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+					<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 				</a>
 			</div>
 
@@ -38,9 +37,12 @@
 
 	<section class="panel postSomething">
 		<div class="container">
-			<h2><i class="fa fa-pencil-square-o"></i> Post a message</h2>
+
+			<h2><i class="fa fa-pencil-square-o"></i> What's on your mind?</h2>
+
 			<div class="postSomething">
 				<form name="form">
+
 					<div class="formField formTextarea">
 						<textarea ng-model="post.message" />
 					</div>
@@ -49,11 +51,20 @@
 						<label for="tag">Tag</label>
 						<input id="tag" type="text" />
 						<a class="help" href="#"><i class="fa fa-info-circle"></i></a>
+          </div>
+
+					<div class="uploadImage" id="uploadPhoto" style="">⇧ Add photo
+						<span class="dz-message"></span>
+						<span data-dz-name=""></span>
+						<span data-dz-details=""></span>
+						<span data-dz-size=""></span>
+						<span data-dz-errormessage=""></span>
 					</div>
 
 					<div class="formField formActions">
-						<button class="action" ng-click="post.click()">Post message</button>
+						<button class="action" ng-click="post.click()">Post</button>
 					</div>
+
 				</form>
 			</div>
 		</div>
@@ -107,6 +118,11 @@
 	<section class="panel photos">
 		<div class="container">
 			<h2><a href="#"><i class="fa fa-picture-o"></i> Latest photos</a></h2>
+
+			<div ng-repeat="photo in profile.Photos">
+				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '200x150' }}" /></a>
+			</div>
+
 			<p>
 				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
 				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
@@ -119,6 +135,7 @@
 				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
 				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
 			</p>
+
 			<a href="#">View all my photos</a>
 		</div>
 	</section>
@@ -249,7 +266,7 @@
 			<h2><a ng-href="/dogs">Dogs</a></h2>
 
 			<p><a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-				<img src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a></p>
 
 			<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>

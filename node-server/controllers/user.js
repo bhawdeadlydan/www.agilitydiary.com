@@ -74,6 +74,44 @@ exports.uploadFile = Upload.UploadManager({
 
 
 
+exports.uploadPhoto = Upload.UploadManager({
+	scale: [
+		{
+			width: 200,
+			height: 150
+		},
+		{
+			width: 400,
+			height: 200
+		}
+	]
+}, function (request, response, data) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (typeof diary.Photos === 'undefined') {
+				diary.Photos = [];
+			}
+
+			diary.Photos.push({
+				Path: data.newUrlPath
+			});
+
+			diary.save(function (err, diary) {
+				if (err) {
+					response.send(500);
+				} else {
+					response.send(200);
+				}
+			});
+		});
+	});
+});
+
+
+
+
 exports.uploadBackgroundFile = Upload.UploadManager({
 	scale: [
 		{

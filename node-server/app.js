@@ -204,6 +204,8 @@ app.post('/agility-diary/user/setProfileColours', userController.setProfileColou
 app.post('/agility-diary/user/setThemeMainColour', userController.setThemeMainColour);
 app.post('/agility-diary/user/add-friend', userController.addFriend);
 app.post('/agility-diary/user/remove-friend', userController.removeFriend);
+app.post('/agility-diary/user/upload-photo', userController.uploadPhoto);
+
 
 
 app.get('/agility-diary/user/listUsers', userController.listUsers);
