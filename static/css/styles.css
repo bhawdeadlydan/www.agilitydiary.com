@@ -2083,7 +2083,7 @@ select {
  *
  *
  *     @example
- *                 <section class="brandLogo"></section>
+ *                 <section class="panel"></section>
  *
  *        @type    module
  *       @notes
@@ -2093,11 +2093,69 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .panel {
-  border-bottom: 1px solid #d4d4d4;
+  background: #faf6ec;
 }
-/* line 22, ../../layout/css-src/partials/modules/_mod-panel.scss */
-.panel:last-child {
-  border: none;
+/* line 25, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(even) {
+  background: #fff;
+}
+/* line 35, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel .container {
+  padding: 1em 2em 2em 2em;
+}
+
+/**
+ * @section        panel
+ *   @notes        http://creative-punch.net/2014/01/using-sass-generate-color-box-shadow-loop/
+ */
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(0) {
+  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(1) {
+  box-shadow: 0 -1px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(2) {
+  box-shadow: 0 -1px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(3) {
+  box-shadow: 0 -1px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(4) {
+  box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(5) {
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(6) {
+  box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(7) {
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(8) {
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* line 51, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.panel:nth-child(9) {
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /**

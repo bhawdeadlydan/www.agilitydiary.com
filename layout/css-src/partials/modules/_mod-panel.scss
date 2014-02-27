@@ -7,7 +7,7 @@
  *
  *
  *     @example
- *                 <section class="brandLogo"></section>
+ *                 <section class="panel"></section>
  *
  *        @type    module
  *       @notes
@@ -17,9 +17,39 @@
  * @section        panel
  */
 .panel {
-    border-bottom: 1px solid $color-border;
+    // background: $color-panel-bg;
+    // background: #74c8ec;
+    background: #faf6ec;
+    // padding: 1.5em;
+
+    &:nth-child(even) {
+        // background: transparent;
+        // background: #b9e3f5;
+        background: #fff;
+    }
 
     &:last-child {
-        border: none;
+        // border: none;
+    }
+
+    .container {
+        padding: 1em 2em 2em 2em;
+    }
+}
+
+/**
+ * @section        panel
+ *   @notes        http://creative-punch.net/2014/01/using-sass-generate-color-box-shadow-loop/
+ */
+$elements: 10;
+
+@for $i from 0 to $elements {
+    $red: $i * 10 + 1;
+    $green: ($i * 10 + 150) / 2;
+    $blue: ($i * 10 + 1) / 2;
+
+    .panel:nth-child(#{$i}) {
+        // background: rgb($red, $green, $blue);
+        box-shadow: 0 -1px #{($elements - $i) * 2}px rgba(0, 0, 0, 0.1);
     }
 }
