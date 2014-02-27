@@ -29,7 +29,9 @@ function initialiseShows(next) {
 				Id: showItem._id,
 				Name: showItem.Name,
 				Type: 'Show',
-				Details: showItem.Venue.Name + ', ' + showItem.Venue.PostCode,
+				Details: '<div class="metaDetail"><i class="fa fa-map-marker"></i><span>' + showItem.Venue.Name + ', ' + showItem.Venue.PostCode +
+					'| <i class="fa fa-calendar"></i><span>' + showItem.ShowDate + '</span>' +
+					'<span ng-show="show.ShowDate !== show.ShowEnd"> - <span>' + showItem.ShowEnd + '</span></span></div>',
 				Indexed: showItem.Name.toLowerCase()
 			});
 		});

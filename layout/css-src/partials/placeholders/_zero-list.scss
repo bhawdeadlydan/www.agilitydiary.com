@@ -1,0 +1,26 @@
+/**
+ * @description    zeroList placeholder
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-27 13:54
+ *
+ *
+ *     @example
+ *                 ul, ol, li {
+ *                      @extend %zeroList;
+ *                  }
+ *
+ *        @type    mixin
+ *       @notes
+ *      @ignore
+ */
+
+/**
+ * @section        zeroList
+ */
+%zeroList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
