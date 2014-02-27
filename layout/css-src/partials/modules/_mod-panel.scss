@@ -53,3 +53,12 @@ $elements: 10;
         box-shadow: 0 -1px #{($elements - $i) * 2}px rgba(0, 0, 0, 0.1);
     }
 }
+
+/**
+ * @section        extend panel
+ */
+.postSomething {
+    form {
+        float: none;
+    }
+}

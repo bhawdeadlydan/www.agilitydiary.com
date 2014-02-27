@@ -1,0 +1,83 @@
+/**
+ * @description    styling for the help module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.2
+ *        @date    2014-02-27 15:58
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        help
+ */
+.help {
+
+}
+
+input.searching {
+    border: solid 1px red;
+}
+
+/**
+ * @section        searchResults
+ */
+.searchResults {
+    background: $color-white;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+    ul, li {
+        @extend %zeroList;
+    }
+
+    li {
+        clear: both;
+        overflow: hidden;
+        padding: .25em .5em;
+        position: relative;
+
+        &:first-child {
+            padding-top: .5em;
+        }
+
+        &:last-child {
+            padding-bottom: .5em;
+        }
+
+        &:hover {
+            background: $color-quick-search-hover;
+            color: $color-white;
+            cursor: pointer;
+            overflow: hidden;
+        }
+    }
+
+    i {
+        margin-right: .5em;
+    }
+
+    img {
+        float: left;
+    }
+}
+
+/**
+ * @section        meta
+ */
+.meta {
+    float: left;
+    margin-left: 1em;
+}
+
+
+/**
+ * @section        metaDetail
+ */
+.metaDetail {
+    @include font-size(1.2);
+}
