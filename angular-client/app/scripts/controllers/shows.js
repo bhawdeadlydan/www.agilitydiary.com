@@ -32,7 +32,6 @@ app.controller('ShowsController', [
 		$scope.markers = {};
 		$scope.attending = false;
 		$scope.id = null;
-		$scope.profile = {};
 		$scope.controls = {};
 		$scope.comments = {};
 
@@ -315,7 +314,7 @@ app.controller('ShowsController', [
 			};
 
 			ProfileService.addResult(data)
-				.success(fetchProfile)
+				.success($scope.fetchProfile)
 				.error(saveRecordError);
 		}
 
@@ -334,7 +333,7 @@ app.controller('ShowsController', [
 				//checkAttending();
 				//$location.path('#/shows/entered');
 				//details($scope.id);
-				fetchProfile(true);
+				$scope.fetchProfile();
 				details($scope.id);
 
 			}, function () {
@@ -349,7 +348,7 @@ app.controller('ShowsController', [
 			ShowService.resignShow($scope.id, function () {
 
 				ShowService.userData({}, function (data) {
-					fetchProfile(true);
+					$scope.fetchProfile();
 					details($scope.id);
 					//$scope.profile = data;
 					//$scope.enteredShows = data.EnteredShows;
@@ -424,31 +423,10 @@ app.controller('ShowsController', [
 
 
 		/**
-		 * Get the users profile
-		 */
-
-		function fetchProfile(invalidate_cache) {
-			if (angular.isDefined(invalidate_cache) && invalidate_cache === true) {
-				ProfileService.invalidateCache();
-			}
-
-			ProfileService.get(function (data) {
-				$scope.profile = data;
-			}, function (error) {
-
-			});
-		}
-
-
-
-
-		/**
 		 * Main function
 		 */
 
 		function main() {
-			fetchProfile();
-
 			var action = '';
 
 			if (typeof $route.current.$$route.action !== 'undefined') {

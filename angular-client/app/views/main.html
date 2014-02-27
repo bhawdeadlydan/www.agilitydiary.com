@@ -1,7 +1,6 @@
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
-
-<section class="main profile dynamicProfile">
+<section class="main profile dynamicProfile" ng-show="profile">
 
 	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture || 'app/images/profile-background.jpg' }} )"></div>
 
@@ -20,13 +19,13 @@
 
 			<div class="primaryAvatarContainer">
 				<a ng-href="/" class="avatar primaryAvatar">
-					<img src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+					<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
 				</a>
 			</div>
 
 			<div class="secondaryAvatarContainer">
 				<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-					<img src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+					<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 				</a>
 			</div>
 
@@ -115,7 +114,7 @@
 			<h2><a href="#">Latest photos</a></h2>
 
 			<div ng-repeat="photo in profile.Photos">
-				<a ng-href="/photos/{{ photo._id }}"><img src="{{ photo.Path | imageSize: '200x150' }}" /></a>
+				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '200x150' }}" /></a>
 			</div>
 
 			<p>
@@ -261,7 +260,7 @@
 			<h2><a ng-href="/dogs">Dogs</a></h2>
 
 			<p><a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-				<img src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a></p>
 
 			<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
