@@ -315,6 +315,35 @@
 }
 
 /**
+ * @description    zeroList placeholder
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-02-27 13:54
+ *
+ *
+ *     @example
+ *                 ul, ol, li {
+ *                      @extend %zeroList;
+ *                  }
+ *
+ *        @type    mixin
+ *       @notes
+ *      @ignore
+ */
+/**
+ * @section        zeroList
+ */
+/* line 22, ../../layout/css-src/partials/placeholders/_zero-list.scss */
+nav ul,
+nav ol,
+nav li, .searchResults ul, .searchResults li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
  * @section        Global
  */
 /* line 14, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/susy-1.0.9/sass/susy/_grid.scss */
@@ -851,9 +880,6 @@ nav ul,
 nav ol,
 nav li {
   display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 /**
@@ -1967,7 +1993,7 @@ select {
   border-radius: 5px;
   color: white;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   font-size: 24px;
   font-size: 2.4rem;
   line-height: 1;
@@ -2064,14 +2090,83 @@ select {
  */
 /* line 18, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  position: absolute;
+  right: 2em;
   text-align: center;
+  top: 1em;
+  width: auto;
+  z-index: 9999999;
 }
-/* line 21, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 29, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch input {
   background: white;
-  margin: 1em auto 0 auto;
   text-align: left;
-  width: 50%;
+}
+
+/* line 35, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+input.searching {
+  border: solid 1px red;
+}
+
+/**
+ * @section        searchResults
+ */
+/* line 42, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searchResults {
+  background: white;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+/* line 51, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searchResults li {
+  clear: both;
+  overflow: hidden;
+  padding: .25em .5em;
+  position: relative;
+}
+/* line 57, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searchResults li:first-child {
+  padding-top: .5em;
+}
+/* line 61, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searchResults li:last-child {
+  padding-bottom: .5em;
+}
+/* line 65, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searchResults li:hover {
+  background: #73afaa;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+}
+/* line 73, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searchResults i {
+  margin-right: .5em;
+}
+/* line 77, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searchResults img {
+  float: left;
+}
+
+/**
+ * @section        meta
+ */
+/* line 85, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.meta {
+  float: left;
+  margin-left: 1em;
+}
+
+/**
+ * @section        metaDetail
+ */
+/* line 94, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.metaDetail {
+  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 /**
