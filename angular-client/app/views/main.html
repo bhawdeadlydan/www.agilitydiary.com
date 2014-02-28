@@ -94,17 +94,17 @@
 				<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
 
 				<div class="showDetail">
-					<p><i class="fa fa-calendar fa-lg"></i>
+					<p><i class="fa fa-calendar fa-lg fa-fw"></i>
 						<span ng-bind="show.ShowDate" />
 						<span ng-show="show.ShowDate !== show.ShowEnd">
 						 to <span ng-bind="show.ShowEnd" />
 						</span></p>
 
-					<p><i class="fa fa-map-marker fa-lg"></i> <a href="#"><span ng-bind="show.Venue.Name" /></a>,
+					<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a href="#"><span ng-bind="show.Venue.Name" /></a>,
 					<br /><span ng-bind="show.Venue.Address" />,
 					<br /><span ng-bind="show.Venue.PostCode" /></p>
 
-					<p><i class="fa fa-compass fa-lg"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+					<p><i class="fa fa-compass fa-lg fa-fw"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
 					<br />Lat: <span ng-bind="show.Location.Latitude" />,
 					<br />Long: <span ng-bind="show.Location.Longitude" /></p>
 				</div>
@@ -113,6 +113,16 @@
 			<p><a ng-href="#/shows/entered">View all your entered Shows</a></p>
 		</div>
 	</section>
+
+
+
+
+  <section class="panel">
+    <div class="container">
+      <h2><a href="#">My shows</a></h2>
+      List claimed shows here?
+    </div>
+  </section>
 
 
 

@@ -42,15 +42,11 @@
 				<p class="venue" ng-show="show.Venue.Name.length!==0">
 					<i class="fa fa-map-marker"></i>
 					<a href="#" ng-bind="show.Venue.Name"></a>
-					<span ng-show="show.Venue.Address.length!==0">
-						, <span ng-bind="show.Venue.Address" />
-					</span>
-					<span ng-show="show.Venue.PostCode.length!==0">
-						, <span ng-bind="show.Venue.PostCode" />
-					</span>
+					<span ng-show="show.Venue.Address.length!==0">, <span ng-bind="show.Venue.Address" /></span>
+					<span ng-show="show.Venue.PostCode.length!==0">, <span ng-bind="show.Venue.PostCode" /></span>
 
 					<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a> |
-					<i class="fa fa-compass"> Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
+					<i class="fa fa-compass"></i> Lat: <span ng-bind="show.Location.Latitude" />, Long: <span ng-bind="show.Location.Longitude" />
 				</p>
 
 				<p ng-show="show.Club.length!==0">
@@ -58,7 +54,7 @@
 					Club: <a href="{{ show.Club }}"><span ng-bind="show.Club" /></a>
 
 				<span ng-show="show.Website.length!==0">
-				 | Website: <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a>
+				 | <i class="fa fa-external-link"></i> Website: <a href="http://{{ show.Website }}"><span ng-bind="show.Website" /></a>
 				</span></p>
 
 				<!--<section class="introduction">
@@ -86,6 +82,14 @@
 					<span ng-repeat="photo in show.UserPhotos">
 						<img src="{{ photo.Path }}_80x60" />
 					</span>
+
+          <p ng-repeat="attending in show.Attending">
+            <a href="/">
+              <img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
+              <!-- <img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" /> -->
+            </a>
+          </p>
+
 				</section>
 
 				<section class="comments">
@@ -101,9 +105,10 @@
 
 
 			<section class="contentSub">
-				<div>
+
+				<p>
 					<span class="tag" ng-bind="show.Meta.ShowType" />
-				</div>
+				</p>
 
 				<p class="date showDate">
 					<i class="fa fa-calendar"></i>
@@ -118,12 +123,10 @@
 				</p>
 
 				<p ng-hide="entriesOpen">
-					Entries closed
+					Entries now closed
 				</p>
 
 				<p ng-show="show.EntriesTo">Entries to <span ng-bind="show.EntriesTo" /></p>
-
-				<p><a href="#">Is this your show?</a></p>
 
 				<p ng-show="show.Attending.length===0">
 					No-one is attending this show yet, be the first
@@ -132,13 +135,6 @@
 				<button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
 
 				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
-
-				<p ng-repeat="attending in show.Attending">
-					<a href="/">
-						<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
-						<!-- <img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" /> -->
-					</a>
-				</p>
 
 				<section class="shareThis">
 					<h2><i class="fa fa-share"></i> Share this show</h2>
@@ -152,6 +148,8 @@
 					<span data-dz-size=""></span>
 					<span data-dz-errormessage=""></span>
 				</div>-->
+
+        <p><a class="action" href="#">Is this your show?</a></p>
 
 			</section>
 
