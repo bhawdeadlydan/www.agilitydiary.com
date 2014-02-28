@@ -244,8 +244,8 @@
 
 			<p><a ng-href="/find/users">All users</a></p>
 
-			<p ng-show="!profile.Friends.length">
-				Aww you haven't added any friends yet, <a href="/users">Add some friends</a>
+			<p>
+				<span ng-show="!profile.Friends.length">Aww you haven't added any friends yet,</span> <a class="action" href="/users">Add some friends</a>
 			</p>
 
 			<div ng-repeat="friend in profile.Friends">
@@ -271,7 +271,9 @@
 				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a></p>
 
-			<p><a class="action" ng-href="#/dogs/add">Add a dog</a></p>
+			<p>
+				<span ng-show="!profile.Dogs.length">You have no dogs yet, would you like to</span> <a class="action" ng-href="#/dogs/add">Add a dog</a>?
+			</p>
 		</div>
 	</section>
 
