@@ -75,8 +75,28 @@ $elements: 10;
  */
 .enteredShow {
     @include span-columns(4,12);
+    @include font-size(1.4);
+    padding: 0 1em;
+
+    &:first-child {
+        border-right: 1px solid $color-border;
+    }
+
+    &:last-child {
+        border-left: 1px solid $color-border;
+    }
 
     &:nth-child(3n) {
         @include omega;
+    }
+
+    .showDetail {
+        padding-left: 2em;
+        position: relative;
+        .fa {
+            left: 0;
+            padding-top: .5em;
+            position: absolute;
+        }
     }
 }

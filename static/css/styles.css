@@ -2304,13 +2304,35 @@ input.searching {
   float: left;
   margin-right: 1.69492%;
   display: inline;
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: 0 1em;
 }
-/* line 79, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 81, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.enteredShow:first-child {
+  border-right: 1px solid #d4d4d4;
+}
+/* line 85, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.enteredShow:last-child {
+  border-left: 1px solid #d4d4d4;
+}
+/* line 89, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .enteredShow:nth-child(3n) {
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
+}
+/* line 93, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.enteredShow .showDetail {
+  padding-left: 2em;
+  position: relative;
+}
+/* line 96, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.enteredShow .showDetail .fa {
+  left: 0;
+  padding-top: .5em;
+  position: absolute;
 }
 
 /**
