@@ -53,7 +53,7 @@
 						<a class="help" href="#"><i class="fa fa-info-circle"></i></a>
           </div>
 
-					<div class="uploadImage" id="uploadPhoto" style="">⇧ Add photo
+					<div class="action uploadImage" id="uploadPhoto">⇧ Add photo
 						<span class="dz-message"></span>
 						<span data-dz-name=""></span>
 						<span data-dz-details=""></span>
@@ -90,23 +90,23 @@
 				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
 			</p>
 
-			<p ng-repeat="show in profile.EnteredShows | limitTo: 3">
+			<div class="enteredShow" ng-repeat="show in profile.EnteredShows | limitTo: 3">
 				<strong><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong>
 
-				<br /><i class="fa fa-calendar"></i>
+				<p><i class="fa fa-calendar pull-left"></i>
 					<span ng-bind="show.ShowDate" />
 					<span ng-show="show.ShowDate !== show.ShowEnd">
 					 to <span ng-bind="show.ShowEnd" />
-					</span>
+					</span></p>
 
-				<br /><i class="fa fa-map-marker"></i> <a href="#"><span ng-bind="show.Venue.Name" /></a>,
+				<p><i class="fa fa-map-marker pull-left"></i> <a href="#"><span ng-bind="show.Venue.Name" /></a>,
 				<br /><span ng-bind="show.Venue.Address" />,
-				<br /><span ng-bind="show.Venue.PostCode" />
+				<br /><span ng-bind="show.Venue.PostCode" /></p>
 
-				<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
-				<br /><i class="fa fa-compass"></i> Lat: <span ng-bind="show.Location.Latitude" />,
-				<br />Long: <span ng-bind="show.Location.Longitude" />
-			</p>
+				<p><i class="fa fa-compass pull-left"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+				<br />Lat: <span ng-bind="show.Location.Latitude" />,
+				<br />Long: <span ng-bind="show.Location.Longitude" /></p>
+			</div>
 
 			<p><a ng-href="#/shows/entered">View all your entered Shows</a></p>
 		</div>
@@ -269,7 +269,7 @@
 				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a></p>
 
-			<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
+			<p><a class="action" ng-href="#/dogs/add">Add a dog</a></p>
 		</div>
 	</section>
 

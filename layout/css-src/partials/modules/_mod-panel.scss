@@ -62,3 +62,21 @@ $elements: 10;
         float: none;
     }
 }
+
+/**
+ * @section        extend panel
+ */
+.enteredShowsList {
+
+}
+
+/**
+ * @section        extend panel
+ */
+.enteredShow {
+    @include span-columns(4,12);
+
+    &:nth-child(3n) {
+        @include omega;
+    }
+}

@@ -1082,18 +1082,18 @@ textarea {
  */
 /* line 21, ../../layout/css-src/partials/elements/form/_input.scss */
 input {
+  border: 1px solid #d4d4d4;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   -ms-border-radius: 0.25em;
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
-  font-family: 'Open Sans', sans-serif;
-  border: 1px solid #d4d4d4;
   box-shadow: inset 0 1px 3px #dddddd;
+  font-family: 'Open Sans', sans-serif;
   margin: .5em .6em;
   padding: .5em .6em;
 }
-/* line 32, ../../layout/css-src/partials/elements/form/_input.scss */
+/* line 31, ../../layout/css-src/partials/elements/form/_input.scss */
 input[type="email"], input[type="password"], input[type="text"] {
   width: 49.15254%;
   float: left;
@@ -2004,16 +2004,17 @@ select {
 /* line 31, ../../layout/css-src/partials/modules/_mod-action.scss */
 .action:hover {
   background-color: #a4cbc8;
+  text-decoration: none;
 }
 
 /**
  * @section        extend .action
  */
-/* line 39, ../../layout/css-src/partials/modules/_mod-action.scss */
+/* line 40, ../../layout/css-src/partials/modules/_mod-action.scss */
 .warning {
   background-color: #b02035;
 }
-/* line 42, ../../layout/css-src/partials/modules/_mod-action.scss */
+/* line 43, ../../layout/css-src/partials/modules/_mod-action.scss */
 .warning:hover {
   background-color: #dc4057;
 }
@@ -2104,10 +2105,39 @@ select {
 /* line 29, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch input {
   background: white;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -moz-border-radius-topleft: 0.25em;
+  -webkit-border-top-left-radius: 0.25em;
+  border-top-left-radius: 0.25em;
+  -moz-border-radius-bottomleft: 0.25em;
+  -webkit-border-bottom-left-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+  margin: 0;
   text-align: left;
 }
+/* line 37, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.quickSearch .action {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -moz-border-radius-topright: 0.25em;
+  -webkit-border-top-right-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+  -moz-border-radius-bottomright: 0.25em;
+  -webkit-border-bottom-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  font-size: 20px;
+  font-size: 2rem;
+  padding: .5em .6em;
+}
 
-/* line 35, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 45, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 input.searching {
   border: solid 1px red;
 }
@@ -2115,39 +2145,39 @@ input.searching {
 /**
  * @section        searchResults
  */
-/* line 42, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 52, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults {
   background: white;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
-/* line 51, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 61, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li {
   clear: both;
   overflow: hidden;
   padding: .25em .5em;
   position: relative;
 }
-/* line 57, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 67, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:first-child {
   padding-top: .5em;
 }
-/* line 61, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 71, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:last-child {
   padding-bottom: .5em;
 }
-/* line 65, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 75, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:hover {
   background: #73afaa;
   color: white;
   cursor: pointer;
   overflow: hidden;
 }
-/* line 73, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 83, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults i {
   margin-right: .5em;
 }
-/* line 77, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 87, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults img {
   float: left;
 }
@@ -2155,7 +2185,7 @@ input.searching {
 /**
  * @section        meta
  */
-/* line 85, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 95, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .meta {
   float: left;
   margin-left: 1em;
@@ -2164,7 +2194,7 @@ input.searching {
 /**
  * @section        metaDetail
  */
-/* line 94, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 104, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .metaDetail {
   font-size: 12px;
   font-size: 1.2rem;
@@ -2260,6 +2290,27 @@ input.searching {
 /* line 61, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .postSomething form {
   float: none;
+}
+
+/**
+ * @section        extend panel
+ */
+/**
+ * @section        extend panel
+ */
+/* line 76, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.enteredShow {
+  width: 32.20339%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 79, ../../layout/css-src/partials/modules/_mod-panel.scss */
+.enteredShow:nth-child(3n) {
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
 }
 
 /**
