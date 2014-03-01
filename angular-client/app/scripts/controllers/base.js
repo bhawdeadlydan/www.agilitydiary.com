@@ -15,6 +15,7 @@ app.controller('BaseController', [
 		$rootScope.homeSectionClass = '';
 		$rootScope.showsSectionClass = '';
 		$rootScope.mapSectionClass = '';
+		$rootScope.venuesSectionClass = '';
 
 		$scope.startSpinner = startSpinner;
 		$scope.stopSpinner = stopSpinner;
@@ -67,7 +68,9 @@ app.controller('BaseController', [
 		}
 
 		function stopSpinner() {
-			$scope.spinner.stop();
+			if (typeof $scope.spinner !== 'undefined') {
+				$scope.spinner.stop();	
+			}
 		}
 
 

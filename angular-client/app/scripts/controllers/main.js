@@ -15,6 +15,7 @@ app.controller('MainController', [
 		$rootScope.homeSectionClass = 'active';
 		$rootScope.showsSectionClass = '';
 		$rootScope.mapSectionClass = '';
+		$rootScope.venuesSectionClass = '';
 
 		/**
 		 * Post something

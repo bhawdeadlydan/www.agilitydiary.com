@@ -20,6 +20,7 @@ app.controller('ShowsController', [
 		$rootScope.homeSectionClass = '';
 		$rootScope.showsSectionClass = 'active';
 		$rootScope.mapSectionClass = '';
+		$rootScope.venuesSectionClass = '';
 
 		$scope.upcomingShows = {};
 		$scope.selectedCategories = []; //PersistService('shows.selectedCategories', []);
@@ -397,7 +398,7 @@ app.controller('ShowsController', [
 				checkAttending();
 				checkClosed();
 
-				$scope.markers.Location = newMarker;
+				$scope.markers.Venue = newMarker;
 			}, function (err) {
 				// failed
 			});

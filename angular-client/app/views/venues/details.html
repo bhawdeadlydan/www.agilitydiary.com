@@ -1,0 +1,47 @@
+<section class="details">
+
+	<div class="container">
+
+		<h1 ng-bind="venue.name"></h1>
+
+		<nav class="tabs">
+			<a class="active" ng-href="/venues/details/{{ id }}">Details</a>
+			 
+		</nav>
+
+
+		<div>
+			<leaflet style="height: 300px"
+				id="geo-wrapper"
+				elementcacheid="search/geo-wrapper"
+				fullsize="false"
+				center="centre"
+				bounds="bounds"
+				scrollwheelzoom="false"
+				dragging="false"
+				clickmarker="Location"></leaflet>
+		</div>
+
+
+	 
+		<div class="contentWrapper">
+			<section class="contentMain">
+				<h3><span ng-bind="venue.name" ></span></h3>
+				<span ng-bind="venue.address" ></span>
+				<span ng-bind="venue.postcode" ></span>
+				 
+			</section>
+
+
+
+
+			<section class="contentSub">
+
+		 
+			</section>
+
+		</div>
+
+	</div>
+
+</section>

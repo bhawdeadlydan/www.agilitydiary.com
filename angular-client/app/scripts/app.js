@@ -101,6 +101,18 @@ angular.module('browserAppApp', [
 			controller: 'ShowsController',
 			action: 'entered'
 		})
+		
+		.when('/venues/details/:id', {
+			templateUrl: 'app/views/venues/details.html',
+			controller: 'VenuesController',
+			action: 'details'
+		})
+		
+		.when('/venues', {
+			templateUrl: 'app/views/venues/list.html',
+			controller: 'VenuesController',
+			action: 'list'
+		})
 
 		.when('/entered', {
 			templateUrl: 'app/views/enteredShows.html',
