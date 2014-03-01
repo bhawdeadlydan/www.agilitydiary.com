@@ -1,13 +1,13 @@
 <nav class="navPaging" role="navigation">
 	<span class="action" ng-click="paging.backClick();"
-			ng-show="paging.page>1">Back</span>
+			ng-show="paging.page>1"><i class="fa fa-angle-double-left"></i> Back</span>
 
 	<span ng-repeat="page in paging.pages">
-		<span ng-click="paging.jumpToPage(page);"
+		<a  href="" ng-click="paging.jumpToPage(page);"
 				ng-bind="page"
-				ng-class="(page==paging.page) ? 'selected' : ''"></span>
+				ng-class="(page==paging.page) ? 'selected' : ''"></a>
 	</span>
 
 	<span class="action" ng-click="paging.nextClick();"
-			ng-show="paging.page<paging.pages.length">Next</span>
+			ng-show="paging.page<paging.pages.length">Next <i class="fa fa-angle-double-right"></i></span>
 </nav>

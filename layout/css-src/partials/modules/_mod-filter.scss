@@ -1,0 +1,28 @@
+/**
+ * @description    styling for the filter module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.3
+ *        @date    2014-03-01 18:38
+ *
+ *
+ *     @example
+ *                 <div class="filter"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        filter
+ */
+.filter {
+    padding: 1em;
+
+    label {
+        display: inline-block;
+        float: none;
+        text-align: left;
+        width: auto;
+    }
+}

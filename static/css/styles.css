@@ -1433,24 +1433,25 @@ select {
  *
  */
 /**
- * @section        navPrimary
+ * @section        navPaging
  */
 /* line 22, ../../layout/css-src/partials/navigation/_nav-paging.scss */
-.navPrimary {
-  display: inline-block;
+.navPaging {
+  padding: 1em;
   text-align: center;
 }
 /* line 26, ../../layout/css-src/partials/navigation/_nav-paging.scss */
-.navPrimary a {
-  color: #262626;
-  display: inline-block;
-  margin: 0;
-  padding: .75em 1em;
+.navPaging a {
+  padding: .25em .5em;
 }
-/* line 35, ../../layout/css-src/partials/navigation/_nav-paging.scss */
-.navPrimary a.active, .navPrimary a:hover {
-  background: white;
+/* line 30, ../../layout/css-src/partials/navigation/_nav-paging.scss */
+.navPaging a.active, .navPaging a:hover {
   text-decoration: none;
+}
+/* line 36, ../../layout/css-src/partials/navigation/_nav-paging.scss */
+.navPaging .selected {
+  border: 1px solid #d4d4d4;
+  font-weight: bold;
 }
 
 /**
@@ -1614,10 +1615,6 @@ select {
 /**
  * @section        category
  */
-/* line 18, ../../layout/css-src/partials/modules/_mod-categories.scss */
-.category {
-  margin-right: 1em;
-}
 /* line 21, ../../layout/css-src/partials/modules/_mod-categories.scss */
 .category:hover {
   text-decoration: none;
@@ -2033,13 +2030,11 @@ select {
   color: white;
   cursor: pointer;
   display: inline-block;
-  font-size: 24px;
-  font-size: 2.4rem;
   line-height: 1;
   text-align: center;
   padding: .5em 1em;
 }
-/* line 31, ../../layout/css-src/partials/modules/_mod-action.scss */
+/* line 30, ../../layout/css-src/partials/modules/_mod-action.scss */
 .action:hover {
   background-color: #a4cbc8;
   text-decoration: none;
@@ -2048,13 +2043,22 @@ select {
 /**
  * @section        extend .action
  */
-/* line 40, ../../layout/css-src/partials/modules/_mod-action.scss */
+/* line 39, ../../layout/css-src/partials/modules/_mod-action.scss */
 .warning {
   background-color: #b02035;
 }
-/* line 43, ../../layout/css-src/partials/modules/_mod-action.scss */
+/* line 42, ../../layout/css-src/partials/modules/_mod-action.scss */
 .warning:hover {
   background-color: #dc4057;
+}
+
+/**
+ * @section        extend .action
+ */
+/* line 51, ../../layout/css-src/partials/modules/_mod-action.scss */
+.cta {
+  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 /**
@@ -2371,6 +2375,35 @@ input.searching {
   left: 0;
   padding-top: .5em;
   position: absolute;
+}
+
+/**
+ * @description    styling for the filter module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.3
+ *        @date    2014-03-01 18:38
+ *
+ *
+ *     @example
+ *                 <div class="filter"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        filter
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-filter.scss */
+.filter {
+  padding: 1em;
+}
+/* line 22, ../../layout/css-src/partials/modules/_mod-filter.scss */
+.filter label {
+  display: inline-block;
+  float: none;
+  text-align: left;
+  width: auto;
 }
 
 /**
