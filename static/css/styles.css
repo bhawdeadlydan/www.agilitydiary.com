@@ -2133,9 +2133,10 @@ select {
   display: inline-block;
   float: right;
   padding: .25em;
+  text-align: right;
   width: auto;
 }
-/* line 24, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 25, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch input {
   background: white;
   -webkit-border-radius: 0;
@@ -2152,7 +2153,7 @@ select {
   margin: 0;
   text-align: left;
 }
-/* line 32, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 33, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch .action {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -2170,7 +2171,7 @@ select {
   padding: .5em .6em;
 }
 
-/* line 40, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 41, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 input.searching {
   border: solid 1px red;
 }
@@ -2178,39 +2179,43 @@ input.searching {
 /**
  * @section        searchResults
  */
-/* line 47, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 48, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults {
   background: white;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  right: 1.5em;
   text-align: left;
+  width: 50%;
+  z-index: 9999;
 }
-/* line 56, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 61, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li {
   clear: both;
   overflow: hidden;
   padding: .25em .5em;
   position: relative;
 }
-/* line 62, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 67, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:first-child {
   padding-top: .5em;
 }
-/* line 66, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 71, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:last-child {
   padding-bottom: .5em;
 }
-/* line 70, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 75, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:hover {
   background: #73afaa;
   color: white;
   cursor: pointer;
   overflow: hidden;
 }
-/* line 78, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 83, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults i {
   margin-right: .5em;
 }
-/* line 82, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 87, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults img {
   float: left;
 }
@@ -2218,7 +2223,7 @@ input.searching {
 /**
  * @section        meta
  */
-/* line 90, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 95, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .meta {
   float: left;
   margin-left: 1em;
@@ -2227,7 +2232,7 @@ input.searching {
 /**
  * @section        metaDetail
  */
-/* line 99, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 104, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .metaDetail {
   font-size: 12px;
   font-size: 1.2rem;

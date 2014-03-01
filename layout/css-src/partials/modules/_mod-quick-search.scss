@@ -19,6 +19,7 @@
     display: inline-block;
     float: right;
     padding: .25em;
+    text-align: right;
     width: auto;
 
     input {
@@ -47,7 +48,11 @@ input.searching {
 .searchResults {
     background: $color-white;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 1.5em;
     text-align: left;
+    width: 50%;
+    z-index: 9999;
 
     ul, li {
         @extend %zeroList;
