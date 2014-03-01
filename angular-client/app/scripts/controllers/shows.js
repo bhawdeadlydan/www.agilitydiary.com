@@ -211,7 +211,7 @@ app.controller('ShowsController', [
 		function checkAttending() {
 			$scope.attending = false;
 
-			if ($scope.profile !== null) {
+			if (($scope.profile !== null) && (angular.isDefined($scope.profile.EnteredShows))){
 				_.each($scope.profile.EnteredShows, function (show) {
 					if (angular.equals(show._id, $scope.id)) {
 						$scope.attending = true;

@@ -11,7 +11,7 @@ var DiaryViewModel = require('../models/viewmodels/diary');
 var Show = require('../models/mongoose/show');
 var ShowViewModel = require('../models/viewmodels/show');
 
-
+ 
 exports.addComment = function (request, response) {
 	console.log(request.body);
 	console.log(request.body.itemId);
