@@ -21,6 +21,7 @@ app.controller('VenuesController', [
 		$rootScope.showsSectionClass = '';
 		$rootScope.venuesSectionClass = ' active ';
 		$rootScope.mapSectionClass = '';
+		$rootScope.peopleSectionClass = '';
 
 		$scope.upcomingShows = {};
 		$scope.selectedCategories = []; //PersistService('shows.selectedCategories', []);

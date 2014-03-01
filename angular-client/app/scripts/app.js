@@ -101,13 +101,13 @@ angular.module('browserAppApp', [
 			controller: 'ShowsController',
 			action: 'entered'
 		})
-		
+
 		.when('/venues/details/:id', {
 			templateUrl: 'app/views/venues/details.html',
 			controller: 'VenuesController',
 			action: 'details'
 		})
-		
+
 		.when('/venues', {
 			templateUrl: 'app/views/venues/list.html',
 			controller: 'VenuesController',
@@ -119,12 +119,12 @@ angular.module('browserAppApp', [
 			controller: 'EnteredShowsController'
 		})
 
-		.when('/find/users', {
+		.when('/people', {
 			templateUrl: 'app/views/users/list.html',
 			controller: 'RelationshipController'
 		})
 
-		.when('/users/:id', {
+		.when('/people/:id', {
 			templateUrl: 'app/views/users/public.html',
 			controller: 'MainController',
 			action: 'public'

@@ -21,6 +21,7 @@ app.controller('ShowsController', [
 		$rootScope.showsSectionClass = 'active';
 		$rootScope.mapSectionClass = '';
 		$rootScope.venuesSectionClass = '';
+		$rootScope.peopleSectionClass = '';
 
 		$scope.upcomingShows = {};
 		$scope.selectedCategories = []; //PersistService('shows.selectedCategories', []);
@@ -93,7 +94,7 @@ app.controller('ShowsController', [
 					paginate();
 				},
 				jumpToPage: function(page) {
-					$scope.paging.page = page ;
+					$scope.paging.page = page;
 					paginate();
 				}
 			};
@@ -119,7 +120,7 @@ app.controller('ShowsController', [
 				'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a> <span> ' + item.ShowDate + '<span></div>';
 			}
 
-			_.each(data, function(item) {
+			_.each(data, function (item) {
 				if(typeof item.Location !== 'undefined') {
 
 					if (typeof item.Venue.Id !== 'undefined') {
