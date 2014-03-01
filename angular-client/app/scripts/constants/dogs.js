@@ -1,18 +1,5 @@
 var app = angular.module('browserAppApp');
 
-{
-	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
-	"ensure_newline_at_eof_on_save": true,
-	"font_face": "Source Code Pro",
-	"font_size": 12.0,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"theme": "Flatland Dark.sublime-theme",
-	"trim_trailing_white_space_on_save": true
-}
-
 
 app.constant('DogConstants', {
 	sexes: [
