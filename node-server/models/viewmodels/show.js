@@ -46,6 +46,10 @@ function getShowType(data) {
  * @param {object} data Mongoose document from Show Schema
  */
 module.exports = function (data, done) {
+	if (data === null) {
+		return {};
+	}
+	
 	return {
 		_id: typeof data._id !== 'undefined' ? data._id : null,
 		Name: data.Name,

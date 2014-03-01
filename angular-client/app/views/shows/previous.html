@@ -1,21 +1,21 @@
 <section class="upcoming">
 
 	<div class="container">
-		<section>
-			<input type="search" name="search" placeholder="Search" ng-model="searchText"/>
+		<!--<section>
+			<input type="search" name="search" placeholder="Filter shows" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
-		</section>
+		</section>-->
 
-		<nav class="widgetCategories">
-
-			<ul>
-				<li ng-repeat="category in categories">
-					<a class="category" href="" ng-click="categoryClick(category);">
-					<span class="show" ng-show="isCategorySelected(category);">✓</span>
-					<span class="hide" ng-hide="isCategorySelected(category);">✗</span>
-					{{ category }}</a>
-				</li>
-			</ul>
+		<nav class="categories">
+		  <ul>
+			<li ng-repeat="category in categories">
+				<a class="category" href="" ng-click="categoryClick(category);">
+				
+			  <span class="show" ng-show="isCategorySelected(category);"><input type="checkbox" checked="checked" /></span>
+			  <span class="hide" ng-hide="isCategorySelected(category);"><input type="checkbox" /></span>
+			  {{ category }}</a>
+			</li>
+		  </ul>
 		</nav>
 
 		<nav class="tabs">
@@ -35,7 +35,7 @@
 
 				<div class="eventListWrapper">
 					<ol class="eventList">
-						<li class="event" ng-repeat="event in filteredShows ">
+						<li class="event" ng-repeat="event in filteredShows">
 
 							<div class="eventDate">
 								<span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span>

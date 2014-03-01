@@ -2,26 +2,27 @@
 <section class="shows upcoming">
 
 	<div class="container">
-		<section>
-			<input type="search" name="search" placeholder="Search" ng-model="searchText"/>
+		<!--<section>
+			<input type="search" name="search" placeholder="Filter shows" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
-		</section>
+		</section>-->
 
-    <nav class="categories">
-      <ul>
-        <li ng-repeat="category in categories">
-          <a class="category" href="" ng-click="categoryClick(category);">
-          <span class="show" ng-show="isCategorySelected(category);">✓</span>
-          <span class="hide" ng-hide="isCategorySelected(category);">✗</span>
-          {{ category }}</a>
-        </li>
-      </ul>
-    </nav>
+		<nav class="categories">
+		  <ul>
+			<li ng-repeat="category in categories">
+				<a class="category" href="" ng-click="categoryClick(category);">
+				
+			  <span class="show" ng-show="isCategorySelected(category);"><input type="checkbox" checked="checked" /></span>
+			  <span class="hide" ng-hide="isCategorySelected(category);"><input type="checkbox" /></span>
+			  {{ category }}</a>
+			</li>
+		  </ul>
+		</nav>
 
 		<nav class="tabs">
 			<a  class="active" href="#/shows/upcoming">Upcoming shows</a>
 			<a href="#/shows/previous">Previous shows</a>
-			<a href="#/shows/entered">Entered</a>
+			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered</a>
 		</nav>
 
 
@@ -61,7 +62,7 @@
 									<span ng-bind="event.Venue.PostCode" />
 								</div>
 
-								<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
+								<p><a href="" ng-click="jumpToShow(event);"category>View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
 
 								<!-- <div class="widget">
 									<div class="widget-title">Classes</div>
