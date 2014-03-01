@@ -56,11 +56,25 @@ app.controller('ShowsController', [
 			var results = [];
 
 			_.each($scope.enteredShows, function (item) {
-				if ($scope.showHasSelectedCategory(item)) {
-					if ($scope.showIsInSearch(item)) {
-						results.push(item);
+				var includeThis = false;
+				
+				if ($scope.selectedCategories.length > 0) {
+					if ($scope.showHasSelectedCategory(item)) {
+							includeThis = true;
+					} else {
+						includeThis = false;
 					}
+				} else {
+					includeThis = true;
 				}
+				
+				/*if ($scope.showIsInSearch(item)) {
+					includeThis = true;
+				}*/
+				
+				if (includeThis === true) {
+					results.push(item);
+				}					
 			});
 
 			$scope.filteredShows = results;
@@ -198,7 +212,7 @@ app.controller('ShowsController', [
 			ShowService.categories(function (data) {
 				$scope.categories = data;
 				_.each(data, function (item) {
-					$scope.selectedCategories.push(item);
+					//$scope.selectedCategories.push(item);
 				});
 			}, function (error) {
 
@@ -474,6 +488,7 @@ app.controller('ShowsController', [
 
 
 		function controllerDestroy() {
+			$scope.stopSpinner();
 		}
 
 
