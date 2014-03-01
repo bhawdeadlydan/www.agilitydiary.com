@@ -1237,6 +1237,8 @@ select {
   background-color: #73afaa;
   background-color: #73afaa, 0.5;
   background-color: rgba(115, 175, 170, 0.5);
+  overflow: hidden;
+  padding-left: 150px;
   text-align: center;
 }
 
@@ -1396,17 +1398,56 @@ select {
  */
 /* line 22, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary {
+  float: left;
   display: inline-block;
   text-align: center;
 }
-/* line 26, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 27, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a {
   color: #262626;
   display: inline-block;
   margin: 0;
   padding: .75em 1em;
 }
-/* line 35, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 36, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+.navPrimary a.active, .navPrimary a:hover {
+  background: white;
+  text-decoration: none;
+}
+
+/**
+ * @description    Styling for the paging navigation
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-01 16:26
+ *
+ *
+ *     @example
+ *                 <nav class="navPaging">
+ *
+ *                 </nav>
+ *
+ *        @type    navigation
+ *       @notes
+ *
+ */
+/**
+ * @section        navPrimary
+ */
+/* line 22, ../../layout/css-src/partials/navigation/_nav-paging.scss */
+.navPrimary {
+  display: inline-block;
+  text-align: center;
+}
+/* line 26, ../../layout/css-src/partials/navigation/_nav-paging.scss */
+.navPrimary a {
+  color: #262626;
+  display: inline-block;
+  margin: 0;
+  padding: .75em 1em;
+}
+/* line 35, ../../layout/css-src/partials/navigation/_nav-paging.scss */
 .navPrimary a.active, .navPrimary a:hover {
   background: white;
   text-decoration: none;
@@ -2089,17 +2130,13 @@ select {
  */
 /* line 18, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch {
-  display: block;
-  height: auto;
-  margin: 0 auto;
-  position: absolute;
-  right: 2em;
-  text-align: center;
-  top: 1em;
+  display: inline-block;
+  float: right;
+  padding: .25em;
+  text-align: right;
   width: auto;
-  z-index: 9999999;
 }
-/* line 29, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 25, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch input {
   background: white;
   -webkit-border-radius: 0;
@@ -2116,7 +2153,7 @@ select {
   margin: 0;
   text-align: left;
 }
-/* line 37, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 33, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch .action {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -2134,7 +2171,7 @@ select {
   padding: .5em .6em;
 }
 
-/* line 45, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 41, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 input.searching {
   border: solid 1px red;
 }
@@ -2142,11 +2179,15 @@ input.searching {
 /**
  * @section        searchResults
  */
-/* line 52, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 48, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults {
   background: white;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  right: 1.5em;
   text-align: left;
+  width: 50%;
+  z-index: 9999;
 }
 /* line 61, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li {

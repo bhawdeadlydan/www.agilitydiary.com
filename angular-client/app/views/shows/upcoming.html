@@ -15,9 +15,9 @@
 			<a href="#/shows/previous">Previous shows</a>
 			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered</a>
 		</nav>
-		
+
 		<div ng-include src="'app/views/shows/categories.html'"></div>
-		
+
 		<div ng-controller="MapController">
 			<leaflet style="height: 400px"
 				id="geo-wrapper"
@@ -28,63 +28,56 @@
 				scrollwheelzoom="false"
 				dragging="true"
 				clickmarker="Location"></leaflet>
-		</div>		
+		</div>
 
-		<ol class="monthList">
-			<li ng-show="filteredShows.length===0">No shows found</li>
+		<div class="monthList">
+			<p ng-show="filteredShows.length===0">No shows found</p>
 
-			<li>
+			<div ng-include src="'app/views/shows/paging.html'"></div>
+
+			<div class="eventListWrapper">
+				<ol class="eventList">
+					<li class="event" ng-repeat="event in paging.results">
+
+						<div class="monthWrapper" ng-show="paging.results[$index - 1].ShowMonth !== event.ShowMonth">
+							<h3 ng-bind="event.ShowMonth"></h3>
+							<br/><span class="year" ng-bind="event.ShowYear"></span>
+						</div>
+
+						<div class="eventDate">
+						 <p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
+						</div>
+
+						<div class="eventShortDetail">
+							<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
+
+							<p class="tags">
+								<a class="tag tagShowType tag{{ event.Meta.ShowType }}"
+								 href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
+								<a class="tag tagClub" href="#" title="Filter by {{ event.Club }} shows only" ng-bind="event.Club" />
+								<a class="tag tagEntered" href="#" title="Filter by entered shows only" ng-show="hasUserEnteredShow(event)">Entered</a>
+								<a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping [@@should only appear if show has been marked as attending and and then ability to mark as camping is enabled]</a>
+							</p>
+
+							<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
+
+							<p>
+								<a href="#"><span ng-bind="event.Venue.Name" /></a>,
+								<span ng-bind="event.Venue.Address" />,
+								<span ng-bind="event.Venue.PostCode" />
+							</p>
+
+							<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
+							<!-- <p><a href="" ng-click="jumpToShow(event);"category>View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p> -->
+
+						</div>
+					</li>
+				</ol>
+
 				<div ng-include src="'app/views/shows/paging.html'"></div>
 
-				<div class="eventListWrapper">
-					<ol class="eventList">
-						<li class="event" ng-repeat="event in paging.results">
-							
-							<div class="monthWrapper" ng-show="paging.results[$index - 1].ShowMonth !== event.ShowMonth">
-								<h3 ng-bind="event.ShowMonth"></h3>
-								<br/><span class="year" ng-bind="event.ShowYear"></span>
-							</div>
-						
-							<div class="eventDate">
-							 <p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
-							</div>
+			</div>
+		</div>
 
-							<div class="eventShortDetail">
-								<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
-				
-								<p class="tags">
-								  <a class="tag tagShowType tag{{ event.Meta.ShowType }}"
-									 href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
-								  <a class="tag tagClub" href="#" title="Filter by {{ event.Club }} shows only" ng-bind="event.Club" />
-								  <a class="tag tagEntered" href="#" title="Filter by entered shows only" ng-show="hasUserEnteredShow(event)">Entered</a>
-								  <a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping</a>
-								</p>
-
-								<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
-
-								<p>
-									<a href="#"><span ng-bind="event.Venue.Name" /></a>,
-									<span ng-bind="event.Venue.Address" />,
-									<span ng-bind="event.Venue.PostCode" />
-								</p>
-
-								<p><a href="" ng-click="jumpToShow(event);"category>View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
-
-								<!-- <div class="widget">
-									<div class="widget-title">Classes</div>
-									<span class="label label-default"><span class="fui-tag"></span> small</span>
-									<span class="label label-default"><span class="fui-tag"></span> medium</span>
-									<span class="label label-default"><span class="fui-tag"></span> large</span>
-									<span class="label label-default"><span class="fui-tag"></span> jumping</span>
-								</div> -->
-							</div>
-						</li>
-					</ol>
-					
-					<div ng-include src="'app/views/shows/paging.html'"></div>
-					
-				</div>
-			</li>
-		</ol>
 	</div>
 </section>

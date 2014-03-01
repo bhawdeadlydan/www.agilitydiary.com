@@ -54,32 +54,32 @@ app.controller('ShowsController', [
 
 
 		$scope.filteredShows = [];
-		
-		
-		
-		
+
+
+
+
 		function pageShows() {
 			function paginate() {
 				$scope.paging.pageStartsAt = ($scope.paging.page - 1) * $scope.paging.pageSize;
 				$scope.paging.pageEndsAt = (($scope.paging.page) * $scope.paging.pageSize) - 1;
 				$scope.paging.results = [];
 				$scope.paging.pages = [];
-				
+
 				for(var i = 0; i < $scope.filteredShows.length; i++) {
 					if ((i >= $scope.paging.pageStartsAt) && (i <= $scope.paging.pageEndsAt)){
-						$scope.paging.results.push($scope.filteredShows[i]);	
+						$scope.paging.results.push($scope.filteredShows[i]);
 					} else {
-						
+
 					}
-					
+
 					if (i % $scope.paging.pageSize === 0) {
 						$scope.paging.pages.push( ($scope.paging.pages.length + 1).toString() );
 					}
 				}
 			}
-			
+
 			$scope.paging =  {
-				pageSize: 5,
+				pageSize: 10,
 				page: 1,
 				totalPages: 1,
 				results: [],
@@ -97,13 +97,13 @@ app.controller('ShowsController', [
 					paginate();
 				}
 			};
-			
+
 			paginate();
 		}
-		
-		
-		
-		
+
+
+
+
 		function resetMarkers(data) {
 			if (typeof $scope.markers.Location !== 'undefined') {
 				var location = $scope.markers.Location;
@@ -113,17 +113,17 @@ app.controller('ShowsController', [
 			} else {
 				$scope.markers = {};
 			}
-			
+
 			function generateHtmlForShow(item) {
 				return '<div>' +
 				'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a> <span> ' + item.ShowDate + '<span></div>';
 			}
-			
+
 			_.each(data, function(item) {
 				if(typeof item.Location !== 'undefined') {
-					
+
 					if (typeof item.Venue.Id !== 'undefined') {
-						
+
 						if (typeof $scope.markers[item.Venue.Id] === 'undefined') {
 							var newMarker = {
 								_id: item._id,
@@ -135,8 +135,8 @@ app.controller('ShowsController', [
 								draggable: false,
 								html: generateHtmlForShow(item)
 							};
-							
-							$scope.markers[item.Venue.Id] = newMarker;	
+
+							$scope.markers[item.Venue.Id] = newMarker;
 						} else {
 							var oldMarker = $scope.markers[item.Venue.Id];
 							oldMarker.html += generateHtmlForShow(item);
@@ -154,7 +154,7 @@ app.controller('ShowsController', [
 
 			_.each($scope.enteredShows, function (item) {
 				var includeThis = false;
-				
+
 				if ($scope.selectedCategories.length > 0) {
 					if ($scope.showHasSelectedCategory(item)) {
 							includeThis = true;
@@ -164,19 +164,19 @@ app.controller('ShowsController', [
 				} else {
 					includeThis = true;
 				}
-				
+
 				/*if ($scope.showIsInSearch(item)) {
 					includeThis = true;
 				}*/
-				
+
 				if (includeThis === true) {
 					results.push(item);
-				}					
+				}
 			});
 
 			$scope.filteredShows = results;
 			resetMarkers(results);
-			
+
 			pageShows();
 		}
 
