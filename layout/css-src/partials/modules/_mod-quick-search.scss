@@ -16,15 +16,10 @@
  * @section        quickSearch
  */
 .quickSearch {
-    display: block;
-    height: auto;
-    margin: 0 auto;
-    position: absolute;
-    right: 2em;
-    text-align: center;
-    top: 1em;
+    display: inline-block;
+    float: right;
+    padding: .25em;
     width: auto;
-    z-index: 9999999;
 
     input {
         background: $color-quick-search-bg;
