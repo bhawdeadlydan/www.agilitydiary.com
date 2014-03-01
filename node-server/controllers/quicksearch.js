@@ -124,14 +124,16 @@ function localQuicksearch(userId, searchQuery, callback) {
 
 			_.each(diary.Dogs, function (dog) {
 				if (dog.Deleted === false) {
-					if (dog.Profile.Name.toLowerCase().indexOf(searchQuery) !== -1) {
-						results.push({
-							Id: dog._id,
-							Name: dog.Profile.Name,
-							Img: dog.Profile.Photo,
-							Type: 'Dog',
-							Details: dog.Profile.Breed
-						});
+					if ((typeof dog.Profile.Name !== 'undefined') && (dog.Profile.Name !== null)) {
+						if (dog.Profile.Name.toLowerCase().indexOf(searchQuery) !== -1) {
+							results.push({
+								Id: dog._id,
+								Name: dog.Profile.Name,
+								Img: dog.Profile.Photo,
+								Type: 'Dog',
+								Details: dog.Profile.Breed
+							});
+						}
 					}
 				}
 			});
