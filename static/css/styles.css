@@ -1290,6 +1290,7 @@ select {
 /* line 23, ../../layout/css-src/partials/default-layout/_wrapper.scss */
 .wrapper {
   background: white;
+  padding-top: 3em;
 }
 
 /**
