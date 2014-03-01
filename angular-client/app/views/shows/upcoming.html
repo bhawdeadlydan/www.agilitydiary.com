@@ -40,26 +40,26 @@
 						<li class="event" ng-repeat="event in filteredShows">
 
 							<div class="eventDate">
-                <span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span>
+                <p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
 							</div>
 
 							<div class="eventShortDetail">
 								<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
 
-                <div class="meta tags">
+                <p class="tags">
                   <a class="tag tagShowType tag{{ event.Meta.ShowType }}" href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
                   <a class="tag tagClub" href="#" title="Filter by {{ event.Club }} shows only" ng-bind="event.Club" />
                   <a class="tag tagEntered" href="#" title="Filter by entered shows only" ng-show="hasUserEnteredShow(event)">Entered</a>
                   <a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping</a>
-                </div>
+                </p>
 
 								<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
 
-								<div>Venue:
+								<p>
 									<a href="#"><span ng-bind="event.Venue.Name" /></a>,
 									<span ng-bind="event.Venue.Address" />,
 									<span ng-bind="event.Venue.PostCode" />
-								</div>
+								</p>
 
 								<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
 
