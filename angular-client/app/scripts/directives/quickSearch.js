@@ -54,6 +54,7 @@ angular.module('browserAppApp')
 
 						cancelExistingSearch();
 						$scope.quicksearch.results = [];
+						$scope.quicksearch.query = '';
 						$location.path(path);
 					}
 
