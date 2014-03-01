@@ -94,15 +94,19 @@ exports.uploadPhoto = Upload.UploadManager({
 				diary.Photos = [];
 			}
 
-			diary.Photos.push({
+			var photoData = {
 				Path: data.newUrlPath
-			});
+			};
+
+			diary.Photos.push(photoData);
 
 			diary.save(function (err, diary) {
 				if (err) {
 					response.send(500);
 				} else {
-					response.send(200);
+					var newData = _.where(diary.Photos, photoData);
+
+					response.send(200, newData);
 				}
 			});
 		});
