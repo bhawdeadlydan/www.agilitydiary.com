@@ -104,7 +104,14 @@ app.controller('ShowsController', [
 		
 		
 		function resetMarkers(data) {
-			$scope.markers = {};
+			if (typeof $scope.markers.Location !== 'undefined') {
+				var location = $scope.markers.Location;
+				$scope.markers = {
+					Location: location
+				};
+			} else {
+				$scope.markers = {};
+			}
 			
 			_.each(data, function(item) {
 				if(typeof item.Location !== 'undefined') {

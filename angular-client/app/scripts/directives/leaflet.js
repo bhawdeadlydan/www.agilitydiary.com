@@ -79,7 +79,7 @@ angular.module('browserAppApp')
 		icon: {
 
 	  // url: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon.png',
-	  url: 'app/images/marker-green.png',
+		 url: 'app/images/marker-green.png',
 			// url: 'app/images/flag.png',
 
 			retinaUrl: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon@2x.png',
@@ -351,7 +351,7 @@ angular.module('browserAppApp')
 
 			function buildMarker(name, data, bounceOnAdd) {
 				var marker;
-
+				
 				// use text marker if we have a messag
 				if (data.message) {
 					var opts = {
@@ -392,8 +392,8 @@ angular.module('browserAppApp')
 
 				if(typeof data.icon !== 'undefined') {
 					return L.icon({
-						iconUrl: defaults.icon.url,
-						iconRetinaUrl: defaults.icon.retinaUrl,
+						iconUrl: data.icon,
+						iconRetinaUrl: data.retinaIcon,
 						iconAnchor: defaults.icon.anchor,
 						popupAnchor: defaults.icon.popup,
 						shadowUrl: '',

@@ -268,7 +268,7 @@ angular.module('browserAppApp')
 			bindMapToScope();
 			newSearch();
 
-			/*$scope.markers = {
+			/*$scope.markers. = {
 				Location: {
 					lat: $scope.center.lat,
 					lng: $scope.center.lng,
@@ -280,6 +280,19 @@ angular.module('browserAppApp')
 					}
 				}
 			};*/
+			
+			$scope.markers.Location = {
+				lat: $scope.center.lat,
+				lng: $scope.center.lng,
+				message: '',
+				focus: true,
+				draggable: true,
+				icon: 'app/images/marker-yellow.png',
+				retinaIcon: 'app/images/marker-yellow.png',
+				dragend: function(marker) {
+					populatePlaceholder($scope.markers.Location.lat, $scope.markers.Location.lng);
+				}
+			};
 
 			//$timeout(getVenueData, 2000);
 			Mapdata.events({}, function(data) {
