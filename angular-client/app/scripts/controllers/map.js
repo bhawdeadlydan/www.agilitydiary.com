@@ -230,7 +230,7 @@ angular.module('browserAppApp')
 
 
 
-		
+
 
 
 
@@ -253,7 +253,7 @@ angular.module('browserAppApp')
 					}
 				}
 			};*/
-			
+
 			$scope.markers.Location = {
 				lat: $scope.center.lat,
 				lng: $scope.center.lng,
@@ -268,9 +268,9 @@ angular.module('browserAppApp')
 			};
 
 			//$timeout(getVenueData, 2000);
-			Mapdata.events({}, function(data) {
+			/*Mapdata.events({}, function(data) {
 				$scope.events = data;
-			});
+			});*/
 		}
 
 		main();
