@@ -1,0 +1,11 @@
+<nav class="categories">
+	<ul>
+		<li ng-repeat="category in categories">
+			<a class="category" href="" ng-click="categoryClick(category);">
+			
+			<span class="show" ng-show="isCategorySelected(category);"><input type="checkbox" checked="checked" /></span>
+			<span class="hide" ng-hide="isCategorySelected(category);"><input type="checkbox" /></span>
+			{{ category }}</a>
+		</li>
+	  </ul>
+</nav>

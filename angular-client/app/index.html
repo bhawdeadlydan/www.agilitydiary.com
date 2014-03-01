@@ -31,12 +31,16 @@
 					<span>Agility Diary</span>
 				</a>
 
-				<nav class="navPrimary" role="navigation" >
+				<nav class="navPrimary" role="navigation" aria-label="primary">
 					<a ng-class="homeSectionClass" ng-href="/">Home</a>
 					<a ng-class="showsSectionClass" ng-href="/shows/upcoming">Shows</a>
 					<a ng-class="mapSectionClass" ng-href="/map">Map</a>
 					<a href="/account">Account</a>
 				</nav>
+
+				<!-- quick search directive here -->
+				<!-- look in /templates/directives/quickSearch.html -->
+				<div quick-search></div>
 			</header>
 
 
@@ -54,9 +58,7 @@
 				</footer>
 			-->
 
-	      	<!-- quick search directive here -->
-	      	<!-- look in /templates/directives/quickSearch.html -->
-	      	<div quick-search></div>
+
 			</div>
 
 

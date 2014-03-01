@@ -40,12 +40,34 @@ function getShowType(data) {
 
 
 
+var monthNames = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
+]
+
+
+
+
 /**
  * Show ViewModel
  *
  * @param {object} data Mongoose document from Show Schema
  */
 module.exports = function (data, done) {
+	if (data === null) {
+		return {};
+	}
+	
 	return {
 		_id: typeof data._id !== 'undefined' ? data._id : null,
 		Name: data.Name,
@@ -57,6 +79,9 @@ module.exports = function (data, done) {
 		ParsedDate: data.ParsedDate,
 		ParsedEnd: data.ParsedEnd,
 		ParsedClosingDate: data.ParsedClosingDate,
+		
+		ShowMonth: monthNames[data.ShowDate.split('/')[1] - 1],
+		ShowYear: data.ShowDate.split('/')[2],
 
 		//NumberOfDays: Math.round(Math.abs((new Date(data.ParsedEnd).getTime() - new Date(data.ParsedDate)).getTime())/(24*60*60*1000))),
 

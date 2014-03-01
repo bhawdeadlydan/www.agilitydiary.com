@@ -1,5 +1,5 @@
 	<section class="quickSearch">
-		<input type="search" ng-class="quicksearch.cssClass" placeholder="Search" ng-model="quicksearch.query" ng-change="quicksearch.change();" />
+		<input type="search" ng-class="quicksearch.cssClass" placeholder="Search site" ng-model="quicksearch.query" ng-change="quicksearch.change();" />
 		<i class="action fa fa-search"></i>
 
 		<div class="searchResults">
@@ -19,10 +19,10 @@
 
 				</li>
 
-				<li ng-show="quicksearch.results.Results && quicksearch.results.Results.length !== 0">
+				<!-- <li ng-show="quicksearch.results.Results && quicksearch.results.Results.length !== 0">
 					<hr />
 					<a href="">View results on map</a>
-				</li>
+				</li> -->
 
 				<li ng-show="quicksearch.results.Results.length === 0">
 					Nothing found, please try searching again.

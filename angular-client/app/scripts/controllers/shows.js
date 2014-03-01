@@ -34,6 +34,11 @@ app.controller('ShowsController', [
 		$scope.id = null;
 		$scope.controls = {};
 		$scope.comments = {};
+		$scope.paging = {
+			page: 1,
+			totalPages: 1,
+			results: []
+		};
 
 
 		/**
@@ -52,18 +57,126 @@ app.controller('ShowsController', [
 
 
 
+		function pageShows() {
+			function paginate() {
+				$scope.paging.pageStartsAt = ($scope.paging.page - 1) * $scope.paging.pageSize;
+				$scope.paging.pageEndsAt = (($scope.paging.page) * $scope.paging.pageSize) - 1;
+				$scope.paging.results = [];
+				$scope.paging.pages = [];
+
+				for(var i = 0; i < $scope.filteredShows.length; i++) {
+					if ((i >= $scope.paging.pageStartsAt) && (i <= $scope.paging.pageEndsAt)){
+						$scope.paging.results.push($scope.filteredShows[i]);
+					} else {
+
+					}
+
+					if (i % $scope.paging.pageSize === 0) {
+						$scope.paging.pages.push( ($scope.paging.pages.length + 1).toString() );
+					}
+				}
+			}
+
+			$scope.paging =  {
+				pageSize: 10,
+				page: 1,
+				totalPages: 1,
+				results: [],
+				pages: [],
+				backClick: function() {
+					$scope.paging.page--;
+					paginate();
+				},
+				nextClick: function() {
+					$scope.paging.page++;
+					paginate();
+				},
+				jumpToPage: function(page) {
+					$scope.paging.page = page ;
+					paginate();
+				}
+			};
+
+			paginate();
+		}
+
+
+
+
+		function resetMarkers(data) {
+			if (typeof $scope.markers.Location !== 'undefined') {
+				var location = $scope.markers.Location;
+				$scope.markers = {
+					Location: location
+				};
+			} else {
+				$scope.markers = {};
+			}
+
+			function generateHtmlForShow(item) {
+				return '<div>' +
+				'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a> <span> ' + item.ShowDate + '<span></div>';
+			}
+
+			_.each(data, function(item) {
+				if(typeof item.Location !== 'undefined') {
+
+					if (typeof item.Venue.Id !== 'undefined') {
+
+						if (typeof $scope.markers[item.Venue.Id] === 'undefined') {
+							var newMarker = {
+								_id: item._id,
+								lat: item.Location.Latitude,
+								lng: item.Location.Longitude,
+								message: null,
+								popupText: undefined, //item.ΩΩname,
+								focus: false,
+								draggable: false,
+								html: generateHtmlForShow(item)
+							};
+
+							$scope.markers[item.Venue.Id] = newMarker;
+						} else {
+							var oldMarker = $scope.markers[item.Venue.Id];
+							oldMarker.html += generateHtmlForShow(item);
+						}
+					}
+				}
+			});
+		}
+
+
+
+
 		function filterShows() {
 			var results = [];
 
 			_.each($scope.enteredShows, function (item) {
-				if ($scope.showHasSelectedCategory(item)) {
-					if ($scope.showIsInSearch(item)) {
-						results.push(item);
+				var includeThis = false;
+
+				if ($scope.selectedCategories.length > 0) {
+					if ($scope.showHasSelectedCategory(item)) {
+							includeThis = true;
+					} else {
+						includeThis = false;
 					}
+				} else {
+					includeThis = true;
+				}
+
+				/*if ($scope.showIsInSearch(item)) {
+					includeThis = true;
+				}*/
+
+				if (includeThis === true) {
+					results.push(item);
 				}
 			});
 
 			$scope.filteredShows = results;
+			resetMarkers(results);
+
+			pageShows();
 		}
 
 
@@ -198,7 +311,7 @@ app.controller('ShowsController', [
 			ShowService.categories(function (data) {
 				$scope.categories = data;
 				_.each(data, function (item) {
-					$scope.selectedCategories.push(item);
+					//$scope.selectedCategories.push(item);
 				});
 			}, function (error) {
 
@@ -474,6 +587,7 @@ app.controller('ShowsController', [
 
 
 		function controllerDestroy() {
+			$scope.stopSpinner();
 		}
 
 

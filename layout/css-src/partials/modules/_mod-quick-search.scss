@@ -16,15 +16,11 @@
  * @section        quickSearch
  */
 .quickSearch {
-    display: block;
-    height: auto;
-    margin: 0 auto;
-    position: absolute;
-    right: 2em;
-    text-align: center;
-    top: 1em;
+    display: inline-block;
+    float: right;
+    padding: .25em;
+    text-align: right;
     width: auto;
-    z-index: 9999999;
 
     input {
         background: $color-quick-search-bg;
@@ -52,7 +48,11 @@ input.searching {
 .searchResults {
     background: $color-white;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 1.5em;
     text-align: left;
+    width: 50%;
+    z-index: 9999;
 
     ul, li {
         @extend %zeroList;
