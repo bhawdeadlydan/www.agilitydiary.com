@@ -211,11 +211,13 @@ app.controller('ShowsController', [
 		function checkAttending() {
 			$scope.attending = false;
 
-			_.each($scope.profile.EnteredShows, function (show) {
-				if (angular.equals(show._id, $scope.id)) {
-					$scope.attending = true;
-				}
-			});
+			if ($scope.profile !== null) {
+				_.each($scope.profile.EnteredShows, function (show) {
+					if (angular.equals(show._id, $scope.id)) {
+						$scope.attending = true;
+					}
+				});
+			}
 		}
 
 
