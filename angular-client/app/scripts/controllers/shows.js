@@ -108,21 +108,33 @@ app.controller('ShowsController', [
 			
 			_.each(data, function(item) {
 				if(typeof item.Location !== 'undefined') {
-					var newMarker = {
-						_id: item._id,
-						lat: item.Location.Latitude,
-						lng: item.Location.Longitude,
-						message: null,
-						popupText: undefined, //item.ΩΩname,
-						focus: false,
-						draggable: false,
-							html: '<span>' +
-							'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a>' +
-							// item.name +resetMarkers
-							'</span>'
-					};
-				 
-					$scope.markers[item._id] = newMarker;
+					
+					if (typeof item.Venue.Id !== 'undefined') {
+						
+						if (typeof $scope.markers[item.Venue.Id] === 'undefined') {
+							var newMarker = {
+								_id: item._id,
+								lat: item.Location.Latitude,
+								lng: item.Location.Longitude,
+								message: null,
+								popupText: undefined, //item.ΩΩname,
+								focus: false,
+								draggable: false,
+								html: '<div>' +
+								'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a>' +
+								// item.name +resetMarkers
+								'</div>'
+							};
+							
+							$scope.markers[item.Venue.Id] = newMarker;	
+						} else {
+							var oldMarker = $scope.markers[item.Venue.Id];
+							oldMarker.html += '<div>' +
+								'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a>' +
+								'</div>';
+							
+						}
+					}
 				}
 			});
 		}
