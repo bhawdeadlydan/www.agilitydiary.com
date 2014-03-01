@@ -1,11 +1,16 @@
 var app = angular.module('browserAppApp');
 
 app.controller('RelationshipController', [
-	'$scope', 'Mapdata', 'ShowService', 'ProfileService', 'RelationshipService', '$location', '$route', '$routeParams',
-	function RelationshipController($scope, Mapdata, ShowService, ProfileService, RelationshipService, $location, $route, $routeParams) {
+	'$scope', 'Mapdata', 'ShowService', 'ProfileService', 'RelationshipService', '$location', '$route', '$routeParams', '$rootScope',
+	function RelationshipController($scope, Mapdata, ShowService, ProfileService, RelationshipService, $location, $route, $routeParams, $rootScope) {
 		"use strict";
 
 		$scope.listUsers = {};
+		$rootScope.homeSectionClass = '';
+		$rootScope.showsSectionClass = '';
+		$rootScope.mapSectionClass = '';
+		$rootScope.venuesSectionClass = '';
+		$rootScope.peopleSectionClass = ' active ';
 
 		$scope.$watch('profile', profileHasChanged);
 

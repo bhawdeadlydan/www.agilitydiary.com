@@ -12,21 +12,32 @@ angular.module('browserAppApp')
 			var persist = {};
 			var _searchNearHereLatch = false,
 				settings = Settings;
+			var caches = {
+				venues: null
+			};
 
 			return {
-				venues: function(opts, successCallback, errorCallback) {
+				venues: function (opts, successCallback, errorCallback) {
 					var session_data,
 						url;
 
-					session_data = Authenticationservice.load();
-					url = '/agility-diary/venue/list' //settings.serverHost + settings.api.allSearches +
-						//'?a=' + session_data.authentication_token;
-					return $http.get(url).success(successCallback).error(errorCallback);
+					if (caches.venues !== null) {
+						successCallback(caches.venues);
+					} else {
+
+						session_data = Authenticationservice.load();
+						url = '/agility-diary/venue/list' //settings.serverHost + settings.api.allSearches +
+							//'?a=' + session_data.authentication_token;
+						return $http.get(url).success(function (data) {
+							caches.venues = data;
+							successCallback(data);
+						}).error(errorCallback);
+					}
 				},
 
 
 
-				events: function(opts, successCallback, errorCallback) {
+				events: function (opts, successCallback, errorCallback) {
 					var session_data,
 						url;
 
@@ -42,7 +53,7 @@ angular.module('browserAppApp')
 				 * @description
 				 * Return a combined list of all searches run on server
 				 */
-				allSearches: function(opts, successCallback, errorCallback) {
+				allSearches: function (opts, successCallback, errorCallback) {
 					var session_data,
 						url;
 

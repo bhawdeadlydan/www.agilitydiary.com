@@ -15,6 +15,8 @@ app.controller('MainController', [
 		$rootScope.homeSectionClass = 'active';
 		$rootScope.showsSectionClass = '';
 		$rootScope.mapSectionClass = '';
+		$rootScope.venuesSectionClass = '';
+		$rootScope.peopleSectionClass = '';
 
 		/**
 		 * Post something
@@ -43,6 +45,13 @@ app.controller('MainController', [
 		function fetchPublicProfile() {
 			ProfileService.getPublic($scope.publicId, function (data) {
 				$scope.publicProfile = data;
+
+				$rootScope.homeSectionClass = '';
+				$rootScope.showsSectionClass = '';
+				$rootScope.mapSectionClass = '';
+				$rootScope.venuesSectionClass = '';
+				$rootScope.peopleSectionClass = 'active';
+
 			}, function (error) {
 
 			});

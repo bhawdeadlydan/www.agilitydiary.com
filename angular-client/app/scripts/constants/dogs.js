@@ -1,5 +1,6 @@
 var app = angular.module('browserAppApp');
 
+
 app.constant('DogConstants', {
 	sexes: [
 		{ name: 'Dog', value: 'Dog' },

@@ -11,9 +11,9 @@ angular.module('browserAppApp')
 		$scope.controls = {};
 		$scope.events = {};
 
-		$rootScope.homeSectionClass = '';
+		/*$rootScope.homeSectionClass = '';
 		$rootScope.showsSectionClass = '';
-		$rootScope.mapSectionClass = 'active';
+		$rootScope.mapSectionClass = 'active';*/
 
 
 		/**
@@ -230,34 +230,7 @@ angular.module('browserAppApp')
 
 
 
-		function getVenueData() {
-			Mapdata.venues({}, function(data) {
-				$scope.stopSpinner();
 
-				_.each(data, function(item) {
-					if(typeof item.location !== 'undefined') {
-						var newMarker = {
-							_id: item._id,
-							lat: item.location.latitude,
-							lng: item.location.longitude,
-							message: null,
-							popupText: undefined, //item.ΩΩname,
-							focus: false,
-							draggable: false,
-								html: '<span>' +
-								'<a href="#/shows/details/' + item._id + '">' + item.name + '</a>' +
-								// item.name +
-								'</span>'
-						};
-
-						$scope.markers[item._id] = newMarker;
-					}
-				});
-
-			}, function(err) {
-
-			});
-		}
 
 
 
@@ -280,7 +253,7 @@ angular.module('browserAppApp')
 					}
 				}
 			};*/
-			
+
 			$scope.markers.Location = {
 				lat: $scope.center.lat,
 				lng: $scope.center.lng,
@@ -295,9 +268,9 @@ angular.module('browserAppApp')
 			};
 
 			//$timeout(getVenueData, 2000);
-			Mapdata.events({}, function(data) {
+			/*Mapdata.events({}, function(data) {
 				$scope.events = data;
-			});
+			});*/
 		}
 
 		main();

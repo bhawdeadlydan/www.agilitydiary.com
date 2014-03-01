@@ -7,9 +7,9 @@
 		</section>-->
 
 		<nav class="tabs">
-			<a href="#/shows/upcoming">Upcoming shows</a>
-			<a class="active"   href="#/shows/previous">Previous shows</a>
-			<a href="#/shows/entered">Entered</a>
+			<a ng-href="/shows/upcoming">Upcoming shows</a>
+			<a class="active"  ng-href="/shows/previous">Previous shows</a>
+			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered</a>
 		</nav>
 		
 			

@@ -34,6 +34,9 @@ function getShowType(data) {
 
 	case '#FF0000':
 		return 'UKA';
+	
+	default:
+		return 'Untagged';
 	}
 }
 

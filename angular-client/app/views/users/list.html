@@ -1,7 +1,11 @@
 <section class="edit">
 
 	<div class="container">
-		<h1>Find people</h1>
+		<nav class="tabs">
+			<a  class="active" href="#/shows/upcoming">All people</a>
+
+		</nav>
+
 
 		<div class="contentWrapper">
 			<div class="contentMain">
@@ -11,7 +15,7 @@
 
 
 
-					<a ng-href="/users/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name" ></span></a>
+					<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name" ></span></a>
 
 					<button class-"action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Add friend</button>
 
