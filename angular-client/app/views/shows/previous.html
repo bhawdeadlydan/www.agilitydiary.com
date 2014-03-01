@@ -34,14 +34,17 @@
 			<li ng-show="filteredShows.length===0">No shows found</li>
 
 			<li>
-				<div class="monthWrapper">
-					<h3>February
-					<br/><span class="year">2014</span></h3>
-				</div>
-
+				
 				<div class="eventListWrapper">
+					<div ng-include src="'app/views/shows/paging.html'"></div>
+					
 					<ol class="eventList">
-						<li class="event" ng-repeat="event in filteredShows">
+						<li class="event" ng-repeat="event in paging.results">
+							
+							<div class="monthWrapper" ng-show="paging.results[$index - 1].ShowMonth !== event.ShowMonth">
+								<h3 ng-bind="event.ShowMonth"></h3>
+								<br/><span class="year" ng-bind="event.ShowYear"></span>
+							</div>
 
 							<div class="eventDate">
 								<span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span>
@@ -77,6 +80,8 @@
 							</div>
 						</li>
 					</ol>
+					
+					<div ng-include src="'app/views/shows/paging.html'"></div>
 				</div>
 			</li>
 		</ol>

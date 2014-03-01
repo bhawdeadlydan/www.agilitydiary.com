@@ -113,6 +113,11 @@ app.controller('ShowsController', [
 				$scope.markers = {};
 			}
 			
+			function generateHtmlForShow(item) {
+				return '<div>' +
+				'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a> <span> ' + item.ShowDate + '<span></div>';
+			}
+			
 			_.each(data, function(item) {
 				if(typeof item.Location !== 'undefined') {
 					
@@ -127,19 +132,13 @@ app.controller('ShowsController', [
 								popupText: undefined, //item.ΩΩname,
 								focus: false,
 								draggable: false,
-								html: '<div>' +
-								'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a>' +
-								// item.name +resetMarkers
-								'</div>'
+								html: generateHtmlForShow(item)
 							};
 							
 							$scope.markers[item.Venue.Id] = newMarker;	
 						} else {
 							var oldMarker = $scope.markers[item.Venue.Id];
-							oldMarker.html += '<div>' +
-								'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a>' +
-								'</div>';
-							
+							oldMarker.html += generateHtmlForShow(item);
 						}
 					}
 				}
