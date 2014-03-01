@@ -1233,14 +1233,11 @@ select {
  */
 /* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
 .layoutHeader {
-  border-bottom: 0.25em solid #73afaa;
-  background-color: white;
-  background-color: white, 0.5;
-  background-color: rgba(255, 255, 255, 0.5);
+  border-bottom: 0.25em solid white;
+  background-color: #73afaa;
+  background-color: #73afaa, 0.5;
+  background-color: rgba(115, 175, 170, 0.5);
   text-align: center;
-  position: fixed;
-  width: 100%;
-  z-index: 999999;
 }
 
 /**
@@ -1290,7 +1287,6 @@ select {
 /* line 23, ../../layout/css-src/partials/default-layout/_wrapper.scss */
 .wrapper {
   background: white;
-  padding-top: 3em;
 }
 
 /**
@@ -1412,8 +1408,7 @@ select {
 }
 /* line 35, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a.active, .navPrimary a:hover {
-  background: #73afaa;
-  color: white;
+  background: white;
   text-decoration: none;
 }
 

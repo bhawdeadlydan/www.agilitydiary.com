@@ -34,14 +34,13 @@
         &.active,
         &:hover {
             background: $color-nav-primary-hover;
-            color: $color-white;
             text-decoration: none;
         }
 
     }
 
     .active {
-        // @include border-radius(.5em);
+
     }
 
 }

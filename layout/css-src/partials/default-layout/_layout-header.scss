@@ -23,8 +23,4 @@
     border-bottom: .25em solid $color-layout-header-border;
     @include rgba-bg($color-layout-header-bg, 5);
     text-align: center;
-
-    position: fixed;
-    width: 100%;
-    z-index: 999999;
 }
