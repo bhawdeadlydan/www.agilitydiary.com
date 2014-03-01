@@ -28,22 +28,20 @@
 
         color: $color-nav-primary;
         display: inline-block;
-        margin-right: 1em;
-        padding: .25em .5em;
+        margin: 0;
+        padding: .75em 1em;
 
         &.active,
         &:hover {
-            @include border-radius(.5em);
-
-            background: #93c2be;
-            color: $color-nav-primary-hover;
+            background: $color-nav-primary-hover;
+            color: $color-white;
             text-decoration: none;
         }
 
     }
 
     .active {
-        @include border-radius(.5em);
+        // @include border-radius(.5em);
     }
 
 }

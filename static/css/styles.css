@@ -1231,6 +1231,18 @@ select {
 /**
  * @section        layoutHeader
  */
+/* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
+.layoutHeader {
+  border-bottom: 0.25em solid #73afaa;
+  background-color: white;
+  background-color: white, 0.5;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999999;
+}
+
 /**
  * @description    Stying for the main layout footer
  *
@@ -1394,27 +1406,14 @@ select {
 .navPrimary a {
   color: #262626;
   display: inline-block;
-  margin-right: 1em;
-  padding: .25em .5em;
+  margin: 0;
+  padding: .75em 1em;
 }
 /* line 35, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a.active, .navPrimary a:hover {
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  border-radius: 0.5em;
-  background: #93c2be;
+  background: #73afaa;
   color: white;
   text-decoration: none;
-}
-/* line 45, ../../layout/css-src/partials/navigation/_nav-primary.scss */
-.navPrimary .active {
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  border-radius: 0.5em;
 }
 
 /**
@@ -1884,7 +1883,9 @@ select {
 }
 /* line 29, ../../layout/css-src/partials/modules/_mod-hero.scss */
 .hero .bio {
-  background: rgba(255, 255, 255, 0.5);
+  background-color: white;
+  background-color: white, 0.5;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 1em;
   padding-bottom: 50px;
 }

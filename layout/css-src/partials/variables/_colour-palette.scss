@@ -46,6 +46,7 @@ $color-brand-complementary2:    #fbeed3;
 * @section        Colour
 */
 $color-layout-header-bg    :    $color-white;
+$color-layout-header-border :   $color-brand;
 $color-layout-wrapper-bg   :    lighten($color-black, 15%); // output = #262626
 
 $color-body-bg             :    $color-white;
@@ -58,6 +59,7 @@ $color-link                :    $color-brand;
 
 $color-profile-header-bg   :    rgba(0,0,0,0.5);
 $color-hero-bg             :    rgba(0,0,0,0.5);
+$color-bio-bg              :    $color-white;
 $color-panel-bg            :    #faf6ec;
 
 $color-quick-search-bg     :    $color-white;
@@ -67,8 +69,8 @@ $color-layout-footer-bg    :    $color-white;
 $color-footer-copy         :    #d8d8d8;
 
 $color-nav-primary         :    lighten($color-black, 15%); // output = #262626
-$color-nav-primary-hover   :    $color-white;
-$color-nav-primary-active  :    $color-white;
+$color-nav-primary-hover   :    $color-brand;
+$color-nav-primary-active  :    $color-brand;
 
 $color-tab                 :    $color-brand;
 $color-tab-hover           :    darken($color-brand, 10%);

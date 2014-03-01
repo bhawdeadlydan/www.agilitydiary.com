@@ -20,8 +20,8 @@
 @mixin rgba-bg($hex, $a) {
 	//  for older browers
 	background-color: $hex;
-	background-color: ($hex, ($a/100));
+	background-color: ($hex, ($a/10));
 
 	// for modern browsers
-	background-color: rgba($hex, ($a/100));
+	background-color: rgba($hex, ($a/10));
 }

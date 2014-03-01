@@ -27,7 +27,7 @@
     }
 
     .bio {
-        background: rgba(255,255,255,0.5);
+        @include rgba-bg($color-bio-bg, 5);
         padding: 1em;
         padding-bottom: 50px;
     }
