@@ -34,6 +34,11 @@ app.controller('ShowsController', [
 		$scope.id = null;
 		$scope.controls = {};
 		$scope.comments = {};
+		$scope.paging = {
+			page: 1,
+			totalPages: 1,
+			results: []
+		};
 
 
 		/**
@@ -48,6 +53,79 @@ app.controller('ShowsController', [
 
 
 		$scope.filteredShows = [];
+		
+		
+		
+		
+		function pageShows() {
+			function paginate() {
+				$scope.paging.pageStartsAt = ($scope.paging.page - 1) * $scope.paging.pageSize;
+				$scope.paging.pageEndsAt = (($scope.paging.page) * $scope.paging.pageSize) - 1;
+				$scope.paging.results = [];
+				$scope.paging.pages = [];
+				
+				for(var i = 0; i < $scope.filteredShows.length; i++) {
+					if ((i >= $scope.paging.pageStartsAt) && (i <= $scope.paging.pageEndsAt)){
+						$scope.paging.results.push($scope.filteredShows[i]);	
+					} else {
+						
+					}
+					
+					if (i % $scope.paging.pageSize === 0) {
+						$scope.paging.pages.push( ($scope.paging.pages.length + 1).toString() );
+					}
+				}
+			}
+			
+			$scope.paging =  {
+				pageSize: 5,
+				page: 1,
+				totalPages: 1,
+				results: [],
+				pages: [],
+				backClick: function() {
+					$scope.paging.page--;
+					paginate();
+				},
+				nextClick: function() {
+					$scope.paging.page++;
+					paginate();
+				},
+				jumpToPage: function(page) {
+					$scope.paging.page = page ;
+					paginate();
+				}
+			};
+			
+			paginate();
+		}
+		
+		
+		
+		
+		function resetMarkers(data) {
+			$scope.markers = {};
+			
+			_.each(data, function(item) {
+				if(typeof item.Location !== 'undefined') {
+					var newMarker = {
+						_id: item._id,
+						lat: item.Location.Latitude,
+						lng: item.Location.Longitude,
+						message: null,
+						popupText: undefined, //item.ΩΩname,
+						focus: false,
+						draggable: false,
+							html: '<span>' +
+							'<a href="#/shows/details/' + item._id + '">' + item.Name + '</a>' +
+							// item.name +resetMarkers
+							'</span>'
+					};
+				 
+					$scope.markers[item._id] = newMarker;
+				}
+			});
+		}
 
 
 
@@ -78,6 +156,9 @@ app.controller('ShowsController', [
 			});
 
 			$scope.filteredShows = results;
+			resetMarkers(results);
+			
+			pageShows();
 		}
 
 

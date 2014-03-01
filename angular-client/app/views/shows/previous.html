@@ -6,23 +6,29 @@
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
 		</section>-->
 
-		<nav class="categories">
-		  <ul>
-			<li ng-repeat="category in categories">
-				<a class="category" href="" ng-click="categoryClick(category);">
-				
-			  <span class="show" ng-show="isCategorySelected(category);"><input type="checkbox" checked="checked" /></span>
-			  <span class="hide" ng-hide="isCategorySelected(category);"><input type="checkbox" /></span>
-			  {{ category }}</a>
-			</li>
-		  </ul>
-		</nav>
-
 		<nav class="tabs">
 			<a href="#/shows/upcoming">Upcoming shows</a>
 			<a class="active"   href="#/shows/previous">Previous shows</a>
 			<a href="#/shows/entered">Entered</a>
 		</nav>
+		
+			
+		<div ng-include src="'app/views/shows/categories.html'"></div>
+
+	</div>
+	
+		
+	<div ng-controller="MapController">
+		<leaflet style="height: 400px"
+			id="geo-wrapper"
+			elementcacheid="search/geo-wrapper"
+			fullsize="false"
+			center="data.leaflet.centre"
+			bounds="data.leaflet.bounds"
+			scrollwheelzoom="false"
+			dragging="true"
+			clickmarker="Location"></leaflet>
+	</div>	
 
 		<ol class="monthList">
 			<li ng-show="filteredShows.length===0">No shows found</li>

@@ -40,6 +40,24 @@ function getShowType(data) {
 
 
 
+var monthNames = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
+]
+
+
+
+
 /**
  * Show ViewModel
  *
@@ -61,6 +79,9 @@ module.exports = function (data, done) {
 		ParsedDate: data.ParsedDate,
 		ParsedEnd: data.ParsedEnd,
 		ParsedClosingDate: data.ParsedClosingDate,
+		
+		ShowMonth: monthNames[data.ShowDate.split('/')[1] - 1],
+		ShowYear: data.ShowDate.split('/')[2],
 
 		//NumberOfDays: Math.round(Math.abs((new Date(data.ParsedEnd).getTime() - new Date(data.ParsedDate)).getTime())/(24*60*60*1000))),
 
