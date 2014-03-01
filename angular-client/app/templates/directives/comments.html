@@ -8,12 +8,13 @@
 
 
 	<form name="commentsForm">
-		<div>Comment</div>
-		<textarea
-			name="message"
-			ng-required="true"
-			ng-model="message"></textarea>
+		<div class="formField formTextarea">
+			<label for="message">Comment</label>
+			<textarea id="message" name="message" ng-required="true" ng-model="message"></textarea>
+		</div>
 
-		<button ng-click="addComment()">Post</button>
+		<div class="formField formActions">
+			<button class="action" ng-click="addComment()">Post comment</button>
+		</div>
 	</form>
 </div>

@@ -62,3 +62,43 @@ $elements: 10;
         float: none;
     }
 }
+
+/**
+ * @section        extend panel
+ */
+.enteredShowsList {
+
+}
+
+/**
+ * @section        extend panel
+ */
+.enteredShow {
+    @include span-columns(4,12);
+    padding: 0 1em;
+
+    &:first-child {
+        border-right: 1px solid $color-border;
+    }
+
+    &:last-child {
+        border-left: 1px solid $color-border;
+    }
+
+    &:nth-child(3n) {
+        @include omega;
+    }
+
+    .showDetail {
+        @include font-size(1.4);
+        padding-left: 2em;
+        position: relative;
+
+        .fa {
+            left: 0;
+            padding-top: .5em;
+            position: absolute;
+        }
+
+    }
+}

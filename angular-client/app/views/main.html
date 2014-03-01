@@ -51,9 +51,9 @@
 						<label for="tag">Tag</label>
 						<input id="tag" type="text" />
 						<a class="help" href="#"><i class="fa fa-info-circle"></i></a>
-          </div>
+					</div>
 
-					<div class="uploadImage" id="uploadPhoto" style="">⇧ Add photo
+					<div class="action uploadImage" id="uploadPhoto">⇧ Add photo
 						<span class="dz-message"></span>
 						<span data-dz-name=""></span>
 						<span data-dz-details=""></span>
@@ -84,33 +84,45 @@
 
 	<section class="panel enteredShowsList">
 		<div class="container">
-			<h2><a href="/shows/upcoming"><i class="fa fa-dot-circle-o"></i> Shows</a></h2>
+			<h2><a href="/shows/upcoming"><i class="fa fa-dot-circle-o"></i> Entered shows</a></h2>
 
 			<p ng-show="!profile.EnteredShows.length">
 				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
 			</p>
 
-			<p ng-repeat="show in profile.EnteredShows | limitTo: 3">
-				<strong><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></strong>
+			<div class="enteredShow" ng-repeat="show in profile.EnteredShows | limitTo: 3">
+				<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
 
-				<br /><i class="fa fa-calendar"></i>
-					<span ng-bind="show.ShowDate" />
-					<span ng-show="show.ShowDate !== show.ShowEnd">
-					 to <span ng-bind="show.ShowEnd" />
-					</span>
+				<div class="showDetail">
+					<p><i class="fa fa-calendar fa-lg fa-fw"></i>
+						<span ng-bind="show.ShowDate" />
+						<span ng-show="show.ShowDate !== show.ShowEnd">
+						 to <span ng-bind="show.ShowEnd" />
+						</span></p>
 
-				<br /><i class="fa fa-map-marker"></i> <a href="#"><span ng-bind="show.Venue.Name" /></a>,
-				<br /><span ng-bind="show.Venue.Address" />,
-				<br /><span ng-bind="show.Venue.PostCode" />
+					<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a href="#"><span ng-bind="show.Venue.Name" /></a>,
+					<br /><span ng-bind="show.Venue.Address" />,
+					<br /><span ng-bind="show.Venue.PostCode" /></p>
 
-				<br /><a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
-				<br /><i class="fa fa-compass"></i> Lat: <span ng-bind="show.Location.Latitude" />,
-				<br />Long: <span ng-bind="show.Location.Longitude" />
-			</p>
+					<p><i class="fa fa-compass fa-lg fa-fw"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+					<br />Lat: <span ng-bind="show.Location.Latitude" />,
+					<br />Long: <span ng-bind="show.Location.Longitude" /></p>
+				</div>
+			</div>
 
 			<p><a ng-href="#/shows/entered">View all your entered Shows</a></p>
 		</div>
 	</section>
+
+
+
+
+  <section class="panel">
+    <div class="container">
+      <h2><a href="#">My shows</a></h2>
+      List claimed shows here?
+    </div>
+  </section>
 
 
 
@@ -242,8 +254,8 @@
 
 			<p><a ng-href="/find/users">All users</a></p>
 
-			<p ng-show="!profile.Friends.length">
-				Aww you haven't added any friends yet, <a href="/users">Add some friends</a>
+			<p>
+				<span ng-show="!profile.Friends.length">Aww you haven't added any friends yet,</span> <a class="action" href="/users">Add some friends</a>
 			</p>
 
 			<div ng-repeat="friend in profile.Friends">
@@ -269,7 +281,9 @@
 				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a></p>
 
-			<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
+			<p>
+				<span ng-show="!profile.Dogs.length">You have no dogs yet, would you like to</span> <a class="action" ng-href="#/dogs/add">Add a dog</a>?
+			</p>
 		</div>
 	</section>
 

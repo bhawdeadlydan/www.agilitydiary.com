@@ -30,6 +30,7 @@
 
     &:hover {
         background-color: lighten($color-action, 15%);
+        text-decoration: none;
     }
 }
 
