@@ -1,57 +1,64 @@
 
 <section class="shows upcoming">
+	<style>
+		.selected {font-weight: bold; }
+	</style>
 
 	<div class="container">
-		<section>
-			<input type="search" name="search" placeholder="Search" ng-model="searchText"/>
+		<!--<section>
+			<input type="search" name="search" placeholder="Filter shows" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
-		</section>
-
-    <nav class="categories">
-      <ul>
-        <li ng-repeat="category in categories">
-          <a class="category" href="" ng-click="categoryClick(category);">
-          <span class="show" ng-show="isCategorySelected(category);">✓</span>
-          <span class="hide" ng-hide="isCategorySelected(category);">✗</span>
-          {{ category }}</a>
-        </li>
-      </ul>
-    </nav>
+		</section>-->
 
 		<nav class="tabs">
 			<a  class="active" href="#/shows/upcoming">Upcoming shows</a>
 			<a href="#/shows/previous">Previous shows</a>
-			<a href="#/shows/entered">Entered</a>
+			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered</a>
 		</nav>
 
+		<div ng-include src="'app/views/shows/categories.html'"></div>
 
+		<div ng-controller="MapController">
+			<leaflet style="height: 400px"
+				id="geo-wrapper"
+				elementcacheid="search/geo-wrapper"
+				fullsize="false"
+				center="data.leaflet.centre"
+				bounds="data.leaflet.bounds"
+				scrollwheelzoom="false"
+				dragging="true"
+				clickmarker="Location"></leaflet>
+		</div>
 
 		<ol class="monthList">
 			<li ng-show="filteredShows.length===0">No shows found</li>
 
 			<li>
-				<div class="monthWrapper">
-					<h3>February @@MAKE THIS DYNAMIC@@
-					<br/><span class="year">2014</span></h3>
-				</div>
+				<div ng-include src="'app/views/shows/paging.html'"></div>
 
 				<div class="eventListWrapper">
 					<ol class="eventList">
-						<li class="event" ng-repeat="event in filteredShows">
+						<li class="event" ng-repeat="event in paging.results">
+
+							<div class="monthWrapper" ng-show="paging.results[$index - 1].ShowMonth !== event.ShowMonth">
+								<h3 ng-bind="event.ShowMonth"></h3>
+								<br/><span class="year" ng-bind="event.ShowYear"></span>
+							</div>
 
 							<div class="eventDate">
-                <p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
+							 <p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
 							</div>
 
 							<div class="eventShortDetail">
 								<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
 
-                <p class="tags">
-                  <a class="tag tagShowType tag{{ event.Meta.ShowType }}" href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
-                  <a class="tag tagClub" href="#" title="Filter by {{ event.Club }} shows only" ng-bind="event.Club" />
-                  <a class="tag tagEntered" href="#" title="Filter by entered shows only" ng-show="hasUserEnteredShow(event)">Entered</a>
-                  <a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping</a>
-                </p>
+								<p class="tags">
+								  <a class="tag tagShowType tag{{ event.Meta.ShowType }}"
+									 href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />
+								  <a class="tag tagClub" href="#" title="Filter by {{ event.Club }} shows only" ng-bind="event.Club" />
+								  <a class="tag tagEntered" href="#" title="Filter by entered shows only" ng-show="hasUserEnteredShow(event)">Entered</a>
+								  <a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping</a>
+								</p>
 
 								<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
 
@@ -62,30 +69,16 @@
 								</p>
 
 								<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
+								<!-- <p><a href="" ng-click="jumpToShow(event);"category>View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p> -->
+
 							</div>
 						</li>
 					</ol>
+
+					<div ng-include src="'app/views/shows/paging.html'"></div>
+
 				</div>
 			</li>
 		</ol>
-
-		<!--/// PAGINATION ///-->
-		<!--<div class="pagination pagination-minimal">
-			<ul>
-				<li class="previous">
-					<a href="#" class="fui-arrow-left"></a>
-				</li>
-
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-
-				<li class="next">
-					<a href="#" class="fui-arrow-right"></a>
-				</li>
-			</ul>
-		</div>-->
 	</div>
 </section>
