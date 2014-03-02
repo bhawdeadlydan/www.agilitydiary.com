@@ -21,7 +21,7 @@
 
 					<div class="formField formInput formText">
 						<label for="tag">Tag</label>
-						<input id="tag" type="text" />
+						<input id="tag" type="text" ng-model="post.tags" />
 						<a class="help" href="#"><i class="fa fa-info-circle"></i></a>
 					</div>
 
@@ -55,6 +55,20 @@
 	<section class="panel newsfeed">
 		<div class="container">
 			<h2><i class="fa fa-bullhorn"></i> Newsfeed</h2>
+
+			<span ng-repeat="journalItem in profile.Journal">
+				<span  style="font-size: 0.8em" >
+					<span ng-bind="journalItem.DateTime|date:'MMM'"></span>
+					<span ng-bind="journalItem.DateTime|date:'d'"></span>
+					at
+					<span ng-bind="journalItem.DateTime|date:'H'"></span>:
+					<span ng-bind="journalItem.DateTime|date:'mm'"></span>
+				</span>
+
+				<p ng-bind="journalItem.Message"></p>
+
+				<span ng-bind="journalItem.TagsText"></span>
+			</span>
 		</div>
 	</section>
 

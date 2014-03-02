@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var mongoose = require('mongoose');
 
 module.exports = function (data) {
 	"use strict";
@@ -17,6 +18,32 @@ module.exports = function (data) {
 
 		return result;
 	}
+	
+	
+	
+	
+	function getJournal(data) {
+		var result = [];
+		
+		_.each(data.Journal, function (journalIterator) {
+			_.each(journalIterator.Links, function (linkedObject) {
+				if (linkedObject.LinkType === 'Photo') {
+					
+					_.each(data.Photos, function (loopPhoto) {
+						if (loopPhoto._id.toString() == linkedObject.LinkedObject) {
+							linkedObject.Path = loopPhoto.Path;
+							// need to use a loop here
+						}
+					});
+				}
+			});
+			
+			
+			result.push(journalIterator);
+		});
+		
+		return result;
+	}
 
 
 
@@ -32,7 +59,9 @@ module.exports = function (data) {
 
 		Photos: data.Photos,
 		
-		PendingPhotos: data.PendingPhotos
+		PendingPhotos: data.PendingPhotos,
+		
+		Journal: getJournal(data)
 	};
 
 	return result;

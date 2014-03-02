@@ -651,7 +651,6 @@ exports.userData = function (req, res) {
 
 
 
-
 exports.addFriend = function (request, response) {
 	User.findById(request.user.id, function (err, user) {
 		Diary.findOne({
@@ -705,6 +704,58 @@ exports.removeFriend = function (request, response) {
 					}
 				});
 
+			}
+		});
+	});
+};
+
+
+
+
+exports.addJournalEntry = function (request, response) {
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			if (err) {
+				response.send(500, { error: 'Error' });
+			} else {
+				var message = request.body.message;
+				var tags = request.body.tags;
+				
+				var newJournalItem = {
+					Message: message,					
+					TagsText: tags,
+					Links: []
+				};
+				
+				if (typeof diary.PendingPhotos !== 'undefined') {
+					_.each(diary.PendingPhotos, function (photo) {
+						diary.Photos.push(photo);
+						
+						newJournalItem.Links.push({
+							LinkedObject: photo,
+							
+							LinkType: 'Photo'
+						});
+					});
+				}
+				
+				if (typeof diary.Journal === 'undefined') {
+					diary.Journal = [];
+				}
+				
+				diary.Journal.push(newJournalItem);
+				
+				diary.PendingPhotos = [];
+				
+				diary.save(function (err, diary) {
+					if (err) {
+						response.send(500);
+					} else {	
+						response.send(200);
+					}
+				});				
 			}
 		});
 	});
@@ -880,7 +931,7 @@ exports.getLogin = function (req, res) {
 
 
 /**
- * POST /login
+ POST /login
  * Sign in using email and password.
  * @param {string} email
  * @param {string} password

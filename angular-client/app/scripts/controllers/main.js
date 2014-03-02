@@ -23,6 +23,7 @@ app.controller('MainController', [
 		 */
 		$scope.post = {};
 		$scope.post.message = '';
+		$scope.post.tags = '';
 		$scope.post.click = postSomething;
 		$scope.removePendingPhotoClick = removePendingPhotoClick;
 		$scope.setThemeMainColour = setThemeMainColour;
@@ -76,7 +77,13 @@ app.controller('MainController', [
 		 * Post Something Click Handler
 		 */
 		function postSomething() {
+			ProfileService.addJournalEntry($scope.post.message, $scope.post.tags, function (data) {
+				$scope.fetchProfile();
+				$scope.post.message = '';
+				$scope.post.tags = '';
+			}, function (error) {
 
+			});
 		}
 
 
