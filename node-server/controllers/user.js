@@ -109,21 +109,26 @@ exports.uploadPhoto = Upload.UploadManager({
 		Diary.findOne({
 			User: user
 		}, function (err, diary) {
+			
 			if (typeof diary.Photos === 'undefined') {
 				diary.Photos = [];
+			}
+			
+			if (typeof diary.PendingPhotos === 'undefined') {
+				diary.PendingPhotos = [];
 			}
 
 			var photoData = {
 				Path: data.newUrlPath
 			};
 
-			diary.Photos.push(photoData);
+			diary.PendingPhotos.push(photoData);
 
 			diary.save(function (err, diary) {
 				if (err) {
 					response.send(500);
 				} else {
-					var newData = _.where(diary.Photos, photoData);
+					var newData = _.where(diary.PendingPhotos, photoData);
 
 					response.send(200, newData);
 				}
@@ -131,6 +136,33 @@ exports.uploadPhoto = Upload.UploadManager({
 		});
 	});
 });
+
+
+
+
+
+exports.removePendingPhoto = function (request, response) {
+	var id = request.body.id;
+	
+	User.findById(request.user.id, function (err, user) {
+		Diary.findOne({
+			User: user
+		}, function (err, diary) {
+			for (var i=0; i < diary.PendingPhotos.length; i++) {
+				if (diary.PendingPhotos[i]._id == id) {
+					diary.PendingPhotos.splice(i, 1);
+				}
+			}
+			diary.save(function (err, diary) {
+				if (err) {
+					response.send(500);
+				} else {
+					response.send(200);
+				}
+			});
+		});
+	});
+};
 
 
 

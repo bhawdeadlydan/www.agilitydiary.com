@@ -24,6 +24,7 @@ app.controller('MainController', [
 		$scope.post = {};
 		$scope.post.message = '';
 		$scope.post.click = postSomething;
+		$scope.removePendingPhotoClick = removePendingPhotoClick;
 		$scope.setThemeMainColour = setThemeMainColour;
 
 
@@ -52,6 +53,17 @@ app.controller('MainController', [
 				$rootScope.venuesSectionClass = '';
 				$rootScope.peopleSectionClass = 'active';
 
+			}, function (error) {
+
+			});
+		}
+
+
+
+
+		function removePendingPhotoClick(id) {
+			ProfileService.removePendingPhoto(id, function (data) {
+				$scope.fetchProfile();
 			}, function (error) {
 
 			});

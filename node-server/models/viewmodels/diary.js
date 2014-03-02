@@ -30,7 +30,9 @@ module.exports = function (data) {
 
 		Dogs: getEnabledDogs(data.Dogs),
 
-		Photos: data.Photos
+		Photos: data.Photos,
+		
+		PendingPhotos: data.PendingPhotos
 	};
 
 	return result;

@@ -21,6 +21,12 @@ var diarySchema = new mongoose.Schema({
 			}
 		}
 	],
+	
+	PendingPhotos: [
+		{
+			Path: String	
+		}		
+	],
 
 	Photos: [
 		{
