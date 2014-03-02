@@ -1,0 +1,41 @@
+
+<div class="bio">
+
+	<h1><span ng-bind="profile.User.profile.name"></span></h1>
+	<p class="edit"><a ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p>
+	<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+	<p>
+		<i class="fa fa-map-marker"></i>
+		Hampshire, UK
+	</p>
+</div>
+
+<div class="container avatarContainer">
+
+	<div class="primaryAvatarContainer">
+		<span ng-href="/" class="avatar primaryAvatar">
+			<img ng-src="{{ dog.Profile.Photo | imageSize: '128x128' }}" />
+		</span>
+	</div>
+
+	<div class="secondaryAvatarContainer" >
+
+
+		<span ng-repeat="loopDog in profile.Dogs">
+			<a class="avatar secondaryAvatar"
+
+				ng-href="/dogs/{{ loopDog._id }}"
+				ng-hide="loopDog._id===dog._id">
+				<img ng-src="{{ loopDog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+			</a>
+
+			<a class="avatar secondaryAvatar"
+				ng-show="loopDog._id===dog._id"
+				ng-href="/">
+				<img ng-src="{{ profile.User.profile.picture || 'app/images/dog.png' | imageSize: '64x64' }}" />
+			</a>
+
+		</span>
+	</div>
+
+</div>

@@ -103,21 +103,10 @@
 			<h2><a href="#"><i class="fa fa-picture-o"></i> Latest photos</a></h2>
 
 			<p ng-repeat="photo in profile.Photos">
-				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '200x150' }}" /></a>
+				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '150x100' }}" /></a>
 			</p>
 
-			<p>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
-			</p>
+
 
 			<a href="#">View all my photos</a>
 		</div>
