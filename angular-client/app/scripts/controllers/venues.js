@@ -154,21 +154,23 @@ app.controller('VenuesController', [
 					if (venue._id === id) {
 						$scope.venue = venue;
 
-						$scope.center.lat = venue.location.latitude;
-						$scope.center.lng = venue.location.longitude;
-						$scope.center.zoom = 15;
+						if ((angular.isDefined(venue.location)) && (venue.location !== null)) {
+							$scope.center.lat = venue.location.latitude;
+							$scope.center.lng = venue.location.longitude;
+							$scope.center.zoom = 15;
 
-						var newMarker = {
-							_id: venue._id,
-							lat: venue.location.latitude,
-							lng: venue.location.longitude,
-							message: null,
-							popupText: data.name,
-							focus: true,
-							draggable: false
-						};
+							var newMarker = {
+								_id: venue._id,
+								lat: venue.location.latitude,
+								lng: venue.location.longitude,
+								message: null,
+								popupText: data.name,
+								focus: true,
+								draggable: false
+							};
 
-						$scope.markers.Venue = newMarker;
+							$scope.markers.Venue = newMarker;
+						}
 					}
 				});
 			});

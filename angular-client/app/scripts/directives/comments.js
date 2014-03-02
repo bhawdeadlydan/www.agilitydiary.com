@@ -41,6 +41,8 @@ angular.module('browserAppApp')
 
 						});
 				}
+
+				loadComments();
 			},
 			controller: function ($scope, $element) {
 
@@ -48,6 +50,16 @@ angular.module('browserAppApp')
 				function commentSuccess() {
 					//loadComments();
 					$scope.message = '';
+
+					CommentsService.getComments($scope.item)
+						.success(function (data) {
+							if (!angular.equals($scope.commentList, data)) {
+								$scope.commentList = data;
+							}
+						})
+						.error(function (data) {
+
+						});
 				}
 
 				$scope.addComment = function () {

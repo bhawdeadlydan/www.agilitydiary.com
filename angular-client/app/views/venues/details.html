@@ -6,7 +6,7 @@
 
 		<nav class="tabs">
 			<a class="active" ng-href="/venues/details/{{ id }}">Details</a>
-			 
+
 		</nav>
 
 
@@ -23,13 +23,19 @@
 		</div>
 
 
-	 
+
 		<div class="contentWrapper">
 			<section class="contentMain">
 				<h3><span ng-bind="venue.name" ></span></h3>
 				<span ng-bind="venue.address" ></span>
 				<span ng-bind="venue.postcode" ></span>
-				 
+
+
+				<section class="comments">
+					<h2>Comments</h2>
+					<comments item="id" ></comments>
+				</section>
+
 			</section>
 
 
@@ -37,7 +43,7 @@
 
 			<section class="contentSub">
 
-		 
+
 			</section>
 
 		</div>
