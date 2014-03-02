@@ -213,18 +213,6 @@
 /**
  * @section        visuallyhidden
  */
-/* line 22, ../../layout/css-src/partials/placeholders/_visually-hidden.scss */
-.brandLogo span {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
 /**
  *       @notes    Extends the .visuallyhidden class to allow the element to be focusable
  *                 when navigated to via the keyboard: h5bp.com/p
@@ -1238,8 +1226,7 @@ select {
   background-color: #73afaa, 0.5;
   background-color: rgba(115, 175, 170, 0.5);
   overflow: hidden;
-  padding-left: 150px;
-  text-align: center;
+  text-align: left;
 }
 
 /**
@@ -1476,29 +1463,20 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo {
-  bottom: 0;
   color: #262626;
-  display: block;
-  font-size: 30px;
-  font-size: 3rem;
+  display: inline-block;
+  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
-  height: 72px;
-  left: .5em;
-  margin-right: 2em;
-  position: absolute;
-  right: 0;
-  top: .5em;
-  width: 72px;
-  z-index: 999999;
 }
-/* line 35, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 25, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo:hover {
   text-decoration: none;
 }
-/* line 39, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
-.brandLogo img {
-  text-align: center;
-  vertical-align: middle;
+/* line 29, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+.navPrimary .brandLogo {
+  margin-right: 2em;
+  padding-bottom: 0;
 }
 
 /**
@@ -2289,15 +2267,18 @@ select {
   padding: .5em .6em;
 }
 
-/* line 41, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
-input.searching {
+/**
+ * @section        searching
+ */
+/* line 44, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+.searching {
   border: solid 1px red;
 }
 
 /**
  * @section        searchResults
  */
-/* line 48, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 51, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults {
   background: white;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
@@ -2307,33 +2288,33 @@ input.searching {
   width: 50%;
   z-index: 9999;
 }
-/* line 61, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 64, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li {
   clear: both;
   overflow: hidden;
   padding: .25em .5em;
   position: relative;
 }
-/* line 67, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 70, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:first-child {
   padding-top: .5em;
 }
-/* line 71, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 74, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:last-child {
   padding-bottom: .5em;
 }
-/* line 75, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 78, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:hover {
   background: #73afaa;
   color: white;
   cursor: pointer;
   overflow: hidden;
 }
-/* line 83, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 86, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults i {
   margin-right: .5em;
 }
-/* line 87, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 90, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults img {
   float: left;
 }
@@ -2341,7 +2322,7 @@ input.searching {
 /**
  * @section        meta
  */
-/* line 95, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 98, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .meta {
   float: left;
   margin-left: 1em;
@@ -2350,7 +2331,7 @@ input.searching {
 /**
  * @section        metaDetail
  */
-/* line 104, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 107, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .metaDetail {
   font-size: 12px;
   font-size: 1.2rem;
