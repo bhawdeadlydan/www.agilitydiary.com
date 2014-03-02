@@ -1222,9 +1222,9 @@ select {
 /* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
 .layoutHeader {
   border-bottom: 0.25em solid white;
-  background-color: #73afaa;
-  background-color: #73afaa, 0.5;
-  background-color: rgba(115, 175, 170, 0.5);
+  background-color: #dedede;
+  background-color: #dedede, 0.5;
+  background-color: rgba(222, 222, 222, 0.5);
   overflow: hidden;
   text-align: left;
 }
@@ -1469,12 +1469,11 @@ select {
   font-size: 2rem;
   font-weight: bold;
 }
-/* line 25, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
-.brandLogo:hover {
+/* line 26, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+.navPrimary .brandLogo:hover {
   background: transparent;
-  text-decoration: none;
 }
-/* line 30, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 32, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .navPrimary .brandLogo {
   margin-right: 2em;
   padding-bottom: 0;

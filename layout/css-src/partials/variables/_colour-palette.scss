@@ -45,7 +45,7 @@ $color-brand-complementary2:    #fbeed3;
 /**
 * @section        Colour
 */
-$color-layout-header-bg    :    $color-brand;
+$color-layout-header-bg    :    darken($color-white, 13%); // output = #dedede
 $color-layout-header-border :   $color-white;
 $color-layout-wrapper-bg   :    lighten($color-black, 15%); // output = #262626
 

@@ -23,8 +23,10 @@
     font-weight: bold;
 
     &:hover {
-        background: transparent;
-        text-decoration: none;
+        .navPrimary & {
+            background: transparent;
+        }
+
     }
 
     .navPrimary & {
