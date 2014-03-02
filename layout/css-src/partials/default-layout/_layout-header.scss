@@ -23,6 +23,5 @@
     border-bottom: .25em solid $color-layout-header-border;
     @include rgba-bg($color-layout-header-bg, 5);
     overflow: hidden;
-    padding-left: 150px;
-    text-align: center;
+    text-align: left;
 }
