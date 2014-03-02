@@ -9,16 +9,13 @@
 
 	<div class="container">
 
-		<span>
-			<a ng-href="/"><img class="dogProfilePicture"  src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
-		</span>
 
-		<span ng-repeat="dog in profile.Dogs" >
-			<a ng-href="/dogs/{{ dog._id }}">
-				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+		<div>
+			<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a>
-		</span>
-
+			<!-- <br /><span ng-bind="dog.Profile.Name" /> -->
+		</div>
 
 
 		<!--<p><a ng-href="/dogs"><< Return to all dogs</a></p>-->
@@ -28,9 +25,10 @@
 		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
 
 		<nav class="tabs">
-			<a ng-href="/dogs/{{ dog._id }}">Details</a>
-			<a ng-href="/dogs/{{ dog._id }}/results">View/enter results</a>
+			<a ng-href="/dogs/{{ dog._id }}">Profile</a>
+			<a ng-href="/dogs/{{ dog._id }}/results">Results</a>
 			<a class="active" ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
+			<a ng-href="/dogs/{{ dog._id }}/details">Details</a>
 		</nav>
 
 		<div class="contentWrapper">
@@ -48,13 +46,7 @@
 
 			</section>
 
-			<section class="contentSub">
-				<a class="action" ng-href="/dogs/edit/{{ dog._id }}">Edit details</a>
-        <p>
-          <a href="" class="action warning">Hide</a>
-        </p>
 
-			</section>
 
 		</div>
 
