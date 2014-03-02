@@ -48,9 +48,24 @@ app.controller('DogController', [
 			var data = $scope.dog;
 
 			if (angular.isDefined($scope.dog._id)) {
-				ProfileService.updateDog(data, function (data) {
-					$location.path('/dogs');
-					$scope.profile = data;
+				var dogData = {
+					_id: $scope.dog._id,
+					breed: $scope.dog.breed.value,
+					dateofbirth: $scope.dog.dateofbirth,
+					kcgrade: $scope.dog.kcgrade.value,
+					kcheight: $scope.dog.kcheight.value,
+					kcregisteredname: $scope.dog.kcregisteredname,
+					kcregisterednumber: $scope.dog.kcregisterednumber,
+					microchip: $scope.dog.microchip,
+					name: $scope.dog.name,
+					photo: $scope.dog.photo,
+					sex: $scope.dog.sex.value,
+					tattoo: $scope.dog.tattoo
+				};
+
+				ProfileService.updateDog(dogData, function (data) {
+					$location.path('/dogs/' + $scope.dog._id);
+					$scope.fetchProfile();
 				}, function (error) {
 					console.log(error);
 				});
@@ -70,13 +85,30 @@ app.controller('DogController', [
 				};
 
 				ProfileService.addDog(dogData, function (data) {
-					$location.path('/dogs');
-					$scope.profile = data;
+					$location.path('/dogs/' + data._id);
+					$scope.fetchProfile();
 				}, function (error) {
 					console.log(error);
 				});
 			}
 		};
+
+
+
+
+		function lookupId(id) {
+			var result = id;
+
+			if (angular.isDefined($scope.profile) && ($scope.profile !== null)) {
+				_.each($scope.profile.Dogs, function (dogIterator) {
+					if (dogIterator.Profile.Name.toLowerCase() == id.toLowerCase()) {
+						result = dogIterator._id;
+					}
+				});
+			}
+
+			return result;
+		}
 
 
 
@@ -112,25 +144,28 @@ app.controller('DogController', [
 				console.log('Edit dog');
 
 				$scope.$watch('profile', function () {
-					_.each($scope.profile.Dogs, function (dogIterator) {
-						if (dogIterator._id == $routeParams.id) {
-							$scope.dog._id = dogIterator._id;
-							$scope.dog.name = dogIterator.Profile.Name;
-							$scope.dog.sex = dogIterator.Profile.Sex;
-							$scope.dog.dateofbirth = dogIterator.Profile.DateOfBirth;
-							$scope.dog.photo = dogIterator.Profile.Photo;
-							$scope.dog.breed = dogIterator.Profile.Breed;
+					if (angular.isDefined($scope.profile) && ($scope.profile !== null)) {
+						_.each($scope.profile.Dogs, function (dogIterator) {
+							if (dogIterator._id == $routeParams.id) {
+								$scope.dog._id = dogIterator._id;
+								$scope.dog.name = dogIterator.Profile.Name;
+								$scope.dog.sex = _.findWhere(DogConstants.sexes, { value: dogIterator.Profile.Sex });
+								$scope.dog.dateofbirth = dogIterator.Profile.DateOfBirth;
+								$scope.dog.photo = dogIterator.Profile.Photo;
+								$scope.dog.breed = _.findWhere(DogConstants.kennelClub.breedOptions, { value: dogIterator.Profile.Breed });
 
-							if (angular.isDefined(dogIterator.Profile.KennelClub)) {
-								$scope.dog.kcheight = dogIterator.Profile.KennelClub.Height;
-								$scope.dog.kcgrade = dogIterator.Profile.KennelClub.Grade;
-								$scope.dog.kcregisteredname = dogIterator.Profile.KennelClub.RegisteredName;
-								$scope.dog.kcregisterednumber = dogIterator.Profile.KennelClub.RegisteredNumber;
+								if (angular.isDefined(dogIterator.Profile.KennelClub)) {
+									$scope.dog.kcheight = _.findWhere(DogConstants.kennelClub.heightOptions, { value: dogIterator.Profile.KennelClub.Height });
+									$scope.dog.kcgrade = _.findWhere(DogConstants.kennelClub.gradeOptions, { value: dogIterator.Profile.KennelClub.Grade });
+									$scope.dog.kcregisteredname = dogIterator.Profile.KennelClub.RegisteredName;
+									$scope.dog.kcregisterednumber = dogIterator.Profile.KennelClub.RegisteredNumber;
+								}
+
+								$scope.dog.microchip = dogIterator.Profile.Microchip;
+								$scope.dog.tattoo = dogIterator.Profile.Tattoo;
 							}
-
-							$scope.dog.micrcohip = dogIterator.Profile.Microchip;
-						}
-					});
+						});
+					}
 				});
 
 				if (document.querySelector('div#addImage') !== null) {
@@ -145,12 +180,14 @@ app.controller('DogController', [
 					});
 				}
 				break;
+
+			case 'results':
 			case 'details':
 				console.log('Details');
 
 				$scope.$watch('profile', function () {
 					_.each($scope.profile.Dogs, function (dogIterator) {
-						if (dogIterator._id == $routeParams.id) {
+						if (dogIterator._id == lookupId($routeParams.id)) {
 							$scope.dog = dogIterator;
 						}
 					});
@@ -158,7 +195,7 @@ app.controller('DogController', [
 
 				if (document.querySelector('div#addImage') !== null) {
 					var profileDropzone = new Dropzone('div#addImage', {
-						url: '/agility-diary/user/add-dog-photo?id=' + $routeParams.id
+						url: '/agility-diary/user/add-dog-photo?id=' + lookupId($routeParams.id)
 					});
 
 					profileDropzone.on('complete', function file() {

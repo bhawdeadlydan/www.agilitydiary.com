@@ -9,16 +9,16 @@
 
 	<div class="container">
 
-		<!-- <span>
+		<span>
 			<a ng-href="/"><img class="dogProfilePicture"  src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
-		</span> -->
+		</span>
 
-		<div>
-			<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+		<span ng-repeat="dog in profile.Dogs" >
+			<a ng-href="/dogs/{{ dog._id }}">
+				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
 			</a>
-			<!-- <br /><span ng-bind="dog.Profile.Name" /> -->
-		</div>
+		</span>
+
 
 
 		<!--<p><a ng-href="/dogs"><< Return to all dogs</a></p>-->
@@ -28,28 +28,17 @@
 		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
 
 		<nav class="tabs">
-			<a class="active" ng-href="/dogs/{{ dog._id }}">Details</a>
-			<a ng-href="/dogs/{{ dog._id }}/results">View/enter results</a>
+			<a ng-href="/dogs/{{ dog._id }}">Details</a>
+			<a class="active" ng-href="/dogs/{{ dog._id }}/results">View/enter results</a>
 			<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
 		</nav>
 
 		<div class="contentWrapper">
 			<section class="contentMain">
 
-				<h2>Details</h2>
 
-				<p>Breed: {{ dog.Profile.Breed }}</p>
-				<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
-				<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
-				<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
-				<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
-				<p>Date of birth: {{ dog.Profile.DateOfBirth | date:'mediumDate' }}</p>
-				<p>Sex: {{ dog.Profile.Sex }}</p>
-				<p>Microchip No: {{ dog.Profile.Microchip }}</p>
-				<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
+  				<h2>Results</h2>
 
-				<!-- <h2>Results</h2>
-				<p>@@only list this dog's results here</p>
 				<div ng-repeat="dog in profile.Dogs">
 					<h3 ng-bind="dog.Profile.Name"></h3>
 
@@ -80,21 +69,21 @@
 					</table>
 				</div>
 
-				<div class="uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
+				<div class="uploadImage" id="addImage" style="">⇧ Upload Photo
 					<span class="dz-message"></span>
 					<span data-dz-name=""></span>
 					<span data-dz-details=""></span>
 					<span data-dz-size=""></span>
 					<span data-dz-errormessage=""></span>
-				</div> -->
+				</div>
 
 			</section>
 
 			<section class="contentSub">
 				<a class="action" ng-href="/dogs/edit/{{ dog._id }}">Edit details</a>
-				<p>
-					<a href="" class="action warning">Hide</a>
-				</p>
+        <p>
+          <a href="" class="action warning">Hide</a>
+        </p>
 
 			</section>
 

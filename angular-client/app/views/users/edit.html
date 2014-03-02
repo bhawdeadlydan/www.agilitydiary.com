@@ -1,9 +1,8 @@
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 
-<section class="main profile dynamicProfile">
 
-	<!-- <div class="profileCover" style="background-image: url('/app/images/profile-background.jpg')"></div> -->
+<section class="main profile dynamicProfile">
 
 	<div ng-include src="'app/views/shared/header.html'"></div>
 
@@ -12,6 +11,7 @@
 
 		<h1 style="clear:both;">Change your background by dragging a photo here</h1>
 		<div class="action uploadImage" id="uploadProfileBackgroundImage" style=""><i class="fa fa-upload"></i> Upload Photo
+
 			<span class="dz-message"></span>
 			<span data-dz-name=""></span>
 			<span data-dz-details=""></span>
@@ -39,17 +39,4 @@
 		<div style="background-color: #fff">&nbsp;
 				<button ng-click="setThemeMainColour('#fff');">Make this the profile colour</button>
 			</div>
-
-
-	</div>
-</section>
-
-<style >
-.uploadImage {
-	background: palegreen;
-	width: 150px;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	font-weight: bold;
-}</style>
+</div>

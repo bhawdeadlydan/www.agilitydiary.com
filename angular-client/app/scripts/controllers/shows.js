@@ -42,6 +42,8 @@ app.controller('ShowsController', [
 			results: []
 		};
 
+		$scope.showCategorySelector = false;
+
 
 		/**
 		 * click handlers
