@@ -1,43 +1,38 @@
-
-
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 <section class="main profile dynamicProfile" ng-show="profile">
-<div ng-include src="'app/views/shared/header.html'"></div>
 
-<section class="dogs details">
+	<div class="hero" ng-include src="'app/views/shared/hero.html'"></div>
 
-	<div class="container">
+	<section class="dogs details">
 
-		<div ng-include src="'app/views/dogs/dogNav.html'"></div>
+		<div class="container">
 
-		<h1>{{ dog.Profile.Name }}</h1>
+			<h1>{{ dog.Profile.Name }}</h1>
 
-		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
+			<nav class="tabs">
+				<a class="active" ng-href="/dogs/{{ dog._id }}">Profile</a>
+				<a ng-href="/dogs/{{ dog._id }}/results">Results</a>
+				<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
+				<a ng-href="/dogs/{{ dog._id }}/details">Details</a>
+			</nav>
 
-		<nav class="tabs">
-			<a class="active" ng-href="/dogs/{{ dog._id }}">Profile</a>
-			<a ng-href="/dogs/{{ dog._id }}/results">Results</a>
-			<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
-			<a ng-href="/dogs/{{ dog._id }}/details">Details</a>
-		</nav>
+			<div class="contentWrapper">
+				<section class="contentMain">
 
-		<div class="contentWrapper">
-			<section class="contentMain">
+					<h2>THIS IS THE DOG PROFILE PAGE</h2>
+				</section>
 
-				<h2>THIS IS THE DOG PROFILE PAGE</h2>
-			</section>
+			</div>
 
 		</div>
 
-	</div>
 
 
+		<span ng-repeat="photo in dog.Photos">
+			<img src="{{ photo.Path }}_80x60" />
+		</span>
 
-	<span ng-repeat="photo in dog.Photos">
-		<img src="{{ photo.Path }}_80x60" />
-	</span>
-
-</section>
+	</section>
 
 </section>

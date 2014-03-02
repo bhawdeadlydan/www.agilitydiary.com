@@ -1,19 +1,18 @@
-
-
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 <section class="main profile dynamicProfile" ng-show="profile">
+
 <div ng-include src="'app/views/shared/header.html'"></div>
+
+	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture || 'app/images/profile-background.jpg' }} )"></div>
+
+	<div class="hero" ng-include src="'app/views/shared/hero.html'"></div>
 
 <section class="dogs details">
 
 	<div class="container">
 
-		<div ng-include src="'app/views/dogs/dogNav.html'"></div>
-
 		<h1>{{ dog.Profile.Name }}</h1>
-
-		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
 
 		<nav class="tabs">
 			<a ng-href="/dogs/{{ dog._id }}">Profile</a>

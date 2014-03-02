@@ -1,128 +1,123 @@
-
-
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 <section class="main profile dynamicProfile" ng-show="profile">
-<div ng-include src="'app/views/shared/header.html'"></div>
 
-<section class="dogs details">
+	<div class="hero" ng-include src="'app/views/shared/hero.html'"></div>
 
-	<div class="container">
+	<section class="dogs details">
 
-		<div ng-include src="'app/views/dogs/dogNav.html'"></div>
+		<div class="container">
 
-		<h1>{{ dog.Profile.Name }}</h1>
+			<h1>{{ dog.Profile.Name }}</h1>
 
-		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
+			<nav class="tabs">
+				<a ng-href="/dogs/{{ dog._id }}">Profile</a>
+				<a class="active" ng-href="/dogs/{{ dog._id }}/results">Results</a>
+				<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
+				<a ng-href="/dogs/{{ dog._id }}/details">Details</a>
+			</nav>
 
-		<nav class="tabs">
-			<a ng-href="/dogs/{{ dog._id }}">Profile</a>
-			<a class="active" ng-href="/dogs/{{ dog._id }}/results">Results</a>
-			<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
-			<a ng-href="/dogs/{{ dog._id }}/details">Details</a>
-		</nav>
+			<div class="contentWrapper">
+				<section class="contentMain">
 
-		<div class="contentWrapper">
-			<section class="contentMain">
+					<h2>Add results</h2>
 
-				<h2>Add results</h2>
+						<form name="form" parsley-validate>
 
-					<form name="form" parsley-validate>
-
-						<input type="hidden" ng-model="controls.dogId" ng-value="dog._id" />
+							<input type="hidden" ng-model="controls.dogId" ng-value="dog._id" />
 
 
+
+							<div class="formField formInput formText">
+								<label for="class">Class</label>
+								<input type="textbox" id="class" name="class" ng-model="controls.class" ng-required="true" />
+							</div>
+
+							<div class="formField formInput formText">
+								<label for="time">Time</label>
+								<input type="textbox" id="time" name="time" ng-model="controls.time" ng-required="true" />
+							</div>
 
 						<div class="formField formInput formText">
-							<label for="class">Class</label>
-							<input type="textbox" id="class" name="class" ng-model="controls.class" ng-required="true" />
+							<label for="faults">Faults</label>
+							<input type="textbox" id="faults" name="faults" ng-model="controls.faults" ng-required="true" />
 						</div>
 
 						<div class="formField formInput formText">
-							<label for="time">Time</label>
-							<input type="textbox" id="time" name="time" ng-model="controls.time" ng-required="true" />
+							<label for="Place">Place</label>
+							<input type="textbox" id="Place" name="Place" ng-model="controls.place" ng-required="true" />
 						</div>
 
-					<div class="formField formInput formText">
-						<label for="faults">Faults</label>
-						<input type="textbox" id="faults" name="faults" ng-model="controls.faults" ng-required="true" />
-					</div>
+						<div class="formField formInput formText">
+							<label for="judge">Judge's name</label>
+							<input type="textbox" id="judge" name="judge" ng-model="controls.judge" />
+						</div>
 
-					<div class="formField formInput formText">
-						<label for="Place">Place</label>
-						<input type="textbox" id="Place" name="Place" ng-model="controls.place" ng-required="true" />
-					</div>
+						<div class="formField formInput formText">
+							<label for="points">Agility warrant points</label>
+							<input type="textbox" id="points" name="points" ng-model="controls.points" />
+						</div>
 
-					<div class="formField formInput formText">
-						<label for="judge">Judge's name</label>
-						<input type="textbox" id="judge" name="judge" ng-model="controls.judge" />
-					</div>
-
-					<div class="formField formInput formText">
-						<label for="points">Agility warrant points</label>
-						<input type="textbox" id="points" name="points" ng-model="controls.points" />
-					</div>
-
-					<div class="formField formActions">
-						<button class="action" ng-click="controls.saveRecord()">Save</button>
-					</div>
-			</form>
+						<div class="formField formActions">
+							<button class="action" ng-click="controls.saveRecord()">Save</button>
+						</div>
+				</form>
 
 
-  				<h2>Results</h2>
+						<h2>Results</h2>
 
 
 
 
 
-					<table>
-						<thead>
-							<tr>
-								<th>Date</th>
-								<th>Show</th>
-								<th>Class</th>
-								<th>Time</th>
-								<th>Faults</th>
-								<th>Place</th>
-								<th>Judge's name</th>
-								<th>Agility Warrant Points</th>
+						<table>
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Show</th>
+									<th>Class</th>
+									<th>Time</th>
+									<th>Faults</th>
+									<th>Place</th>
+									<th>Judge's name</th>
+									<th>Agility Warrant Points</th>
+								</tr>
+							</thead>
+
+							<tr ng-repeat="result in dog.Results">
+								<td><span ng-bind="result.Date" /></td>
+								<td><span ng-bind="result.Show" /></td>
+								<td><span ng-bind="result.Class" /></td>
+								<td><span ng-bind="result.Time" /><td>
+								<td><span ng-bind="result.Faults" /></td>
+								<td><span ng-bind="result.Place" /></td>
+								<td><span ng-bind="result.Judge" /></td>
+								<td><span ng-bind="result.Points" /></td>
 							</tr>
-						</thead>
-
-						<tr ng-repeat="result in dog.Results">
-							<td><span ng-bind="result.Date" /></td>
-							<td><span ng-bind="result.Show" /></td>
-							<td><span ng-bind="result.Class" /></td>
-							<td><span ng-bind="result.Time" /><td>
-							<td><span ng-bind="result.Faults" /></td>
-							<td><span ng-bind="result.Place" /></td>
-							<td><span ng-bind="result.Judge" /></td>
-							<td><span ng-bind="result.Points" /></td>
-						</tr>
-					</table>
+						</table>
 
 
-				<div class="uploadImage" id="addImage" style="">⇧ Upload Photo
-					<span class="dz-message"></span>
-					<span data-dz-name=""></span>
-					<span data-dz-details=""></span>
-					<span data-dz-size=""></span>
-					<span data-dz-errormessage=""></span>
-				</div>
+					<div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
+						<span class="dz-message"></span>
+						<span data-dz-name=""></span>
+						<span data-dz-details=""></span>
+						<span data-dz-size=""></span>
+						<span data-dz-errormessage=""></span>
+					</div>
 
-			</section>
+				</section>
 
+
+			</div>
 
 		</div>
 
-	</div>
 
 
+		<span ng-repeat="photo in dog.Photos">
+			<img src="{{ photo.Path }}_80x60" />
+		</span>
 
-	<span ng-repeat="photo in dog.Photos">
-		<img src="{{ photo.Path }}_80x60" />
-	</span>
-
-</section>
+	</section>
 
 </section>

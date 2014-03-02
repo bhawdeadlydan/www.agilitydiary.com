@@ -1471,9 +1471,10 @@ select {
 }
 /* line 25, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .brandLogo:hover {
+  background: transparent;
   text-decoration: none;
 }
-/* line 29, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 30, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .navPrimary .brandLogo {
   margin-right: 2em;
   padding-bottom: 0;
@@ -2083,6 +2084,14 @@ select {
   height: 32px;
   margin: .5em;
   width: 32px;
+}
+
+/**
+ * @section        selectedAvatar
+ */
+/* line 78, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+.selectedAvatar {
+  background-color: black;
 }
 
 /**
