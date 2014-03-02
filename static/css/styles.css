@@ -1982,6 +1982,12 @@ select {
 .hero img {
   vertical-align: middle;
 }
+/* line 28, ../../layout/css-src/partials/modules/_mod-hero.scss */
+.hero .edit {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
 
 /**
  * @description    styling for the bio module
