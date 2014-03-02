@@ -146,8 +146,6 @@ app.controller('DogController', [
 				points: $scope.controls.points
 			};
 
-			debugger;
-
 			ProfileService.addResult(data)
 				.success($scope.fetchProfile)
 				.error(saveRecordError);

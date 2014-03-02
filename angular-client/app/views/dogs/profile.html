@@ -9,15 +9,7 @@
 
 	<div class="container">
 
-		<div>
-			<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
-			</a>
-			<!-- <br /><span ng-bind="dog.Profile.Name" /> -->
-		</div>
-
-
-		<!--<p><a ng-href="/dogs"><< Return to all dogs</a></p>-->
+		<div ng-include src="'app/views/dogs/dogNav.html'"></div>
 
 		<h1>{{ dog.Profile.Name }}</h1>
 

@@ -1,0 +1,10 @@
+<div>
+	<a class="avatar secondaryAvatar"
+		ng-href="/dogs/{{ loopDog._id }}"
+		ng-repeat="loopDog in profile.Dogs"
+		ng-class="loopDog._id===dog._id ? 'active':''">
+		<img ng-src="{{ loopDog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+	</a>
+	<!-- <br /><span ng-bind="dog.Profile.Name" /> -->
+</div>
+
