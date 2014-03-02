@@ -179,7 +179,7 @@ app.controller('DogController', [
 			case 'add':
 				$scope.message = 'Add dog';
 				break;
-
+$scope.profile
 			case 'edit':
 				$scope.message = 'Edit dog';
 				console.log('Edit dog');
@@ -227,11 +227,13 @@ app.controller('DogController', [
 				console.log('Details');
 
 				$scope.$watch('profile', function () {
-					_.each($scope.profile.Dogs, function (dogIterator) {
-						if (dogIterator._id == lookupId($routeParams.id)) {
-							$scope.dog = dogIterator;
-						}
-					});
+					if (angular.isDefined($scope.profile) && ($scope.profile !== null)) {
+						_.each($scope.profile.Dogs, function (dogIterator) {
+							if (dogIterator._id == lookupId($routeParams.id)) {
+								$scope.dog = dogIterator;
+							}
+						});
+					}
 				});
 
 				if (document.querySelector('div#addImage') !== null) {

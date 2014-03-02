@@ -1,7 +1,11 @@
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 <section class="main profile dynamicProfile" ng-show="profile">
-	<div class="hero" ng-include src="'app/views/shared/hero.html'"></div>
+	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture || 'app/images/profile-background.jpg' }} )"></div>
+
+
+	<div class="hero" ng-include src="'app/views/shared/dogHero.html'"></div>
+
 
 	<section class="dogs details">
 
@@ -40,7 +44,7 @@
 
 
 		<span ng-repeat="photo in dog.Photos">
-			<img src="{{ photo.Path }}_80x60" />
+			<img ng-src="{{ photo.Path }}_80x60" />
 		</span>
 
 	</section>

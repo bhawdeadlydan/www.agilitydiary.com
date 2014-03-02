@@ -67,6 +67,10 @@ exports.uploadFile = Upload.UploadManager({
 		{
 			width: 128,
 			height: 128
+		},
+		{
+			width: 24,
+			height: 24
 		}
 	]
 }, function (request, response, data) {
@@ -90,6 +94,10 @@ exports.uploadPhoto = Upload.UploadManager({
 		{
 			width: 200,
 			height: 150
+		},
+		{
+			width: 150,
+			height: 100
 		},
 		{
 			width: 400,
@@ -185,6 +193,14 @@ exports.addDogPhoto = Upload.UploadManager({
 		{
 			width: 64,
 			height: 64
+		},
+		{
+			width: 128,
+			height: 128
+		},
+		{
+			width: 24,
+			height: 24
 		}
 	]
 }, function (request, response, data) {
@@ -267,6 +283,14 @@ exports.setDogProfilePhoto = Upload.UploadManager({
 		{
 			width: 64,
 			height: 64
+		},
+		{
+			width: 128,
+			height: 128
+		},
+		{
+			width: 24,
+			height: 24
 		}
 	]
 }, function (request, response, data) {
