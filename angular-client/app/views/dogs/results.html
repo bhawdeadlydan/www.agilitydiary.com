@@ -9,15 +9,13 @@
 
 	<div class="container">
 
-		<span>
-			<a ng-href="/"><img class="dogProfilePicture"  src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
-		</span>
 
-		<span ng-repeat="dog in profile.Dogs" >
-			<a ng-href="/dogs/{{ dog._id }}">
-				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+		<div>
+			<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a>
-		</span>
+			<!-- <br /><span ng-bind="dog.Profile.Name" /> -->
+		</div>
 
 
 
@@ -28,19 +26,64 @@
 		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
 
 		<nav class="tabs">
-			<a ng-href="/dogs/{{ dog._id }}">Details</a>
-			<a class="active" ng-href="/dogs/{{ dog._id }}/results">View/enter results</a>
+			<a ng-href="/dogs/{{ dog._id }}">Profile</a>
+			<a class="active" ng-href="/dogs/{{ dog._id }}/results">Results</a>
 			<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
+			<a ng-href="/dogs/{{ dog._id }}/details">Details</a>
 		</nav>
 
 		<div class="contentWrapper">
 			<section class="contentMain">
 
+				<h2>Add results</h2>
+
+					<form name="form" parsley-validate>
+
+						<input type="hidden" ng-model="controls.dogId" ng-value="dog._id" />
+
+
+
+						<div class="formField formInput formText">
+							<label for="class">Class</label>
+							<input type="textbox" id="class" name="class" ng-model="controls.class" ng-required="true" />
+						</div>
+
+						<div class="formField formInput formText">
+							<label for="time">Time</label>
+							<input type="textbox" id="time" name="time" ng-model="controls.time" ng-required="true" />
+						</div>
+
+					<div class="formField formInput formText">
+						<label for="faults">Faults</label>
+						<input type="textbox" id="faults" name="faults" ng-model="controls.faults" ng-required="true" />
+					</div>
+
+					<div class="formField formInput formText">
+						<label for="Place">Place</label>
+						<input type="textbox" id="Place" name="Place" ng-model="controls.place" ng-required="true" />
+					</div>
+
+					<div class="formField formInput formText">
+						<label for="judge">Judge's name</label>
+						<input type="textbox" id="judge" name="judge" ng-model="controls.judge" />
+					</div>
+
+					<div class="formField formInput formText">
+						<label for="points">Agility warrant points</label>
+						<input type="textbox" id="points" name="points" ng-model="controls.points" />
+					</div>
+
+					<div class="formField formActions">
+						<button class="action" ng-click="controls.saveRecord()">Save</button>
+					</div>
+			</form>
+
 
   				<h2>Results</h2>
 
-				<div ng-repeat="dog in profile.Dogs">
-					<h3 ng-bind="dog.Profile.Name"></h3>
+
+
+
 
 					<table>
 						<thead>
@@ -56,18 +99,18 @@
 							</tr>
 						</thead>
 
-						<tr ng-repeat="result in filterResultsForShow(dog.Results)">
-							<td></td>
-							<td></td>
-							<td></td>
+						<tr ng-repeat="result in dog.Results">
+							<td><span ng-bind="result.Date" /></td>
+							<td><span ng-bind="result.Show" /></td>
+							<td><span ng-bind="result.Class" /></td>
 							<td><span ng-bind="result.Time" /><td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td><span ng-bind="result.Faults" /></td>
+							<td><span ng-bind="result.Place" /></td>
+							<td><span ng-bind="result.Judge" /></td>
 							<td><span ng-bind="result.Points" /></td>
 						</tr>
 					</table>
-				</div>
+
 
 				<div class="uploadImage" id="addImage" style="">⇧ Upload Photo
 					<span class="dz-message"></span>
@@ -79,13 +122,6 @@
 
 			</section>
 
-			<section class="contentSub">
-				<a class="action" ng-href="/dogs/edit/{{ dog._id }}">Edit details</a>
-        <p>
-          <a href="" class="action warning">Hide</a>
-        </p>
-
-			</section>
 
 		</div>
 

@@ -87,15 +87,15 @@ app.controller('ShowsController', [
 				totalPages: 1,
 				results: [],
 				pages: [],
-				backClick: function() {
+				backClick: function () {
 					$scope.paging.page--;
 					paginate();
 				},
-				nextClick: function() {
+				nextClick: function () {
 					$scope.paging.page++;
 					paginate();
 				},
-				jumpToPage: function(page) {
+				jumpToPage: function (page) {
 					$scope.paging.page = page;
 					paginate();
 				}
@@ -160,7 +160,7 @@ app.controller('ShowsController', [
 
 				if ($scope.selectedCategories.length > 0) {
 					if ($scope.showHasSelectedCategory(item)) {
-							includeThis = true;
+						includeThis = true;
 					} else {
 						includeThis = false;
 					}

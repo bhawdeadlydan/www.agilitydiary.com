@@ -24,35 +24,16 @@
 		<!--<p><img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" /></p>-->
 
 		<nav class="tabs">
-			<a ng-href="/dogs/{{ dog._id }}">Profile</a>
+			<a class="active" ng-href="/dogs/{{ dog._id }}">Profile</a>
 			<a ng-href="/dogs/{{ dog._id }}/results">Results</a>
 			<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
-			<a class="active" ng-href="/dogs/{{ dog._id }}/details">Details</a>
+			<a ng-href="/dogs/{{ dog._id }}/details">Details</a>
 		</nav>
 
 		<div class="contentWrapper">
 			<section class="contentMain">
 
-				<h2>Details</h2>
-
-				<p>Breed: {{ dog.Profile.Breed }}</p>
-				<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
-				<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
-				<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
-				<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
-				<p>Date of birth: {{ dog.Profile.DateOfBirth | date:'mediumDate' }}</p>
-				<p>Sex: {{ dog.Profile.Sex }}</p>
-				<p>Microchip No: {{ dog.Profile.Microchip }}</p>
-				<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
-
-
-
-			</section>
-
-			<section class="contentSub">
-				<a class="action" ng-href="/dogs/{{ dog._id }}/edit">Edit details</a>
-
-
+				<h2>THIS IS THE DOG PROFILE PAGE</h2>
 			</section>
 
 		</div>

@@ -8,9 +8,8 @@
 <section class="dogs edit">
 
 	<div class="container">
-		<p><a ng-href="#/dogs"><< Dogs</a></p>
 
-		<h1><img src="{{ dog.photo }}_80x60" /> Edit <a ng-href="#/dogs/{{ dog._id }}">{{ dog.name }}</a></h1>
+		<h1><img src="{{ dog.photo }}_80x60" /> <a ng-href="#/dogs/{{ dog._id }}">{{ dog.name }}</a></h1>
 
 
 		<div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
@@ -76,6 +75,8 @@
 
 
 			<div class="formActions">
+				<a class="action" ng-href="/profile">Back</a>
+
 				<button class="action" ng-click="saveDog();">
 					Save
 				</button>

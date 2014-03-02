@@ -1,9 +1,19 @@
 var app = angular.module('browserAppApp');
 
 app.controller('DogController', [
-	'$scope', 'Mapdata', 'ShowService', 'ProfileService', '$location', '$route', '$routeParams', 'DogConstants',
-	function DogController($scope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams, DogConstants) {
+	'$rootScope', '$scope', 'Mapdata', 'ShowService', 'ProfileService', '$location', '$route', '$routeParams', 'DogConstants',
+	function DogController($rootScope, $scope, Mapdata, ShowService, ProfileService, $location, $route, $routeParams, DogConstants) {
 		"use strict";
+
+
+		/**
+		 * Module level variables
+		 */
+		$rootScope.homeSectionClass = 'active';
+		$rootScope.showsSectionClass = '';
+		$rootScope.mapSectionClass = '';
+		$rootScope.venuesSectionClass = '';
+		$rootScope.peopleSectionClass = '';
 
 		/**
 		 * Module level variables
@@ -22,11 +32,12 @@ app.controller('DogController', [
 			photo: ''
 
 		};
+		$scope.controls = {};
 		$scope.sexOptions = DogConstants.sexes;
 		$scope.kcgradeOptions = DogConstants.kennelClub.gradeOptions;
 		$scope.kcheightOptions = DogConstants.kennelClub.heightOptions;
 		$scope.breedOptions = DogConstants.kennelClub.breedOptions;
-
+		$scope.controls.saveRecord = saveRecord;
 
 
 
@@ -108,6 +119,38 @@ app.controller('DogController', [
 			}
 
 			return result;
+		}
+
+
+
+
+		function saveRecordError(response) {
+		}
+
+
+
+
+		function saveRecord() {
+			if (!$scope.form.$valid) {
+				return;
+			}
+
+			var data = {
+				dogId: lookupId($routeParams.id),
+				showId: $scope.id,
+				class: $scope.controls.class,
+				time: $scope.controls.time,
+				faults: $scope.controls.faults,
+				place: $scope.controls.place,
+				judge: $scope.controls.judge,
+				points: $scope.controls.points
+			};
+
+			debugger;
+
+			ProfileService.addResult(data)
+				.success($scope.fetchProfile)
+				.error(saveRecordError);
 		}
 
 

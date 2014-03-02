@@ -7,7 +7,42 @@
 	<div ng-include src="'app/views/shared/header.html'"></div>
 
 
+	<section class="dogs edit">
+
+		<div class="container">
+			<h1>My dogs</h1>
+
+			<div class="contentWrapper">
+				<div class="contentMain">
+
+					<section class="dogsList">
+
+						<p ng-show="!profile.Dogs.length">
+							You have no dogs yet, would you like to <a class="action" ng-href="#/dogs/add">add a dog</a>?
+						</p>
+
+						<div>
+							<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}/edit" ng-repeat="dog in profile.Dogs">
+								<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+							</a>
+							<br /><span ng-bind="dog.Profile.Name" />
+						</div>
+					</section>
+
+				</div>
+				<div class="contentSub">
+
+					<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
 	<div class="container">
+
 
 		<h1 style="clear:both;">Change your background by dragging a photo here</h1>
 		<div class="action uploadImage" id="uploadProfileBackgroundImage" style=""><i class="fa fa-upload"></i> Upload Photo

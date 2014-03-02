@@ -43,14 +43,20 @@ angular.module('browserAppApp', [
 			action: 'list'
 		})
 
-		.when('/dogs/edit/:id', {
+		.when('/dogs/:id/edit', {
 			templateUrl: 'app/views/dogs/edit.html',
 			controller: 'DogController',
 			action: 'edit'
 		})
 
-		.when('/dogs/:id', {
+		.when('/dogs/:id/details', {
 			templateUrl: 'app/views/dogs/details.html',
+			controller: 'DogController',
+			action: 'details'
+		})
+
+		.when('/dogs/:id', {
+			templateUrl: 'app/views/dogs/profile.html',
 			controller: 'DogController',
 			action: 'details'
 		})
