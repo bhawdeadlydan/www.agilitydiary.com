@@ -46,7 +46,7 @@
 						</div>
 
 						<div class="eventShortDetail">
-							<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
+							<h2><a ng-href="/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
 
 							<p class="tags">
 								<a class="tag tagShowType tag{{ event.Meta.ShowType }}"
@@ -59,7 +59,7 @@
 							<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
 
 							<p>
-								<a href="#"><span ng-bind="event.Venue.Name" /></a>,
+								<a ng-href="/venues/details/{{ event.Venue.Id }}"><span ng-bind="event.Venue.Name" /></a>,
 								<span ng-bind="event.Venue.Address" />,
 								<span ng-bind="event.Venue.PostCode" />
 							</p>

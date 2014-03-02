@@ -1,0 +1,26 @@
+<style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
+
+<section class="main profile dynamicProfile" ng-show="profile">
+
+	<div ng-include src="'app/views/shared/header.html'"></div>
+
+	<section class="panel">
+		<div class="container">
+
+			<h2>Photo details</h2>
+
+			<img src="{{ photo.Path | imageSize: '200x150' }}" />
+
+
+			<comments item="photoId" ></comments>
+
+		</div>
+	</section>
+
+
+
+
+
+
+
+</section>

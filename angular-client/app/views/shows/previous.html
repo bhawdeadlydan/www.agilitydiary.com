@@ -60,7 +60,7 @@
 								<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
 
 								<div>Venue:
-									<a href="#"><span ng-bind="event.Venue.Name" /></a>,
+									<a ng-href="/venues/details/{{ event.Venue.Id }}"><span ng-bind="event.Venue.Name" /></a>,
 									<span ng-bind="event.Venue.Address" />,
 									<span ng-bind="event.Venue.PostCode" />
 								</div>

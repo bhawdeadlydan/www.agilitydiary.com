@@ -56,7 +56,7 @@
 
 	<section class="panel enteredShowsList">
 		<div class="container">
-			<h2><a href="/shows/upcoming"><i class="fa fa-dot-circle-o"></i> Entered shows</a></h2>
+			<h2><a href="/shows/entered"><i class="fa fa-dot-circle-o"></i> Entered shows</a></h2>
 
 			<p ng-show="!profile.EnteredShows.length">
 				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
@@ -72,7 +72,7 @@
 						 to <span ng-bind="show.ShowEnd" />
 						</span></p>
 
-					<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a href="#"><span ng-bind="show.Venue.Name" /></a>,
+					<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a ng-href="/venues/details/{{ show.Venue.Id }}"><span ng-bind="show.Venue.Name" /></a>,
 					<br /><span ng-bind="show.Venue.Address" />,
 					<br /><span ng-bind="show.Venue.PostCode" /></p>
 
@@ -82,7 +82,6 @@
 				</div>
 			</div>
 
-			<p><a ng-href="#/shows/entered">View all your entered Shows</a></p>
 		</div>
 	</section>
 
