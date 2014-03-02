@@ -46,6 +46,10 @@ open2.then(function (conn) {
 */
 
 
+
+/**
+ * Upload avatar
+ */
 exports.uploadFile = Upload.UploadManager({
 	scale: [
 		{
@@ -59,6 +63,10 @@ exports.uploadFile = Upload.UploadManager({
 		{
 			width: 64,
 			height: 64
+		},
+		{
+			width: 128,
+			height: 128
 		}
 	]
 }, function (request, response, data) {
@@ -74,6 +82,9 @@ exports.uploadFile = Upload.UploadManager({
 
 
 
+/**
+ * Add photo to photo album
+ */
 exports.uploadPhoto = Upload.UploadManager({
 	scale: [
 		{
@@ -689,7 +700,7 @@ exports.addDog = function (req, res) {
 				res.send(500, { error: 'Error' });
 			}
 
-			diary.Dogs.push({
+			var dogData = {
 				Status: 'enabled',
 				Profile: {
 					Name: req.body.name,
@@ -706,11 +717,15 @@ exports.addDog = function (req, res) {
 					Microchip: req.body.microchip,
 					Tattoo: req.body.tattoo
 				}
-			});
+			};
+			
+			diary.Dogs.push(dogData);
 
 			diary.save(function (err, diary) {
 				console.log(err);
-				res.send(DiaryViewModel(diary));
+				var dog = _.findWhere(diary.Dogs, dogData)
+				res.send(200, dog);
+				//res.send(DiaryViewModel(diary));
 			});
 
 
@@ -729,11 +744,14 @@ exports.updateDog = function (req, res) {
 			if (err) {
 				res.send(500, { error: 'Error' });
 			}
+			
+			console.log(req.body._id);
 
 			_.each(diary.Dogs, function (dog) {
 				if (dog._id == req.body._id) {
 
 					console.log('found dog');
+					console.log(req.body);
 
 					dog.Profile.Name = req.body.name;
 					dog.Profile.Sex = req.body.sex;
@@ -752,8 +770,10 @@ exports.updateDog = function (req, res) {
 			});
 
 			diary.save(function (err, diary) {
-				console.log(err);
-				res.send(DiaryViewModel(diary));
+				//console.log(err);
+				//res.send(DiaryViewModel(diary));
+				var dog = _.findWhere(diary.Dogs, { _id: req.body._id } );
+				res.send(200, dog);
 			});
 
 
