@@ -1,6 +1,6 @@
 module.exports = {
 	db: '192.168.1.109',
-	dbconnection: 'mongodb://192.168.1.114:27017/agilitynet',
+	dbconnection: 'mongodb://192.168.1.109:27017/agilitynet',
 	amqp: 'amqp://192.168.1.109',
 
 	sendgrid: {

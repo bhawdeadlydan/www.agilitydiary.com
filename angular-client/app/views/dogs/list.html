@@ -1,5 +1,3 @@
-
-
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 <section class="main profile dynamicProfile" ng-show="profile">
@@ -21,10 +19,10 @@
 						</p>
 
 						<div>
-							<a class="dogProfilePicture" ng-repeat="dog in profile.Dogs" ng-href="#/dogs/{{ dog._id }}">
-								<img src="http://placedog.com/64/64" alt="" />
-								<br /><span ng-bind="dog.Profile.Name" />
+							<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+								<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 							</a>
+							<br /><span ng-bind="dog.Profile.Name" />
 						</div>
 					</section>
 

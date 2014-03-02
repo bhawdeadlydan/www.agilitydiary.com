@@ -726,8 +726,8 @@ body {
   background: white;
   color: #343434;
   font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 1.5em;
   margin: 0;
 }
@@ -1407,7 +1407,7 @@ select {
   color: #262626;
   display: inline-block;
   margin: 0;
-  padding: .75em 1em;
+  padding: 1em;
 }
 /* line 36, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a.active, .navPrimary a:hover {
@@ -1597,6 +1597,96 @@ select {
 /* line 31, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagShowType {
   background: rgba(0, 0, 0, 0.5);
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagIndependent" href="/">AgilityDiary</a>
+ */
+/* line 39, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagIndependent {
+  background: green;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagBAA" href="/">AgilityDiary</a>
+ */
+/* line 47, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagBAA {
+  background: yellow;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagUKA" href="/">AgilityDiary</a>
+ */
+/* line 55, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagUKA {
+  background: blue;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagFAB" href="/">AgilityDiary</a>
+ */
+/* line 63, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagFAB {
+  background: pink;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagInvitation" href="/">AgilityDiary</a>
+ */
+/* line 71, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagInvitation {
+  background: orange;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">AgilityDiary</a>
+ */
+/* line 79, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagIrishKennelClub {
+  background: purple;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagKC" href="/">AgilityDiary</a>
+ */
+/* line 87, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagKC {
+  background: silver;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagOther" href="/">AgilityDiary</a>
+ */
+/* line 95, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagOther {
+  background: cyan;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagSeries" href="/">AgilityDiary</a>
+ */
+/* line 103, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagSeries {
+  background: violet;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagTraining" href="/">AgilityDiary</a>
+ */
+/* line 111, ../../layout/css-src/partials/modules/_mod-tags.scss */
+.tagTraining {
+  background: magenta;
 }
 
 /**
@@ -1915,8 +2005,25 @@ select {
 .hero img {
   vertical-align: middle;
 }
-/* line 29, ../../layout/css-src/partials/modules/_mod-hero.scss */
-.hero .bio {
+
+/**
+ * @description    styling for the bio module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-02 09:27
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        bio
+ */
+/* line 18, ../../layout/css-src/partials/modules/_mod-bio.scss */
+.bio {
   background-color: white;
   background-color: white, 0.5;
   background-color: rgba(255, 255, 255, 0.5);

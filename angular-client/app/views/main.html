@@ -7,7 +7,9 @@
 	<header class="hero">
 
 		<div class="bio">
-			<h1><span ng-bind="profile.User.profile.name"></span> <a ng-href="/profile">...</a></h1>
+
+			<h1><span ng-bind="profile.User.profile.name"></span></h1>
+      <p class="edit"><a ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p>
 			<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 			<p>
 				<i class="fa fa-map-marker"></i>
@@ -53,7 +55,7 @@
 						<a class="help" href="#"><i class="fa fa-info-circle"></i></a>
 					</div>
 
-					<div class="action uploadImage" id="uploadPhoto">⇧ Add photo
+					<div class="action uploadImage" id="uploadPhoto"><i class="fa fa-upload"></i> Add photo
 						<span class="dz-message"></span>
 						<span data-dz-name=""></span>
 						<span data-dz-details=""></span>
@@ -131,9 +133,9 @@
 		<div class="container">
 			<h2><a href="#"><i class="fa fa-picture-o"></i> Latest photos</a></h2>
 
-			<div ng-repeat="photo in profile.Photos">
+			<p ng-repeat="photo in profile.Photos">
 				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '200x150' }}" /></a>
-			</div>
+			</p>
 
 			<p>
 				<a href="#"><img alt="" src="http://placehold.it/150x100/0eafff/ffffff.png" /></a>
