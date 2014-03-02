@@ -15,7 +15,7 @@ app.constant('DogConstants', {
 			{ name: '5', value: 'KC Grade 5' },
 			{ name: '6', value: 'KC Grade 6' },
 			{ name: '7', value: 'KC Grade 7' },
-			{ name: 'NFC', value: 'KC Grade NFC' }
+			{ name: 'Not for competition', value: 'KC Grade NFC' }
 		],
 
 		heightOptions: [

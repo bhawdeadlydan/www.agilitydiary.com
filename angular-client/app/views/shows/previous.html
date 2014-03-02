@@ -11,36 +11,33 @@
 			<a class="active"  ng-href="/shows/previous">Previous shows</a>
 			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered</a>
 		</nav>
-		
-			
+
+
 		<div ng-include src="'app/views/shows/categories.html'"></div>
 
-	</div>
-	
-		
-	<div ng-controller="MapController">
-		<leaflet style="height: 400px"
-			id="geo-wrapper"
-			elementcacheid="search/geo-wrapper"
-			fullsize="false"
-			center="data.leaflet.centre"
-			bounds="data.leaflet.bounds"
-			scrollwheelzoom="false"
-			dragging="true"
-			clickmarker="Location"></leaflet>
-	</div>	
+  	<div ng-controller="MapController">
+  		<leaflet style="height: 400px"
+  			id="geo-wrapper"
+  			elementcacheid="search/geo-wrapper"
+  			fullsize="false"
+  			center="data.leaflet.centre"
+  			bounds="data.leaflet.bounds"
+  			scrollwheelzoom="false"
+  			dragging="true"
+  			clickmarker="Location"></leaflet>
+  	</div>
 
 		<ol class="monthList">
 			<li ng-show="filteredShows.length===0">No shows found</li>
 
 			<li>
-				
+
 				<div class="eventListWrapper">
 					<div ng-include src="'app/views/shows/paging.html'"></div>
-					
+
 					<ol class="eventList">
 						<li class="event" ng-repeat="event in paging.results">
-							
+
 							<div class="monthWrapper" ng-show="paging.results[$index - 1].ShowMonth !== event.ShowMonth">
 								<h3 ng-bind="event.ShowMonth"></h3>
 								<br/><span class="year" ng-bind="event.ShowYear"></span>
@@ -70,39 +67,14 @@
 
 								<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
 
-								<!-- <div class="widget">
-									<div class="widget-title">Classes</div>
-									<span class="label label-default"><span class="fui-tag"></span> small</span>
-									<span class="label label-default"><span class="fui-tag"></span> medium</span>
-									<span class="label label-default"><span class="fui-tag"></span> large</span>
-									<span class="label label-default"><span class="fui-tag"></span> jumping</span>
-								</div> -->
 							</div>
 						</li>
 					</ol>
-					
+
 					<div ng-include src="'app/views/shows/paging.html'"></div>
 				</div>
 			</li>
 		</ol>
 
-		<!--/// PAGINATION ///-->
-		<!--<div class="pagination pagination-minimal">
-			<ul>
-				<li class="previous">
-					<a href="#" class="fui-arrow-left"></a>
-				</li>
-
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-
-				<li class="next">
-					<a href="#" class="fui-arrow-right"></a>
-				</li>
-			</ul>
-		</div>-->
 	</div>
 </section>
