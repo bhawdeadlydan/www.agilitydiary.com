@@ -31,3 +31,83 @@
 .tagShowType {
     background: rgba(0,0,0,0.5);
 }
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagIndependent" href="/">AgilityDiary</a>
+ */
+.tagIndependent {
+    background: $color-independent;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagBAA" href="/">AgilityDiary</a>
+ */
+.tagBAA {
+    background: $color-baa;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagUKA" href="/">AgilityDiary</a>
+ */
+.tagUKA {
+    background: $color-uka;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagFAB" href="/">AgilityDiary</a>
+ */
+.tagFAB {
+    background: $color-fab;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagInvitation" href="/">AgilityDiary</a>
+ */
+.tagInvitation {
+    background: $color-invitation;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">AgilityDiary</a>
+ */
+.tagIrishKennelClub {
+    background: $color-irishkennelclub;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagKC" href="/">AgilityDiary</a>
+ */
+.tagKC {
+    background: $color-kc;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagOther" href="/">AgilityDiary</a>
+ */
+.tagOther {
+    background: $color-other;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagSeries" href="/">AgilityDiary</a>
+ */
+.tagSeries {
+    background: $color-series;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagShowType tagTraining" href="/">AgilityDiary</a>
+ */
+.tagTraining {
+    background: $color-training;
+}

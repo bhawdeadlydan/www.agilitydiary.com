@@ -22,7 +22,7 @@ body {
     background: $color-body-bg;
     color: $color-body-copy;
     @include default-font-stack;
-    @include font-size(1.8);
+    @include font-size(1.4);
     line-height: 1.5em;
     margin: 0;
 

@@ -3,24 +3,21 @@
 	<div class="container">
 		<nav class="tabs">
 			<a  class="active" href="#/shows/upcoming">All people</a>
-
 		</nav>
 
 
 		<div class="contentWrapper">
 			<div class="contentMain">
 
-				<div ng-repeat="loopUser in listUsers">
+				<p ng-repeat="loopUser in listUsers">
 					<img src="{{ loopUser.profile.picture | imageSize: '200x100' }}" />
-
-
 
 					<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name" ></span></a>
 
-					<button class-"action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Add friend</button>
+					<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
 
-					<button class-"action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Remove friend</button>
-				</div>
+					<button class="action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Unfollow</button>
+				</p>
 
 			</div>
 			<div class="contentSub">
