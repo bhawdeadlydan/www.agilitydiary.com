@@ -1,0 +1,22 @@
+/**
+ * @description    styling for the bio module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-02 09:27
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        bio
+ */
+.bio {
+    @include rgba-bg($color-bio-bg, 5);
+    padding: 1em;
+    padding-bottom: 50px;
+}

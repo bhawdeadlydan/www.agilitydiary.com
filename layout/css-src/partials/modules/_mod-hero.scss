@@ -25,10 +25,4 @@
     img {
         vertical-align: middle;
     }
-
-    .bio {
-        @include rgba-bg($color-bio-bg, 5);
-        padding: 1em;
-        padding-bottom: 50px;
-    }
 }

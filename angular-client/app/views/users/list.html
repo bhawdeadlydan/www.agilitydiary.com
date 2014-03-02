@@ -12,7 +12,7 @@
 				<p ng-repeat="loopUser in listUsers">
 					<img src="{{ loopUser.profile.picture | imageSize: '200x100' }}" />
 
-					<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name" ></span></a>
+					<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
 
 					<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
 

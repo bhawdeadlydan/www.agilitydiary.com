@@ -9,16 +9,16 @@
 
 	<div class="container">
 
-		<span>
+		<!-- <span>
 			<a ng-href="/"><img class="dogProfilePicture"  src="{{ profile.User.profile.picture | imageSize: '200x100' }}" /></a>
-		</span>
+		</span> -->
 
-		<span ng-repeat="dog in profile.Dogs" >
-			<a ng-href="/dogs/{{ dog._id }}">
-				<img class="dogProfilePicture" src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
+		<div>
+			<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
 			</a>
-		</span>
-
+			<!-- <br /><span ng-bind="dog.Profile.Name" /> -->
+		</div>
 
 
 		<!--<p><a ng-href="/dogs"><< Return to all dogs</a></p>-->
@@ -92,9 +92,9 @@
 
 			<section class="contentSub">
 				<a class="action" ng-href="/dogs/edit/{{ dog._id }}">Edit details</a>
-        <p>
-          <a href="" class="action warning">Hide</a>
-        </p>
+				<p>
+					<a href="" class="action warning">Hide</a>
+				</p>
 
 			</section>
 
