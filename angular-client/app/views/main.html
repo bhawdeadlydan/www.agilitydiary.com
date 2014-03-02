@@ -67,6 +67,12 @@
 
 				<p ng-bind="journalItem.Message"></p>
 
+				<span ng-repeat="link in journalItem.Links">
+					<a ng-href="/photos/{{ link.LinkedObject}}">
+						<img ng-src="{{ link.Path | imageSize: '150x100' }}" />
+					</a>
+				</span>
+
 				<span ng-bind="journalItem.TagsText"></span>
 			</span>
 		</div>

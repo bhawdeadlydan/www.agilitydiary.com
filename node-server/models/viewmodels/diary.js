@@ -26,19 +26,19 @@ module.exports = function (data) {
 		var result = [];
 		
 		_.each(data.Journal, function (journalIterator) {
-			_.each(journalIterator.Links, function (linkedObject) {
+			for (var i=0; i< journalIterator.Links.length; i++) {
+				var linkedObject = journalIterator.Links[i];
+				
 				if (linkedObject.LinkType === 'Photo') {
 					
 					_.each(data.Photos, function (loopPhoto) {
 						if (loopPhoto._id.toString() == linkedObject.LinkedObject) {
-							linkedObject.Path = loopPhoto.Path;
-							// need to use a loop here
+							linkedObject['Path'] = loopPhoto.Path;
 						}
 					});
 				}
-			});
-			
-			
+			}
+						
 			result.push(journalIterator);
 		});
 		

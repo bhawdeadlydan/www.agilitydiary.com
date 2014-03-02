@@ -37,7 +37,9 @@ var diarySchema = new mongoose.Schema({
 				{
 					LinkedObject: mongoose.Schema.Types.ObjectId,
 					
-					LinkType: String
+					LinkType: String,
+					
+					Path: String
 				}
 			]
 		}
