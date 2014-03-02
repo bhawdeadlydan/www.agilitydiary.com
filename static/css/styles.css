@@ -2168,6 +2168,14 @@ select {
 }
 
 /**
+ * @section        extend .action
+ */
+/* line 58, ../../layout/css-src/partials/modules/_mod-action.scss */
+.social {
+  margin-right: 1em;
+}
+
+/**
  * @description    styling for the form module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
