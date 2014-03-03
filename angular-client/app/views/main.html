@@ -56,13 +56,13 @@
 		<div class="container">
 			<h2><i class="fa fa-bullhorn"></i> Newsfeed</h2>
 
-			<div ng-repeat="journalItem in profile.Journal"  style=" clear:left; ">
+			<div ng-repeat="journalItem in profile.Journal"  style=" clear:left; margin-bottom: 32px">
 
 				<div style="float:left; ">
 					<img ng-src="{{ profile.User.profile.picture }}_24x24" />
 				</div>
 
-				<div style="float:left; margin-left: 24px;">
+				<div style="float:left; margin-left: 8px;">
 					<a ng-href="/people/{{ comment.User._id }}"><span ng-bind="profile.User.profile.name"></span></a> <span ng-bind="journalItem.Message"></span>
 
 
@@ -84,7 +84,9 @@
 						<span ng-bind="journalItem.DateTime|date:'mm'"></span>
 					</div>
 
+					<br/>
 				</div>
+
 			</div>
 
 
