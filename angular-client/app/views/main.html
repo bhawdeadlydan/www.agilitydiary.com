@@ -58,13 +58,13 @@
 		<div class="container">
 			<h2><i class="fa fa-bullhorn"></i> Newsfeed</h2>
 
-			<div ng-repeat="journalItem in profile.Journal"  style=" clear:left; ">
+			<div ng-repeat="journalItem in profile.Journal"  style=" clear:left; margin-bottom: 32px">
 
 				<div style="float:left; ">
 					<img ng-src="{{ profile.User.profile.picture }}_24x24" />
 				</div>
 
-				<div style="float:left; margin-left: 24px;">
+				<div style="float:left; margin-left: 8px;">
 					<a ng-href="/people/{{ comment.User._id }}"><span ng-bind="profile.User.profile.name"></span></a> <span ng-bind="journalItem.Message"></span>
 
 
@@ -86,7 +86,9 @@
 						<span ng-bind="journalItem.DateTime|date:'mm'"></span>
 					</div>
 
+					<br/>
 				</div>
+
 			</div>
 
 
@@ -104,9 +106,7 @@
 		<div class="container">
 			<h2><a href="/shows/entered"><i class="fa fa-dot-circle-o"></i> Entered shows</a></h2>
 
-			<p ng-show="!profile.EnteredShows.length">
-				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
-			</p>
+
 
 			<div class="enteredShow" ng-repeat="show in profile.EnteredShows | limitTo: 3">
 				<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
@@ -128,18 +128,21 @@
 				</div>
 			</div>
 
+			<p ng-show="!profile.EnteredShows.length">
+				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
+			</p>
 		</div>
 	</section>
 
 
 
 
-  <section class="panel">
+  <!--<section class="panel">
     <div class="container">
       <h2><a href="#">My shows</a></h2>
       List claimed shows here?
     </div>
-  </section>
+  </section>-->
 
 
 
@@ -148,7 +151,7 @@
 		<div class="container">
 			<h2><a href="#"><i class="fa fa-picture-o"></i> Latest photos</a></h2>
 
-			<p ng-repeat="photo in profile.Photos">
+			<p ng-repeat="photo in profile.Photos" >
 				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '150x100' }}" /></a>
 			</p>
 

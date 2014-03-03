@@ -193,7 +193,7 @@ exports.uploadBackgroundFile = Upload.UploadManager({
 			console.log(request.app.settings);
 			var port = request.app.settings.port;
 
-			Tasks.colorific({
+			/*Tasks.colorific({
 				filename: data.outPath,
 				fileUrl: 'http://' + ipAddress + ':' + port + data.newUrlPath,
 				sender: {
@@ -201,7 +201,7 @@ exports.uploadBackgroundFile = Upload.UploadManager({
 					api: 'http://' + ipAddress + ':' + port + '/agility-diary/user/setProfileColours'
 				},
 				returnData: request.user.id
-			});
+			});*/
 
 			response.send(200);
 		});
