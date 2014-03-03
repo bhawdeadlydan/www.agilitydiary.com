@@ -137,12 +137,12 @@
 
 
 
-  <section class="panel">
+  <!--<section class="panel">
     <div class="container">
       <h2><a href="#">My shows</a></h2>
       List claimed shows here?
     </div>
-  </section>
+  </section>-->
 
 
 
@@ -151,7 +151,7 @@
 		<div class="container">
 			<h2><a href="#"><i class="fa fa-picture-o"></i> Latest photos</a></h2>
 
-			<p ng-repeat="photo in profile.Photos">
+			<p ng-repeat="photo in profile.Photos" >
 				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '150x100' }}" /></a>
 			</p>
 
