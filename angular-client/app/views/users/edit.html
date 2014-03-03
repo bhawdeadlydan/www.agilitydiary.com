@@ -4,49 +4,85 @@
 
 <section class="main profile dynamicProfile">
 
-	<div ng-include src="'app/views/shared/header.html'"></div>
-
-
-	<section class="dogs edit">
-
-		<div class="container">
-			<h1>My dogs</h1>
-
-			<div class="contentWrapper">
-				<div class="contentMain">
-
-					<section class="dogsList">
-
-						<p ng-show="!profile.Dogs.length">
-							You have no dogs yet, would you like to <a class="action" ng-href="#/dogs/add">add a dog</a>?
-						</p>
-
-						<div>
-							<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}/edit" ng-repeat="dog in profile.Dogs">
-								<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
-							</a>
-							<br /><span ng-bind="dog.Profile.Name" />
-						</div>
-					</section>
-
-				</div>
-				<div class="contentSub">
-
-					<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
-
-				</div>
-			</div>
-
-		</div>
-	</section>
-
+	<!-- <div ng-include src="'app/views/shared/header.html'"></div> -->
 
 	<div class="container">
 
+		<h1>My account</h1>
 
-		<h1 style="clear:both;">Change your background by dragging a photo here</h1>
+		<h2>Profile</h2>
+		<form name="form" parsley-validate action='/account/profile' method='POST'>
+			<div class="formField formInput formEmail">
+				<label for="Email">Email</label>
+				<input id="Email" name="Email" type="email" value="#{user.email}" parsley-type="email" />
+			</div>
+
+			<div class="formField formInput formEmail">
+				<label for="Name">Name</label>
+				<input id="Name" name="Name" type="text" value="#{user.profile.name}" />
+			</div>
+
+			<div class="formField formInput formTextarea">
+				<label for="bio">Bio</label>
+				<input id="bio" type="text" ng-model="dog.kcregisteredname" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="location">Location</label>
+				<input id="location" type="text" ng-model="dog.name" />
+			</div>
+
+			<div class="formActions">
+				<button class="action" ng-click="saveDog();">
+					Save
+				</button>
+			</div>
+		</form>
+
+
+
+		<h2>Change password</h2>
+		<form name="form" parsley-validate>
+			<div class="formField formInput formPassword">
+				<label for="Password">New password</label>
+				<input id="Password" name="Password" type="password" />
+			</div>
+
+			<div class="formField formInput formPassword">
+				<label for="confirmPassword">Confirm password</label>
+				<input id="confirmPassword" name="confirmPassword" type="password" />
+			</div>
+
+			<div class="formActions">
+				<button class="action" ng-click="saveDog();">
+					Change password
+				</button>
+			</div>
+		</form>
+
+
+
+		<h2>My dogs</h2>
+		<p ng-show="!profile.Dogs.length">
+			You have no dogs yet, would you like to <a class="action" ng-href="#/dogs/add">add a dog</a>?
+		</p>
+
+		<div>
+			<p>
+				<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}/edit" ng-repeat="dog in profile.Dogs">
+					<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+				</a>
+				<br /><span ng-bind="dog.Profile.Name" />
+			</p>
+		</div>
+
+		<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
+
+
+
+
+		<h1>Change your background by dragging a photo here</h1>
 		<div class="action uploadImage" id="uploadProfileBackgroundImage" style=""><i class="fa fa-upload"></i> Upload Photo
-
 			<span class="dz-message"></span>
 			<span data-dz-name=""></span>
 			<span data-dz-details=""></span>
@@ -55,23 +91,29 @@
 		</div>
 
 
+
+
 		<h1>Change your avatar by dragging a photo here</h1>
 		<div class="action uploadImage" id="uploadProfileImage" style=""><i class="fa fa-upload"></i> Upload Photo
 			<span class="dz-message"></span>
 			<span data-dz-name=""></span>
 			<span data-dz-details=""></span>
-			 <span data-dz-size=""></span>
-			 <span data-dz-errormessage=""></span>
+			<span data-dz-size=""></span>
+			<span data-dz-errormessage=""></span>
 		</div>
+
+
 
 
 		<div ng-repeat="colourLoop in profile.User.profile.colours">
 			<div style="background-color: {{ colourLoop.colour }}">&nbsp;
 				<button ng-click="setThemeMainColour(colourLoop.colour);">Make this the profile colour</button>
 			</div>
-
 		</div>
 		<div style="background-color: #fff">&nbsp;
-				<button ng-click="setThemeMainColour('#fff');">Make this the profile colour</button>
-			</div>
-</div>
+			<button ng-click="setThemeMainColour('#fff');">Make this the profile colour</button>
+		</div>
+
+
+	</div>
+</section>

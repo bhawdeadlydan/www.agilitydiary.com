@@ -21,7 +21,7 @@ angular.module('browserAppApp', [
 			controller: 'MainController'
 		})
 
-		.when('/profile', {
+		.when('/account', {
 			templateUrl: 'app/views/users/edit.html',
 			controller: 'MainController'
 		})

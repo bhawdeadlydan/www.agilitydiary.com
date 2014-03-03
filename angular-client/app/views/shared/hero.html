@@ -1,26 +1,26 @@
-	<div class="bio">
+<div class="bio">
 
-		<h1><span ng-bind="profile.User.profile.name"></span></h1>
+	<h1><span ng-bind="profile.User.profile.name"></span></h1>
 
-		<p class="edit"><a ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p>
+	<p><a class="edit" ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p>
 
-		<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+	<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 
-		<p>
-			<i class="fa fa-map-marker"></i>
-			Hampshire, UK
-		</p>
+	<p>
+		<i class="fa fa-map-marker"></i>
+		Hampshire, UK
+	</p>
+</div>
+
+<div class="container avatarContainer">
+
+	<div class="primaryAvatarContainer">
+		<a ng-href="/" class="avatar primaryAvatar">
+			<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+		</a>
 	</div>
 
-	<div class="container avatarContainer">
-
-		<div class="primaryAvatarContainer">
-			<a ng-href="/" class="avatar primaryAvatar">
-				<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
-			</a>
-		</div>
-
-		<div class="secondaryAvatarContainer" ng-include src="'app/views/dogs/dogNav.html'">
-		</div>
-
+	<div class="secondaryAvatarContainer" ng-include src="'app/views/dogs/dogNav.html'">
 	</div>
+
+</div>

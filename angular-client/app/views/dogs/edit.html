@@ -5,10 +5,10 @@
 
 	<div ng-include src="'app/views/shared/header.html'"></div>
 
-	<section class="dogs edit">
+	<section class="dogs">
 
 		<div class="container">
-			<h1><img src="{{ dog.photo }}_80x60" /> <a ng-href="#/dogs/{{ dog._id }}">{{ dog.name }}</a></h1>
+			<h2><img src="{{ dog.photo }}_80x60" /> <a ng-href="#/dogs/{{ dog._id }}">{{ dog.name }}</a></h2>
 
 
 			<div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo

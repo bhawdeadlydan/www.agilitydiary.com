@@ -1,29 +1,33 @@
 <div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture || 'app/images/profile-background.jpg' }} )"></div>
 
-	<header class="hero">
+<header class="hero">
 
-		<div class="bio">
-			<h1><span ng-bind="profile.User.profile.name"></span> <a ng-href="#/profile">...</a></h1>
-			<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-			<p>
-				<i class="fa fa-map-marker"></i>
-				Hampshire, UK
-			</p>
+	<div class="bio">
+		<h1><span ng-bind="profile.User.profile.name"></span></h1>
+
+		<p><a class="edit" ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p>
+
+		<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+
+		<p>
+			<i class="fa fa-map-marker"></i>
+			Hampshire, UK
+		</p>
+	</div>
+
+	<div class="container avatarContainer">
+
+		<div class="primaryAvatarContainer">
+			<a ng-href="/" class="avatar primaryAvatar">
+				<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+			</a>
 		</div>
 
-		<div class="container avatarContainer">
-
-			<div class="primaryAvatarContainer">
-				<a ng-href="/" class="avatar primaryAvatar">
-					<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
-				</a>
-			</div>
-
-			<div class="secondaryAvatarContainer">
-				<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-					<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
-				</a>
-			</div>
-
+		<div class="secondaryAvatarContainer">
+			<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
+				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+			</a>
 		</div>
-	</header>
+
+	</div>
+</header>

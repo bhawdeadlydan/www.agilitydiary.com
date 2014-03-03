@@ -259,7 +259,7 @@ app.post('/contact', contactController.postContact);
  *  Account pages with server side templates
  */
 
-app.get('/account', passportConf.isAuthenticated, userController.getAccount);
+//app.get('/account', passportConf.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
 app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);

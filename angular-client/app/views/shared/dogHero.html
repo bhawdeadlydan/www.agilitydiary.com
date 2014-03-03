@@ -1,9 +1,11 @@
-
 <div class="bio">
 
-  <h1>{{ dog.Profile.Name }}</h1>
-	<p class="edit"><a ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p>
+	<h1>{{ dog.Profile.Name }}</h1>
+
+	<p><a class="edit" ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p>
+
 	<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+
 	<p>
 		<i class="fa fa-map-marker"></i>
 		Hampshire, UK
@@ -19,7 +21,6 @@
 	</div>
 
 	<div class="secondaryAvatarContainer" >
-
 
 		<span ng-repeat="loopDog in profile.Dogs">
 			<a class="avatar secondaryAvatar"
