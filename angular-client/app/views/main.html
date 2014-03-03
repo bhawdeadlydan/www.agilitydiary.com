@@ -106,9 +106,7 @@
 		<div class="container">
 			<h2><a href="/shows/entered"><i class="fa fa-dot-circle-o"></i> Entered shows</a></h2>
 
-			<p ng-show="!profile.EnteredShows.length">
-				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
-			</p>
+
 
 			<div class="enteredShow" ng-repeat="show in profile.EnteredShows | limitTo: 3">
 				<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
@@ -130,6 +128,9 @@
 				</div>
 			</div>
 
+			<p ng-show="!profile.EnteredShows.length">
+				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
+			</p>
 		</div>
 	</section>
 
