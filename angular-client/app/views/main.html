@@ -23,7 +23,7 @@
 
 					<div class="formField formInput formText">
 						<label for="tag">Tag</label>
-						<input id="tag" type="text" />
+						<input id="tag" type="text" ng-model="post.tags" />
 						<a class="help" href="#"><i class="fa fa-info-circle"></i></a>
 					</div>
 
@@ -34,6 +34,13 @@
 						<span data-dz-size=""></span>
 						<span data-dz-errormessage=""></span>
 					</div>
+
+					<span ng-repeat="pendingPhoto in profile.PendingPhotos">
+						<button ng-click="removePendingPhotoClick(pendingPhoto._id);">X</button>
+
+						<img ng-src="{{ pendingPhoto.Path | imageSize: '150x100' }}" />
+
+					</span>
 
 					<div class="formField formActions">
 						<button class="action" ng-click="post.click()">Post</button>
@@ -50,6 +57,43 @@
 	<section class="panel newsfeed">
 		<div class="container">
 			<h2><i class="fa fa-bullhorn"></i> Newsfeed</h2>
+
+			<div ng-repeat="journalItem in profile.Journal"  style=" clear:left; ">
+
+				<div style="float:left; ">
+					<img ng-src="{{ profile.User.profile.picture }}_24x24" />
+				</div>
+
+				<div style="float:left; margin-left: 24px;">
+					<a ng-href="/people/{{ comment.User._id }}"><span ng-bind="profile.User.profile.name"></span></a> <span ng-bind="journalItem.Message"></span>
+
+
+					<div>
+						<span ng-repeat="link in journalItem.Links">
+							<a ng-href="/photos/{{ link.LinkedObject}}">
+								<img ng-src="{{ link.Path | imageSize: '150x100' }}" />
+							</a>
+						</span>
+					</div>
+
+					<div ng-bind="journalItem.TagsText"></div>
+
+					<div  style="font-size: 0.8em; clear:left; color: #666;" >
+						<span ng-bind="journalItem.DateTime|date:'MMM'"></span>
+						<span ng-bind="journalItem.DateTime|date:'d'"></span>
+						at
+						<span ng-bind="journalItem.DateTime|date:'H'"></span>:
+						<span ng-bind="journalItem.DateTime|date:'mm'"></span>
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
+			</span>
 		</div>
 	</section>
 
@@ -214,15 +258,15 @@
 				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
 			</p>
 
-			<p><a ng-href="/find/users">All users</a></p>
+			<p><a ng-href="/people">All users</a></p>
 
 			<p>
-				<span ng-show="!profile.Friends.length">Aww you haven't added any friends yet,</span> <a class="action" href="/users">Add some friends</a>
+				<span ng-show="!profile.Friends.length">Aww you haven't added any friends yet,</span> <a class="action" href="/people">Add some friends</a>
 			</p>
 
 			<div ng-repeat="friend in profile.Friends">
 
-				<a  ng-href="/users/{{ friend.LinkedUser._id }}">
+				<a  ng-href="/people/{{ friend.LinkedUser._id }}">
 					<br /><span ng-bind="friend.LinkedUser.profile.name" ></span>
 					<img class="avatar friendAvatar"  src="http://placedog.com/64/64" alt="" />
 				</a>

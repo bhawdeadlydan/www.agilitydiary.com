@@ -21,6 +21,33 @@ var diarySchema = new mongoose.Schema({
 			}
 		}
 	],
+	
+	Journal: [
+		{
+			Message: String,
+			
+			DateTime: {
+				type: Date,
+				default: Date.now
+			},
+			
+			TagsText: String,
+			
+			Links: [
+				{
+					LinkedObject: mongoose.Schema.Types.ObjectId,
+					
+					LinkType: String
+				}
+			]
+		}
+	],
+	
+	PendingPhotos: [
+		{
+			Path: String	
+		}		
+	],
 
 	Photos: [
 		{

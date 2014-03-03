@@ -52,6 +52,37 @@ angular.module('browserAppApp')
 
 
 
+			module.removePendingPhoto = function (id, successCallback, errorCallback) {
+				var url = '/agility-diary/user/remove-pending-photo';
+
+				$http.post(url, {
+					id: id
+				}).success(function (data) {
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
+			module.addJournalEntry = function (message, tags, successCallback, errorCallback) {
+				var url = '/agility-diary/user/add-journal-entry';
+
+				$http.post(url, {
+					message: message,
+					tags: tags
+				}).success(function (data) {
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
 
 			module.invalidateCache = function () {
 				lastChecked = new Date(2000, 1, 1).getTime();

@@ -151,13 +151,26 @@ function globalQuickSearch(searchQuery) {
 	var count = 0;
 	var match = 0;
 	var item;
+	var searchQueryItems = searchQuery.split(' ');
+	var searchQueryCount;
+	var includeThis;
 
 	for (count = 0; count < searchIndex.length && match < 10; count += 1) {
 		item = searchIndex[count];
-
-		if (item.Indexed.indexOf(searchQuery) !== -1) {
-			results.push(item);
-			match += 1;
+		
+		if (searchQueryItems.length !== 0) {
+			includeThis = true;
+			
+			for (searchQueryCount = 0; searchQueryCount < searchQueryItems.length; searchQueryCount++) {
+				if (item.Indexed.indexOf(searchQueryItems[searchQueryCount]) === -1) {
+					includeThis = false;
+				}
+			}
+			
+			if (includeThis === true) {
+				results.push(item);
+				match += 1;
+			}
 		}
 	}
 

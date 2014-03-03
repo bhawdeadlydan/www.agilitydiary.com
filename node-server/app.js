@@ -205,6 +205,10 @@ app.post('/agility-diary/user/setThemeMainColour', userController.setThemeMainCo
 app.post('/agility-diary/user/add-friend', userController.addFriend);
 app.post('/agility-diary/user/remove-friend', userController.removeFriend);
 app.post('/agility-diary/user/upload-photo', userController.uploadPhoto);
+app.post('/agility-diary/user/remove-pending-photo', userController.removePendingPhoto);
+app.post('/agility-diary/user/add-journal-entry', userController.addJournalEntry);
+
+
 
 
 

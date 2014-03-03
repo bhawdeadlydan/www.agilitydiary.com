@@ -72,11 +72,11 @@ angular.module('browserAppApp')
 								break;
 
 							case 'User':
-								item.Path = '/users/' + item.Id;
+								item.Path = '/people/' + item.Id;
 								break;
 
 							case 'Venue':
-								item.Path = '/users/details/' + item.Id;
+								item.Path = '/venues/details/' + item.Id;
 								break;
 
 							case 'Dog':
