@@ -59,7 +59,11 @@ $color-link                :    $color-brand;
 
 $color-profile-header-bg   :    rgba(0,0,0,0.5);
 $color-hero-bg             :    rgba(0,0,0,0.5);
-$color-bio-bg              :    $color-white;
+
+$color-bio-copy            :    $color-white;
+$color-bio-bg              :    $color-black;
+
+$color-edit-bg             :    $color-black;
 $color-panel-bg            :    #faf6ec;
 
 $color-quick-search-bg     :    $color-white;
@@ -83,6 +87,7 @@ $color-warning             :    $color-red;
 $color-border              :    lighten($color-black, 83%); // output = #d4d4d4
 $color-shadow              :    #ddd;
 $color-drop-shadow         :    darken($color-white, 13%); // output = #dedede
+$color-text-shadow         :    $color-white;
 
 $color-mark                :    rgba(0,0,0,0.1);
 $color-selection           :    rgba(0,0,0,0.1);
