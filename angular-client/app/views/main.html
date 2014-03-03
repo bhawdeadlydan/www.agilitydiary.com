@@ -56,24 +56,41 @@
 		<div class="container">
 			<h2><i class="fa fa-bullhorn"></i> Newsfeed</h2>
 
-			<span ng-repeat="journalItem in profile.Journal">
-				<span  style="font-size: 0.8em" >
-					<span ng-bind="journalItem.DateTime|date:'MMM'"></span>
-					<span ng-bind="journalItem.DateTime|date:'d'"></span>
-					at
-					<span ng-bind="journalItem.DateTime|date:'H'"></span>:
-					<span ng-bind="journalItem.DateTime|date:'mm'"></span>
-				</span>
+			<div ng-repeat="journalItem in profile.Journal"  style=" clear:left; ">
 
-				<p ng-bind="journalItem.Message"></p>
+				<div style="float:left; ">
+					<img ng-src="{{ profile.User.profile.picture }}_24x24" />
+				</div>
 
-				<span ng-repeat="link in journalItem.Links">
-					<a ng-href="/photos/{{ link.LinkedObject}}">
-						<img ng-src="{{ link.Path | imageSize: '150x100' }}" />
-					</a>
-				</span>
+				<div style="float:left; margin-left: 24px;">
+					<a ng-href="/people/{{ comment.User._id }}"><span ng-bind="profile.User.profile.name"></span></a> <span ng-bind="journalItem.Message"></span>
 
-				<span ng-bind="journalItem.TagsText"></span>
+
+					<div>
+						<span ng-repeat="link in journalItem.Links">
+							<a ng-href="/photos/{{ link.LinkedObject}}">
+								<img ng-src="{{ link.Path | imageSize: '150x100' }}" />
+							</a>
+						</span>
+					</div>
+
+					<div ng-bind="journalItem.TagsText"></div>
+
+					<div  style="font-size: 0.8em; clear:left; color: #666;" >
+						<span ng-bind="journalItem.DateTime|date:'MMM'"></span>
+						<span ng-bind="journalItem.DateTime|date:'d'"></span>
+						at
+						<span ng-bind="journalItem.DateTime|date:'H'"></span>:
+						<span ng-bind="journalItem.DateTime|date:'mm'"></span>
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
 			</span>
 		</div>
 	</section>

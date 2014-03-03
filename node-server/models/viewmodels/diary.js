@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 module.exports = function (data) {
 	"use strict";
 
-
+	data = data.toJSON();
 
 
 	function getEnabledDogs() {

@@ -71,6 +71,8 @@ module.exports = function (data, done) {
 		return {};
 	}
 	
+	//data = data.toJSON();
+	
 	return {
 		_id: typeof data._id !== 'undefined' ? data._id : null,
 		Name: data.Name,
