@@ -18,7 +18,7 @@
 .quickSearch {
     display: inline-block;
     float: right;
-    padding: .25em;
+    // padding: .25em;
     text-align: right;
     width: auto;
 
@@ -33,7 +33,7 @@
     .action {
         @include border-radius(0);
         @include border-right-radius(.25em);
-        @include font-size(2.0);
+        // @include font-size(2.0);
         padding: .5em .6em;
     }
 }

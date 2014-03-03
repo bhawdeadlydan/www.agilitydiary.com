@@ -1,0 +1,25 @@
+/**
+ * @description    styling for the edit module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-03 15:28
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        edit
+ */
+.edit {
+    @include rgba-bg($color-edit-bg, 5);
+    margin: 0;
+    padding: .5em 1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

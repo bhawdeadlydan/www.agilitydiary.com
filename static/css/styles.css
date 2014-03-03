@@ -1044,7 +1044,7 @@ textarea {
   font-family: 'Open Sans', sans-serif;
   border: 1px solid #d4d4d4;
   box-shadow: inset 0 1px 3px #dddddd;
-  height: 10em;
+  height: 5em;
   margin: .5em .6em;
   padding: .5em .6em;
   width: 100%;
@@ -1222,6 +1222,11 @@ select {
 /* line 22, ../../layout/css-src/partials/default-layout/_layout-header.scss */
 .layoutHeader {
   border-bottom: 0.25em solid white;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f5f5f5), color-stop(100%, #e5e5e5));
+  background-image: -webkit-linear-gradient(#f5f5f5, #e5e5e5);
+  background-image: -moz-linear-gradient(#f5f5f5, #e5e5e5);
+  background-image: -o-linear-gradient(#f5f5f5, #e5e5e5);
+  background-image: linear-gradient(#f5f5f5, #e5e5e5);
   background-color: #dedede;
   background-color: #dedede, 0.5;
   background-color: rgba(222, 222, 222, 0.5);
@@ -1385,20 +1390,29 @@ select {
  */
 /* line 22, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary {
+  border-right: 1px solid #fff;
   float: left;
   display: inline-block;
   text-align: center;
 }
-/* line 27, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 28, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #d5d5d5;
   color: #262626;
   display: inline-block;
   margin: 0;
-  padding: 1em;
+  padding: .5em 1em;
+  text-shadow: 1px 1px 1px white;
 }
-/* line 36, ../../layout/css-src/partials/navigation/_nav-primary.scss */
+/* line 38, ../../layout/css-src/partials/navigation/_nav-primary.scss */
 .navPrimary a.active, .navPrimary a:hover {
   background: white;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(#e5e5e5, #ffffff);
+  background-image: -moz-linear-gradient(#e5e5e5, #ffffff);
+  background-image: -o-linear-gradient(#e5e5e5, #ffffff);
+  background-image: linear-gradient(#e5e5e5, #ffffff);
   text-decoration: none;
 }
 
@@ -1468,15 +1482,16 @@ select {
   font-size: 20px;
   font-size: 2rem;
   font-weight: bold;
+  text-shadow: 1px 1px 1px white;
 }
-/* line 26, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 27, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .navPrimary .brandLogo:hover {
   background: transparent;
 }
-/* line 32, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+/* line 33, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
 .navPrimary .brandLogo {
-  margin-right: 2em;
-  padding-bottom: 0;
+  border-left: 0;
+  padding: .25em 2em .33em 1em;
 }
 
 /**
@@ -1982,12 +1997,6 @@ select {
 .hero img {
   vertical-align: middle;
 }
-/* line 28, ../../layout/css-src/partials/modules/_mod-hero.scss */
-.hero .edit {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-}
 
 /**
  * @description    styling for the bio module
@@ -2007,11 +2016,12 @@ select {
  */
 /* line 18, ../../layout/css-src/partials/modules/_mod-bio.scss */
 .bio {
-  background-color: white;
-  background-color: white, 0.5;
-  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  display: inline-block;
+  background-color: black;
+  background-color: black, 0.25;
+  background-color: rgba(0, 0, 0, 0.25);
   padding: 1em;
-  padding-bottom: 50px;
 }
 
 /**
@@ -2032,7 +2042,6 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .avatarContainer {
-  margin-top: -70px;
   padding-bottom: 0;
   padding-top: 0;
 }
@@ -2040,7 +2049,7 @@ select {
 /**
  * @section        primaryAvatarContainer
  */
-/* line 28, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 27, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .primaryAvatarContainer {
   float: left;
   width: 25%;
@@ -2049,7 +2058,7 @@ select {
 /**
  * @section        secondaryAvatarContainer
  */
-/* line 36, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 35, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .secondaryAvatarContainer {
   float: left;
   margin-top: 30px;
@@ -2059,7 +2068,7 @@ select {
 /**
  * @section        avatar
  */
-/* line 45, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 44, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .avatar {
   margin: .5em;
 }
@@ -2067,7 +2076,7 @@ select {
 /**
  * @section        primaryAvatar
  */
-/* line 53, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 52, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .primaryAvatar {
   height: 120px;
   width: 120px;
@@ -2076,7 +2085,7 @@ select {
 /**
  * @section        secondaryAvatar
  */
-/* line 61, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 60, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .secondaryAvatar {
   margin: .5em;
 }
@@ -2084,7 +2093,7 @@ select {
 /**
  * @section        friendAvatar
  */
-/* line 68, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 67, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .friendAvatar {
   height: 32px;
   margin: .5em;
@@ -2094,7 +2103,7 @@ select {
 /**
  * @section        selectedAvatar
  */
-/* line 78, ../../layout/css-src/partials/modules/_mod-avatar.scss */
+/* line 77, ../../layout/css-src/partials/modules/_mod-avatar.scss */
 .selectedAvatar {
   background-color: black;
 }
@@ -2242,7 +2251,6 @@ select {
 .quickSearch {
   display: inline-block;
   float: right;
-  padding: .25em;
   text-align: right;
   width: auto;
 }
@@ -2276,8 +2284,6 @@ select {
   -moz-border-radius-bottomright: 0.25em;
   -webkit-border-bottom-right-radius: 0.25em;
   border-bottom-right-radius: 0.25em;
-  font-size: 20px;
-  font-size: 2rem;
   padding: .5em .6em;
 }
 
@@ -2513,6 +2519,50 @@ select {
   float: none;
   text-align: left;
   width: auto;
+}
+
+/**
+ * @description    styling for the postSomething module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-02 19:05
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        postSomething
+ */
+/**
+ * @description    styling for the edit module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-03 15:28
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        edit
+ */
+/* line 18, ../../layout/css-src/partials/modules/_mod-edit.scss */
+.edit {
+  background-color: black;
+  background-color: black, 0.5;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: .5em 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 /**

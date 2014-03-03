@@ -21,6 +21,7 @@
  */
 .layoutHeader {
     border-bottom: .25em solid $color-layout-header-border;
+    @include background-image(linear-gradient(#f5f5f5, #e5e5e5));
     @include rgba-bg($color-layout-header-bg, 5);
     overflow: hidden;
     text-align: left;

@@ -16,7 +16,8 @@
  * @section        bio
  */
 .bio {
-    @include rgba-bg($color-bio-bg, 5);
+    color: $color-bio-copy;
+    display: inline-block;
+    @include rgba-bg($color-bio-bg, 2.5);
     padding: 1em;
-    padding-bottom: 50px;
 }
