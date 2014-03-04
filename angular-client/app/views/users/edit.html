@@ -23,22 +23,35 @@
 				<h2>Profile</h2>
 
 				<div class="formField formUpload">
-					<label for="Email">Photo</label>
-					<div class="action uploadImage" id="uploadProfileImage" style=""><i class="fa fa-upload"></i> Upload Photo
-						<span class="dz-message"></span>
+					<label>Photo</label>
+					<div class="action uploadFile" id="uploadProfileImage"><!-- <i class="fa fa-upload"></i> Upload Photo -->
+						<span class="dz-message">Drag a photo here to upload</span>
 						<span data-dz-name=""></span>
-						<span data-dz-details=""></span>
-						<span data-dz-size=""></span>
-						<span data-dz-errormessage=""></span>
+						<p data-dz-details=""></p>
+						<p data-dz-size=""></p>
+						<p data-dz-errormessage=""></p>
+
+						<div class="dz-progress">
+							<span class="dz-upload" data-dz-uploadprogress></span>
+						</div>
+						<div class="dz-success-mark">
+							<span>✔</span>
+						</div>
+						<div class="dz-error-mark">
+							<span>✘</span>
+						</div>
+						<div class="dz-error-message">
+							<span data-dz-errormessage></span>
+						</div>
 					</div>
 					<p>Change your avatar by dragging a photo here</p>
 				</div>
 
 
 				<div class="formField formUpload">
-					<label for="Email">Header</label>
+					<label>Header</label>
 
-					<div class="action uploadImage" id="uploadProfileBackgroundImage" style=""><i class="fa fa-upload"></i> Upload Photo
+					<div class="action uploadImage" id="uploadProfileBackgroundImage"><i class="fa fa-upload"></i> Upload Photo
 						<span class="dz-message"></span>
 						<span data-dz-name=""></span>
 						<span data-dz-details=""></span>

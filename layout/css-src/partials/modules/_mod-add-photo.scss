@@ -1,0 +1,38 @@
+/**
+ * @description    styling for the addPhoto module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.3
+ *        @date    2014-03-04 14:31
+ *
+ *
+ *     @example
+ *                 <div class="addPhoto"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        addPhoto
+ */
+.addPhoto {
+
+}
+
+/**
+ * @section        pendingPhoto
+ */
+.pendingPhoto {
+    display: inline-block;
+    margin-right: 1em;
+    position: relative;
+
+    .delete {
+        @include border-radius(1px);
+        @include font-size(1.2);
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

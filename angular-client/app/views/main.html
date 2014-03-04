@@ -37,12 +37,13 @@
 						</div>
 					</div>
 
-					<span ng-repeat="pendingPhoto in profile.PendingPhotos">
-						<button ng-click="removePendingPhotoClick(pendingPhoto._id);">X</button>
-
-						<img ng-src="{{ pendingPhoto.Path | imageSize: '150x100' }}" />
-
-					</span>
+					<div class="formField formUpload">
+						<label for="Email">Review photos</label>
+						<span class="pendingPhoto" ng-repeat="pendingPhoto in profile.PendingPhotos">
+							<button class="action warning delete" ng-click="removePendingPhotoClick(pendingPhoto._id);">X</button>
+							<img ng-src="{{ pendingPhoto.Path | imageSize: '150x100' }}" />
+						</span>
+					</div>
 
 					<div class="formField formActions">
 						<button class="action" ng-click="post.click()">Post</button>
