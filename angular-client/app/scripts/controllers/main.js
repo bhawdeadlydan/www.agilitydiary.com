@@ -111,11 +111,10 @@ app.controller('MainController', [
 
 
 		function updateUser() {
-			debugger;
 			ProfileService.updateUser($scope.controls.name, $scope.controls.email, $scope.controls.bio, $scope.controls.location, function (data) {
 				$scope.fetchProfile();
 			}, function (error) {
-
+				$scope.fetchProfile();
 			});
 
 		}
@@ -124,10 +123,12 @@ app.controller('MainController', [
 
 
 		function profileChanged() {
-			$scope.controls.name = $scope.profile.User.profile.name;
-			$scope.controls.email = $scope.profile.User.email;
-			$scope.controls.bio = $scope.profile.User.profile.bio;
-			$scope.controls.location = $scope.profile.User.profile.location;
+			if (angular.isDefined($scope.profile) && ($scope.profile !== null)) {
+				$scope.controls.name = $scope.profile.User.profile.name;
+				$scope.controls.email = $scope.profile.User.email;
+				$scope.controls.bio = $scope.profile.User.profile.bio;
+				$scope.controls.location = $scope.profile.User.profile.location;
+			}
 		}
 
 

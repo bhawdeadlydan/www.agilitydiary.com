@@ -429,7 +429,12 @@ exports.updateUserDetails = function (request, response) {
 		user.profile.location = request.body.location;
 		
 		user.save(function (err, user) {
-			response.send(200);
+			if (err) {
+				console.log(err);
+				response.send(500);
+			} else {
+				response.send(200);	
+			}
 		});
 	});
 };
