@@ -325,7 +325,7 @@
 /* line 22, ../../layout/css-src/partials/placeholders/_zero-list.scss */
 nav ul,
 nav ol,
-nav li, .searchResults ul, .searchResults li {
+nav li, .searchResults ul, .searchResults li, .peopleList {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -718,20 +718,6 @@ body {
   font-size: 1.4rem;
   line-height: 1.5em;
   margin: 0;
-}
-@media (min-width: 576px) and (max-width: 736px) {
-  /* line 21, ../../layout/css-src/partials/elements/_body.scss */
-  body {
-    font-size: 16px;
-    font-size: 1.6rem;
-  }
-}
-@media (min-width: 736px) and (max-width: 816px) {
-  /* line 21, ../../layout/css-src/partials/elements/_body.scss */
-  body {
-    font-size: 18px;
-    font-size: 1.8rem;
-  }
 }
 
 /**
@@ -2571,6 +2557,37 @@ select {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+/**
+ * @description    styling for the people module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-04 21:20
+ *
+ *
+ *     @example
+ *                 <div class="people"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        peopleList
+ */
+/**
+ * @section        person
+ */
+/* line 26, ../../layout/css-src/partials/modules/_mod-people.scss */
+.person {
+  clear: both;
+  margin-bottom: 1em;
+  width: 100%;
+}
+/* line 31, ../../layout/css-src/partials/modules/_mod-people.scss */
+.person .action {
+  float: right;
 }
 
 /**

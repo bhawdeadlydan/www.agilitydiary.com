@@ -1,0 +1,34 @@
+/**
+ * @description    styling for the people module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-04 21:20
+ *
+ *
+ *     @example
+ *                 <div class="people"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        peopleList
+ */
+.peopleList {
+    @extend %zeroList;
+}
+
+/**
+ * @section        person
+ */
+.person {
+    clear: both;
+    margin-bottom: 1em;
+    width: 100%;
+
+    .action {
+        float: right;
+    }
+}

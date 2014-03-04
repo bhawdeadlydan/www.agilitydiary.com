@@ -27,12 +27,12 @@ body {
     margin: 0;
 
     @include at-breakpoint($view_red) {
-        @include font-size(1.6);
+        // @include font-size(1.6);
 
     }
 
     @include at-breakpoint($view_blue) {
-        @include font-size(1.8);
+        // @include font-size(1.8);
 
     }
 

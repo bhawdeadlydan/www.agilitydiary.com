@@ -2,30 +2,24 @@
 
 	<div class="container">
 		<nav class="tabs">
-			<a class="active" href="#/shows/upcoming">Everyone</a>
+      <a class="active" href="#/shows/upcoming">Everyone</a>
+      <a href="#/shows/upcoming">Following</a>
+      <a href="">Trainers</a>
+			<a href="">Judges</a>
 		</nav>
 
 
-		<div class="contentWrapper">
-			<div class="contentMain">
+    <ul class="peopleList">
+  		<li class="person" ng-repeat="loopUser in listUsers">
+  			<img src="{{ loopUser.profile.picture | imageSize: '36x36' }}" />
 
-				<p ng-repeat="loopUser in listUsers">
-					<img src="{{ loopUser.profile.picture | imageSize: '200x100' }}" />
+  			<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
 
-					<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
+  			<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
 
-					<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
-
-					<button class="action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Unfollow</button>
-				</p>
-
-			</div>
-			<div class="contentSub">
-
-
-
-			</div>
-		</div>
+  			<button class="action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Unfollow</button>
+  		</li>
+    </ul>
 
 	</div>
 </section>
