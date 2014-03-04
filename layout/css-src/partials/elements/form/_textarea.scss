@@ -19,13 +19,13 @@
  * @section        textarea
  */
 textarea {
-    @include border-radius(.25em);
-    @include default-font-stack;
+    @include span-columns(6,12);
 
+    @include border-radius(.25em);
     border: 1px solid $color-border;
     box-shadow: inset 0 1px 3px $color-shadow;
+    @include default-font-stack;
     height: 5em;
     margin: .5em .6em;
     padding: .5em .6em;
-    width: 100%;
 }

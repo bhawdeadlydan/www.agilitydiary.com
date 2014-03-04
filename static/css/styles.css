@@ -1035,18 +1035,21 @@ label {
  */
 /* line 21, ../../layout/css-src/partials/elements/form/_textarea.scss */
 textarea {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   -ms-border-radius: 0.25em;
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
-  font-family: 'Open Sans', sans-serif;
   border: 1px solid #d4d4d4;
   box-shadow: inset 0 1px 3px #dddddd;
+  font-family: 'Open Sans', sans-serif;
   height: 5em;
   margin: .5em .6em;
   padding: .5em .6em;
-  width: 100%;
 }
 
 /**
@@ -2179,6 +2182,40 @@ select {
 }
 
 /**
+ * @section        extend .action--small
+ */
+/* line 65, ../../layout/css-src/partials/modules/_mod-action.scss */
+.action--small {
+  height: 2em;
+  line-height: 2;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+/**
+ * @section        extend .action--large
+ */
+/* line 75, ../../layout/css-src/partials/modules/_mod-action.scss */
+.action--large {
+  height: 4em;
+  line-height: 4;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+/**
+ * @section        extend .action--huge
+ */
+/* line 85, ../../layout/css-src/partials/modules/_mod-action.scss */
+.action--huge {
+  height: 5em;
+  line-height: 4;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+/**
  * @description    styling for the form module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
@@ -2512,6 +2549,46 @@ select {
   background-color: rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: .5em 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/**
+ * @description    styling for the addPhoto module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.3
+ *        @date    2014-03-04 14:31
+ *
+ *
+ *     @example
+ *                 <div class="addPhoto"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        addPhoto
+ */
+/**
+ * @section        pendingPhoto
+ */
+/* line 26, ../../layout/css-src/partials/modules/_mod-add-photo.scss */
+.pendingPhoto {
+  display: inline-block;
+  margin-right: 1em;
+  position: relative;
+}
+/* line 31, ../../layout/css-src/partials/modules/_mod-add-photo.scss */
+.pendingPhoto .delete {
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+  font-size: 12px;
+  font-size: 1.2rem;
   position: absolute;
   right: 0;
   top: 0;

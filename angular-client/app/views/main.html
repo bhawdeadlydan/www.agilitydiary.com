@@ -11,14 +11,12 @@
 		<div class="container">
 
 			<h2><i class="fa fa-pencil-square-o"></i> What's on your mind?</h2>
-
-
-
 			<div class="postSomething">
 				<form name="form">
 
 					<div class="formField formTextarea">
-						<textarea ng-model="post.message" />
+						<label for="message">Message</label>
+						<textarea id="message" name="message" ng-model="post.message" />
 					</div>
 
 					<div class="formField formInput formText">
@@ -27,20 +25,25 @@
 						<a class="help" href="#"><i class="fa fa-info-circle"></i></a>
 					</div>
 
-					<div class="action uploadImage" id="uploadPhoto"><i class="fa fa-upload"></i> Add photo
-						<span class="dz-message"></span>
-						<span data-dz-name=""></span>
-						<span data-dz-details=""></span>
-						<span data-dz-size=""></span>
-						<span data-dz-errormessage=""></span>
+					<div class="formField formUpload">
+						<label for="Email">Post a photo</label>
+
+						<div class="action uploadImage" id="uploadPhoto"><i class="fa fa-upload"></i> Add photo
+							<span class="dz-message"></span>
+							<span data-dz-name=""></span>
+							<span data-dz-details=""></span>
+							<span data-dz-size=""></span>
+							<span data-dz-errormessage=""></span>
+						</div>
 					</div>
 
-					<span ng-repeat="pendingPhoto in profile.PendingPhotos">
-						<button ng-click="removePendingPhotoClick(pendingPhoto._id);">X</button>
-
-						<img ng-src="{{ pendingPhoto.Path | imageSize: '150x100' }}" />
-
-					</span>
+					<div class="formField formUpload">
+						<label for="Email">Review photos</label>
+						<span class="pendingPhoto" ng-repeat="pendingPhoto in profile.PendingPhotos">
+							<button class="action warning delete" ng-click="removePendingPhotoClick(pendingPhoto._id);">X</button>
+							<img ng-src="{{ pendingPhoto.Path | imageSize: '150x100' }}" />
+						</span>
+					</div>
 
 					<div class="formField formActions">
 						<button class="action" ng-click="post.click()">Post</button>
@@ -137,12 +140,12 @@
 
 
 
-  <!--<section class="panel">
-    <div class="container">
-      <h2><a href="#">My shows</a></h2>
-      List claimed shows here?
-    </div>
-  </section>-->
+	<!--<section class="panel">
+		<div class="container">
+			<h2><a href="#">My shows</a></h2>
+			List claimed shows here?
+		</div>
+	</section>-->
 
 
 

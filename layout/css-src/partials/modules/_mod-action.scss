@@ -58,3 +58,35 @@
 .social {
     margin-right: 1em;
 }
+
+/**
+ * @section        extend .action--small
+ */
+.action--small {
+    height: 2em;
+    line-height: 2;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+/**
+ * @section        extend .action--large
+ */
+.action--large {
+    height: 4em;
+    line-height: 4;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+/**
+ * @section        extend .action--huge
+ */
+.action--huge {
+    height: 5em;
+    line-height: 4;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
