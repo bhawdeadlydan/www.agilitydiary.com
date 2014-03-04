@@ -17,9 +17,27 @@ app.controller('BaseController', [
 		$rootScope.mapSectionClass = '';
 		$rootScope.venuesSectionClass = '';
 		$rootScope.peopleSectionClass = '';
+		$rootScope.accountSectionClass = '';
 
 		$scope.startSpinner = startSpinner;
 		$scope.stopSpinner = stopSpinner;
+
+
+		function resetTabs() {
+			$rootScope.tabbedNavigation = {
+				homeSectionClass: '',
+				showsSectionClass: '',
+				mapSectionClass: '',
+				venuesSectionClass: '',
+				peopleSectionClass: ''
+			};
+		}
+
+		function setTab(tab) {
+
+		}
+
+		$scope.resetTabs = resetTabs;
 
 
 
@@ -76,5 +94,6 @@ app.controller('BaseController', [
 
 
 		fetchProfile();
+		resetTabs();
 	}
 ]);

@@ -421,6 +421,22 @@ function removeUserFromShow(show, user, success) {
 
 
 
+exports.updateUserDetails = function (request, response) {
+	User.findById(request.user.id, function (err, user) {
+		user.email = request.body.email;
+		user.profile.name = request.body.name;
+		user.profile.bio = request.body.bio;
+		user.profile.location = request.body.location;
+		
+		user.save(function (err, user) {
+			response.send(200);
+		});
+	});
+};
+
+
+
+
 exports.enterShow = function (req, res) {
 	User.findById(req.user.id, function (err, user) {
 		console.log(user);
