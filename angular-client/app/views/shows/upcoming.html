@@ -27,7 +27,7 @@
 				clickmarker="Location"></leaflet>
 		</div>
 
-		<div class="monthList">
+		<div class="events">
 			<p ng-show="filteredShows.length===0">No shows found</p>
 
 			<div ng-include src="'app/views/shows/paging.html'"></div>
@@ -37,8 +37,8 @@
 					<li class="event" ng-repeat="event in paging.results">
 
 						<div class="monthWrapper" ng-show="paging.results[$index - 1].ShowMonth !== event.ShowMonth">
-							<h3 ng-bind="event.ShowMonth"></h3>
-							<br/><span class="year" ng-bind="event.ShowYear"></span>
+							<h3 ng-bind="event.ShowMonth">
+							<br/><span class="year" ng-bind="event.ShowYear"></span></h3>
 						</div>
 
 						<div class="eventDate">

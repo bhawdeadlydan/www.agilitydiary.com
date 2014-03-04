@@ -1768,32 +1768,23 @@ select {
 }
 
 /**
- * @section        eventListWrapper
+ * @section        events
  */
 /* line 32, ../../layout/css-src/partials/modules/_mod-event-list.scss */
-.eventListWrapper {
-  width: 83.05085%;
-  float: right;
-  margin-right: 0;
-  *margin-left: -1em;
-  display: inline;
+.events {
+  position: relative;
 }
 
+/**
+ * @section        eventListWrapper
+ */
 /**
  * @section        event
  */
-/* line 39, ../../layout/css-src/partials/modules/_mod-event-list.scss */
-.event {
-  width: 100%;
-  float: left;
-  margin-right: 2.04082%;
-  display: inline;
-}
-
 /**
  * @section        eventDate
  */
-/* line 46, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+/* line 53, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .eventDate {
   width: 18.36735%;
   float: left;
@@ -1804,7 +1795,7 @@ select {
 /**
  * @section        eventShortDetail
  */
-/* line 54, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+/* line 61, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .eventShortDetail {
   width: 79.59184%;
   float: right;
@@ -1832,10 +1823,6 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-month-list.scss */
 .monthList {
-  width: 100%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1844,14 +1831,6 @@ select {
 /**
  * @section        monthWrapper
  */
-/* line 30, ../../layout/css-src/partials/modules/_mod-month-list.scss */
-.monthWrapper {
-  width: 15.25424%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-
 /**
  * @description    styling for the tabs class
  *

@@ -17,8 +17,6 @@
  * @section        monthList
  */
 .monthList {
-    @include span-columns(12,12);
-
     list-style: none;
     margin: 0;
     padding: 0;
@@ -28,5 +26,5 @@
  * @section        monthWrapper
  */
 .monthWrapper {
-    @include span-columns(2,12);
+
 }

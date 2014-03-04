@@ -27,17 +27,24 @@
 }
 
 /**
+ * @section        events
+ */
+.events {
+    position: relative;
+}
+
+/**
  * @section        eventListWrapper
  */
 .eventListWrapper {
-    @include span-columns(10 omega,12);
+
 }
 
 /**
  * @section        event
  */
 .event {
-    @include span-columns(10,10);
+
 }
 
 /**
