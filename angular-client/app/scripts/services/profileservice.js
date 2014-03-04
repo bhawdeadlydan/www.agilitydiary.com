@@ -52,11 +52,30 @@ angular.module('browserAppApp')
 
 
 
+
 			module.removePendingPhoto = function (id, successCallback, errorCallback) {
 				var url = '/agility-diary/user/remove-pending-photo';
 
 				$http.post(url, {
 					id: id
+				}).success(function (data) {
+					successCallback(data);
+				}).error(function (err) {
+					errorCallback(err);
+				});
+			};
+
+
+
+
+			module.updateUser = function (name, email, bio, location, successCallback, errorCallback) {
+				var url = '/agility-diary/user/update';
+
+				$http.post(url, {
+					name: name,
+					email: email,
+					bio: bio,
+					location: location
 				}).success(function (data) {
 					successCallback(data);
 				}).error(function (err) {

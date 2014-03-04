@@ -18,6 +18,7 @@ var userSchema = new mongoose.Schema({
 		website: { type: String, default: '' },
 		picture: { type: String, default: '' },
 		backgroundpicture: { type: String, default: '' },
+		bio: '',
 		colours: [
 			{
 				colour: String,

@@ -3,8 +3,18 @@
 var app = angular.module('browserAppApp');
 
 app.controller('MainController', [
-	'$scope', '$rootScope', 'Mapdata', 'ShowService', 'ProfileService', 'SearchService', '$location', '$timeout', '$route', '$routeParams',
-	function ($scope, $rootScope, Mapdata, ShowService, ProfileService, SearchService, $location, $timeout, $route, $routeParams) {
+	'$scope',
+	'$rootScope',
+	'Mapdata',
+	'ShowService',
+	'ProfileService',
+	'SearchService',
+	'$location',
+	'$timeout',
+	'$route',
+	'$routeParams',
+	'html',
+	function ($scope, $rootScope, Mapdata, ShowService, ProfileService, SearchService, $location, $timeout, $route, $routeParams, html) {
 
 
 
@@ -17,6 +27,7 @@ app.controller('MainController', [
 		$rootScope.mapSectionClass = '';
 		$rootScope.venuesSectionClass = '';
 		$rootScope.peopleSectionClass = '';
+		$rootScope.accountSectionClass = '';
 
 		/**
 		 * Post something
@@ -27,6 +38,16 @@ app.controller('MainController', [
 		$scope.post.click = postSomething;
 		$scope.removePendingPhotoClick = removePendingPhotoClick;
 		$scope.setThemeMainColour = setThemeMainColour;
+
+		$scope.updateUser = updateUser;
+
+		$scope.controls = {};
+		$scope.controls.name = '';
+		$scope.controls.email = '';
+		$scope.controls.bio = '';
+		$scope.controls.location = '';
+
+		$scope.$watch('profile', profileChanged);
 
 
 
@@ -89,6 +110,29 @@ app.controller('MainController', [
 
 
 
+		function updateUser() {
+			debugger;
+			ProfileService.updateUser($scope.controls.name, $scope.controls.email, $scope.controls.bio, $scope.controls.location, function (data) {
+				$scope.fetchProfile();
+			}, function (error) {
+
+			});
+
+		}
+
+
+
+
+		function profileChanged() {
+			$scope.controls.name = $scope.profile.User.profile.name;
+			$scope.controls.email = $scope.profile.User.email;
+			$scope.controls.bio = $scope.profile.User.profile.bio;
+			$scope.controls.location = $scope.profile.User.profile.location;
+		}
+
+
+
+
 		/**
 		 * Main function
 		 */
@@ -113,6 +157,15 @@ app.controller('MainController', [
 
 					break;
 
+				case 'linked-accounts':
+				case 'security':
+				case 'account':
+					$rootScope.homeSectionClass = '';
+					$rootScope.accountSectionClass = 'active';
+
+
+					break;
+
 				case 'public':
 					$scope.publicId = $routeParams.id;
 					$scope.publicProfile = {};
@@ -122,41 +175,43 @@ app.controller('MainController', [
 				}
 			}
 
-			try {
-				var profileDropzone = new Dropzone('div#uploadPhoto', { url: '/agility-diary/user/upload-photo' });
+			if (document.querySelector('div#uploadPhoto') !== null) {
+				var profileDropzone = new Dropzone('div#uploadPhoto', {
+					url: '/agility-diary/user/upload-photo',
+					previewTemplate: html.dropZone.previewTemplate
+				});
 
 				profileDropzone.on('complete', function file() {
 					profileDropzone.removeFile(file);
 					profileDropzone.removeAllFiles();
 					$scope.fetchProfile();
 				});
-			} catch (e) {
-
 			}
 
-
-			try {
-				var profileDropzone = new Dropzone('div#uploadProfileImage', { url: '/agility-diary/user/uploadFile' });
+			if (document.querySelector('div#uploadProfileImage') !== null) {
+				var profileDropzone = new Dropzone('div#uploadProfileImage', {
+					url: '/agility-diary/user/uploadFile',
+					previewTemplate: html.dropZone.previewTemplate
+				});
 
 				profileDropzone.on('complete', function file() {
 					profileDropzone.removeFile(file);
 					profileDropzone.removeAllFiles();
 					$scope.fetchProfile();
 				});
-			} catch (e) {
-
 			}
 
-			try {
-				var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', { url: '/agility-diary/user/uploadBackgroundFile' });
+			if (document.querySelector('div#uploadProfileBackgroundImage') !== null) {
+				var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', {
+					url: '/agility-diary/user/uploadFile',
+					previewTemplate: html.dropZone.previewTemplate
+				});
 
 				profileDropzone.on('complete', function file() {
 					profileDropzone.removeFile(file);
 					profileDropzone.removeAllFiles();
 					$scope.fetchProfile();
 				});
-			} catch (e) {
-
 			}
 		}
 

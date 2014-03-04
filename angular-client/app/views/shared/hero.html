@@ -4,11 +4,11 @@
 
 	<!-- <p><a class="edit" ng-href="#/profile"><i class="fa fa-edit"></i> Edit</a></p> -->
 
-	<p>@@Bio Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+	<p ng-bind="profile.User.profile.bio"></p>
 
 	<p>
 		<i class="fa fa-map-marker"></i>
-		Hampshire, UK
+		<span ng-bind="profile.User.profile.location" ></span>
 	</p>
 </div>
 

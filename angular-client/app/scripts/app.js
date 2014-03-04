@@ -22,8 +22,21 @@ angular.module('browserAppApp', [
 		})
 
 		.when('/account', {
-			templateUrl: 'app/views/users/edit.html',
-			controller: 'MainController'
+			templateUrl: 'app/views/account/edit.html',
+			controller: 'MainController',
+			action: 'account'
+		})
+
+		.when('/account/linked-accounts', {
+			templateUrl: 'app/views/account/linked.html',
+			controller: 'MainController',
+			action: 'linked-accounts'
+		})
+
+		.when('/account/security', {
+			templateUrl: 'app/views/account/security.html',
+			controller: 'MainController',
+			action: 'security'
 		})
 
 		.when('/map', {

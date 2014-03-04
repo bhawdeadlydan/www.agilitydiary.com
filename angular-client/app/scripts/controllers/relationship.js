@@ -11,6 +11,7 @@ app.controller('RelationshipController', [
 		$rootScope.mapSectionClass = '';
 		$rootScope.venuesSectionClass = '';
 		$rootScope.peopleSectionClass = ' active ';
+		$rootScope.accountSectionClass = '';
 
 		$scope.$watch('profile', profileHasChanged);
 
