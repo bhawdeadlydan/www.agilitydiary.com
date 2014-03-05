@@ -2285,6 +2285,18 @@ select {
 }
 
 /**
+ * @section        formContent
+ */
+/* line 42, ../../layout/css-src/partials/modules/_mod-form.scss */
+.formContent {
+  padding-left: 25.42373%;
+}
+/* line 45, ../../layout/css-src/partials/modules/_mod-form.scss */
+.formContent :first-child {
+  margin-top: 0;
+}
+
+/**
  * @description    styling for the date module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>

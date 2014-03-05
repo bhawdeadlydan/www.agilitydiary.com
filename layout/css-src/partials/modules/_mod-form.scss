@@ -35,3 +35,14 @@
         margin: .5em .6em;
     }
 }
+
+/**
+ * @section        formContent
+ */
+.formContent {
+    @include prefix(3);
+
+    :first-child {
+        margin-top: 0;
+    }
+}

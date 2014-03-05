@@ -15,38 +15,41 @@
 
 		<h1>My profile</h1>
 
-			<a ng-href="/" class="avatar primaryAvatar">
-				<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
-			</a>
+		<a ng-href="/" class="avatar primaryAvatar">
+			<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+		</a>
 
 
-			<div class="formField formUpload">
-				<label for="Email">Photo</label>
-				<div class="action uploadImage" id="uploadProfileImage" style=""><i class="fa fa-upload"></i> Upload Photo
-					<span class="dz-message"></span>
-					<span data-dz-name=""></span>
-					<span data-dz-details=""></span>
-					<span data-dz-size=""></span>
-					<span data-dz-errormessage=""></span>
-				</div>
-				<p>Change your avatar by dragging a photo here</p>
+		<div class="formField formUpload">
+			<label for="Email">Photo</label>
+			<div class="action uploadImage" id="uploadProfileImage" style=""><i class="fa fa-upload"></i> Upload Photo
+				<span class="dz-message"></span>
+				<span data-dz-name=""></span>
+				<span data-dz-details=""></span>
+				<span data-dz-size=""></span>
+				<span data-dz-errormessage=""></span>
 			</div>
+		</div>
 
+		<div class="formField formContent">
+			<p>Change your avatar by dragging a photo here</p>
+		</div>
 
-			<div class="formField formUpload">
-				<label for="Email">Header</label>
+		<div class="formField formUpload">
+			<label for="Email">Header</label>
 
-				<div class="action uploadImage" id="uploadProfileBackgroundImage" style=""><i class="fa fa-upload"></i> Upload Photo
-					<span class="dz-message"></span>
-					<span data-dz-name=""></span>
-					<span data-dz-details=""></span>
-					<span data-dz-size=""></span>
-					<span data-dz-errormessage=""></span>
-				</div>
-				<p>Change your background by dragging a photo here</p>
+			<div class="action uploadImage" id="uploadProfileBackgroundImage" style=""><i class="fa fa-upload"></i> Upload Photo
+				<span class="dz-message"></span>
+				<span data-dz-name=""></span>
+				<span data-dz-details=""></span>
+				<span data-dz-size=""></span>
+				<span data-dz-errormessage=""></span>
 			</div>
+		</div>
 
-
+		<div class="formField formContent">
+			<p>Change your background by dragging a photo here</p>
+		</div>
 
 		<!--<div class="formField formColourScheme">
 			<label for="Email">Colour scheme</label>
@@ -83,9 +86,9 @@
 
 			<div class="formField formInput formTextarea">
 				<label for="bio">Bio</label>
-				<input id="bio"
+				<textarea id="bio"
 					type="text"
-					ng-model="controls.bio" />
+					ng-model="controls.bio"></textarea>
 			</div>
 
 			<div class="formField formInput formText">
@@ -97,7 +100,7 @@
 
 
 
-			<div class="formActions">
+			<div class="formField formActions">
 				<button class="action" ng-click="updateUser();">
 					Save
 				</button>
@@ -106,7 +109,7 @@
 
 
 
-
+		<hr />
 
 
 
@@ -124,7 +127,7 @@
 			</p>
 		</div>
 
-		<p><a class="action" ng-href="#/dogs/add">add a dog</a></p>
+		<p><a class="action" ng-href="#/dogs/add">Add a dog</a></p>
 
 
 	</div>
