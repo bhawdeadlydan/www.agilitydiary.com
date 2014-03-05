@@ -2331,8 +2331,9 @@ select {
   border-radius: 0;
   margin: 0;
   text-align: left;
+  width: 100%;
 }
-/* line 31, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 32, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .quickSearch .action {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -2345,7 +2346,7 @@ select {
 /**
  * @section        searching
  */
-/* line 40, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 41, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searching {
   border: solid 1px red;
 }
@@ -2353,7 +2354,7 @@ select {
 /**
  * @section        searchResults
  */
-/* line 47, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 48, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults {
   background: white;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
@@ -2363,33 +2364,33 @@ select {
   width: auto;
   z-index: 9999;
 }
-/* line 60, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 61, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li {
   clear: both;
   overflow: hidden;
   padding: .25em .5em;
   position: relative;
 }
-/* line 66, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 67, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:first-child {
   padding-top: .5em;
 }
-/* line 70, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 71, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:last-child {
   padding-bottom: .5em;
 }
-/* line 74, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 75, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults li:hover {
   background: #73afaa;
   color: white;
   cursor: pointer;
   overflow: hidden;
 }
-/* line 82, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 83, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults i {
   margin-right: .5em;
 }
-/* line 86, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 87, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .searchResults img {
   float: left;
 }
@@ -2397,7 +2398,7 @@ select {
 /**
  * @section        meta
  */
-/* line 94, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 95, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .meta {
   float: left;
   margin-left: 1em;
@@ -2406,7 +2407,7 @@ select {
 /**
  * @section        metaDetail
  */
-/* line 103, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
+/* line 104, ../../layout/css-src/partials/modules/_mod-quick-search.scss */
 .metaDetail {
   font-size: 12px;
   font-size: 1.2rem;
@@ -2433,11 +2434,11 @@ select {
 .panel {
   background: #faf6ec;
 }
-/* line 25, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 22, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .panel:nth-child(even) {
-  background: #fff;
+  background: white;
 }
-/* line 35, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 30, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .panel .container {
   padding: 1em 2em 2em 2em;
 }
@@ -2449,7 +2450,7 @@ select {
 /**
  * @section        extend panel
  */
-/* line 61, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 56, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .postSomething form {
   float: none;
 }
@@ -2460,7 +2461,7 @@ select {
 /**
  * @section        extend panel
  */
-/* line 76, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 71, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .enteredShow {
   width: 32.20339%;
   float: left;
@@ -2468,29 +2469,29 @@ select {
   display: inline;
   padding: 0 1em;
 }
-/* line 80, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 75, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .enteredShow:first-child {
   border-right: 1px solid #d4d4d4;
 }
-/* line 84, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 79, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .enteredShow:last-child {
   border-left: 1px solid #d4d4d4;
 }
-/* line 88, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 83, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .enteredShow:nth-child(3n) {
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
 }
-/* line 92, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 87, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .enteredShow .showDetail {
   font-size: 14px;
   font-size: 1.4rem;
   padding-left: 2em;
   position: relative;
 }
-/* line 97, ../../layout/css-src/partials/modules/_mod-panel.scss */
+/* line 92, ../../layout/css-src/partials/modules/_mod-panel.scss */
 .enteredShow .showDetail .fa {
   left: 0;
   padding-top: .5em;
@@ -2658,6 +2659,48 @@ select {
 /**
  * @section        timeline
  */
+/**
+ * @description    styling for the tableDefault class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-05 14:14
+ *
+ *
+ *     @example
+ *                 <table class="tableDefault" href="/"></table>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        tableDefault
+ */
+/* line 21, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+.tableDefault thead {
+  border-bottom: 1px solid #d4d4d4;
+}
+/* line 24, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+.tableDefault thead tr:hover {
+  background: transparent;
+}
+/* line 38, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+.tableDefault tr {
+  background: #faf6ec;
+}
+/* line 41, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+.tableDefault tr:nth-child(odd) {
+  background: #fff;
+}
+/* line 45, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+.tableDefault tr:hover {
+  background: #ead9af;
+}
+/* line 50, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+.tableDefault th, .tableDefault td {
+  padding: .5em .6em;
+}
+
 /**
  * @section        Plugins
  */

@@ -18,18 +18,13 @@
  */
 .panel {
     background: $color-panel-bg;
-    // background: #74c8ec;
-    // background: #faf6ec;
-    // padding: 1.5em;
 
     &:nth-child(even) {
-        // background: transparent;
-        // background: #b9e3f5;
-        background: #fff;
+        background: $color-white;
     }
 
     &:last-child {
-        // border: none;
+
     }
 
     .container {

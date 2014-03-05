@@ -1,0 +1,53 @@
+/**
+ * @description    styling for the tableDefault class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-05 14:14
+ *
+ *
+ *     @example
+ *                 <table class="tableDefault" href="/"></table>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        tableDefault
+ */
+.tableDefault {
+
+    thead {
+        border-bottom: 1px solid $color-border;
+        tr {
+            &:hover {
+                background: transparent;
+            }
+        }
+    }
+
+    tfoot {
+
+    }
+
+    tbody {
+
+    }
+
+    tr {
+        background: $color-tr-bg;
+
+        &:nth-child(odd) {
+            background: #fff;
+        }
+
+        &:hover {
+            background: $color-tr-hover-bg;
+        }
+    }
+
+    th, td {
+        padding: .5em .6em;
+    }
+}

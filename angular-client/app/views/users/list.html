@@ -13,6 +13,10 @@
 
 				<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
 
+				<span ng-bind="profile.User.profile.bio"></span>
+
+				<span ng-bind="profile.User.profile.location"></span>
+
 				<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
 
 				<button class="action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Unfollow</button>
