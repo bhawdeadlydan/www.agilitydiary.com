@@ -7,6 +7,54 @@
 	<div class="hero" ng-include src="'app/views/shared/hero.html'"></div>
 
 
+
+	<section class="panel enteredShowsList">
+		<div class="container">
+			<h2><a href="/shows/entered"><i class="fa fa-dot-circle-o"></i> Entered shows</a></h2>
+
+
+
+			<div class="enteredShow" ng-repeat="show in profile.EnteredShows | limitTo: 3">
+				<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
+
+				<div class="showDetail">
+					<p><i class="fa fa-calendar fa-lg fa-fw"></i>
+						<span ng-bind="show.ShowDate" />
+						<span ng-show="show.ShowDate !== show.ShowEnd">
+						 to <span ng-bind="show.ShowEnd" />
+						</span></p>
+
+					<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a ng-href="/venues/details/{{ show.Venue.Id }}"><span ng-bind="show.Venue.Name" /></a>,
+					<br /><span ng-bind="show.Venue.Address" />,
+					<br /><span ng-bind="show.Venue.PostCode" /></p>
+
+					<p><i class="fa fa-compass fa-lg fa-fw"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+					<br />Lat: <span ng-bind="show.Location.Latitude" />,
+					<br />Long: <span ng-bind="show.Location.Longitude" /></p>
+				</div>
+			</div>
+
+			<p ng-show="!profile.EnteredShows.length">
+				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
+			</p>
+		</div>
+	</section>
+
+
+
+
+	<section class="panel timeline">
+		<div class="container">
+			<h2><a href="#">Timeline</a></h2>
+			<p>@@timeline here</p>
+			<p>add date and post of what happened - place, post, photo, result.</p>
+
+		</div>
+	</section>
+
+
+
+
 	<section class="panel postSomething">
 		<div class="container">
 
@@ -58,7 +106,7 @@
 
 	<section class="panel newsfeed">
 		<div class="container">
-			<h2><i class="fa fa-bullhorn"></i> Newsfeed</h2>
+			<h2><a href=""><i class="fa fa-bullhorn"></i> Newsfeed</a></h2>
 
 			<div ng-repeat="journalItem in profile.Journal"  style=" clear:left; margin-bottom: 32px">
 
@@ -93,46 +141,7 @@
 
 			</div>
 
-
-
-
-
 			</span>
-		</div>
-	</section>
-
-
-
-
-	<section class="panel enteredShowsList">
-		<div class="container">
-			<h2><a href="/shows/entered"><i class="fa fa-dot-circle-o"></i> Entered shows</a></h2>
-
-
-
-			<div class="enteredShow" ng-repeat="show in profile.EnteredShows | limitTo: 3">
-				<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
-
-				<div class="showDetail">
-					<p><i class="fa fa-calendar fa-lg fa-fw"></i>
-						<span ng-bind="show.ShowDate" />
-						<span ng-show="show.ShowDate !== show.ShowEnd">
-						 to <span ng-bind="show.ShowEnd" />
-						</span></p>
-
-					<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a ng-href="/venues/details/{{ show.Venue.Id }}"><span ng-bind="show.Venue.Name" /></a>,
-					<br /><span ng-bind="show.Venue.Address" />,
-					<br /><span ng-bind="show.Venue.PostCode" /></p>
-
-					<p><i class="fa fa-compass fa-lg fa-fw"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
-					<br />Lat: <span ng-bind="show.Location.Latitude" />,
-					<br />Long: <span ng-bind="show.Location.Longitude" /></p>
-				</div>
-			</div>
-
-			<p ng-show="!profile.EnteredShows.length">
-				You have not entered any shows yet, <a href="#/shows/upcoming">enter some shows</a>
-			</p>
 		</div>
 	</section>
 
@@ -151,13 +160,11 @@
 
 	<section class="panel photos">
 		<div class="container">
-			<h2><a href="#"><i class="fa fa-picture-o"></i> Latest photos</a></h2>
+			<h2><a href="#"><i class="fa fa-picture-o"></i> Photos</a></h2>
 
 			<p ng-repeat="photo in profile.Photos" >
 				<a ng-href="/photos/{{ photo._id }}"><img ng-src="{{ photo.Path | imageSize: '150x100' }}" /></a>
 			</p>
-
-
 
 			<a href="#">View all my photos</a>
 		</div>
@@ -166,102 +173,9 @@
 
 
 
-	<section class="panel friendsList">
+<!-- 	<section class="panel friendsList">
 		<div class="container">
 			<h2><a ng-href="/friends"><i class="fa fa-group"></i> Friends</a></h2>
-
-			<p>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-				<a href="#"><img alt="" src="http://placehold.it/24x24/0eafff/ffffff.png" /></a>
-			</p>
 
 			<p><a ng-href="/people">All users</a></p>
 
@@ -279,26 +193,7 @@
 			</div>
 
 		</div>
-	</section>
-
-
-
-
-	<!--<section class="panel">
-		<div class="container">
-			<h2><a ng-href="/dogs">Dogs</a></h2>
-
-			<p><a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
-			</a></p>
-
-			<p>
-				<span ng-show="!profile.Dogs.length">You have no dogs yet, would you like to</span> <a class="action" ng-href="#/dogs/add">Add a dog</a>?
-			</p>
-		</div>
-	</section>-->
-
-
+	</section> -->
 
 
 </section>

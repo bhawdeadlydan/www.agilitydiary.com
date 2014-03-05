@@ -82,7 +82,7 @@
  *     @section    Elements
  * @sub-section    Table
  */
-// @import "partials/elements/table/table";
+@import "partials/elements/table/table";
 
 /**
  *     @section    Elements
@@ -146,6 +146,7 @@
 @import "partials/modules/mod-edit";
 @import "partials/modules/mod-add-photo";
 @import "partials/modules/mod-people";
+@import "partials/modules/mod-timeline";
 
 /**
  * @section        Plugins
