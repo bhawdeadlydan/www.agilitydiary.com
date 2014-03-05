@@ -1,0 +1,29 @@
+/**
+ * @description    Styling for the account navigation
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-05 12:24
+ *
+ *
+ *     @example
+ *                 <nav class="navAccount">
+ *
+ *                 </nav>
+ *
+ *        @type    navigation
+ *       @notes
+ *
+ */
+
+/**
+ * @section        navAccount
+ *   @notes        extends navPrimary
+ */
+.navAccount {
+    float: right;
+
+    span {
+        @extend %visuallyhidden;
+    }
+}
