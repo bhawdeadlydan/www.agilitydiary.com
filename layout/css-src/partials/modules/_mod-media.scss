@@ -1,0 +1,52 @@
+/**
+ * @description    styling for the media module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-05 19:16
+ *
+ *
+ *     @example
+ *
+ *        @type    module
+ *       @notes
+ */
+
+ // .media, .bd {overflow:hidden; _overflow:visible; zoom:1;}
+ // .media .img {float:left; margin-right: 10px;}
+ // .media .img img{display:block;}
+ // .media .imgExt{float:right; margin-left: 10px;}
+
+
+/**
+ * @section        media
+ */
+.media {
+    margin: 1em 0;
+}
+
+/**
+ * @section        mediaImg
+ */
+.mediaImg {
+    float: left;
+    margin-right: 1em;
+
+    img {
+        display: block;
+    }
+}
+
+/**
+ * @section        mediaBody
+ */
+.mediaBody {
+    display: table-cell;
+}
+
+/**
+ * @section        mediaDate
+ */
+.mediaDate {
+
+}

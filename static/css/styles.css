@@ -2722,6 +2722,51 @@ select {
 }
 
 /**
+ * @description    styling for the media module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-05 19:16
+ *
+ *
+ *     @example
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        media
+ */
+/* line 24, ../../layout/css-src/partials/modules/_mod-media.scss */
+.media {
+  margin: 1em 0;
+}
+
+/**
+ * @section        mediaImg
+ */
+/* line 31, ../../layout/css-src/partials/modules/_mod-media.scss */
+.mediaImg {
+  float: left;
+  margin-right: 1em;
+}
+/* line 35, ../../layout/css-src/partials/modules/_mod-media.scss */
+.mediaImg img {
+  display: block;
+}
+
+/**
+ * @section        mediaBody
+ */
+/* line 43, ../../layout/css-src/partials/modules/_mod-media.scss */
+.mediaBody {
+  display: table-cell;
+}
+
+/**
+ * @section        mediaDate
+ */
+/**
  * @section        Plugins
  */
 /**

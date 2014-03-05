@@ -15,9 +15,12 @@
 
 		<h1>My profile</h1>
 
-		<a ng-href="/" class="avatar primaryAvatar">
-			<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
-		</a>
+		<div class="formField formUpload">
+			<label for="Email">Current picture</label>
+			<span class="avatar primaryAvatar">
+				<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+			</span>
+		</div>
 
 
 		<div class="formField formUpload">
@@ -114,8 +117,9 @@
 
 
 		<h2>My dogs</h2>
-		<p ng-show="!profile.Dogs.length">
-			You have no dogs yet, would you like to <a class="action" ng-href="#/dogs/add">add a dog</a>?
+
+		<p>
+			<span ng-show="!profile.Dogs.length">You have no dogs yet, would you like to</span> <a class="action" ng-href="#/dogs/add">add a dog</a>
 		</p>
 
 		<div>
@@ -127,7 +131,7 @@
 			</p>
 		</div>
 
-		<p><a class="action" ng-href="#/dogs/add">Add a dog</a></p>
+
 
 
 	</div>
