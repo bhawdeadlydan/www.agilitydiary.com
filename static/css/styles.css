@@ -2277,6 +2277,14 @@ select {
 }
 
 /**
+ * @section        formUpload
+ */
+/* line 34, ../../layout/css-src/partials/modules/_mod-form.scss */
+.formUpload .uploadImage {
+  margin: .5em .6em;
+}
+
+/**
  * @description    styling for the date module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>

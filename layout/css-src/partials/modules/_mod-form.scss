@@ -26,3 +26,12 @@
 .formField {
     @include span-columns(12,12);
 }
+
+/**
+ * @section        formUpload
+ */
+.formUpload {
+    .uploadImage {
+        margin: .5em .6em;
+    }
+}
