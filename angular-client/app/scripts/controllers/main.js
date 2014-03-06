@@ -204,7 +204,7 @@ app.controller('MainController', [
 
 			if (document.querySelector('div#uploadProfileBackgroundImage') !== null) {
 				var profileDropzone = new Dropzone('div#uploadProfileBackgroundImage', {
-					url: '/agility-diary/user/uploadFile',
+					url: '/agility-diary/user/uploadBackgroundFile',
 					previewTemplate: html.dropZone.previewTemplate
 				});
 
