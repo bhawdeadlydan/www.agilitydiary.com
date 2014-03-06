@@ -1,7 +1,7 @@
 module.exports = {
-	db: '192.168.1.109',
-	dbconnection: 'mongodb://192.168.1.109:27017/agilitynet',
-	amqp: 'amqp://192.168.1.109',
+	db: '192.168.1.111',
+	dbconnection: 'mongodb://192.168.1.111:27017/agilitynet',
+	amqp: 'amqp://192.168.1.111',
 
 	sendgrid: {
 		user: 'Your SendGrid Username',
@@ -18,8 +18,8 @@ module.exports = {
 	},
 
 	facebook: {
-		clientID: 'Your App ID',
-		clientSecret: 'Your App Secret',
+		clientID: '1399023843698329',
+		clientSecret: 'a66218150180079a44c8d1e72cf2d83d',
 		callbackURL: '/auth/facebook/callback',
 		passReqToCallback: true
 	},
@@ -39,8 +39,8 @@ module.exports = {
 	},
 
 	google: {
-		clientID: 'Your Client ID',
-		clientSecret: 'Your Client Secret',
+		clientID: '783463788712-mrpp3oehptuihn513uj2ab4h459gk3vb.apps.googleusercontent.com',
+		clientSecret: 'cHjCpEcwGLQJx-Jqg5PUbSq8',
 		callbackURL: '/auth/google/callback',
 		passReqToCallback: true
 	},
