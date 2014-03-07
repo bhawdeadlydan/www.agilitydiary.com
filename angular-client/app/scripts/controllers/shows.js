@@ -89,7 +89,7 @@ app.controller('ShowsController', [
 				}
 
 				for (i = $scope.paging.page - 5; i < $scope.paging.page + 5; i++) {
-					if ((i >= 0) && (i <  $scope.paging.sourcePages.length)) {
+					if ((i > 0) && (i <  $scope.paging.sourcePages.length)) {
 						pagesPush(i);
 					}
 				}
