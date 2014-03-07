@@ -161,7 +161,7 @@ angular.module('browserAppApp', [
 			action: 'public'
 		})
 
-		.when('_=_', {
+		.when('/_=_', {
 			redirectTo: '/'
 		});
 
