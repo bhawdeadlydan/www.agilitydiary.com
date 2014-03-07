@@ -159,11 +159,11 @@ angular.module('browserAppApp', [
 			templateUrl: 'app/views/users/public.html',
 			controller: 'MainController',
 			action: 'public'
-		});
+		})
 
-		//.otherwise({
-		///	redirectTo: '/'
-		//});
+		.otherwise({
+			redirectTo: '/'
+		});
 
 		$locationProvider.html5Mode(true);//.hashPrefix('#');
 });
