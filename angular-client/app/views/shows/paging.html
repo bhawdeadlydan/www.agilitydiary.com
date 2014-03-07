@@ -1,8 +1,8 @@
 <nav class="navPaging" role="navigation">
-	<button class="action" ng-click="paging.backClick();"
+	<button class="action" ng-click="paging.firstClick();"
 			ng-show="paging.page>1"><i class="fa fa-angle-double-left"></i></button>
 
-	<button class="action" ng-click="paging.firstClick();"
+	<button class="action" ng-click="paging.backClick();"
 			ng-show="paging.page>1"><i class="fa fa-angle-left"></i></button>
 
 	<span ng-repeat="page in paging.pages">
