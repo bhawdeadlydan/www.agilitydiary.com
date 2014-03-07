@@ -102,8 +102,16 @@ app.controller('ShowsController', [
 				results: [],
 				sourcePages: [],
 				pages: [],
+				firstClick: function () {
+					$scope.paging.page = 1;
+					paginate();
+				},
 				backClick: function () {
 					$scope.paging.page--;
+					paginate();
+				},
+				lastClick: function () {
+					$scope.paging.page = $scope.paging.totalPages;
 					paginate();
 				},
 				nextClick: function () {
