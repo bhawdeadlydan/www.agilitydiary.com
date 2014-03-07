@@ -161,9 +161,13 @@ angular.module('browserAppApp', [
 			action: 'public'
 		})
 
-		.otherwise({
+		.when('_=_', {
 			redirectTo: '/'
 		});
+
+		//.otherwise({
+		//	redirectTo: '/'
+		//});
 
 		$locationProvider.html5Mode(true);//.hashPrefix('#');
 });
