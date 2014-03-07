@@ -68,6 +68,7 @@ app.controller('ShowsController', [
 				$scope.paging.pageEndsAt = (($scope.paging.page) * $scope.paging.pageSize) - 1;
 				$scope.paging.results = [];
 				$scope.paging.pages = [];
+				$scope.paging.sourcePages = [];
 
 				for(var i = 0; i < $scope.filteredShows.length; i++) {
 					if ((i >= $scope.paging.pageStartsAt) && (i <= $scope.paging.pageEndsAt)){
@@ -77,7 +78,19 @@ app.controller('ShowsController', [
 					}
 
 					if (i % $scope.paging.pageSize === 0) {
-						$scope.paging.pages.push( ($scope.paging.pages.length + 1).toString() );
+						$scope.paging.sourcePages.push(($scope.paging.sourcePages.length + 1).toString() );
+					}
+				}
+
+				function pagesPush(item) {
+					if($scope.paging.pages.indexOf(item) === -1) {
+						$scope.paging.pages.push(item);
+					}
+				}
+
+				for (i = $scope.paging.page - 5; i < $scope.paging.page + 5; i++) {
+					if ((i > 0) && (i <  $scope.paging.totalPages)) {
+						pagesPush(i);
 					}
 				}
 			}
@@ -87,6 +100,7 @@ app.controller('ShowsController', [
 				page: 1,
 				totalPages: 1,
 				results: [],
+				sourcePages: [],
 				pages: [],
 				backClick: function () {
 					$scope.paging.page--;
