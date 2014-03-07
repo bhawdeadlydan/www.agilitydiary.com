@@ -111,7 +111,7 @@ app.controller('ShowsController', [
 					paginate();
 				},
 				lastClick: function () {
-					$scope.paging.page = $scope.paging.totalPages;
+					$scope.paging.page = $scope.paging.sourcePages.length;
 					paginate();
 				},
 				nextClick: function () {
