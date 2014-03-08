@@ -282,8 +282,8 @@ function parseImport(req, res) {
 		getScrapedData(clubCallback);
 	});
 
-	//getScrapedData(venueCallback);
-	getScrapedData(showCallback);
+	getScrapedData(venueCallback);
+	//getScrapedData(showCallback);
 }
 
 
