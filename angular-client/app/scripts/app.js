@@ -6,6 +6,7 @@
 // /profile
 // /shows
 // /users
+// /clubs
 
 angular.module('browserAppApp', [
 	'ngCookies',
@@ -160,6 +161,18 @@ angular.module('browserAppApp', [
 			controller: 'MainController',
 			action: 'public'
 		})
+
+    .when('/clubs/details/:id', {
+      templateUrl: 'app/views/clubs/details.html',
+      controller: 'ClubsController',
+      action: 'details'
+    })
+
+    .when('/clubs', {
+      templateUrl: 'app/views/clubs/list.html',
+      controller: 'ClubsController',
+      action: 'list'
+    })
 
 		.when('/_=_', {
 			redirectTo: '/'

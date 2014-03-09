@@ -1,0 +1,60 @@
+<section class="details">
+
+	<div class="container">
+
+		<h1 ng-bind="club.name"></h1>
+
+		<nav class="tabs">
+			<a class="active" ng-href="/clubs/details/{{ id }}">Details</a>
+		</nav>
+
+
+		<div>
+			<leaflet style="height: 300px"
+				id="geo-wrapper"
+				elementcacheid="search/geo-wrapper"
+				fullsize="false"
+				center="centre"
+				bounds="bounds"
+				scrollwheelzoom="false"
+				dragging="false"
+				clickmarker="Location"></leaflet>
+		</div>
+
+
+
+		<div class="contentWrapper">
+			<section class="contentMain">
+				<h3><span ng-bind="venue.name" ></span></h3>
+				<p><span ng-bind="venue.address" ></span>
+				<span ng-bind="venue.postcode" ></span></p
+				<p>Telephone</p>
+				<p>Website</p>
+				<p>Email</p>
+
+				<section class="comments">
+					<h2>What's on</h2>
+					<p>@@list events at this venue - with link and date</p>
+				</section>
+
+				<section class="comments">
+					<h2>Comments</h2>
+					<comments item="id" ></comments>
+				</section>
+
+			</section>
+
+
+
+
+			<section class="contentSub">
+
+        <p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a></p>
+
+			</section>
+
+		</div>
+
+	</div>
+
+</section>
