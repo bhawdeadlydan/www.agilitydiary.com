@@ -27,6 +27,7 @@ app.controller('MainController', [
 		$rootScope.mapSectionClass = '';
 		$rootScope.venuesSectionClass = '';
 		$rootScope.peopleSectionClass = '';
+		$rootScope.clubsSectionClass = '';
 		$rootScope.accountSectionClass = '';
 
 		/**

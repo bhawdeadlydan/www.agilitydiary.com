@@ -22,6 +22,7 @@ app.controller('ShowsController', [
 		$rootScope.mapSectionClass = '';
 		$rootScope.venuesSectionClass = '';
 		$rootScope.peopleSectionClass = '';
+		$rootScope.clubsSectionClass = '';
 		$rootScope.accountSectionClass = '';
 
 		$scope.upcomingShows = {};

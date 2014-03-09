@@ -17,6 +17,7 @@ app.controller('BaseController', [
 		$rootScope.mapSectionClass = '';
 		$rootScope.venuesSectionClass = '';
 		$rootScope.peopleSectionClass = '';
+		$rootScope.clubsSectionClass = '';
 		$rootScope.accountSectionClass = '';
 
 		$scope.startSpinner = startSpinner;

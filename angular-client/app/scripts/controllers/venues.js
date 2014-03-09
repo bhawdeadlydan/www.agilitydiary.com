@@ -22,6 +22,7 @@ app.controller('VenuesController', [
 		$rootScope.venuesSectionClass = ' active ';
 		$rootScope.mapSectionClass = '';
 		$rootScope.peopleSectionClass = '';
+		$rootScope.clubsSectionClass = '';
 		$rootScope.accountSectionClass = '';
 
 		$scope.upcomingShows = {};

@@ -3,7 +3,7 @@
 	<div class="container">
 
 		<nav class="tabs">
-			<a  class="active" href="#/shows/upcoming">All venues</a>
+			<a  class="active" href="#/shows/upcoming">All clubs</a>
 
 		</nav>
 
@@ -27,12 +27,12 @@
 				<div ng-include src="'app/views/shows/paging.html'"></div>
 
 
-						<li class="venue" ng-repeat="venue in paging.results">
+						<li class="club" ng-repeat="club in paging.results">
 
-							<h3><a ng-href="/venues/details/{{ venue._id }}"><span ng-bind="venue.name" /></a></h3>
+							<h3><a ng-href="/clubs/details/{{ club._id }}"><span ng-bind="club.name" /></a></h3>
 							<p>
-									<span ng-bind="venue.address" />,
-									<span ng-bind="venue.postcode" />
+									<span ng-bind="club.address" />,
+									<span ng-bind="club.postcode" />
 								</p>
 
 						</li>

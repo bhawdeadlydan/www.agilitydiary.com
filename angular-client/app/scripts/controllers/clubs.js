@@ -19,10 +19,10 @@ app.controller('ClubsController', [
 		 */
 		$rootScope.homeSectionClass = '';
 		$rootScope.showsSectionClass = '';
-    $rootScope.venuesSectionClass = '  ';
-		$rootScope.clubsSectionClass = ' active ';
+		$rootScope.venuesSectionClass = '';
 		$rootScope.mapSectionClass = '';
 		$rootScope.peopleSectionClass = '';
+		$rootScope.clubsSectionClass = ' active ';
 		$rootScope.accountSectionClass = '';
 
 		$scope.upcomingShows = {};
