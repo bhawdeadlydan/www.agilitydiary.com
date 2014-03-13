@@ -5,6 +5,6 @@ app.controller('FeedbackController', [
 	function FeedbackController($scope, Mapdata, ShowService, ProfileService, RelationshipService, $location, $route, $routeParams) {
 		"use strict";
 
-		
+
 	}
 ]);
