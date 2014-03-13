@@ -162,17 +162,22 @@ angular.module('browserAppApp', [
 			action: 'public'
 		})
 
-    .when('/clubs/details/:id', {
-      templateUrl: 'app/views/clubs/details.html',
-      controller: 'ClubsController',
-      action: 'details'
-    })
+		.when('/clubs/details/:id', {
+			templateUrl: 'app/views/clubs/details.html',
+			controller: 'ClubsController',
+			action: 'details'
+		})
 
-    .when('/clubs', {
-      templateUrl: 'app/views/clubs/list.html',
-      controller: 'ClubsController',
-      action: 'list'
-    })
+		.when('/clubs', {
+			templateUrl: 'app/views/clubs/list.html',
+			controller: 'ClubsController',
+			action: 'list'
+		})
+
+		.when('/feedback', {
+			templateUrl: 'app/views/feedback.html',
+			controller: 'FeedbackController',
+		})
 
 		.when('/_=_', {
 			redirectTo: '/'
