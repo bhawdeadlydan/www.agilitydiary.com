@@ -7,7 +7,7 @@
 		<base href="/" />
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>AgilityDiary</title>
+		<title>AgilityDiary @@make title more meaninful</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width" />
 
@@ -40,8 +40,15 @@
 				<!-- look in /templates/directives/quickSearch.html -->
 				<div class="quickSearch" quick-search></div>
 
+        <!-- <div>
+          <a href="">Event</a>
+          <a href="">Venue</a>
+          <a href="">Club</a>
+        </div> -->
+
 				<nav class="navPrimary navAccount" role="navigation" aria-label="primary">
-					<a ng-class="accountSectionClass" ng-href="/account" ng-bind="profile.User.profile.name"> <i class="fa fa-caret-down"></i></a><a
+          <a ng-class="accountSectionClass" ng-href="/account" aria-label="Add"><i class="fa fa-plus"></i> <span>Add</span></a><a
+          ng-class="accountSectionClass" ng-href="/account" ng-bind="profile.User.profile.name"> <i class="fa fa-caret-down"></i></a><a
 					 ng-class="accountSectionClass" ng-href="/account" aria-label="Account"><i class="fa fa-cog"></i> <span>Account</span></a><a
 					 ng-href="/logout" aria-label="Sign out"><i class="fa fa-sign-out"></i> <span>Sign out</span></a>
 				</nav>
@@ -121,7 +128,8 @@
 		<script src="app/scripts/controllers/dog.js"></script>
 		<script src="app/scripts/controllers/main.js"></script>
 		<script src="app/scripts/controllers/shows.js"></script>
-		<script src="app/scripts/controllers/venues.js"></script>
+    <script src="app/scripts/controllers/venues.js"></script>
+		<script src="app/scripts/controllers/clubs.js"></script>
 		<script src="app/scripts/controllers/map.js"></script>
 		<script src="app/scripts/controllers/relationship.js"></script>
 

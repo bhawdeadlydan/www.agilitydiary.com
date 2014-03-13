@@ -16,7 +16,44 @@
  * @section        date
  */
 .date {
+    text-align: center;
 
+    .event & {
+        float: left;
+        margin: 0 auto;
+        width: 35%;
+    }
+}
+
+/**
+ * @section        dateStart
+ */
+.dateStart {
+    .event & {
+        margin-right: 1em;
+    }
+}
+
+/**
+ * @section        dateDetail
+ */
+.dateDetail {
+    padding: .5em .6em;
+}
+
+/**
+ * @section        dateMonth
+ */
+.dateMonth {
+    background: #be040f;
+    color: $color-white;
+}
+
+/**
+ * @section        dateDay
+ */
+.dateDay {
+    background: #ecebe8;
 }
 
 /**

@@ -11,6 +11,8 @@
 			<a  class="active" href="#/shows/upcoming">Upcoming shows</a>
 			<a href="#/shows/previous">Previous shows</a>
 			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered</a>
+			<a href="">Camps</a>
+			<a href="">Workshops</a>
 		</nav>
 
 		<div ng-include src="'app/views/shows/categories.html'"></div>
@@ -42,7 +44,15 @@
 						</div>
 
 						<div class="eventDate">
-						 <p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
+							<p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
+						<div class="date dateStart">
+							<div class="dateDetail dateMonth">SEP</div>
+							<div class="dateDetail dateDay"><strong>5</strong></div>
+						</div>
+						<div class="date dateEnd">
+							<div class="dateDetail dateMonth">AUG</div>
+							<div class="dateDetail dateDay"><strong>31</strong></div>
+						</div>
 						</div>
 
 						<div class="eventShortDetail">

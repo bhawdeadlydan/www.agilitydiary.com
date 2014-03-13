@@ -46,3 +46,16 @@
         margin-top: 0;
     }
 }
+
+/**
+ * @section        formCheckbox
+ */
+.formCheckbox {
+    @include prefix(3);
+
+    label {
+        float: none;
+        text-align: left;
+        width: auto;
+    }
+}

@@ -9,6 +9,7 @@
 
 		<nav class="tabs">
 			<a class="active" ng-href="/account">Profile</a>
+			<a ng-href="">My Dogs</a>
 			<a ng-href="/account/security">Security</a>
 			<a ng-href="/account/linked-accounts">Linked accounts</a>
 		</nav>
@@ -99,6 +100,34 @@
 				<input id="location"
 					type="text"
 					ng-model="controls.location" />
+			</div>
+
+			<div class="formField formInput formURL">
+				<label for="website">Website</label>
+				<input id="website"
+					type="url"
+					ng-model="controls.location" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="twitterHandle">Twitter handle</label>
+				<input id="twitterHandle"
+					type="text"
+					ng-model="controls.location" />
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="IamAJudge"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="IamAJudge">I am a Judge</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="IamATrainer"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="IamATrainer">I am a Trainer</label>
 			</div>
 
 

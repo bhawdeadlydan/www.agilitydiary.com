@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 /**
  * @projectDescription    AgilityDiary
  *               @file    styles.css
@@ -141,6 +140,7 @@
  *     @section   import fonts
  *       @notes   http://www.google.com/fonts#UsePlace:use/Collection:Nunito
  */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 /**
  *     @section   default-font-stack
  */
@@ -214,7 +214,7 @@
  * @section        visuallyhidden
  */
 /* line 22, ../../layout/css-src/partials/placeholders/_visually-hidden.scss */
-.navAccount span {
+.navPrimary span, .navAccount span {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1106,12 +1106,16 @@ input {
   margin: .5em .6em;
   padding: .5em .6em;
 }
-/* line 31, ../../layout/css-src/partials/elements/form/_input.scss */
-input[type="email"], input[type="password"], input[type="text"] {
+/* line 32, ../../layout/css-src/partials/elements/form/_input.scss */
+input[type="email"], input[type="password"], input[type="text"], input[type="url"] {
   width: 49.15254%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
+}
+/* line 37, ../../layout/css-src/partials/elements/form/_input.scss */
+input[type="radio"], input[type="checkbox"] {
+  margin: 1em 0;
 }
 
 /**
@@ -1198,7 +1202,7 @@ select {
   margin-right: auto;
   padding: 1em;
 }
-/* line 38, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../Applications/Mixture.app/Contents/Resources/gems/compass-0.12.3/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .container:after {
   content: "";
   display: table;
@@ -1830,10 +1834,16 @@ select {
 /**
  * @section        event
  */
+/* line 46, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.event {
+  clear: both;
+  position: relative;
+}
+
 /**
  * @section        eventDate
  */
-/* line 53, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+/* line 54, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .eventDate {
   width: 18.36735%;
   float: left;
@@ -1844,13 +1854,17 @@ select {
 /**
  * @section        eventShortDetail
  */
-/* line 61, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+/* line 62, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .eventShortDetail {
   width: 79.59184%;
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
+}
+/* line 65, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+.eventShortDetail :first-child {
+  margin-top: 0;
 }
 
 /**
@@ -2297,6 +2311,20 @@ select {
 }
 
 /**
+ * @section        formCheckbox
+ */
+/* line 53, ../../layout/css-src/partials/modules/_mod-form.scss */
+.formCheckbox {
+  padding-left: 25.42373%;
+}
+/* line 56, ../../layout/css-src/partials/modules/_mod-form.scss */
+.formCheckbox label {
+  float: none;
+  text-align: left;
+  width: auto;
+}
+
+/**
  * @description    styling for the date module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
@@ -2312,6 +2340,50 @@ select {
 /**
  * @section        date
  */
+/* line 18, ../../layout/css-src/partials/modules/_mod-date.scss */
+.date {
+  text-align: center;
+}
+/* line 21, ../../layout/css-src/partials/modules/_mod-date.scss */
+.event .date {
+  float: left;
+  margin: 0 auto;
+  width: 35%;
+}
+
+/**
+ * @section        dateStart
+ */
+/* line 32, ../../layout/css-src/partials/modules/_mod-date.scss */
+.event .dateStart {
+  margin-right: 1em;
+}
+
+/**
+ * @section        dateDetail
+ */
+/* line 40, ../../layout/css-src/partials/modules/_mod-date.scss */
+.dateDetail {
+  padding: .5em .6em;
+}
+
+/**
+ * @section        dateMonth
+ */
+/* line 47, ../../layout/css-src/partials/modules/_mod-date.scss */
+.dateMonth {
+  background: #be040f;
+  color: white;
+}
+
+/**
+ * @section        dateDay
+ */
+/* line 55, ../../layout/css-src/partials/modules/_mod-date.scss */
+.dateDay {
+  background: #ecebe8;
+}
+
 /**
  * @section        showDate
  */

@@ -44,7 +44,8 @@
  * @section        event
  */
 .event {
-
+    clear: both;
+    position: relative;
 }
 
 /**
@@ -60,4 +61,8 @@
  */
 .eventShortDetail {
     @include span-columns(8 omega,10);
+
+    :first-child {
+        margin-top: 0;
+    }
 }

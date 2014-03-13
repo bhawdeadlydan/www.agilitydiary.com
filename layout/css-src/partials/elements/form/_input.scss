@@ -28,7 +28,13 @@ input {
 
     &[type="email"],
     &[type="password"],
-    &[type="text"] {
+    &[type="text"],
+    &[type="url"] {
         @include span-columns(6,12);
+    }
+
+    &[type="radio"],
+    &[type="checkbox"] {
+        margin: 1em 0;
     }
 }
