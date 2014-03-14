@@ -28,7 +28,7 @@ function createHtmlElementTEST(text, icon) {
 		outputHtml,
 		image = '';
 
-	return '<div class="pinWrapper"><div class="pin pinIndependent"></div><div class="pin pinBAA"></div><div class="pin pinUKA"></div><div class="pin pinFAB"></div><div class="pin pinInvitation"></div><div class="pin pinIrishKennelClub"></div><div class="pin pinKC"></div><div class="pin pinOther"></div><div class="pin pinSeries"></div><div class="pin pinTraining"></div><img src="/app/images/marker-purple.png" /></div>';
+	return '<div class="pinWrapper"><div class="pin pinIndependent"></div><div class="pin pinBAA"></div><div class="pin pinUKA"></div><div class="pin pinFAB"></div><div class="pin pinInvitation"></div><div class="pin pinIrishKennelClub"></div><div class="pin pinKC"></div><div class="pin pinOther"></div><div class="pin pinSeries"></div><div class="pin pinTraining"></div><img src="/app/images/pin.png" /></div>';
 
 
 

@@ -1,7 +1,20 @@
 
 <section class="shows upcoming">
 
-	<div class="container">
+  <div ng-controller="MapController">
+    <leaflet
+      class="map"
+      id="geo-wrapper"
+      elementcacheid="search/geo-wrapper"
+      fullsize="false"
+      center="data.leaflet.centre"
+      bounds="data.leaflet.bounds"
+      scrollwheelzoom="false"
+      dragging="true"
+      clickmarker="Location"></leaflet>
+  </div>
+
+	<div class="listResults">
 		<!--<section>
 			<input type="search" name="search" placeholder="Filter shows" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
@@ -16,18 +29,6 @@
 		</nav>
 
 		<div ng-include src="'app/views/shows/categories.html'"></div>
-
-		<div ng-controller="MapController">
-			<leaflet style="height: 400px"
-				id="geo-wrapper"
-				elementcacheid="search/geo-wrapper"
-				fullsize="false"
-				center="data.leaflet.centre"
-				bounds="data.leaflet.bounds"
-				scrollwheelzoom="false"
-				dragging="true"
-				clickmarker="Location"></leaflet>
-		</div>
 
 		<div class="events">
 			<p ng-show="filteredShows.length===0">No shows found</p>

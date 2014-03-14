@@ -1,0 +1,25 @@
+/**
+ * @description    styling for the map module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-14 15:20
+ *
+ *
+ *     @example
+ *                 <div class="map"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        map
+ */
+.map {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 3em;
+    width: 40%
+}

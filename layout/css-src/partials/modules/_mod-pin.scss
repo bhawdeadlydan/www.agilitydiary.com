@@ -24,9 +24,11 @@
  * @section        pin
  */
 .pin {
+    @include border-radius(100%);
     display: block;
     height: .5em;
     margin-bottom: .25em;
+    padding: .5em .6em;
     width: 100%;
 }
 
