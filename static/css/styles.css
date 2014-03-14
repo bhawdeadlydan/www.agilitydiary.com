@@ -1551,6 +1551,10 @@ select {
   border-left: 0;
   padding: .25em 2em .33em 1em;
 }
+/* line 37, ../../layout/css-src/partials/modules/_mod-brand-logo.scss */
+.signedOut .brandLogo {
+  padding: .25em 2em .33em 1em;
+}
 
 /**
  * @description    styling for the introduction class

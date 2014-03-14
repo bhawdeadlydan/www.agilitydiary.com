@@ -20,7 +20,7 @@ html
     script(src='/js/lib/parsley.min.js?v=#{cacheBuster}')
     script(src='/js/lib/bootstrap.min.js?v=#{cacheBuster}')
     script(src='/js/main.js?v=#{cacheBuster}')
-  body
+  body.signedOut
     header.layoutHeader(role='banner')
       a.brandLogo(href='/')
         | AgilityDiary
