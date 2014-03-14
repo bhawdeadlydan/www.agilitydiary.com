@@ -1,0 +1,30 @@
+<div class="bio">
+
+  <h1><span ng-bind="publicProfile.User.profile.name"></span></h1>
+
+	<p ng-bind="profile.User.profile.bio"></p>
+
+	<p>
+		<i class="fa fa-map-marker"></i>
+		<span ng-bind="profile.User.profile.location" ></span>
+	</p>
+</div>
+
+<div class="container avatarContainer">
+
+	<div class="primaryAvatarContainer">
+		<a ng-href="/" class="avatar primaryAvatar">
+			<img ng-src="{{ publicProfile.User.profile.picture | imageSize: '128x128' }}" />
+		</a>
+	</div>
+
+	<a class="avatar secondaryAvatar"
+    ng-href="/dogs/{{ dog._id }}"
+    ng-repeat="dog in publicProfile.Dogs"
+    ng-class="loopDog._id===dog._id ? 'selectedAvatar':''">
+    <img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+  </a>
+  <!-- <br /><span ng-bind="dog.Profile.Name" /> -->
+
+
+</div>

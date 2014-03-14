@@ -2,30 +2,13 @@
 
 
 <section class="main profile dynamicProfile">
-	<h1>Public Profile</h1>
 
-	<div class="profileCover" style="background-image: url({{ publicProfile.User.profile.backgroundpicture }} )"></div>
+	<div class="profileCover" style="background-image: url({{ profile.User.profile.backgroundpicture || 'app/images/profile-background.jpg' }} )"></div>
 
-	<div class="hero">
-		<div class="container avatarContainer">
-			<div class="primaryAvatarContainer">
-				<a ng-href="/" class="avatar primaryAvatar">
-					<img src="{{ publicProfile.User.profile.picture | imageSize: '200x100' }}" />
-				</a>
-				<h1><span ng-bind="publicProfile.User.profile.name"></span> <a ng-href="#/profile">...</a></h1>
-			</div>
+	<div class="hero" ng-include src="'app/views/shared/heroPublic.html'"></div>
 
-			<img src="{{ publicProfile.User.profile.picture | imageSize: '200x100' }}" />
-
-			<div class="secondaryAvatarContainer">
-				<a class="avatar secondaryAvatar" ng-href="#/dogs/{{ dog._id }}" ng-repeat="dog in publicProfile.Dogs">
-					<img src="{{ dog.Profile.Photo | imageSize: '200x100' }}" />
-				</a>
-			</div>
-		</div>
-	</div>
 
 	<div class="container">
-    <p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a></p>
+		<p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a></p>
 	</div>
 </section>
