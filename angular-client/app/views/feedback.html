@@ -1,0 +1,37 @@
+<section class="feedback">
+
+	<div class="container">
+
+		<h1>Site feedback</h1>
+
+		<p>We are very excited about AgilityDiary and we want you to love it as well. Please send us a message and tell us what you think, or if you have an idea for a feature you would like adding. Equally please tell us if something isn't working quite as you expect. We are always looking for ways to improve and develop the site.</p>
+
+		<form name="commentsForm">
+			<div class="formField formInput formEmail">
+				<label for="Name">Name</label>
+				<input id="Name"
+					name="Name"
+					type="text"
+					ng-model="controls.name" />
+			</div>
+
+			<div class="formField formInput formEmail">
+				<label for="Email">Email</label>
+				<input id="Email"
+					name="Email"
+					type="email"
+					ng-model="controls.email"
+					parsley-type="email" />
+			</div>
+
+			<div class="formField formTextarea">
+				<label for="message">Comment</label>
+				<textarea id="message" name="message" ng-required="true" ng-model="message"></textarea>
+			</div>
+
+			<div class="formField formActions">
+				<button class="action" ng-click="addComment()">Send message</button>
+			</div>
+		</form>
+	</div>
+</section>

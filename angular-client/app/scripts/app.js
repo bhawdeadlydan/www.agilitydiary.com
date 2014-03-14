@@ -179,6 +179,11 @@ angular.module('browserAppApp', [
 			controller: 'FeedbackController',
 		})
 
+		.when('/contact', {
+			templateUrl: 'app/views/contact.html',
+			controller: 'ContactController',
+		})
+
 		.when('/_=_', {
 			redirectTo: '/'
 		});

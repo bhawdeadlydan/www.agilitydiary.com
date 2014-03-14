@@ -1,0 +1,35 @@
+<section class="feedback">
+
+	<div class="container">
+
+		<h1>Contact</h1>
+
+		<form name="commentsForm">
+			<div class="formField formInput formEmail">
+				<label for="Name">Name</label>
+				<input id="Name"
+					name="Name"
+					type="text"
+					ng-model="controls.name" />
+			</div>
+
+			<div class="formField formInput formEmail">
+				<label for="Email">Email</label>
+				<input id="Email"
+					name="Email"
+					type="email"
+					ng-model="controls.email"
+					parsley-type="email" />
+			</div>
+
+			<div class="formField formTextarea">
+				<label for="message">Comment</label>
+				<textarea id="message" name="message" ng-required="true" ng-model="message"></textarea>
+			</div>
+
+			<div class="formField formActions">
+				<button class="action" ng-click="addComment()">Send message</button>
+			</div>
+		</form>
+	</div>
+</section>
