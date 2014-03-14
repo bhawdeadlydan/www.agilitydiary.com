@@ -22,6 +22,34 @@ function createHtmlElement(text, icon) {
 	return image + outputHtml;
 }
 
+function createHtmlElementTEST(text, icon) {
+	var $buildHtml,
+		$textItem,
+		outputHtml,
+		image = '';
+
+	return '<div class="pinWrapper"><div class="pin pinIndependent"></div><div class="pin pinBAA"></div><div class="pin pinUKA"></div><div class="pin pinFAB"></div><div class="pin pinInvitation"></div><div class="pin pinIrishKennelClub"></div><div class="pin pinKC"></div><div class="pin pinOther"></div><div class="pin pinSeries"></div><div class="pin pinTraining"></div><img src="/app/images/marker-purple.png" /></div>';
+
+
+
+
+
+
+
+	if(typeof icon !== 'undefined') {
+		image = '<img class="mapAvatar" src="' + icon + '" />';
+	}
+
+	$buildHtml = $('<span />');
+	$textItem = $('<span />');
+	$textItem.text(text);
+
+	$buildHtml.append($textItem);
+	outputHtml = $buildHtml.html();
+
+	return image + outputHtml;
+}
+
 /**
 	opts {
 	text: the text to show,
@@ -59,26 +87,60 @@ function mapTextMarker(opts) {
 }
 
 /**
+	opts {
+	text: the text to show,
+	lat: lat,
+	lng: lng
+	}
+ */
+function mapTextMarkerTEST(opts) {
+	var letterWidth = 8,
+		outputHtml,
+		calculatedWidth,
+		calculatedArrowCenter,
+		markerText,
+		divIcon,
+		icon,
+		iconWidth = 24,
+		arrowWidth = 10;
+
+	icon = opts.icon;
+	markerText = opts.text;
+
+
+	//calculatedWidth = (markerText.length * letterWidth) + iconWidth;
+	//calculatedArrowCenter = calculatedWidth / 2 + (arrowWidth / 2);
+
+	outputHtml = createHtmlElementTEST(markerText, icon);
+
+	divIcon = L.divIcon({
+		iconSize: new L.Point(24, 24),
+		iconAnchor: new L.Point(12, 24),
+		className: 'mapTextMarker',
+		html: outputHtml
+	});
+
+	return new L.Marker([opts.lat, opts.lng],{icon: divIcon});
+}
+
+/**
  * @description markers module
  */
 var leafletMarkers = {
-	mapTextMarker: mapTextMarker
+	mapTextMarker: mapTextMarker,
+	mapTextMarkerTEST: mapTextMarkerTEST
 };
 
 
-
-
-
-
 angular.module('browserAppApp')
-  .directive('leaflet', ['$http', '$log', '$timeout', function ($http, $log, $timeout) {
+	.directive('leaflet', ['$http', '$log', '$timeout', function ($http, $log, $timeout) {
 
 	var defaults = {
 		maxZoom: 14,
 		tileLayer: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		icon: {
 
-	  // url: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon.png',
+		// url: 'http://cdn.leafletjs.com/leaflet-0.5.1/images/marker-icon.png',
 		 url: 'app/images/marker-green.png',
 			// url: 'app/images/flag.png',
 
@@ -351,34 +413,42 @@ angular.module('browserAppApp')
 
 			function buildMarker(name, data, bounceOnAdd) {
 				var marker;
-				
-				// use text marker if we have a messag
-				if (data.message) {
-					var opts = {
-						text: data.message,
-						lat: $scope.markers[name].lat,
-						lng: $scope.markers[name].lng,
-						icon: data.icon
+
+				var opts = {
+					 text: data.message,
+					 lat: $scope.markers[name].lat,
+					 lng: $scope.markers[name].lng,
+					 icon: data.icon
 					};
+				marker = leafletMarkers.mapTextMarkerTEST(opts);
 
-					marker = leafletMarkers.mapTextMarker(opts);
-					//marker.bindPopup(data.message);
-				} else {
-					marker = new L.Marker($scope.markers[name],
-						{
-							icon: buildIcon(data),
-							draggable: data.draggable ? true : false
-						}
-					);
+				// use text marker if we have a messag
+				// if (data.message) {
+				// 	var opts = {
+				// 		text: data.message,
+				// 		lat: $scope.markers[name].lat,
+				// 		lng: $scope.markers[name].lng,
+				// 		icon: data.icon
+				// 	};
 
-					if (typeof data.html !== 'undefined') {
-						marker.popup = marker.bindPopup(data.html);
-					}
+				// 	marker = leafletMarkers.mapTextMarker(opts);
+				// 	//marker.bindPopup(data.message);
+				// } else {
+				// 	marker = new L.Marker($scope.markers[name],
+				// 		{
+				// 			icon: buildIcon(data),
+				// 			draggable: data.draggable ? true : false
+				// 		}
+				// 	);
 
-					if (typeof data.popupText !== 'undefined') {
-						marker.popup = marker.bindPopup(data.popupText);
-					}
-				}
+				// 	if (typeof data.html !== 'undefined') {
+				// 		marker.popup = marker.bindPopup(data.html);
+				// 	}
+
+				// 	if (typeof data.popupText !== 'undefined') {
+				// 		marker.popup = marker.bindPopup(data.popupText);
+				// 	}
+				// }
 				return marker;
 			}
 

@@ -1612,6 +1612,133 @@ select {
 }
 
 /**
+ * @description    styling for the pin module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.2
+ *        @date    2014-03-14 12:11
+ *
+ *
+ *     @example
+ *                 <div class="pin"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        pinWrapper
+ */
+/**
+ * @section        pin
+ */
+/* line 26, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pin {
+  display: block;
+  height: .5em;
+  margin-bottom: .25em;
+  width: 100%;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType"></div>
+ */
+/* line 38, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinShowType {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinIndependent"></div>
+ */
+/* line 46, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinIndependent {
+  background: green;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinBAA"></div>
+ */
+/* line 54, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinBAA {
+  background: yellow;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinUKA"></div>
+ */
+/* line 62, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinUKA {
+  background: blue;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinFAB"></div>
+ */
+/* line 70, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinFAB {
+  background: pink;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinInvitation"></div>
+ */
+/* line 78, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinInvitation {
+  background: orange;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinIrishKennelClub"></div>
+ */
+/* line 86, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinIrishKennelClub {
+  background: purple;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinKC"></div>
+ */
+/* line 94, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinKC {
+  background: silver;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinOther"></div>
+ */
+/* line 102, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinOther {
+  background: cyan;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinSeries"></div>
+ */
+/* line 110, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinSeries {
+  background: violet;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinTraining"></div>
+ */
+/* line 118, ../../layout/css-src/partials/modules/_mod-pin.scss */
+.pinTraining {
+  background: magenta;
+}
+
+/**
  * @description    styling for the tags module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>

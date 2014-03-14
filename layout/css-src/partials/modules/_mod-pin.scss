@@ -1,0 +1,120 @@
+/**
+ * @description    styling for the pin module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.2
+ *        @date    2014-03-14 12:11
+ *
+ *
+ *     @example
+ *                 <div class="pin"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+ /**
+  * @section        pinWrapper
+  */
+ .pinWrapper {
+
+ }
+
+/**
+ * @section        pin
+ */
+.pin {
+    display: block;
+    height: .5em;
+    margin-bottom: .25em;
+    width: 100%;
+}
+
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType"></div>
+ */
+.pinShowType {
+    background: rgba(0,0,0,0.5);
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinIndependent"></div>
+ */
+.pinIndependent {
+    background: $color-independent;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinBAA"></div>
+ */
+.pinBAA {
+    background: $color-baa;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinUKA"></div>
+ */
+.pinUKA {
+    background: $color-uka;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinFAB"></div>
+ */
+.pinFAB {
+    background: $color-fab;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinInvitation"></div>
+ */
+.pinInvitation {
+    background: $color-invitation;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinIrishKennelClub"></div>
+ */
+.pinIrishKennelClub {
+    background: $color-irishkennelclub;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinKC"></div>
+ */
+.pinKC {
+    background: $color-kc;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinOther"></div>
+ */
+.pinOther {
+    background: $color-other;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinSeries"></div>
+ */
+.pinSeries {
+    background: $color-series;
+}
+
+/**
+ * @section        extend .pin
+ * @example        <div class="pin pinShowType pinTraining"></div>
+ */
+.pinTraining {
+    background: $color-training;
+}

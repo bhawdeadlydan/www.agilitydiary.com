@@ -156,7 +156,7 @@ app.controller('ShowsController', [
 								_id: item._id,
 								lat: item.Location.Latitude,
 								lng: item.Location.Longitude,
-								message: null,
+								message: 'berty',
 								popupText: undefined, //item.ΩΩname,
 								focus: false,
 								draggable: false,
