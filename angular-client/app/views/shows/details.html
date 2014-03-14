@@ -3,6 +3,10 @@
 	<div class="container">
 
 		<h1 ng-bind="show.Name"></h1>
+    <p class="date showDate">
+      <i class="fa fa-calendar"></i>
+      <span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
+    </p>
 
 		<nav class="tabs">
 			<a class="active" ng-href="#/shows/details/{{ id }}">Details</a>
@@ -93,16 +97,18 @@
 
 			<section class="contentSub">
 
-        <p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a></p>
+        <p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a>
+
+        <button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
+
+        <button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
+      </p>
 
 				<p>
 					<span class="tag" ng-bind="show.Meta.ShowType" /> <!-- <span class="tag">Indoor show</span> -->
 				</p>
 
-				<p class="date showDate">
-					<i class="fa fa-calendar"></i>
-					<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
-				</p>
+
 
 				<!--<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>-->
 
@@ -132,9 +138,7 @@
 					No-one is attending this show yet, be the first
 				</p>
 
-				<button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
 
-				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
 
 				<section class="shareThis">
 					<h2><i class="fa fa-share"></i> Share this show</h2>

@@ -1,47 +1,45 @@
 
-<section class="shows upcoming">
-	<div class="container">
+<section class="clubs listView">
 
-		<nav class="tabs">
-			<a  class="active" href="#/shows/upcoming">All clubs</a>
+  <div ng-controller="MapController">
+    <leaflet
+      class="map"
+      id="geo-wrapper"
+      elementcacheid="search/geo-wrapper"
+      fullsize="false"
+      center="data.leaflet.centre"
+      bounds="data.leaflet.bounds"
+      scrollwheelzoom="false"
+      dragging="true"
+      clickmarker="Location"></leaflet>
+  </div>
 
-		</nav>
+  <div class="listResults">
+
+    <nav class="tabs">
+      <a  class="active" href="#/shows/upcoming">All clubs</a>
+    </nav>
+
+    <div class="events">
+      <p ng-show="filteredShows.length===0">No clubs found</p>
+
+      <div ng-include src="'app/views/shows/paging.html'"></div>
+
+      <div class="eventListWrapper">
+        <ol class="eventList">
+          <li class="venue" ng-repeat="venue in paging.results">
+
+            <h3><a ng-href="/venues/details/{{ venue._id }}"><span ng-bind="venue.name" /></a></h3>
+            <p>
+                <span ng-bind="venue.address" />,
+                <span ng-bind="venue.postcode" />
+              </p>
+
+          </li>
+        </ol>
 
 
-		<div ng-controller="MapController">
-			<leaflet style="height: 400px"
-				id="geo-wrapper"
-				elementcacheid="search/geo-wrapper"
-				fullsize="false"
-				center="data.leaflet.centre"
-				bounds="data.leaflet.bounds"
-				scrollwheelzoom="false"
-				dragging="true"
-				clickmarker="Location"></leaflet>
-		</div>
-
-		<ol class="monthList">
-			<li ng-show="filteredShows.length===0">No shows found</li>
-
-			<li>
-				<div ng-include src="'app/views/shows/paging.html'"></div>
-
-
-						<li class="club" ng-repeat="club in paging.results">
-
-							<h3><a ng-href="/clubs/details/{{ club._id }}"><span ng-bind="club.name" /></a></h3>
-							<p>
-									<span ng-bind="club.address" />,
-									<span ng-bind="club.postcode" />
-								</p>
-
-						</li>
-
-
-					<div ng-include src="'app/views/shows/paging.html'"></div>
-
-				</div>
-			</li>
-		</ol>
-	</div>
+        <div ng-include src="'app/views/shows/paging.html'"></div>
+    </div>
+  </div>
 </section>

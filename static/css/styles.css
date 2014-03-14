@@ -1666,9 +1666,9 @@ select {
   border-radius: 100%;
   display: block;
   height: .5em;
-  margin-bottom: .25em;
+  margin: 0 auto .25em auto;
   padding: .5em .6em;
-  width: 100%;
+  width: 0;
 }
 
 /**
