@@ -8,7 +8,8 @@
 
 		<nav class="tabs">
 			<a ng-href="/account">Profile</a>
-			<a class="active" ng-href="/account/dogs">My Dogs</a>
+			<a class="active" ng-href="/account/dogs">My dogs</a>
+      <span ng-show="!profile.Dogs.length"><a ng-href="#/dogs/add">Add a dog</a></span>
 			<a ng-href="/account/security">Security</a>
 			<a ng-href="/account/linked-accounts">Linked accounts</a>
 		</nav>
@@ -17,7 +18,7 @@
 
 		<div class="contentWrapper">
 			<section class="contentMain">
-				<p ng-show="!profile.Dogs.length">You have no dogs yet, would you like to <a class="action" ng-href="#/dogs/add">Add a dog</a>
+				<p ng-show="!profile.Dogs.length">You have not added any dogs yet, would you like to <a class="action" ng-href="#/dogs/add">Add a dog</a>
 				</p>
 
 				<div>
