@@ -3,20 +3,22 @@
 	<div class="container">
 
 		<h1 ng-bind="show.Name"></h1>
+
     <p class="date showDate">
       <i class="fa fa-calendar"></i>
       <span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
     </p>
 
 		<nav class="tabs">
-			<a class="active" ng-href="#/shows/details/{{ id }}">Details</a>
-			<a ng-href="#/shows/results/{{ id }}">View/enter results</a>
-			<a ng-href="#/shows/photos/{{ id }}">Photos</a>
+			<a class="active" ng-href="/shows/details/{{ id }}">Details</a>
+			<a ng-href="/shows/results/{{ id }}">View/enter results</a>
+			<a ng-href="/shows/photos/{{ id }}">Photos</a>
 		</nav>
 
 
 		<div>
-			<leaflet style="height: 300px"
+			<leaflet
+        class="map"
 				id="geo-wrapper"
 				elementcacheid="search/geo-wrapper"
 				fullsize="false"

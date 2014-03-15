@@ -28,11 +28,11 @@ angular.module('browserAppApp', [
 			action: 'account'
 		})
 
-    .when('/account/dogs', {
-      templateUrl: 'app/views/account/dogs.html',
-      controller: 'MainController',
-      action: 'account'
-    })
+		.when('/account/dogs', {
+			templateUrl: 'app/views/account/dogs.html',
+			controller: 'MainController',
+			action: 'account'
+		})
 
 		.when('/account/linked-accounts', {
 			templateUrl: 'app/views/account/linked.html',
@@ -87,11 +87,11 @@ angular.module('browserAppApp', [
 			action: 'results'
 		})
 
-    .when('/dogs/:id/viewResults', {
-      templateUrl: 'app/views/dogs/viewResults.html',
-      controller: 'DogController',
-      action: 'results'
-    })
+		.when('/dogs/:id/viewResults', {
+			templateUrl: 'app/views/dogs/viewResults.html',
+			controller: 'DogController',
+			action: 'results'
+		})
 
 		.when('/dogs/:id/photos', {
 			templateUrl: 'app/views/dogs/photos.html',
@@ -110,17 +110,17 @@ angular.module('browserAppApp', [
 			action: 'entered'
 		})
 
-    .when('/shows/camps', {
-      templateUrl: 'app/views/shows/camps.html',
-      controller: 'ShowsController',
-      action: 'entered'
-    })
+		.when('/shows/camps', {
+			templateUrl: 'app/views/shows/camps.html',
+			controller: 'ShowsController',
+			action: 'entered'
+		})
 
-    .when('/shows/workshops', {
-      templateUrl: 'app/views/shows/workshops.html',
-      controller: 'ShowsController',
-      action: 'entered'
-    })
+		.when('/shows/workshops', {
+			templateUrl: 'app/views/shows/workshops.html',
+			controller: 'ShowsController',
+			action: 'entered'
+		})
 
 		.when('/shows/upcoming', {
 			templateUrl: 'app/views/shows/upcoming.html',
@@ -164,6 +164,12 @@ angular.module('browserAppApp', [
 			action: 'details'
 		})
 
+		.when('/venues/photos/:id', {
+			templateUrl: 'app/views/venues/photos.html',
+			controller: 'VenuesController',
+			action: 'details'
+		})
+
 		.when('/venues', {
 			templateUrl: 'app/views/venues/list.html',
 			controller: 'VenuesController',
@@ -188,6 +194,12 @@ angular.module('browserAppApp', [
 
 		.when('/clubs/details/:id', {
 			templateUrl: 'app/views/clubs/details.html',
+			controller: 'ClubsController',
+			action: 'details'
+		})
+
+		.when('/clubs/photos/:id', {
+			templateUrl: 'app/views/clubs/photos.html',
 			controller: 'ClubsController',
 			action: 'details'
 		})
