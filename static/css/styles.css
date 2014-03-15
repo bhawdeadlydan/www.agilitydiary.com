@@ -1612,11 +1612,7 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-map.scss */
 .map {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  top: 3em;
-  width: 40%;
+  height: 400px;
 }
 
 /**
@@ -3043,13 +3039,6 @@ select {
 /* line 19, ../../layout/css-src/partials/modules/_mod-list-results.scss */
 .listResults {
   background: white;
-  bottom: 0;
-  overflow: scroll;
-  padding: 1em;
-  position: fixed;
-  right: 0;
-  top: 2.5em;
-  width: 60%;
 }
 
 /**

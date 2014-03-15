@@ -110,6 +110,18 @@ angular.module('browserAppApp', [
 			action: 'entered'
 		})
 
+    .when('/shows/camps', {
+      templateUrl: 'app/views/shows/camps.html',
+      controller: 'ShowsController',
+      action: 'entered'
+    })
+
+    .when('/shows/workshops', {
+      templateUrl: 'app/views/shows/workshops.html',
+      controller: 'ShowsController',
+      action: 'entered'
+    })
+
 		.when('/shows/upcoming', {
 			templateUrl: 'app/views/shows/upcoming.html',
 			controller: 'ShowsController',

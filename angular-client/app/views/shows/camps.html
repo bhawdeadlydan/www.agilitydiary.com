@@ -6,13 +6,12 @@
 		<nav class="tabs">
 			<a ng-href="/shows/upcoming">Upcoming shows</a>
 			<a ng-href="/shows/previous">Previous shows</a>
-			<a class="active" ng-href="/shows/entered">Attending</a>
-			<a ng-href="/shows/camps">Camps</a>
+			<a ng-href="/shows/entered">Attending</a>
+			<a class="active" ng-href="/shows/camps">Camps</a>
 			<a ng-href="/shows/workshops">Workshops</a>
 		</nav>
 
-		<h1>Attending</h1>
-
+		<h1>Camps</h1>
 
 		<div ng-include src="'app/views/shows/categories.html'"></div>
 
@@ -31,7 +30,7 @@
 
 
 		<p ng-show="enteredShows.length===0">
-			You have not entered any shows yet, <a href="/shows/upcoming">enter some shows</a>
+			You have not entered any camps yet, <a href="/shows/upcoming">enter some camps</a>
 		</p>
 
 		<ol class="monthList">
@@ -50,7 +49,7 @@
 							</div>
 
 							<div class="eventShortDetail">
-								<h2><a ng-href="/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
+								<h2><a ng-href="#/shows/details/{{ event._id }}"><span ng-bind="event.Name"></span></a></h2>
 
 								<div class="meta tags">
 									<a class="tag tagShowType event.Meta.ShowType" href="#" title="Filter by {{ event.Meta.ShowType }} shows only" ng-bind="event.Meta.ShowType" />

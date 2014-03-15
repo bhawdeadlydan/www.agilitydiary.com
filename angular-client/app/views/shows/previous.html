@@ -9,23 +9,26 @@
 		<nav class="tabs">
 			<a ng-href="/shows/upcoming">Upcoming shows</a>
 			<a class="active"  ng-href="/shows/previous">Previous shows</a>
-			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered</a>
+			<a ng-show="profile.EnteredShows.length !== 0" href="/shows/entered">Attending</a>
+			<a ng-href="/shows/camps">Camps</a>
+			<a ng-href="/shows/workshops">Workshops</a>
 		</nav>
 
+		<h1>Shows</h1>
 
 		<div ng-include src="'app/views/shows/categories.html'"></div>
 
-  	<div ng-controller="MapController">
-  		<leaflet style="height: 400px"
-  			id="geo-wrapper"
-  			elementcacheid="search/geo-wrapper"
-  			fullsize="false"
-  			center="data.leaflet.centre"
-  			bounds="data.leaflet.bounds"
-  			scrollwheelzoom="false"
-  			dragging="true"
-  			clickmarker="Location"></leaflet>
-  	</div>
+		<div ng-controller="MapController">
+			<leaflet style="height: 400px"
+				id="geo-wrapper"
+				elementcacheid="search/geo-wrapper"
+				fullsize="false"
+				center="data.leaflet.centre"
+				bounds="data.leaflet.bounds"
+				scrollwheelzoom="false"
+				dragging="true"
+				clickmarker="Location"></leaflet>
+		</div>
 
 		<ol class="monthList">
 			<li ng-show="filteredShows.length===0">No shows found</li>
