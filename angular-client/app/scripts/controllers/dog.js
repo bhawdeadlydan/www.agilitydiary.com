@@ -47,8 +47,8 @@ app.controller('DogController', [
 			ProfileService.deleteDog({
 				_id: dog._id
 			}, function (data) {
-				$scope.profile = data;
-				$location.path('/dogs');
+				$scope.fetchProfile();
+				$location.path('/account/dogs');
 			}, function (error) {
 				console.log(error);
 			});
@@ -77,7 +77,7 @@ app.controller('DogController', [
 				};
 
 				ProfileService.updateDog(dogData, function (data) {
-					$location.path('/dogs/' + $scope.dog._id);
+					$location.path('/account/dogs/' + $scope.dog._id);
 					$scope.fetchProfile();
 				}, function (error) {
 					console.log(error);
@@ -98,7 +98,7 @@ app.controller('DogController', [
 				};
 
 				ProfileService.addDog(dogData, function (data) {
-					$location.path('/dogs/' + data._id);
+					$location.path('/account/dogs');
 					$scope.fetchProfile();
 				}, function (error) {
 					console.log(error);
