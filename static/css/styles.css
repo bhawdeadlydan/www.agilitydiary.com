@@ -3090,13 +3090,25 @@ select {
   float: left;
   margin-right: 1.69492%;
   display: inline;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
-/* line 22, ../../layout/css-src/partials/modules/_mod-cta.scss */
+/* line 25, ../../layout/css-src/partials/modules/_mod-cta.scss */
 .signedOut .cta:nth-child(3n) {
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
+}
+/* line 29, ../../layout/css-src/partials/modules/_mod-cta.scss */
+.signedOut .cta h3 {
+  font-size: 28px;
+  font-size: 2.8rem;
+  line-height: 1.5;
+}
+/* line 34, ../../layout/css-src/partials/modules/_mod-cta.scss */
+.signedOut .cta i {
+  color: #CCC;
 }
 
 /**
