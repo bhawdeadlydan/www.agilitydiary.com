@@ -186,6 +186,21 @@ angular.module('browserAppApp', [
 			controller: 'RelationshipController'
 		})
 
+    .when('/people/following', {
+      templateUrl: 'app/views/users/following.html',
+      controller: 'RelationshipController'
+    })
+
+    .when('/people/trainers', {
+      templateUrl: 'app/views/users/trainers.html',
+      controller: 'RelationshipController'
+    })
+
+    .when('/people/judges', {
+      templateUrl: 'app/views/users/judges.html',
+      controller: 'RelationshipController'
+    })
+
 		.when('/people/:id', {
 			templateUrl: 'app/views/users/public.html',
 			controller: 'MainController',
