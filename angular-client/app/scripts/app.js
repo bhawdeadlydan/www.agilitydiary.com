@@ -87,6 +87,12 @@ angular.module('browserAppApp', [
 			action: 'results'
 		})
 
+    .when('/dogs/:id/viewResults', {
+      templateUrl: 'app/views/dogs/viewResults.html',
+      controller: 'DogController',
+      action: 'results'
+    })
+
 		.when('/dogs/:id/photos', {
 			templateUrl: 'app/views/dogs/photos.html',
 			controller: 'DogController',
