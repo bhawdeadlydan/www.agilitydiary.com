@@ -1,0 +1,24 @@
+/**
+ * @description    styling for the cta module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-14 20:07
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        cta
+ */
+.cta {
+
+    .signedOut & {
+        @include span-columns(4,12);
+        &:nth-child(3n) { @include omega; }
+    }
+}

@@ -24,4 +24,10 @@
     img {
         vertical-align: middle;
     }
+
+    .signedOut & {
+        background: transparent url('/app/images/weaving.jpg') center no-repeat;
+        @include background-size(cover);
+        padding-bottom: 30px;
+    }
 }
