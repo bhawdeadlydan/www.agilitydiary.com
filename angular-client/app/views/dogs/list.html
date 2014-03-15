@@ -2,11 +2,18 @@
 
 <section class="main profile dynamicProfile" ng-show="profile">
 
-	<div ng-include src="'app/views/shared/header.html'"></div>
 
 	<section class="dogs">
 
 		<div class="container">
+
+      <nav class="tabs">
+        <a ng-href="/account">Profile</a>
+        <a class="active" ng-href="/account/dogs">My Dogs</a>
+        <a ng-href="/account/security">Security</a>
+        <a ng-href="/account/linked-accounts">Linked accounts</a>
+      </nav>
+
 			<h2>My dogs</h2>
 
 			<div class="contentWrapper">

@@ -28,6 +28,12 @@ angular.module('browserAppApp', [
 			action: 'account'
 		})
 
+    .when('/account/dogs', {
+      templateUrl: 'app/views/account/dogs.html',
+      controller: 'MainController',
+      action: 'account'
+    })
+
 		.when('/account/linked-accounts', {
 			templateUrl: 'app/views/account/linked.html',
 			controller: 'MainController',
