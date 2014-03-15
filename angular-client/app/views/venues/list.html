@@ -1,32 +1,34 @@
 
 <section class="venues listView">
 
-  <div ng-controller="MapController">
-    <leaflet
-      class="map"
-      id="geo-wrapper"
-      elementcacheid="search/geo-wrapper"
-      fullsize="false"
-      center="data.leaflet.centre"
-      bounds="data.leaflet.bounds"
-      scrollwheelzoom="false"
-      dragging="true"
-      clickmarker="Location"></leaflet>
-  </div>
-
-	<div class="listResults">
+	<div class="container listResults">
 
 		<nav class="tabs">
 			<a  class="active" href="#/shows/upcoming">All venues</a>
 		</nav>
+
+		<h1>Venues</h1>
+
+		<div ng-controller="MapController">
+			<leaflet
+				class="map"
+				id="geo-wrapper"
+				elementcacheid="search/geo-wrapper"
+				fullsize="false"
+				center="data.leaflet.centre"
+				bounds="data.leaflet.bounds"
+				scrollwheelzoom="false"
+				dragging="true"
+				clickmarker="Location"></leaflet>
+		</div>
 
 		<div class="events">
 			<p ng-show="filteredShows.length===0">No venues found</p>
 
 			<div ng-include src="'app/views/shows/paging.html'"></div>
 
-      <div class="eventListWrapper">
-        <ol class="eventList">
+			<div class="eventListWrapper">
+				<ol class="eventList">
 					<li class="venue" ng-repeat="venue in paging.results">
 
 						<h3><a ng-href="/venues/details/{{ venue._id }}"><span ng-bind="venue.name" /></a></h3>
@@ -36,10 +38,10 @@
 							</p>
 
 					</li>
-        </ol>
+				</ol>
 
 
 				<div ng-include src="'app/views/shows/paging.html'"></div>
-  	</div>
-  </div>
+		</div>
+	</div>
 </section>

@@ -1,45 +1,47 @@
 
 <section class="clubs listView">
 
-  <div ng-controller="MapController">
-    <leaflet
-      class="map"
-      id="geo-wrapper"
-      elementcacheid="search/geo-wrapper"
-      fullsize="false"
-      center="data.leaflet.centre"
-      bounds="data.leaflet.bounds"
-      scrollwheelzoom="false"
-      dragging="true"
-      clickmarker="Location"></leaflet>
-  </div>
+	<div class="container listResults">
 
-  <div class="listResults">
+		<nav class="tabs">
+			<a  class="active" href="#/shows/upcoming">All clubs</a>
+		</nav>
 
-    <nav class="tabs">
-      <a  class="active" href="#/shows/upcoming">All clubs</a>
-    </nav>
+		<h1>Clubs</h1>
 
-    <div class="events">
-      <p ng-show="filteredShows.length===0">No clubs found</p>
+		<div ng-controller="MapController">
+			<leaflet
+				class="map"
+				id="geo-wrapper"
+				elementcacheid="search/geo-wrapper"
+				fullsize="false"
+				center="data.leaflet.centre"
+				bounds="data.leaflet.bounds"
+				scrollwheelzoom="false"
+				dragging="true"
+				clickmarker="Location"></leaflet>
+		</div>
 
-      <div ng-include src="'app/views/shows/paging.html'"></div>
+		<div class="events">
+			<p ng-show="filteredShows.length===0">No clubs found</p>
 
-      <div class="eventListWrapper">
-        <ol class="eventList">
-          <li class="venue" ng-repeat="venue in paging.results">
+			<div ng-include src="'app/views/shows/paging.html'"></div>
 
-            <h3><a ng-href="/venues/details/{{ venue._id }}"><span ng-bind="venue.name" /></a></h3>
-            <p>
-                <span ng-bind="venue.address" />,
-                <span ng-bind="venue.postcode" />
-              </p>
+			<div class="eventListWrapper">
+				<ol class="eventList">
+					<li class="venue" ng-repeat="venue in paging.results">
 
-          </li>
-        </ol>
+						<h3><a ng-href="/venues/details/{{ venue._id }}"><span ng-bind="venue.name" /></a></h3>
+						<p>
+								<span ng-bind="venue.address" />,
+								<span ng-bind="venue.postcode" />
+							</p>
+
+					</li>
+				</ol>
 
 
-        <div ng-include src="'app/views/shows/paging.html'"></div>
-    </div>
-  </div>
+				<div ng-include src="'app/views/shows/paging.html'"></div>
+		</div>
+	</div>
 </section>
