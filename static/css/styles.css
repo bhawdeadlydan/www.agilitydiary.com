@@ -3137,6 +3137,30 @@ select {
 }
 
 /**
+ * @description    styling for the tagline module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-15 12:55
+ *
+ *
+ *     @example
+ *                 <div class="tagline"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        tagline
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-tagline.scss */
+.tagline {
+  font-size: 28px;
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 1px white;
+}
+
+/**
  * @section        Plugins
  */
 /**

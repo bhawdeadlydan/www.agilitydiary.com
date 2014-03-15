@@ -1,0 +1,22 @@
+/**
+ * @description    styling for the tagline module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-15 12:55
+ *
+ *
+ *     @example
+ *                 <div class="tagline"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        tagline
+ */
+.tagline {
+    @include font-size(2.8);
+    text-shadow: 1px 1px 1px $color-text-shadow;
+}
