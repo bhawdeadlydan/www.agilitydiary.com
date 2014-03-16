@@ -137,7 +137,7 @@ app.controller('ClubsController', [
 		function getVenueData() {
 			$scope.startSpinner();
 
-			Mapdata.venues({}, function (data) {
+			Mapdata.clubs({}, function (data) {
 				$scope.stopSpinner();
 
 				$scope.venues = data;
@@ -170,7 +170,7 @@ app.controller('ClubsController', [
 
 		function details(id) {
 			$scope.startSpinner();
-			Mapdata.venues({}, function (data) {
+			Mapdata.clubs({}, function (data) {
 				$scope.stopSpinner();
 				$scope.venues = data;
 

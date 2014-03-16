@@ -29,14 +29,9 @@
 
 			<div class="eventListWrapper">
 				<ol class="eventList">
-					<li class="venue" ng-repeat="venue in paging.results">
+					<li class="venue" ng-repeat="club in paging.results">
 
-						<h3><a ng-href="/venues/details/{{ venue._id }}"><span ng-bind="venue.name" /></a></h3>
-						<p>
-								<span ng-bind="venue.address" />,
-								<span ng-bind="venue.postcode" />
-							</p>
-
+						<h3><a ng-href="/clubs/details/{{ club._id }}"><span ng-bind="club.name" /></a></h3>
 					</li>
 				</ol>
 

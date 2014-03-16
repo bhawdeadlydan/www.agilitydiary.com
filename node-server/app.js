@@ -24,6 +24,7 @@ var commentsController = require('./controllers/comment');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 var showController = require('./controllers/show');
+var clubController = require('./controllers/club');
 var eventController = require('./controllers/event');
 var venueController = require('./controllers/venue');
 //var uploadController = require('./controllers/upload');
@@ -191,6 +192,7 @@ app.get('/agility-diary/show/details', showController.details);
 app.get('/agility-diary/show/categories', showController.categories);
 app.post('/agility-diary/show/user-upload-photo', showController.userUploadPhoto);
 
+app.get('/agility-diary/club/list', clubController.list);
 app.get('/agility-diary/venue/list', venueController.list);
 app.get('/agility-diary/userData', userController.userData);
 

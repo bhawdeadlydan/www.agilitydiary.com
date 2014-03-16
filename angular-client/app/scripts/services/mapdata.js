@@ -13,10 +13,29 @@ angular.module('browserAppApp')
 			var _searchNearHereLatch = false,
 				settings = Settings;
 			var caches = {
-				venues: null
+				venues: null,
+				clubs: null
 			};
 
 			return {
+				clubs: function (opts, successCallback, errorCallback) {
+					var session_data,
+						url;
+
+					if (caches.clubs !== null) {
+						successCallback(caches.clubs);
+					} else {
+
+						session_data = Authenticationservice.load();
+						url = '/agility-diary/club/list';
+						return $http.get(url).success(function (data) {
+							caches.clubs = data;
+							successCallback(data);
+						}).error(errorCallback);
+					}
+				},
+
+
 				venues: function (opts, successCallback, errorCallback) {
 					var session_data,
 						url;
