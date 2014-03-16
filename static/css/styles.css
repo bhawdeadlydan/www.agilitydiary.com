@@ -1792,14 +1792,14 @@ select {
  *
  *
  *     @example
- *                 <a class="tag" href="/">AgilityDiary</a>
+ *                 <a class="tag" href="/">Tag text</a>
  *
  *        @type    module
  *       @notes
  */
 /**
  * @section        tag
- * @example        <a class="tag" href="/">AgilityDiary</a>
+ * @example        <a class="tag" href="/">Tag text</a>
  */
 /* line 20, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tag {
@@ -1815,7 +1815,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType" href="/">Tag text</a>
  */
 /* line 31, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagShowType {
@@ -1824,7 +1824,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagIndependent" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagIndependent" href="/">Independent</a>
  */
 /* line 39, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagIndependent {
@@ -1833,7 +1833,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagBAA" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagBAA" href="/">BAA</a>
  */
 /* line 47, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagBAA {
@@ -1842,7 +1842,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagUKA" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagUKA" href="/">UKA</a>
  */
 /* line 55, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagUKA {
@@ -1851,7 +1851,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagFAB" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagFAB" href="/">FAB</a>
  */
 /* line 63, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagFAB {
@@ -1860,7 +1860,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagInvitation" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagInvitation" href="/">Invitation</a>
  */
 /* line 71, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagInvitation {
@@ -1869,7 +1869,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">Irish Kennel Club</a>
  */
 /* line 79, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagIrishKennelClub {
@@ -1878,7 +1878,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagKC" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagKC" href="/">KC</a>
  */
 /* line 87, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagKC {
@@ -1887,7 +1887,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagOther" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagOther" href="/">Other</a>
  */
 /* line 95, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagOther {
@@ -1896,7 +1896,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagSeries" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagSeries" href="/">Series</a>
  */
 /* line 103, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagSeries {
@@ -1905,13 +1905,21 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagTraining" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagTraining" href="/">Training</a>
  */
 /* line 111, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagTraining {
   background: magenta;
 }
 
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagTrainer" href="/">Trainer</a>
+ */
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagJudge" href="/">Judge</a>
+ */
 /**
  * @description    styling for the categories module
  *
@@ -2456,14 +2464,15 @@ select {
  */
 /* line 18, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formActions {
-  padding: 1em 0;
+  clear: both;
+  padding: 3em 0 2em 0;
   text-align: center;
 }
 
 /**
  * @section        formField
  */
-/* line 26, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 27, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formField {
   width: 100%;
   float: left;
@@ -2474,7 +2483,7 @@ select {
 /**
  * @section        formUpload
  */
-/* line 34, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 35, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formUpload .uploadImage {
   margin: .5em .6em;
 }
@@ -2482,11 +2491,11 @@ select {
 /**
  * @section        formContent
  */
-/* line 42, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 43, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formContent {
   padding-left: 25.42373%;
 }
-/* line 45, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 46, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formContent :first-child {
   margin-top: 0;
 }
@@ -2494,11 +2503,11 @@ select {
 /**
  * @section        formCheckbox
  */
-/* line 53, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 54, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formCheckbox {
   padding-left: 25.42373%;
 }
-/* line 56, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 57, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formCheckbox label {
   float: none;
   text-align: left;
@@ -2910,9 +2919,39 @@ select {
   margin-bottom: 1em;
   width: 100%;
 }
-/* line 31, ../../layout/css-src/partials/modules/_mod-people.scss */
-.person .action {
+
+/**
+ * @section        personAvatar
+ */
+/* line 35, ../../layout/css-src/partials/modules/_mod-people.scss */
+.personAvatar {
+  width: 6.77966%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/**
+ * @section        personDetail
+ */
+/* line 42, ../../layout/css-src/partials/modules/_mod-people.scss */
+.personDetail {
+  width: 74.57627%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/**
+ * @section        personActions
+ */
+/* line 49, ../../layout/css-src/partials/modules/_mod-people.scss */
+.personActions {
+  width: 15.25424%;
   float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
 }
 
 /**

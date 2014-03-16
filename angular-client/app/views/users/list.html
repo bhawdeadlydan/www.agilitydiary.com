@@ -10,23 +10,35 @@
 
 		<h1>People</h1>
 
+		<p>@@My user should not appear in this list</p>
+
 		<ul class="peopleList">
 			<li class="person" ng-repeat="loopUser in listUsers">
-				<p><img src="{{ loopUser.profile.picture | imageSize: '36x36' }}" />
 
-				<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
+				<div class="personAvatar">
+					<img src="{{ loopUser.profile.picture || 'app/images/person.png' | imageSize: '48x48' }}" />
+				</div>
 
-				<span ng-bind="profile.User.profile.location"></span>
+				<div class="personDetail">
 
-				<a ng-href="/people/trainers" class="tag tagTrainer">Trainer</a>
-				<a ng-href="/people/judges" class="tag tagJudge">Judge</a>
+					<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
 
-				<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
+					<span ng-bind="profile.User.profile.location"></span>
 
-				<button class="action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Unfollow</button>
-				</p>
+					<a ng-href="/people/trainers" class="tag tagTrainer">Trainer</a>
+					<a ng-href="/people/judges" class="tag tagJudge">Judge</a>
 
-				<p><span ng-bind="profile.User.profile.bio"></span></p>
+					<p><span ng-bind="profile.User.profile.bio"></span></p>
+				</div>
+
+				<div class="personActions">
+
+					<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
+
+					<button class="action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Unfollow</button>
+
+				</div>
+
 			</li>
 		</ul>
 
