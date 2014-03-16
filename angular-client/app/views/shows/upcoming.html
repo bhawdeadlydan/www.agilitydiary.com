@@ -1,10 +1,13 @@
 
 <section class="shows listView">
 
+
+
 	<div class="container listResults">
 
 
 		<div class="contentWrapper" ng-include src="'app/views/shows/shared/eventsHeader.html'"></div>
+
 
 
 		<!--<section>
@@ -23,6 +26,7 @@
 		<div ng-include src="'app/views/shows/categories.html'"></div>
 
 		<div ng-controller="MapController">
+			<input type="text" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}"/>
 			<leaflet
 				class="map"
 				id="geo-wrapper"
@@ -33,7 +37,8 @@
 				scrollwheelzoom="false"
 				dragging="true"
 				clickmarker="Location"></leaflet>
-		</div>
+		  </div>
+
 
 		<div class="events">
 			<p ng-show="filteredShows.length===0">No shows found</p>
