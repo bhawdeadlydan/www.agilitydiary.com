@@ -6,13 +6,18 @@
 
 	<div class="container">
 
-		<nav class="tabs">
+		<nav class="navTabs">
 			<a ng-href="/account">Profile</a>
+      <a ng-href="/account/dogs">My dogs</a>
+      <span ng-show="!profile.Dogs.length"><a ng-href="#/dogs/add">Add a dog</a></span>
 			<a class="active" ng-href="/account/security">Security</a>
 			<a ng-href="/account/linked-accounts">Linked accounts</a>
 		</nav>
 
-		<h1>Change password</h1>
+    <h1>Security</h1>
+
+		<h2>Change password</h2>
+
 		<form name="form" parsley-validate>
 			<div class="formField formInput formPassword">
 				<label for="Password">New password</label>

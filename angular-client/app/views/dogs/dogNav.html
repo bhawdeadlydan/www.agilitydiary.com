@@ -1,3 +1,4 @@
+<span ng-show="!profile.Dogs.length"><a class="action" ng-href="#/dogs/add">Add a dog</a></span>
 <a class="avatar secondaryAvatar"
 	ng-href="/dogs/{{ loopDog._id }}"
 	ng-repeat="loopDog in profile.Dogs"

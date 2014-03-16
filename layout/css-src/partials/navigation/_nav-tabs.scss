@@ -1,23 +1,24 @@
 /**
- * @description    styling for the tabs class
+ * @description    styling for the navTabs class
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
+ *     @version    0.2
  *        @date    2014-02-12 13:50
  *
  *
  *     @example
- *                 <a class="tabs" href="/">AgilityDiary</a>
+ *                 <nav class="navTabs"></nav>
  *
  *        @type    module
  *       @notes
  */
 
 /**
- * @section        tabs
+ * @section        navTabs
  */
-.tabs {
+.navTabs {
     border-bottom: 1px solid $color-border;
+    clear: both;
     margin: 1em 0;
     padding: 0 1em;
 

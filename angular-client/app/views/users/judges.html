@@ -1,0 +1,34 @@
+<section class="people listView">
+
+	<div class="container">
+		<nav class="navTabs">
+			<a ng-href="/people">Everyone</a>
+			<a ng-href="/people/following">Following</a>
+			<a ng-href="/people/trainers">Trainers</a>
+			<a class="active" ng-href="/people/judges">Judges</a>
+		</nav>
+
+		<h1>Trainers</h1>
+
+		<ul class="peopleList">
+			<li class="person" ng-repeat="loopUser in listUsers">
+				<p><img src="{{ loopUser.profile.picture | imageSize: '36x36' }}" />
+
+				<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
+
+				<span ng-bind="profile.User.profile.location"></span>
+
+				<a ng-href="/people/trainers" class="tag tagTrainer">Trainer</a>
+				<a ng-href="/people/judges" class="tag tagJudge">Judge</a>
+
+				<button class="action" ng-hide="loopUser.isFriend" ng-click="addFriend(loopUser);">Follow</button>
+
+				<button class="action warning" ng-show="loopUser.isFriend" ng-click="removeFriend(loopUser);">Unfollow</button>
+				</p>
+
+				<p><span ng-bind="profile.User.profile.bio"></span></p>
+			</li>
+		</ul>
+
+	</div>
+</section>

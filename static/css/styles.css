@@ -1514,6 +1514,57 @@ select {
 }
 
 /**
+ * @description    styling for the navTabs class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.2
+ *        @date    2014-02-12 13:50
+ *
+ *
+ *     @example
+ *                 <nav class="navTabs"></nav>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        navTabs
+ */
+/* line 19, ../../layout/css-src/partials/navigation/_nav-tabs.scss */
+.navTabs {
+  border-bottom: 1px solid #d4d4d4;
+  clear: both;
+  margin: 1em 0;
+  padding: 0 1em;
+}
+/* line 25, ../../layout/css-src/partials/navigation/_nav-tabs.scss */
+.navTabs a {
+  background: #73afaa;
+  border-bottom: 1px solid #73afaa;
+  color: white;
+  display: inline-block;
+  margin-bottom: -2px;
+  padding: .25em .5em;
+}
+/* line 33, ../../layout/css-src/partials/navigation/_nav-tabs.scss */
+.navTabs a:hover {
+  background: #579893;
+  text-decoration: none;
+}
+/* line 38, ../../layout/css-src/partials/navigation/_nav-tabs.scss */
+.navTabs a.active {
+  background: white;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  color: #73afaa;
+}
+/* line 46, ../../layout/css-src/partials/navigation/_nav-tabs.scss */
+.navTabs .count {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+
+/**
  * @section        Modules
  */
 /**
@@ -1612,11 +1663,7 @@ select {
  */
 /* line 19, ../../layout/css-src/partials/modules/_mod-map.scss */
 .map {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  top: 3em;
-  width: 40%;
+  height: 400px;
 }
 
 /**
@@ -1796,14 +1843,14 @@ select {
  *
  *
  *     @example
- *                 <a class="tag" href="/">AgilityDiary</a>
+ *                 <a class="tag" href="/">Tag text</a>
  *
  *        @type    module
  *       @notes
  */
 /**
  * @section        tag
- * @example        <a class="tag" href="/">AgilityDiary</a>
+ * @example        <a class="tag" href="/">Tag text</a>
  */
 /* line 20, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tag {
@@ -1819,7 +1866,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType" href="/">Tag text</a>
  */
 /* line 31, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagShowType {
@@ -1828,7 +1875,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagIndependent" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagIndependent" href="/">Independent</a>
  */
 /* line 39, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagIndependent {
@@ -1837,7 +1884,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagBAA" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagBAA" href="/">BAA</a>
  */
 /* line 47, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagBAA {
@@ -1846,7 +1893,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagUKA" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagUKA" href="/">UKA</a>
  */
 /* line 55, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagUKA {
@@ -1855,7 +1902,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagFAB" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagFAB" href="/">FAB</a>
  */
 /* line 63, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagFAB {
@@ -1864,7 +1911,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagInvitation" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagInvitation" href="/">Invitation</a>
  */
 /* line 71, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagInvitation {
@@ -1873,7 +1920,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">Irish Kennel Club</a>
  */
 /* line 79, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagIrishKennelClub {
@@ -1882,7 +1929,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagKC" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagKC" href="/">KC</a>
  */
 /* line 87, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagKC {
@@ -1891,7 +1938,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagOther" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagOther" href="/">Other</a>
  */
 /* line 95, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagOther {
@@ -1900,7 +1947,7 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagSeries" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagSeries" href="/">Series</a>
  */
 /* line 103, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagSeries {
@@ -1909,13 +1956,21 @@ select {
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagTraining" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagTraining" href="/">Training</a>
  */
 /* line 111, ../../layout/css-src/partials/modules/_mod-tags.scss */
 .tagTraining {
   background: magenta;
 }
 
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagTrainer" href="/">Trainer</a>
+ */
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagJudge" href="/">Judge</a>
+ */
 /**
  * @description    styling for the categories module
  *
@@ -2070,56 +2125,6 @@ select {
 /**
  * @section        monthWrapper
  */
-/**
- * @description    styling for the tabs class
- *
- *      @author    Kristina Auckland <kristina.auckland@gmail.com>
- *     @version    0.1
- *        @date    2014-02-12 13:50
- *
- *
- *     @example
- *                 <a class="tabs" href="/">AgilityDiary</a>
- *
- *        @type    module
- *       @notes
- */
-/**
- * @section        tabs
- */
-/* line 19, ../../layout/css-src/partials/modules/_mod-tabs.scss */
-.tabs {
-  border-bottom: 1px solid #d4d4d4;
-  margin: 1em 0;
-  padding: 0 1em;
-}
-/* line 24, ../../layout/css-src/partials/modules/_mod-tabs.scss */
-.tabs a {
-  background: #73afaa;
-  border-bottom: 1px solid #73afaa;
-  color: white;
-  display: inline-block;
-  margin-bottom: -2px;
-  padding: .25em .5em;
-}
-/* line 32, ../../layout/css-src/partials/modules/_mod-tabs.scss */
-.tabs a:hover {
-  background: #579893;
-  text-decoration: none;
-}
-/* line 37, ../../layout/css-src/partials/modules/_mod-tabs.scss */
-.tabs a.active {
-  background: white;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  color: #73afaa;
-}
-/* line 45, ../../layout/css-src/partials/modules/_mod-tabs.scss */
-.tabs .count {
-  font-size: 12px;
-  font-size: 1.2rem;
-}
-
 /**
  * @description    styling for the friends module
  *
@@ -2460,14 +2465,15 @@ select {
  */
 /* line 18, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formActions {
-  padding: 1em 0;
+  clear: both;
+  padding: 3em 0 2em 0;
   text-align: center;
 }
 
 /**
  * @section        formField
  */
-/* line 26, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 27, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formField {
   width: 100%;
   float: left;
@@ -2478,7 +2484,7 @@ select {
 /**
  * @section        formUpload
  */
-/* line 34, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 35, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formUpload .uploadImage {
   margin: .5em .6em;
 }
@@ -2486,11 +2492,11 @@ select {
 /**
  * @section        formContent
  */
-/* line 42, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 43, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formContent {
   padding-left: 25.42373%;
 }
-/* line 45, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 46, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formContent :first-child {
   margin-top: 0;
 }
@@ -2498,11 +2504,11 @@ select {
 /**
  * @section        formCheckbox
  */
-/* line 53, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 54, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formCheckbox {
   padding-left: 25.42373%;
 }
-/* line 56, ../../layout/css-src/partials/modules/_mod-form.scss */
+/* line 57, ../../layout/css-src/partials/modules/_mod-form.scss */
 .formCheckbox label {
   float: none;
   text-align: left;
@@ -2914,9 +2920,39 @@ select {
   margin-bottom: 1em;
   width: 100%;
 }
-/* line 31, ../../layout/css-src/partials/modules/_mod-people.scss */
-.person .action {
+
+/**
+ * @section        personAvatar
+ */
+/* line 35, ../../layout/css-src/partials/modules/_mod-people.scss */
+.personAvatar {
+  width: 6.77966%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/**
+ * @section        personDetail
+ */
+/* line 42, ../../layout/css-src/partials/modules/_mod-people.scss */
+.personDetail {
+  width: 74.57627%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/**
+ * @section        personActions
+ */
+/* line 49, ../../layout/css-src/partials/modules/_mod-people.scss */
+.personActions {
+  width: 15.25424%;
   float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
 }
 
 /**
@@ -3043,13 +3079,6 @@ select {
 /* line 19, ../../layout/css-src/partials/modules/_mod-list-results.scss */
 .listResults {
   background: white;
-  bottom: 0;
-  overflow: scroll;
-  padding: 1em;
-  position: fixed;
-  right: 0;
-  top: 2.5em;
-  width: 60%;
 }
 
 /**
@@ -3090,13 +3119,74 @@ select {
   float: left;
   margin-right: 1.69492%;
   display: inline;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
-/* line 22, ../../layout/css-src/partials/modules/_mod-cta.scss */
+/* line 25, ../../layout/css-src/partials/modules/_mod-cta.scss */
 .signedOut .cta:nth-child(3n) {
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
+}
+/* line 29, ../../layout/css-src/partials/modules/_mod-cta.scss */
+.signedOut .cta h3 {
+  font-size: 28px;
+  font-size: 2.8rem;
+  line-height: 1.5;
+  text-shadow: 1px 1px 1px white;
+}
+/* line 35, ../../layout/css-src/partials/modules/_mod-cta.scss */
+.signedOut .cta i {
+  color: #CCC;
+  text-shadow: 1px 1px 1px white;
+}
+
+/**
+ * @description    styling for the social module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-15 12:49
+ *
+ *
+ *     @example
+ *                 <div class="social"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        social
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-social.scss */
+.social {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+/**
+ * @description    styling for the tagline module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-15 12:55
+ *
+ *
+ *     @example
+ *                 <div class="tagline"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        tagline
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-tagline.scss */
+.tagline {
+  font-size: 28px;
+  font-size: 2.8rem;
+  text-shadow: 0px 1px 1px white;
 }
 
 /**

@@ -2,11 +2,11 @@
 
 	<div class="container">
 
-		<h1 ng-bind="club.name"></h1>
+		<h1 ng-bind="venue.name"></h1>
 
 		<nav class="navTabs">
-      <a class="active" ng-href="/clubs/details/{{ id }}">Details</a>
-			<a ng-href="/clubs/photos/{{ id }}">Photos</a>
+      <a ng-href="/venues/details/{{ id }}">Details</a>
+  			<a class="active" ng-href="/venues/photos/{{ id }}">Photos</a>
 		</nav>
 
 
@@ -27,21 +27,21 @@
 
 		<div class="contentWrapper">
 			<section class="contentMain">
-				<h3><span ng-bind="club.name"></span></h3>
-				<p><span ng-bind="club.address"></span>
-				<span ng-bind="club.postcode"></span></p
-				<p>Telephone</p>
-				<p>Website</p>
-				<p>Email</p>
+				<h3><span ng-bind="venue.name" ></span></h3>
+				<p><span ng-bind="venue.address" ></span>
+				<span ng-bind="venue.postcode" ></span></p
+				<p>Telephone: @@phone number here</p>
+				<p>Website: @@website here</p>
+				<p>Email: @@email here</p>
 
 				<section class="comments">
 					<h2>What's on</h2>
-					<p>@@list club events - with link and date</p>
+					<p>@@list events at this venue - with link and date</p>
 				</section>
 
 				<section class="comments">
 					<h2>Comments</h2>
-					<comments item="id"></comments>
+					<comments item="id" ></comments>
 				</section>
 
 			</section>
@@ -52,7 +52,7 @@
 			<section class="contentSub">
 
         <p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a></p>
-        <p><a class="action" href="#">Is this your club?</a></p>
+        <p><a class="action" href="#">Is this your venue?</a></p>
 
 			</section>
 

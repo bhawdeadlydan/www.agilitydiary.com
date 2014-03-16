@@ -4,13 +4,15 @@
 
 		<h1 ng-bind="venue.name"></h1>
 
-		<nav class="tabs">
-			<a class="active" ng-href="/venues/details/{{ id }}">Details</a>
+		<nav class="navTabs">
+      <a class="active" ng-href="/venues/details/{{ id }}">Details</a>
+			<a ng-href="/venues/photos/{{ id }}">Photos</a>
 		</nav>
 
 
 		<div>
-			<leaflet style="height: 300px"
+			<leaflet
+        class="map"
 				id="geo-wrapper"
 				elementcacheid="search/geo-wrapper"
 				fullsize="false"
@@ -28,9 +30,9 @@
 				<h3><span ng-bind="venue.name" ></span></h3>
 				<p><span ng-bind="venue.address" ></span>
 				<span ng-bind="venue.postcode" ></span></p
-				<p>Telephone</p>
-				<p>Website</p>
-				<p>Email</p>
+				<p>Telephone: @@phone number here</p>
+				<p>Website: @@website here</p>
+				<p>Email: @@email here</p>
 
 				<section class="comments">
 					<h2>What's on</h2>
@@ -50,6 +52,7 @@
 			<section class="contentSub">
 
         <p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a></p>
+        <p><a class="action" href="#">Is this your venue?</a></p>
 
 			</section>
 

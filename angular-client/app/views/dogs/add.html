@@ -1,6 +1,18 @@
+<style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
+
+
+
 <section class="dogs add">
 
 	<div class="container">
+
+    <nav class="navTabs">
+      <a ng-href="/account">Profile</a>
+      <a ng-href="/account/dogs">My Dogs</a>
+      <span ng-show="!profile.Dogs.length"><a class="active" ng-href="#/dogs/add">Add a dog</a></span>
+      <a ng-href="/account/security">Security</a>
+      <a ng-href="/account/linked-accounts">Linked accounts</a>
+    </nav>
 
 		<h1>Add a dog</h1>
 
@@ -55,10 +67,21 @@
 				<input id="addDogTattooNo" type="text" ng-model="dog.tattoo" />
 			</div>
 
-			<div class="formField formInput formUpload">
+			<!-- <div class="formField formInput formUpload">
 				<label for="addDogPhoto">Upload a photo</label>
 				<input id="addDogPhoto" type="text" ng-model="dog.photo" />
-			</div>
+			</div> -->
+
+      <div class="formField formUpload">
+        <label for="Email">Photo</label>
+        <div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
+          <span class="dz-message"></span>
+          <span data-dz-name=""></span>
+          <span data-dz-details=""></span>
+          <span data-dz-size=""></span>
+          <span data-dz-errormessage=""></span>
+        </div>
+      </div>
 
 			<div class="formField formActions">
 				<button class="action" ng-click="saveDog();">

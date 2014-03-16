@@ -6,9 +6,10 @@
 
 	<div class="container">
 
-		<nav class="tabs">
+		<nav class="navTabs">
 			<a ng-href="/account">Profile</a>
-      <a ng-href="">My Dogs</a>
+      <a ng-href="/account/dogs">My dogs</a>
+      <span ng-show="!profile.Dogs.length"><a ng-href="#/dogs/add">Add a dog</a></span>
 			<a ng-href="/account/security">Security</a>
 			<a class="active"  ng-href="/account/linked-accounts">Linked accounts</a>
 		</nav>

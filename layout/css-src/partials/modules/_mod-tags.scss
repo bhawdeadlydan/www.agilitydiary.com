@@ -7,7 +7,7 @@
  *
  *
  *     @example
- *                 <a class="tag" href="/">AgilityDiary</a>
+ *                 <a class="tag" href="/">Tag text</a>
  *
  *        @type    module
  *       @notes
@@ -15,7 +15,7 @@
 
 /**
  * @section        tag
- * @example        <a class="tag" href="/">AgilityDiary</a>
+ * @example        <a class="tag" href="/">Tag text</a>
  */
 .tag {
     background: rgba(0,0,0,0.5);
@@ -26,7 +26,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType" href="/">Tag text</a>
  */
 .tagShowType {
     background: rgba(0,0,0,0.5);
@@ -34,7 +34,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagIndependent" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagIndependent" href="/">Independent</a>
  */
 .tagIndependent {
     background: $color-independent;
@@ -42,7 +42,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagBAA" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagBAA" href="/">BAA</a>
  */
 .tagBAA {
     background: $color-baa;
@@ -50,7 +50,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagUKA" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagUKA" href="/">UKA</a>
  */
 .tagUKA {
     background: $color-uka;
@@ -58,7 +58,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagFAB" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagFAB" href="/">FAB</a>
  */
 .tagFAB {
     background: $color-fab;
@@ -66,7 +66,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagInvitation" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagInvitation" href="/">Invitation</a>
  */
 .tagInvitation {
     background: $color-invitation;
@@ -74,7 +74,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagIrishKennelClub" href="/">Irish Kennel Club</a>
  */
 .tagIrishKennelClub {
     background: $color-irishkennelclub;
@@ -82,7 +82,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagKC" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagKC" href="/">KC</a>
  */
 .tagKC {
     background: $color-kc;
@@ -90,7 +90,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagOther" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagOther" href="/">Other</a>
  */
 .tagOther {
     background: $color-other;
@@ -98,7 +98,7 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagSeries" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagSeries" href="/">Series</a>
  */
 .tagSeries {
     background: $color-series;
@@ -106,8 +106,24 @@
 
 /**
  * @section        extend .tag
- * @example        <a class="tag tagShowType tagTraining" href="/">AgilityDiary</a>
+ * @example        <a class="tag tagShowType tagTraining" href="/">Training</a>
  */
 .tagTraining {
     background: $color-training;
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagTrainer" href="/">Trainer</a>
+ */
+.tagTrainer {
+
+}
+
+/**
+ * @section        extend .tag
+ * @example        <a class="tag tagJudge" href="/">Judge</a>
+ */
+.tagJudge {
+
 }

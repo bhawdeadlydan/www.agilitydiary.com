@@ -3,20 +3,36 @@
 
 <section class="main profile dynamicProfile" ng-show="profile">
 
-	<div ng-include src="'app/views/shared/header.html'"></div>
 
 	<section class="dogs">
 
 		<div class="container">
-			<h2><img src="{{ dog.photo }}_80x60" /> <a ng-href="#/dogs/{{ dog._id }}">{{ dog.name }}</a></h2>
 
+			<nav class="navTabs">
+				<a ng-href="/account">Profile</a>
+				<a class="active" ng-href="/account/dogs">My Dogs</a>
+				<a ng-href="/account/security">Security</a>
+				<a ng-href="/account/linked-accounts">Linked accounts</a>
+			</nav>
 
-			<div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
-				<span class="dz-message"></span>
-				<span data-dz-name=""></span>
-				<span data-dz-details=""></span>
-				<span data-dz-size=""></span>
-				<span data-dz-errormessage=""></span>
+			<h2>{{ dog.name }}</h2>
+
+			<div class="formField formUpload">
+				<label for="Email">Current picture</label>
+				<span class="avatar primaryAvatar">
+					<img ng-src="{{ dog.photo || 'app/images/dog.png' | imageSize: '128x128' }}" />
+				</span>
+			</div>
+
+			<div class="formField formUpload">
+				<label for="Email">Photo</label>
+				<div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
+					<span class="dz-message"></span>
+					<span data-dz-name=""></span>
+					<span data-dz-details=""></span>
+					<span data-dz-size=""></span>
+					<span data-dz-errormessage=""></span>
+				</div>
 			</div>
 
 
@@ -72,14 +88,18 @@
 				</div>
 
 				<div class="formActions">
-					<a class="action" ng-href="/account">Back</a>
+					<a class="action" ng-href="/account/dogs">Back</a>
 					<button class="action" ng-click="saveDog();">
 						Save
 					</button>
 				</div>
 			</form>
 
-			<p><button class="action warning" ng-click="deleteDog(dog)">Hide this dog</button></p>
+			<hr />
+
+			<div class="formActions">
+				<p><button class="action warning" ng-click="deleteDog(dog)">Hide this dog</button></p>
+			</div>
 		</div>
 
 

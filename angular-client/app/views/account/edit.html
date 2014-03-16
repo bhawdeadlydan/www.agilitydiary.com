@@ -1,4 +1,3 @@
-
 <style dynamic-style="profile" colour="profile.User.profile.theme.mainColour"></style>
 
 
@@ -7,9 +6,10 @@
 
 	<div class="container">
 
-		<nav class="tabs">
+		<nav class="navTabs">
 			<a class="active" ng-href="/account">Profile</a>
-			<a ng-href="">My Dogs</a>
+			<a ng-href="/account/dogs">My dogs</a>
+      <span ng-show="!profile.Dogs.length"><a ng-href="#/dogs/add">Add a dog</a></span>
 			<a ng-href="/account/security">Security</a>
 			<a ng-href="/account/linked-accounts">Linked accounts</a>
 		</nav>
@@ -138,27 +138,6 @@
 				</button>
 			</div>
 		</form>
-
-
-
-		<hr />
-
-
-
-		<h2>My dogs</h2>
-
-		<p>
-			<span ng-show="!profile.Dogs.length">You have no dogs yet, would you like to</span> <a class="action" ng-href="#/dogs/add">add a dog</a>
-		</p>
-
-		<div>
-			<p>
-				<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}/edit" ng-repeat="dog in profile.Dogs">
-					<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
-				</a>
-				<br /><span ng-bind="dog.Profile.Name" />
-			</p>
-		</div>
 
 
 

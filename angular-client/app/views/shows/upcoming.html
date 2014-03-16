@@ -3,35 +3,42 @@
 
 
 
-  <div ng-controller="MapController">
-  	<input type="text" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}"/>
-    <leaflet
-      class="map"
-      id="geo-wrapper"
-      elementcacheid="search/geo-wrapper"
-      fullsize="false"
-      center="data.leaflet.centre"
-      bounds="data.leaflet.bounds"
-      scrollwheelzoom="false"
-      dragging="true"
-      clickmarker="Location"></leaflet>
-  </div>
+	<div class="container listResults">
 
-	<div class="listResults">
+
+		<div class="contentWrapper" ng-include src="'app/views/shows/shared/eventsHeader.html'"></div>
+
+
+
 		<!--<section>
 			<input type="search" name="search" placeholder="Filter shows" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
 		</section>-->
 
-		<nav class="tabs">
-			<a  class="active" href="#/shows/upcoming">Upcoming shows</a>
-			<a href="#/shows/previous">Previous shows</a>
-			<a ng-show="profile.EnteredShows.length !== 0" href="#/shows/entered">Entered shows</a>
-			<a href="">Camps</a>
-			<a href="">Workshops</a>
+		<nav class="navTabs">
+			<a  class="active" ng-href="/shows/upcoming">Upcoming shows</a>
+			<a ng-href="/shows/previous">Previous shows</a>
+			<a ng-show="profile.EnteredShows.length !== 0" ng-href="/shows/entered">Attending</a>
+			<a ng-href="/shows/camps">Camps</a>
+			<a ng-href="/shows/workshops">Workshops</a>
 		</nav>
 
 		<div ng-include src="'app/views/shows/categories.html'"></div>
+
+		<div ng-controller="MapController">
+			<input type="text" ng-model="controls.searchBox.value" placeholder="{{ controls.searchBox.placeholder }}"/>
+			<leaflet
+				class="map"
+				id="geo-wrapper"
+				elementcacheid="search/geo-wrapper"
+				fullsize="false"
+				center="data.leaflet.centre"
+				bounds="data.leaflet.bounds"
+				scrollwheelzoom="false"
+				dragging="true"
+				clickmarker="Location"></leaflet>
+		  </div>
+
 
 		<div class="events">
 			<p ng-show="filteredShows.length===0">No shows found</p>
@@ -78,7 +85,7 @@
 								<span ng-bind="event.Venue.PostCode" />
 							</p>
 
-							<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p>
+							<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="/shows/details/{{ event._id }}">View details</a></p>
 							<!-- <p><a href="" ng-click="jumpToShow(event);"category>View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p> -->
 
 						</div>

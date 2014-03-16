@@ -28,6 +28,12 @@ angular.module('browserAppApp', [
 			action: 'account'
 		})
 
+		.when('/account/dogs', {
+			templateUrl: 'app/views/account/dogs.html',
+			controller: 'MainController',
+			action: 'account'
+		})
+
 		.when('/account/linked-accounts', {
 			templateUrl: 'app/views/account/linked.html',
 			controller: 'MainController',
@@ -81,6 +87,12 @@ angular.module('browserAppApp', [
 			action: 'results'
 		})
 
+		.when('/dogs/:id/viewResults', {
+			templateUrl: 'app/views/dogs/viewResults.html',
+			controller: 'DogController',
+			action: 'results'
+		})
+
 		.when('/dogs/:id/photos', {
 			templateUrl: 'app/views/dogs/photos.html',
 			controller: 'DogController',
@@ -94,6 +106,18 @@ angular.module('browserAppApp', [
 
 		.when('/shows/entered', {
 			templateUrl: 'app/views/shows/entered.html',
+			controller: 'ShowsController',
+			action: 'entered'
+		})
+
+		.when('/shows/camps', {
+			templateUrl: 'app/views/shows/camps.html',
+			controller: 'ShowsController',
+			action: 'entered'
+		})
+
+		.when('/shows/workshops', {
+			templateUrl: 'app/views/shows/workshops.html',
 			controller: 'ShowsController',
 			action: 'entered'
 		})
@@ -140,6 +164,12 @@ angular.module('browserAppApp', [
 			action: 'details'
 		})
 
+		.when('/venues/photos/:id', {
+			templateUrl: 'app/views/venues/photos.html',
+			controller: 'VenuesController',
+			action: 'details'
+		})
+
 		.when('/venues', {
 			templateUrl: 'app/views/venues/list.html',
 			controller: 'VenuesController',
@@ -156,6 +186,21 @@ angular.module('browserAppApp', [
 			controller: 'RelationshipController'
 		})
 
+    .when('/people/following', {
+      templateUrl: 'app/views/users/following.html',
+      controller: 'RelationshipController'
+    })
+
+    .when('/people/trainers', {
+      templateUrl: 'app/views/users/trainers.html',
+      controller: 'RelationshipController'
+    })
+
+    .when('/people/judges', {
+      templateUrl: 'app/views/users/judges.html',
+      controller: 'RelationshipController'
+    })
+
 		.when('/people/:id', {
 			templateUrl: 'app/views/users/public.html',
 			controller: 'MainController',
@@ -164,6 +209,12 @@ angular.module('browserAppApp', [
 
 		.when('/clubs/details/:id', {
 			templateUrl: 'app/views/clubs/details.html',
+			controller: 'ClubsController',
+			action: 'details'
+		})
+
+		.when('/clubs/photos/:id', {
+			templateUrl: 'app/views/clubs/photos.html',
 			controller: 'ClubsController',
 			action: 'details'
 		})

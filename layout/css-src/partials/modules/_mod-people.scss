@@ -27,8 +27,25 @@
     clear: both;
     margin-bottom: 1em;
     width: 100%;
+}
 
-    .action {
-        float: right;
-    }
+/**
+ * @section        personAvatar
+ */
+.personAvatar {
+    @include span-columns(1,12);
+}
+
+/**
+ * @section        personDetail
+ */
+.personDetail {
+    @include span-columns(9,12);
+}
+
+/**
+ * @section        personActions
+ */
+.personActions {
+    @include span-columns(2 omega,12);
 }

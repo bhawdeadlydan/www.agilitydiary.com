@@ -117,6 +117,7 @@
 @import "partials/navigation/nav-primary";
 @import "partials/navigation/nav-account";
 @import "partials/navigation/nav-paging";
+@import "partials/navigation/nav-tabs";
 // @import "partials/navigation/nav-footer";
 
 /**
@@ -132,7 +133,6 @@
 @import "partials/modules/mod-show-hide";
 @import "partials/modules/mod-event-list";
 @import "partials/modules/mod-month-list";
-@import "partials/modules/mod-tabs";
 @import "partials/modules/mod-friends";
 @import "partials/modules/mod-dogs";
 @import "partials/modules/mod-profile";
@@ -155,6 +155,8 @@
 @import "partials/modules/mod-list-results";
 @import "partials/modules/mod-signed-out";
 @import "partials/modules/mod-cta";
+@import "partials/modules/mod-social";
+@import "partials/modules/mod-tagline";
 
 /**
  * @section        Plugins

@@ -1,0 +1,21 @@
+/**
+ * @description    styling for the social module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-15 12:49
+ *
+ *
+ *     @example
+ *                 <div class="social"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        social
+ */
+.social {
+    @include font-size(2.4);
+}
