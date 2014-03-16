@@ -1,12 +1,15 @@
 <section class="upcoming">
 
 	<div class="container">
+
+    <div class="contentWrapper" ng-include src="'app/views/shows/shared/eventsHeader.html'"></div>
+
 		<!--<section>
 			<input type="search" name="search" placeholder="Filter shows" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
 		</section>-->
 
-		<nav class="tabs">
+		<nav class="navTabs">
 			<a ng-href="/shows/upcoming">Upcoming shows</a>
 			<a class="active"  ng-href="/shows/previous">Previous shows</a>
 			<a ng-show="profile.EnteredShows.length !== 0" href="/shows/entered">Attending</a>
@@ -14,12 +17,11 @@
 			<a ng-href="/shows/workshops">Workshops</a>
 		</nav>
 
-		<h1>Shows</h1>
-
 		<div ng-include src="'app/views/shows/categories.html'"></div>
 
 		<div ng-controller="MapController">
-			<leaflet style="height: 400px"
+			<leaflet
+        class="map"
 				id="geo-wrapper"
 				elementcacheid="search/geo-wrapper"
 				fullsize="false"

@@ -3,7 +3,10 @@
 	<div class="container">
 
 
-		<nav class="tabs">
+		<div class="contentWrapper" ng-include src="'app/views/shows/shared/eventsHeader.html'"></div>
+
+
+		<nav class="navTabs">
 			<a ng-href="/shows/upcoming">Upcoming shows</a>
 			<a ng-href="/shows/previous">Previous shows</a>
 			<a ng-href="/shows/entered">Attending</a>
@@ -16,7 +19,8 @@
 		<div ng-include src="'app/views/shows/categories.html'"></div>
 
 		<div ng-controller="MapController">
-			<leaflet style="height: 400px"
+			<leaflet
+				class="map"
 				id="geo-wrapper"
 				elementcacheid="search/geo-wrapper"
 				fullsize="false"
