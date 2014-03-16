@@ -43,8 +43,8 @@ app.controller('ClubsController', [
 			totalPages: 1,
 			results: []
 		};
-		$scope.venues = [];
-		$scope.venue = null;
+		$scope.clubs = [];
+		$scope.club = null;
 		$scope.paging = {
 			page: 1,
 			totalPages: 1,
@@ -54,7 +54,7 @@ app.controller('ClubsController', [
 
 
 
-		function pageVenues() {
+		function pageClubs() {
 			function paginate() {
 				$scope.paging.pageStartsAt = ($scope.paging.page - 1) * $scope.paging.pageSize;
 				$scope.paging.pageEndsAt = (($scope.paging.page) * $scope.paging.pageSize) - 1;
@@ -62,9 +62,9 @@ app.controller('ClubsController', [
 				$scope.paging.pages = [];
 				$scope.paging.sourcePages = [];
 
-				for (var i = 0; i < $scope.venues.length; i++) {
+				for (var i = 0; i < $scope.clubs.length; i++) {
 					if ((i >= $scope.paging.pageStartsAt) && (i <= $scope.paging.pageEndsAt)){
-						$scope.paging.results.push($scope.venues[i]);
+						$scope.paging.results.push($scope.clubs[i]);
 					} else {
 
 					}
@@ -140,7 +140,7 @@ app.controller('ClubsController', [
 			Mapdata.clubs({}, function (data) {
 				$scope.stopSpinner();
 
-				$scope.venues = data;
+				$scope.clubs = data;
 				pageVenues();
 
 				_.each(data, function (item) {
@@ -153,7 +153,7 @@ app.controller('ClubsController', [
 							popupText: undefined, //item.ΩΩname,
 							focus: false,
 							draggable: false,
-								html: '<span>' + '<a href="#/venues/details/' + item._id + '">' + item.name + '</a>' + '</span>'
+								html: '<span>' + '<a href="#/clubs/details/' + item._id + '">' + item.name + '</a>' + '</span>'
 						};
 
 						$scope.markers[item._id] = newMarker;
@@ -172,9 +172,9 @@ app.controller('ClubsController', [
 			$scope.startSpinner();
 			Mapdata.clubs({}, function (data) {
 				$scope.stopSpinner();
-				$scope.venues = data;
+				$scope.clubs = data;
 
-				_.each($scope.venues, function (venue) {
+				_.each($scope.clubs, function (venue) {
 					if (venue._id === id) {
 						$scope.venue = venue;
 

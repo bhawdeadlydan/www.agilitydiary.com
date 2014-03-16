@@ -4,10 +4,10 @@
 
 		<h1 ng-bind="show.Name"></h1>
 
-    <p class="date showDate">
-      <i class="fa fa-calendar"></i>
-      <span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
-    </p>
+		<p class="date showDate">
+			<i class="fa fa-calendar"></i>
+			<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
+		</p>
 
 		<nav class="navTabs">
 			<a class="active" ng-href="/shows/details/{{ id }}">Details</a>
@@ -18,7 +18,7 @@
 
 		<div>
 			<leaflet
-        class="map"
+				class="map"
 				id="geo-wrapper"
 				elementcacheid="search/geo-wrapper"
 				fullsize="false"
@@ -77,12 +77,16 @@
 						<img ng-src="{{ photo.Path }}_80x60" />
 					</span>
 
-          <p ng-repeat="attending in show.Attending">
-            <a href="/">
-              <img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
-              <!-- <img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" /> -->
-            </a>
-          </p>
+					<p ng-repeat="attending in show.Attending">
+						<a href="/">
+							<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
+							<!-- <img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" /> -->
+						</a>
+					</p>
+
+					<p ng-show="show.Attending.length===0">
+						No-one is attending this show yet, be the first
+					</p>
 
 				</section>
 
@@ -99,12 +103,12 @@
 
 			<section class="contentSub">
 
-        <p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a>
+				<p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a>
 
-        <button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
+				<button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
 
-        <button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
-      </p>
+				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
+			</p>
 
 				<p>
 					<span class="tag" ng-bind="show.Meta.ShowType" /> <!-- <span class="tag">Indoor show</span> -->
@@ -123,29 +127,20 @@
 					Entries now closed
 				</p>
 
-				<p ng-show="show.EntriesTo">Entries to <span ng-bind="show.EntriesTo" /></p>
+				<p ng-show="show.EntriesTo=='UK Agility Show Processing'"> Entries to <a href="http://www.ukagility.com/'"><span ng-bind="show.EntriesTo" /></a></p>
+				<p ng-show="show.EntriesTo=='ISS'"> Entries to <a href="http://www.ishowservices.com/'"><span ng-bind="show.EntriesTo" /></a></p>
+				<p ng-show="show.EntriesTo=='Simply Canine'"> Entries to <a href="http://www.simplycanine.co.uk/'"><span ng-bind="show.EntriesTo" /></a></p>
+				<p ng-show="show.EntriesTo=='Showtime Processing'"> Entries to <a href="http://www.granarycanine.co.uk/page5.htm'"><span ng-bind="show.EntriesTo" /></a></p>
+				<p ng-show="show.EntriesTo=='L and N Show Services'"> Entries to <a href="http://www.lnshowservices.co.uk/'"><span ng-bind="show.EntriesTo" /></a></p>
+				<p ng-show="show.EntriesTo=='Longhedge Show Processing'"> Entries to <a href="http://www.longhedge.co.uk/'"><span ng-bind="show.EntriesTo" /></a></p>
+				<p ng-show="show.EntriesTo=='Agility Addicts'"> Entries to <a href="http://www.agilityaddicts.net/'"><span ng-bind="show.EntriesTo" /></a></p>
 
-        <p>@@Need list of all places where enter</p>
-        <p>If UK Agility Show Processing = <a href="http://ukagility.com/">UK Agility Show Processing</a></p>
-        <p>If ISS = <a href="http://www.ishowservices.com/">ISS</a></p>
-        <p>If Simply Canine = <a href="http://simplycanine.co.uk/">Simply Canine</a></p>
-        <p>If Showtime Processing = <a href="http://www.granarycanine.co.uk/page5.htm">Showtime Processing</a></p>
-        <p>If L and N Show Services = <a href="http://www.lnshowservices.co.uk/">L and N Show Services</a></p>
-        <p>If Longhedge Show Processing = <a href="http://www.longhedge.co.uk/">Longhedge Show Processing</a></p>
-        <p>If Agility Addicts = <a href="http://www.agilityaddicts.net/">Agility Addicts</a></p>
-
-        <p><a href="http://www.agilitynet.co.uk/clutch/shows.htm">Agilitynet</a></p>
-
-				<p ng-show="show.Attending.length===0">
-					No-one is attending this show yet, be the first
-				</p>
-
-
+				<p><a href="http://www.agilitynet.co.uk/clutch/shows.htm">Agilitynet</a></p>
 
 				<section class="shareThis">
 					<h2><i class="fa fa-share"></i> Share this show</h2>
 					<p>@@share this show here</p>
-          Facebook, Twitter, Email
+					Facebook, Twitter, Email
 				</section>
 
 				<!--<div class="action uploadImage" id="uploadProfileImage" style=""><i class="fa fa-upload"></i> Upload Photo
@@ -156,7 +151,7 @@
 					<span data-dz-errormessage=""></span>
 				</div>-->
 
-        <p><a class="action" href="#">Is this your show?</a></p>
+				<p><a class="action" href="#">Is this your show?</a></p>
 
 			</section>
 
