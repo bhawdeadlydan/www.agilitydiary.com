@@ -67,10 +67,21 @@
 				<input id="addDogTattooNo" type="text" ng-model="dog.tattoo" />
 			</div>
 
-			<div class="formField formInput formUpload">
+			<!-- <div class="formField formInput formUpload">
 				<label for="addDogPhoto">Upload a photo</label>
 				<input id="addDogPhoto" type="text" ng-model="dog.photo" />
-			</div>
+			</div> -->
+
+      <div class="formField formUpload">
+        <label for="Email">Photo</label>
+        <div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
+          <span class="dz-message"></span>
+          <span data-dz-name=""></span>
+          <span data-dz-details=""></span>
+          <span data-dz-size=""></span>
+          <span data-dz-errormessage=""></span>
+        </div>
+      </div>
 
 			<div class="formField formActions">
 				<button class="action" ng-click="saveDog();">

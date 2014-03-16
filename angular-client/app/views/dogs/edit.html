@@ -19,8 +19,8 @@
 
 			<div class="formField formUpload">
 				<label for="Email">Current picture</label>
-				<span class="avatar secondaryAvatar">
-					<img ng-src="{{ dog.photo | imageSize: '128x128' }}" />
+				<span class="avatar primaryAvatar">
+					<img ng-src="{{ dog.photo || 'app/images/dog.png' | imageSize: '128x128' }}" />
 				</span>
 			</div>
 
