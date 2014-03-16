@@ -1,0 +1,24 @@
+<section class="details">
+
+	<div class="container">
+
+		<h1 ng-bind="show.Name"></h1>
+
+		<nav class="navTabs">
+			<a ng-href="/shows/details/{{ id }}">Details</a>
+      <a ng-href="/shows/results/{{ id }}">Enter results</a>
+			<a class="active" ng-href="/shows/viewResults/{{ id }}">View results</a>
+			<a ng-href="#/shows/photos/{{ id }}">Photos</a>
+		</nav>
+
+		<h2>Results</h2>
+
+		<div ng-repeat="dog in profile.Dogs">
+			<h3 ng-bind="dog.Profile.Name"></h3>
+
+			<div ng-include src="'app/views/shared/resultsTable.html'"></div>
+		</div>
+
+	</div>
+
+</section>

@@ -1,0 +1,72 @@
+
+	<input type="hidden" ng-model="controls.dogId" ng-value="dog._id" />
+
+	<div class="formField formInput formDate">
+		<label for="date">Date</label>
+		<input type="date" id="date" name="date" ng-model="controls.show" ng-required="true" />
+	</div>
+
+	<div class="formField formInput formText">
+		<label for="show">Show</label>
+		<input type="textbox" id="show" name="show" ng-model="controls.show" ng-required="true" />
+	</div>
+
+	<div class="formField formInput formNumber">
+		<label for="classNumber">Class number</label>
+		<input type="number" id="classNumber" name="classNumber" ng-model="controls.class" ng-required="true" />
+	</div>
+
+	<div class="formField formInput formText">
+		<label for="class">Class</label>
+		<input type="textbox" id="class" name="class" ng-model="controls.class" ng-required="true" />
+	</div>
+
+	<div class="formField formSelect">
+		<label for="classType">Class type</label>
+		<select name="select" id="classType" ng-model="dog.breed" ng-options="breed.name for breed in breedOptions"></select>
+	</div>
+
+	<div class="formField formInput formText">
+		<label for="time">Time</label>
+		<input type="textbox" id="time" name="time" ng-model="controls.time" ng-required="true" />
+	</div>
+
+	<div class="formField formInput formText">
+		<label for="faults">Faults</label>
+		<input type="textbox" id="faults" name="faults" ng-model="controls.faults" ng-required="true" />
+	</div>
+
+	<div class="formField formInput formText">
+		<label for="Place">Place</label>
+		<input type="textbox" id="Place" name="Place" ng-model="controls.place" ng-required="true" />
+	</div>
+
+	<div class="formField formInput formText">
+		<label for="judge">Judge's name</label>
+		<input type="textbox" id="judge" name="judge" ng-model="controls.judge" />
+	</div>
+
+	<div class="formField formInput formText">
+		<label for="points">Agility warrant points</label>
+		<input type="textbox" id="points" name="points" ng-model="controls.points" />
+	</div>
+
+	<div class="formField formTextarea">
+		<label for="notes">Notes</label>
+		<textarea name="notes" id="notes"></textarea>
+	</div>
+
+	<div class="formField formUpload">
+		<label for="Email">Photo</label>
+		<div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload photo
+			<span class="dz-message"></span>
+			<span data-dz-name=""></span>
+			<span data-dz-details=""></span>
+			<span data-dz-size=""></span>
+			<span data-dz-errormessage=""></span>
+		</div>
+	</div>
+
+	<div class="formField formActions">
+		<button class="action" ng-click="controls.saveRecord()">Save</button>
+	</div>
