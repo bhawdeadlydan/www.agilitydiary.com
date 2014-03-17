@@ -11,19 +11,23 @@
 		<input type="textbox" id="show" name="show" ng-model="controls.show" ng-required="true" />
 	</div>
 
+  {{ shows }}
+
+  <select name="select" id="showReference" ng-model="controls.showId" ng-options="show._id as show.Name for show in shows"></select>
+
 	<div class="formField formInput formNumber">
 		<label for="classNumber">Class number</label>
 		<input type="number" id="classNumber" name="classNumber" ng-model="controls.classnumber" ng-required="true" />
 	</div>
 
+  <div class="formField formSelect">
+    <label for="classType">Class type</label>
+    <select name="select" id="classType" ng-model="controls.classtype" ng-options="classtype.name for classtype in classTypeOptions"></select>
+  </div>
+
 	<div class="formField formInput formText">
 		<label for="className">Class name</label>
 		<input type="textbox" id="className" name="className" ng-model="controls.classname" ng-required="true" />
-	</div>
-
-	<div class="formField formSelect">
-		<label for="classType">Class type</label>
-		<select name="select" id="classType" ng-model="controls.classtype" ng-options="classtype.name for classtype in classTypeOptions"></select>
 	</div>
 
 	<div class="formField formInput formText">

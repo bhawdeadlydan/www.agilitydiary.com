@@ -39,7 +39,14 @@ app.controller('DogController', [
 		$scope.kcgradeOptions = DogConstants.kennelClub.gradeOptions;
 		$scope.kcheightOptions = DogConstants.kennelClub.heightOptions;
 		$scope.breedOptions = DogConstants.kennelClub.breedOptions;
+		$scope.classTypeOptions = DogConstants.classTypeOptions;
 		$scope.controls.saveRecord = saveRecord;
+		$scope.showData = {};
+
+		function receivedShows(data) {
+$scope.showData = data;
+		}
+		ShowService.upcomingShows(receivedShows, receivedShows);
 
 
 
@@ -139,7 +146,7 @@ app.controller('DogController', [
 
 			var data = {
 				dogId: lookupId($routeParams.id),
-				showId: $scope.id,
+				showId: $scope.controls.showId,
 				date: $scope.controls.date,
 				show: $scope.controls.show,
 				classnumber: $scope.controls.classnumber,
