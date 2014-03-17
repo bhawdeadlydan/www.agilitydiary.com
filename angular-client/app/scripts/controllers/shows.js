@@ -448,12 +448,17 @@ app.controller('ShowsController', [
 			var data = {
 				dogId: $scope.controls.dogId,
 				showId: $scope.id,
-				class: $scope.controls.class,
+				date: $scope.controls.date,
+				show: $scope.controls.show,
+				classnumber: $scope.controls.classnumber,
+				classtype: $scope.controls.classtype,
+				classname: $scope.controls.classname,
 				time: $scope.controls.time,
 				faults: $scope.controls.faults,
 				place: $scope.controls.place,
 				judge: $scope.controls.judge,
-				points: $scope.controls.points
+				points: $scope.controls.points,
+				notes: $scope.controls.notes
 			};
 
 			ProfileService.addResult(data)

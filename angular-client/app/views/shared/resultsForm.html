@@ -3,7 +3,7 @@
 
 	<div class="formField formInput formDate">
 		<label for="date">Date</label>
-		<input type="date" id="date" name="date" ng-model="controls.show" ng-required="true" />
+		<input type="date" id="date" name="date" ng-model="controls.date" ng-required="true" />
 	</div>
 
 	<div class="formField formInput formText">
@@ -13,17 +13,17 @@
 
 	<div class="formField formInput formNumber">
 		<label for="classNumber">Class number</label>
-		<input type="number" id="classNumber" name="classNumber" ng-model="controls.class" ng-required="true" />
+		<input type="number" id="classNumber" name="classNumber" ng-model="controls.classnumber" ng-required="true" />
 	</div>
 
 	<div class="formField formInput formText">
-		<label for="class">Class</label>
-		<input type="textbox" id="class" name="class" ng-model="controls.class" ng-required="true" />
+		<label for="className">Class name</label>
+		<input type="textbox" id="className" name="className" ng-model="controls.classname" ng-required="true" />
 	</div>
 
 	<div class="formField formSelect">
 		<label for="classType">Class type</label>
-		<select name="select" id="classType" ng-model="dog.breed" ng-options="breed.name for breed in breedOptions"></select>
+		<select name="select" id="classType" ng-model="controls.classtype" ng-options="classtype.name for classtype in classTypeOptions"></select>
 	</div>
 
 	<div class="formField formInput formText">
@@ -53,7 +53,7 @@
 
 	<div class="formField formTextarea">
 		<label for="notes">Notes</label>
-		<textarea name="notes" id="notes"></textarea>
+		<textarea name="notes" id="notes" ng-model="controls.notes"></textarea>
 	</div>
 
 	<div class="formField formUpload">

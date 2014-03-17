@@ -37,7 +37,7 @@
 				scrollwheelzoom="false"
 				dragging="true"
 				clickmarker="Location"></leaflet>
-		  </div>
+			</div>
 
 
 		<div class="events">
@@ -57,12 +57,12 @@
 						<div class="eventDate">
 							<p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
 						<div class="date dateStart">
-							<div class="dateDetail dateMonth">SEP</div>
-							<div class="dateDetail dateDay"><strong>5</strong></div>
+							<div class="dateDetail dateMonth" ng-bind="event.ParsedDate | date: 'MMM'"></div>
+							<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedDate | date: 'dd'"></strong></div>
 						</div>
 						<div class="date dateEnd">
-							<div class="dateDetail dateMonth">AUG</div>
-							<div class="dateDetail dateDay"><strong>31</strong></div>
+							<div class="dateDetail dateMonth" ng-bind="event.ParsedEnd | date: 'MMM'"></div>
+							<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedEnd | date: 'dd'"></strong></div>
 						</div>
 						</div>
 

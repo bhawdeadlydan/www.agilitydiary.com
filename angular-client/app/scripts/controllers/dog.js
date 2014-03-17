@@ -140,16 +140,24 @@ app.controller('DogController', [
 			var data = {
 				dogId: lookupId($routeParams.id),
 				showId: $scope.id,
-				class: $scope.controls.class,
+				date: $scope.controls.date,
+				show: $scope.controls.show,
+				classnumber: $scope.controls.classnumber,
+				classtype: $scope.controls.classtype,
+				classname: $scope.controls.classname,
 				time: $scope.controls.time,
 				faults: $scope.controls.faults,
 				place: $scope.controls.place,
 				judge: $scope.controls.judge,
-				points: $scope.controls.points
+				points: $scope.controls.points,
+				notes: $scope.controls.notes
 			};
 
 			ProfileService.addResult(data)
-				.success($scope.fetchProfile)
+				.success(function() {
+					$scope.fetchProfile();
+					$location.path('/dogs/' + $routeParams.id + '/viewResults');
+				})
 				.error(saveRecordError);
 		}
 
@@ -181,7 +189,7 @@ app.controller('DogController', [
 			case 'add':
 				$scope.message = 'Add dog';
 				break;
-$scope.profile
+
 			case 'edit':
 				$scope.message = 'Edit dog';
 				console.log('Edit dog');

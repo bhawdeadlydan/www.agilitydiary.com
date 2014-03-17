@@ -52,17 +52,17 @@
 
 	<tbody>
 		<tr ng-repeat="result in dog.Results">
-			<td><span ng-bind="result.Date" /></td>
+			<td><span ng-bind="result.Date | date : 'dd/MM/yyyy'" /></td>
 			<td><span ng-bind="result.Show" /></td>
-			<td></td>
-			<td></td>
-			<td><span ng-bind="result.Class" /></td>
+			<td><span ng-bind="result.Class.Number" /></td>
+			<td><span ng-bind="result.Class.Type" /></td>
+			<td><span ng-bind="result.Class.Name" /></td>
 			<td><span ng-bind="result.Time" /></td>
 			<td><span ng-bind="result.Faults" /></td>
 			<td><span ng-bind="result.Place" /> <i class="fa fa-trophy"></i></td>
 			<td><span ng-bind="result.Judge" /></td>
 			<td><span ng-bind="result.Points" /></td>
-			<td></td>
+			<td><span ng-bind="result.Notes" /></td>
 			<td>
 				<a class="action" href=""><i class="fa fa-edit"></i></a>
 				<a class="action" href=""><i class="fa fa-share"></i></a><!-- post my results on my feed -->

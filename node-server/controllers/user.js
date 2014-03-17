@@ -109,11 +109,11 @@ exports.uploadPhoto = Upload.UploadManager({
 		Diary.findOne({
 			User: user
 		}, function (err, diary) {
-			
+
 			if (typeof diary.Photos === 'undefined') {
 				diary.Photos = [];
 			}
-			
+
 			if (typeof diary.PendingPhotos === 'undefined') {
 				diary.PendingPhotos = [];
 			}
@@ -143,7 +143,7 @@ exports.uploadPhoto = Upload.UploadManager({
 
 exports.removePendingPhoto = function (request, response) {
 	var id = request.body.id;
-	
+
 	User.findById(request.user.id, function (err, user) {
 		Diary.findOne({
 			User: user
@@ -427,13 +427,13 @@ exports.updateUserDetails = function (request, response) {
 		user.profile.name = request.body.name;
 		user.profile.bio = request.body.bio;
 		user.profile.location = request.body.location;
-		
+
 		user.save(function (err, user) {
 			if (err) {
 				console.log(err);
 				response.send(500);
 			} else {
-				response.send(200);	
+				response.send(200);
 			}
 		});
 	});
@@ -743,40 +743,40 @@ exports.addJournalEntry = function (request, response) {
 			} else {
 				var message = request.body.message;
 				var tags = request.body.tags;
-				
+
 				var newJournalItem = {
-					Message: message,					
+					Message: message,
 					TagsText: tags,
 					Links: []
 				};
-				
+
 				if (typeof diary.PendingPhotos !== 'undefined') {
 					_.each(diary.PendingPhotos, function (photo) {
 						diary.Photos.push(photo);
-						
+
 						newJournalItem.Links.push({
 							LinkedObject: photo,
-							
+
 							LinkType: 'Photo'
 						});
 					});
 				}
-				
+
 				if (typeof diary.Journal === 'undefined') {
 					diary.Journal = [];
 				}
-				
+
 				diary.Journal.push(newJournalItem);
-				
+
 				diary.PendingPhotos = [];
-				
+
 				diary.save(function (err, diary) {
 					if (err) {
 						response.send(500);
-					} else {	
+					} else {
 						response.send(200);
 					}
-				});				
+				});
 			}
 		});
 	});
@@ -799,12 +799,18 @@ exports.addResult = function (request, response) {
 					console.log('match');
 					dog.Results.push({
 						Show: request.body.showId,
-						Class: request.body.class,
+						Date: request.body.date,
+						Class: {
+							Number: request.body.classNumber,
+							Type: request.body.classType,
+							Name: request.body.className,
+						},
 						Time: request.body.time,
 						Faults: request.body.faults,
 						Place: request.body.place,
 						Judge: request.body.judge,
-						Points: request.body.points
+						Points: request.body.points,
+						Notes: request.body.notes
 					});
 
 					diary.save(function (err, diary) {
@@ -846,7 +852,7 @@ exports.addDog = function (req, res) {
 					Tattoo: req.body.tattoo
 				}
 			};
-			
+
 			diary.Dogs.push(dogData);
 
 			diary.save(function (err, diary) {
@@ -872,7 +878,7 @@ exports.updateDog = function (req, res) {
 			if (err) {
 				res.send(500, { error: 'Error' });
 			}
-			
+
 			console.log(req.body._id);
 
 			_.each(diary.Dogs, function (dog) {

@@ -6,6 +6,14 @@ app.constant('DogConstants', {
 		{ name: 'Dog', value: 'Dog' },
 		{ name: 'Bitch', value: 'Bitch' }
 	],
+
+  classTypeOptions: [
+    { name: 'Agility', value: 'Agility' },
+    { name: 'Jumping', value: 'Jumping' },
+    { name: 'Other', value: 'Other' }
+  ],
+
+
 	kennelClub: {
 		gradeOptions: [
 			{ name: '1', value: 'KC Grade 1' },
