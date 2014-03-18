@@ -1,0 +1,48 @@
+/**
+ * @description    styling for the flash module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-18 20:29
+ *
+ *
+ *     @example
+ *                 <div class="flash"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        flash
+ */
+.flash {
+    @include border-radius(.25em);
+    border: 3px solid $color-border;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+/**
+ * @section        flash
+ */
+.flash--green {
+    background: lighten(green, 50%);
+    border-color: green;
+}
+
+/**
+ * @section        flash
+ */
+.flash--amber {
+    background: lighten(orange, 25%);
+    border-color: orange;
+}
+
+/**
+ * @section        flash
+ */
+.flash--red {
+    background: lighten(red, 25%);
+    border-color: red;
+}

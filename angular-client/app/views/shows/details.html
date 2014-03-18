@@ -9,10 +9,24 @@
 			<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
 		</p>
 
+		<div class="flash flash--green">
+			This is a green traffic light informative standard flash message
+		</div>
+
+		<div class="flash flash--amber flash--information">
+			This is an amber traffic light flash message
+		</div>
+
+		<div class="flash flash--red flash--warning">
+			This is a red traffic light important/warning/alert flash message
+		</div>
+
+
+
 		<nav class="navTabs">
 			<a class="active" ng-href="/shows/details/{{ id }}">Details</a>
 			<a ng-href="/shows/results/{{ id }}">Enter results</a>
-      <a ng-href="/shows/viewResults/{{ id }}">View results</a>
+			<a ng-href="/shows/viewResults/{{ id }}">View results</a>
 			<a ng-href="/shows/photos/{{ id }}">Photos</a>
 		</nav>
 

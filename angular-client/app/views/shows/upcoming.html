@@ -8,8 +8,6 @@
 
 		<div class="contentWrapper" ng-include src="'app/views/shows/shared/eventsHeader.html'"></div>
 
-
-
 		<!--<section>
 			<input type="search" name="search" placeholder="Filter shows" ng-model="searchText"/>
 			<a ng-show="searchText" ng-click="searchClearClick()" href="">Clear</a>
@@ -55,15 +53,18 @@
 						</div>
 
 						<div class="eventDate">
-							<p><span ng-bind="event.ShowDate" /><span ng-show="event.ShowDate !== event.ShowEnd"> to <span ng-bind="event.ShowEnd" /></span></p>
-						<div class="date dateStart">
-							<div class="dateDetail dateMonth" ng-bind="event.ParsedDate | date: 'MMM'"></div>
-							<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedDate | date: 'dd'"></strong></div>
-						</div>
-						<div class="date dateEnd">
-							<div class="dateDetail dateMonth" ng-bind="event.ParsedEnd | date: 'MMM'"></div>
-							<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedEnd | date: 'dd'"></strong></div>
-						</div>
+
+							<div class="date dateStart">
+								<div class="dateDetail dateMonth" ng-bind="event.ParsedDate | date: 'MMM'"></div>
+								<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedDate | date: 'dd'"></strong></div>
+							</div>
+
+							<span ng-show="event.ShowDate !== event.ShowEnd">
+								<div class="date dateEnd">
+									<div class="dateDetail dateMonth" ng-bind="event.ParsedEnd | date: 'MMM'"></div>
+									<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedEnd | date: 'dd'"></strong></div>
+								</div>
+							</span>
 						</div>
 
 						<div class="eventShortDetail">

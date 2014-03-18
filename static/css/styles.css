@@ -3190,6 +3190,62 @@ select {
 }
 
 /**
+ * @description    styling for the flash module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-18 20:29
+ *
+ *
+ *     @example
+ *                 <div class="flash"></div>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        flash
+ */
+/* line 19, ../../layout/css-src/partials/modules/_mod-flash.scss */
+.flash {
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+  border: 3px solid #d4d4d4;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+/**
+ * @section        flash
+ */
+/* line 29, ../../layout/css-src/partials/modules/_mod-flash.scss */
+.flash--green {
+  background: #80ff80;
+  border-color: green;
+}
+
+/**
+ * @section        flash
+ */
+/* line 37, ../../layout/css-src/partials/modules/_mod-flash.scss */
+.flash--amber {
+  background: #ffd280;
+  border-color: orange;
+}
+
+/**
+ * @section        flash
+ */
+/* line 45, ../../layout/css-src/partials/modules/_mod-flash.scss */
+.flash--red {
+  background: #ff8080;
+  border-color: red;
+}
+
+/**
  * @section        Plugins
  */
 /**
