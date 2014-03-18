@@ -12,22 +12,27 @@
 		<form name="form" parsley-validate>
 			<div class="formField formInput formText">
 				<label for="name">Name</label>
-				<input id="name" type="text" ng-model="dog.name" />
+				<input id="name" type="text" ng-model="dog.name" ng-required="true" />
 			</div>
 
 			<div class="formField formInput formEmail">
 				<label for="email">Email</label>
-				<input id="email" type="email" ng-model="dog.email" />
+				<input id="email" type="email" ng-model="dog.email" ng-required="true" />
 			</div>
 
 			<div class="formField formInput formText">
 				<label for="relationship">Relationship to event</label>
-				<input id="relationship" type="text" ng-model="dog.relationship" />
+				<input id="relationship" type="text" ng-model="dog.relationship" ng-required="true" />
 			</div>
 
 			<div class="formField formInput formNumber">
 				<label for="telephone">Telephone</label>
-				<input id="telephone" type="number" ng-model="dog.telephone" />
+				<input id="telephone" type="number" ng-model="dog.telephone" ng-required="true" />
+			</div>
+
+			<div class="formField formTextarea">
+				<label for="message">Any other details?</label>
+				<textarea id="message" name="message" ng-model="message"></textarea>
 			</div>
 
 			<div class="formActions">

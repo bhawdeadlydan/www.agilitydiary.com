@@ -1,0 +1,48 @@
+<section class="details">
+
+	<div class="container">
+
+		<h1>Add an event</h1>
+
+		<form name="form" parsley-validate>
+			<div class="formField formInput formText">
+				<label for="name">Event name</label>
+				<input id="name" type="text" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="type">Event type</label>
+				<input id="type" type="text" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="location">Location</label>
+				<input id="location" type="text" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formDate">
+				<label for="startDate">Start date</label>
+				<input id="startDate" type="date" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formDate">
+				<label for="endDate">End date</label>
+				<input id="endDate" type="date" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="website">Website</label>
+				<input id="website" type="text" ng-model="dog.name" placeholder="Optional" />
+			</div>
+
+			<div class="formActions">
+				<a class="action" ng-href="/account/dogs">Back</a>
+				<button class="action" ng-click="saveDog();">
+					Add this event
+				</button>
+			</div>
+		</form>
+
+	</div>
+
+</section>
