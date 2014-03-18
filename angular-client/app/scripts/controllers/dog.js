@@ -42,12 +42,36 @@ app.controller('DogController', [
 		$scope.classTypeOptions = DogConstants.classTypeOptions;
 		$scope.controls.saveRecord = saveRecord;
 		$scope.showData = {};
+		$scope.showDataFiltered = {};
+		$scope.controls.showFilterText = '';
 
 		function receivedShows(data) {
-$scope.showData = data;
+			$scope.showData = data;
 		}
+
 		ShowService.upcomingShows(receivedShows, receivedShows);
 
+		function filterShows() {
+			$scope.showDataFiltered = [];
+
+			if($scope.controls.showFilterText.length > 2) {
+
+				_.each($scope.showData, function (item) {
+					var showThis = false;
+
+					if (item.Name.toLowerCase().indexOf($scope.controls.showFilterText.toLowerCase()) !== -1) {
+						showThis = true;
+					}
+
+					if (showThis === true) {
+						$scope.showDataFiltered.push(item);
+					}
+
+				});
+			}
+		}
+
+		$scope.filterShows = filterShows;
 
 
 		$scope.deleteDog = function (dog) {

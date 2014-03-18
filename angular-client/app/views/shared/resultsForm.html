@@ -8,12 +8,20 @@
 
 	<div class="formField formInput formText">
 		<label for="show">Show</label>
-		<input type="textbox" id="show" name="show" ng-model="controls.show" ng-required="true" />
-	</div>
+		<!--<input type="textbox" id="show" name="show" ng-model="controls.show" ng-required="true" />-->
 
-  {{ shows }}
 
-  <select name="select" id="showReference" ng-model="controls.showId" ng-options="show._id as show.Name for show in shows"></select>
+    <input type="textbox" ng-model="controls.showFilterText" ng-change="filterShows();" />
+
+
+  </div>
+
+    <div ng-repeat="show in showDataFiltered">
+      <input type="radio"  ng-model="controls.showId" value="{{ show._id }}" />
+      <span ng-bind="show.Name"></span> <span ng-bind="show.ShowDate"></span> - <span ng-bind="show.ShowEnd"></span>
+    </div>
+
+  <!-- <select name="select" id="showReference" ng-model="controls.showId" ng-options="show._id as show.Name for show in shows | orderBy:'Name'"></select> -->
 
 	<div class="formField formInput formNumber">
 		<label for="classNumber">Class number</label>
