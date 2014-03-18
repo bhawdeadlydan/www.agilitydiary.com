@@ -2125,6 +2125,12 @@ select {
 /**
  * @section        monthWrapper
  */
+/* line 28, ../../layout/css-src/partials/modules/_mod-month-list.scss */
+.monthWrapper {
+  border-bottom: 2px solid #d4d4d4;
+  margin-bottom: 1em;
+}
+
 /**
  * @description    styling for the friends module
  *
