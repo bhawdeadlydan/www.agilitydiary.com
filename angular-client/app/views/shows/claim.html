@@ -1,0 +1,43 @@
+<section class="details">
+
+	<div class="container">
+
+		<h1>Claim <span ng-bind="show.Name"></span></h1>
+
+		<p class="date showDate">
+			<i class="fa fa-calendar"></i>
+			<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
+		</p>
+
+		<form name="form" parsley-validate>
+			<div class="formField formInput formText">
+				<label for="name">Name</label>
+				<input id="name" type="text" ng-model="dog.name" />
+			</div>
+
+			<div class="formField formInput formEmail">
+				<label for="email">Email</label>
+				<input id="email" type="email" ng-model="dog.email" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="relationship">Relationship to event</label>
+				<input id="relationship" type="text" ng-model="dog.relationship" />
+			</div>
+
+			<div class="formField formInput formNumber">
+				<label for="telephone">Telephone</label>
+				<input id="telephone" type="number" ng-model="dog.telephone" />
+			</div>
+
+			<div class="formActions">
+				<a class="action" ng-href="/account/dogs">Back</a>
+				<button class="action" ng-click="saveDog();">
+					Claim this event
+				</button>
+			</div>
+		</form>
+
+	</div>
+
+</section>
