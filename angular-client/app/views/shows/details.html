@@ -94,8 +94,7 @@
 
 					<p ng-repeat="attending in show.Attending">
 						<a href="/">
-							<img src="{{ attending.profile.picture }}_80x60" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
-							<!-- <img src="/app/images/user.png" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" /> -->
+							<img src="{{ attending.profile.picture }}_64x64" title="{{ attending.profile.name }}" alt="{{ attending.profile.name }}" />
 						</a>
 					</p>
 
@@ -131,7 +130,22 @@
 
 
 
-				<!--<p><a href="#">Save to iCal / iPhone / Outlook / GCal</a></p>-->
+        <p><a href="http://example.com/link-to-your-event" title="Add to Calendar" class="addthisevent">
+            Add to Calendar
+            <span class="_start">{{ show.ParsedDate | date:'dd-MM-yyyy HH:mm:ss' }}</span>
+            <span class="_end">{{ show.ParsedEnd | date:'dd-MM-yyyy HH:mm:ss' }}</span>
+            <span class="_zonecode">36</span>
+            <span class="_summary">{{ show.Name }}</span>
+            <span class="_description">Description of the event</span>
+            <span class="_location">
+              {{ show.Venue.Name }} {{ show.Venue.Address }} {{ show.Venue.PostCode }}
+            </span>
+            <span class="_organizer">{{ show.Club }}</span>
+            <span class="_organizer_email">Organizer e-mail</span>
+            <span class="_facebook_event">http://www.facebook.com/events/160427380695693</span>
+            <span class="_all_day_event">true</span>
+            <span class="_date_format">DD/MM/YYYY</span>
+        </a></p>
 
 				<p class="date closingDate" ng-show="entriesOpen">
 					<i class="fa fa-ticket"></i>
@@ -150,13 +164,13 @@
 				<p ng-show="show.EntriesTo=='Longhedge Show Processing'"> Entries to <a href="http://www.longhedge.co.uk/'"><span ng-bind="show.EntriesTo" /></a></p>
 				<p ng-show="show.EntriesTo=='Agility Addicts'"> Entries to <a href="http://www.agilityaddicts.net/'"><span ng-bind="show.EntriesTo" /></a></p>
 
-				<p><a href="http://www.agilitynet.co.uk/clutch/shows.htm">Agilitynet</a></p>
+				<p>Download schedule and entry form: <a href="http://www.agilitynet.co.uk/clutch/shows.htm">Agilitynet</a></p>
 
-				<section class="shareThis">
+				<!-- <section class="shareThis">
 					<h2><i class="fa fa-share"></i> Share this show</h2>
 					<p>@@share this show here</p>
 					Facebook, Twitter, Email
-				</section>
+				</section> -->
 
 				<!--<div class="action uploadImage" id="uploadProfileImage" style=""><i class="fa fa-upload"></i> Upload Photo
 					<span class="dz-message"></span>
