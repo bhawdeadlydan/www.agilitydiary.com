@@ -77,9 +77,10 @@
 								<!--<a class="tag tagCamping" title="Filter by shows that you are camping at only" href="#">Camping [@@should only appear if show has been marked as attending and and then ability to mark as camping is enabled]</a>-->
 							</p>
 
-							<p>Entries closing date: <span ng-bind="event.ClosingDate" /></p>
+							<p>Entries close: <span ng-bind="event.ClosingDate" /></p>
+              <p>@@ If entries are closed show a different message than if entries are still open - also show a different message if entries are closing soon (within the next 7 days)</p>
 
-							<p>
+							<p><i class="fa fa-map-marker"></i>
 								<a ng-href="/venues/details/{{ event.Venue.Id }}"><span ng-bind="event.Venue.Name" /></a>,
 								<span ng-bind="event.Venue.Address" />,
 								<span ng-bind="event.Venue.PostCode" />

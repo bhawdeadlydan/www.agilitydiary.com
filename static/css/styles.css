@@ -2579,6 +2579,8 @@ select {
 /* line 55, ../../layout/css-src/partials/modules/_mod-date.scss */
 .dateDay {
   background: #ecebe8;
+  font-size: 22px;
+  font-size: 2.2rem;
 }
 
 /**

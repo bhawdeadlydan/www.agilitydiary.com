@@ -35,6 +35,26 @@
 				<input id="website" type="text" ng-model="dog.name" placeholder="Optional" />
 			</div>
 
+      <div class="formField formSelect">
+        <label for="club">Club</label>
+        <select name="club" id="club" ng-model="dog.breed" ng-options="breed.name for breed in breedOptions"></select>
+      </div>
+
+      <div class="formField formUpload">
+        <label for="Schedule">Upload files</label>
+        <div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload files (schedule, entry form, etc)
+          <span class="dz-message"></span>
+          <span data-dz-name=""></span>
+          <span data-dz-details=""></span>
+          <span data-dz-size=""></span>
+          <span data-dz-errormessage=""></span>
+        </div>
+      </div>
+
+
+
+
+
 			<div class="formActions">
 				<a class="action" ng-href="/account/dogs">Back</a>
 				<button class="action" ng-click="saveDog();">
