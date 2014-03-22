@@ -1496,18 +1496,19 @@ select {
  */
 /* line 22, ../../layout/css-src/partials/navigation/_nav-paging.scss */
 .navPaging {
+  clear: both;
   padding: 1em;
   text-align: center;
 }
-/* line 26, ../../layout/css-src/partials/navigation/_nav-paging.scss */
+/* line 27, ../../layout/css-src/partials/navigation/_nav-paging.scss */
 .navPaging a {
   padding: .25em .5em;
 }
-/* line 30, ../../layout/css-src/partials/navigation/_nav-paging.scss */
+/* line 31, ../../layout/css-src/partials/navigation/_nav-paging.scss */
 .navPaging a.active, .navPaging a:hover {
   text-decoration: none;
 }
-/* line 36, ../../layout/css-src/partials/navigation/_nav-paging.scss */
+/* line 37, ../../layout/css-src/partials/navigation/_nav-paging.scss */
 .navPaging .selected {
   border: 1px solid #d4d4d4;
   font-weight: bold;
