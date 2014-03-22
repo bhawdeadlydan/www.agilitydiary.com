@@ -2069,13 +2069,14 @@ select {
 /* line 46, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .event {
   clear: both;
+  overflow: auto;
   position: relative;
 }
 
 /**
  * @section        eventDate
  */
-/* line 54, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+/* line 55, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .eventDate {
   width: 18.36735%;
   float: left;
@@ -2086,7 +2087,7 @@ select {
 /**
  * @section        eventShortDetail
  */
-/* line 62, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+/* line 63, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .eventShortDetail {
   width: 79.59184%;
   float: right;
@@ -2094,7 +2095,7 @@ select {
   *margin-left: -1em;
   display: inline;
 }
-/* line 65, ../../layout/css-src/partials/modules/_mod-event-list.scss */
+/* line 66, ../../layout/css-src/partials/modules/_mod-event-list.scss */
 .eventShortDetail :first-child {
   margin-top: 0;
 }
