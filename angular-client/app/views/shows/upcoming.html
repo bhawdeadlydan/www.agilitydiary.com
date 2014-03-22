@@ -55,15 +55,20 @@
 
 							<div class="date dateStart">
 								<div class="dateDetail dateMonth" ng-bind="event.ParsedDate | date: 'MMM'"></div>
-								<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedDate | date: 'dd'"></strong></div>
+								<div class="dateDetail dateDay">
+									<strong ng-bind="event.ParsedDate | date: 'dd'"></strong>
+									<span ng-show="event.ShowDate !== event.ShowEnd">-
+											<strong ng-bind="event.ParsedEnd | date: 'dd'"></strong>
+									</span>
+								</div>
 							</div>
 
-							<span ng-show="event.ShowDate !== event.ShowEnd">
+							<!-- <span ng-show="event.ShowDate !== event.ShowEnd">
 								<div class="date dateEnd">
 									<div class="dateDetail dateMonth" ng-bind="event.ParsedEnd | date: 'MMM'"></div>
 									<div class="dateDetail dateDay" ><strong ng-bind="event.ParsedEnd | date: 'dd'"></strong></div>
 								</div>
-							</span>
+							</span> -->
 						</div>
 
 						<div class="eventShortDetail">
@@ -78,7 +83,7 @@
 							</p>
 
 							<p>Entries close: <span ng-bind="event.ClosingDate" /></p>
-              <p>@@ If entries are closed show a different message than if entries are still open - also show a different message if entries are closing soon (within the next 7 days)</p>
+							<p>@@ If entries are closed show a different message than if entries are still open - also show a different message if entries are closing soon (within the next 7 days)</p>
 
 							<p><i class="fa fa-map-marker"></i>
 								<a ng-href="/venues/details/{{ event.Venue.Id }}"><span ng-bind="event.Venue.Name" /></a>,
@@ -87,7 +92,6 @@
 							</p>
 
 							<p><a href="" ng-click="jumpToShow(event);">View on map</a> | <a href="/shows/details/{{ event._id }}">View details</a></p>
-							<!-- <p><a href="" ng-click="jumpToShow(event);"category>View on map</a> | <a href="#/shows/details/{{ event._id }}">View details</a></p> -->
 
 						</div>
 					</li>

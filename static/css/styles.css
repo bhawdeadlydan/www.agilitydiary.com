@@ -2545,21 +2545,15 @@ select {
 .event .date {
   float: left;
   margin: 0 auto;
-  width: 35%;
 }
 
 /**
  * @section        dateStart
  */
-/* line 32, ../../layout/css-src/partials/modules/_mod-date.scss */
-.event .dateStart {
-  margin-right: 1em;
-}
-
 /**
  * @section        dateDetail
  */
-/* line 40, ../../layout/css-src/partials/modules/_mod-date.scss */
+/* line 38, ../../layout/css-src/partials/modules/_mod-date.scss */
 .dateDetail {
   padding: .5em .6em;
 }
@@ -2567,7 +2561,7 @@ select {
 /**
  * @section        dateMonth
  */
-/* line 47, ../../layout/css-src/partials/modules/_mod-date.scss */
+/* line 45, ../../layout/css-src/partials/modules/_mod-date.scss */
 .dateMonth {
   background: #be040f;
   color: white;
@@ -2576,7 +2570,7 @@ select {
 /**
  * @section        dateDay
  */
-/* line 55, ../../layout/css-src/partials/modules/_mod-date.scss */
+/* line 53, ../../layout/css-src/partials/modules/_mod-date.scss */
 .dateDay {
   background: #ecebe8;
   font-size: 22px;
