@@ -7,7 +7,7 @@
  *
  *
  *     @example
- *                 <table class="tableDefault" href="/"></table>
+ *                 <table class="tableDefault"></table>
  *
  *        @type    module
  *       @notes
@@ -20,6 +20,7 @@
 
     thead {
         border-bottom: 1px solid $color-border;
+
         tr {
             &:hover {
                 background: transparent;

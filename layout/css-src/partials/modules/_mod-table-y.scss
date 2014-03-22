@@ -1,0 +1,36 @@
+/**
+ * @description    styling for the tableY class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-22 15:20
+ *
+ *
+ *     @example
+ *                 <table class="tableY"></table>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        tableY
+ */
+.tableY {
+
+    tr {
+        background: $color-tr-bg;
+
+        &:nth-child(odd) {
+            background: #fff;
+        }
+    }
+
+    th {
+        text-align: left;
+    }
+
+    th, td {
+        padding: .5em .6em;
+    }
+}

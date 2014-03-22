@@ -15,7 +15,7 @@
 			<nav class="navTabs">
 				<a ng-href="/dogs/{{ dog._id }}">Profile</a>
 				<a ng-href="/dogs/{{ dog._id }}/results">Add results</a>
-		    <a ng-href="/dogs/{{ dog._id }}/viewResults">View results</a>
+				<a ng-href="/dogs/{{ dog._id }}/viewResults">View results</a>
 				<a ng-href="/dogs/{{ dog._id }}/photos">Photos</a>
 				<a class="active" ng-href="/dogs/{{ dog._id }}/details">Details</a>
 			</nav>
@@ -25,23 +25,50 @@
 
 					<h2>Details</h2>
 
-					<p>Breed: {{ dog.Profile.Breed }}</p>
-					<p>KC Height: {{ dog.Profile.KennelClub.Height }}</p>
-					<p>KC Grade: {{ dog.Profile.KennelClub.Grade }}</p>
-					<p>KC Registered Name: {{ dog.Profile.KennelClub.RegisteredName }}</p>
-					<p>KC Registered Number: {{ dog.Profile.KennelClub.RegisteredNumber }}</p>
-					<p>Date of birth: {{ dog.Profile.DateOfBirth | date:'mediumDate' }}</p>
-					<p>Sex: {{ dog.Profile.Sex }}</p>
-					<p>Microchip No: {{ dog.Profile.Microchip }}</p>
-					<p>Tattoo No: {{ dog.Profile.Tattoo }}</p>
-
-
+					<table class="tableY">
+						<tr>
+							<th>Breed:</th>
+							<td>{{ dog.Profile.Breed }}</td>
+						</tr>
+						<tr>
+							<th>KC Height:</th>
+							<td>{{ dog.Profile.KennelClub.Height }}</td>
+						</tr>
+						<tr>
+							<th>KC Grade:</th>
+							<td>{{ dog.Profile.KennelClub.Grade }}</td>
+						</tr>
+						<tr>
+							<th>KC Registered Name:</th>
+							<td>{{ dog.Profile.KennelClub.RegisteredName }}</td>
+						</tr>
+						<tr>
+							<th>KC Registered Number:</th>
+							<td>{{ dog.Profile.KennelClub.RegisteredNumber }}</td>
+						</tr>
+						<tr>
+							<th>Date of birth:</th>
+							<td>{{ dog.Profile.DateOfBirth | date:'mediumDate' }}</td>
+						</tr>
+						<tr>
+							<th>Sex:</th>
+							<td>{{ dog.Profile.Sex }}</td>
+						</tr>
+						<tr>
+							<th>Microchip No:</th>
+							<td>{{ dog.Profile.Microchip }}</td>
+						</tr>
+						<tr>
+							<th>Tattoo No:</th>
+							<td>{{ dog.Profile.Tattoo }}</td>
+						</tr>
+					</table>
 
 				</section>
 
 				<section class="contentSub">
-					<!-- <a class="action" ng-href="/dogs/{{ dog._id }}/edit">Edit details</a> -->
 
+					<a class="action" ng-href="/dogs/{{ dog._id }}/edit">Edit details</a>
 
 				</section>
 

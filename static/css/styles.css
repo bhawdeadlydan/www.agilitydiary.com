@@ -1146,7 +1146,7 @@ select {
   font-family: 'Open Sans', sans-serif;
   border: 1px solid #d4d4d4;
   box-shadow: inset 0 1px 3px #dddddd;
-  margin: .5em .6em;
+  margin: 1em .6em;
   padding: .5em .6em;
 }
 
@@ -2984,7 +2984,7 @@ select {
  *
  *
  *     @example
- *                 <table class="tableDefault" href="/"></table>
+ *                 <table class="tableDefault"></table>
  *
  *        @type    module
  *       @notes
@@ -2996,24 +2996,58 @@ select {
 .tableDefault thead {
   border-bottom: 1px solid #d4d4d4;
 }
-/* line 24, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+/* line 25, ../../layout/css-src/partials/modules/_mod-table-default.scss */
 .tableDefault thead tr:hover {
   background: transparent;
 }
-/* line 38, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+/* line 39, ../../layout/css-src/partials/modules/_mod-table-default.scss */
 .tableDefault tr {
   background: #faf6ec;
 }
-/* line 41, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+/* line 42, ../../layout/css-src/partials/modules/_mod-table-default.scss */
 .tableDefault tr:nth-child(odd) {
   background: #fff;
 }
-/* line 45, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+/* line 46, ../../layout/css-src/partials/modules/_mod-table-default.scss */
 .tableDefault tr:hover {
   background: #ead9af;
 }
-/* line 50, ../../layout/css-src/partials/modules/_mod-table-default.scss */
+/* line 51, ../../layout/css-src/partials/modules/_mod-table-default.scss */
 .tableDefault th, .tableDefault td {
+  padding: .5em .6em;
+}
+
+/**
+ * @description    styling for the tableY class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-22 15:20
+ *
+ *
+ *     @example
+ *                 <table class="tableY"></table>
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        tableY
+ */
+/* line 21, ../../layout/css-src/partials/modules/_mod-table-y.scss */
+.tableY tr {
+  background: #faf6ec;
+}
+/* line 24, ../../layout/css-src/partials/modules/_mod-table-y.scss */
+.tableY tr:nth-child(odd) {
+  background: #fff;
+}
+/* line 29, ../../layout/css-src/partials/modules/_mod-table-y.scss */
+.tableY th {
+  text-align: left;
+}
+/* line 33, ../../layout/css-src/partials/modules/_mod-table-y.scss */
+.tableY th, .tableY td {
   padding: .5em .6em;
 }
 
