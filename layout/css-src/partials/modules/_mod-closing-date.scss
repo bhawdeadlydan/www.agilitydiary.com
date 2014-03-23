@@ -1,0 +1,36 @@
+/**
+ * @description    styling for the closingDate module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-23 10:45
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        closingDate
+ */
+.closingDate {
+    color: green;
+}
+
+/**
+ * @section        closingDate--closed
+ */
+.closingDate--closed {
+    color: red;
+    font-weight: bold;
+}
+
+/**
+ * @section        closingDate--soon
+ */
+.closingDate--soon {
+    color: orange;
+    font-weight: bold;
+}

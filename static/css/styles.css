@@ -2597,8 +2597,44 @@ select {
  * @section        showDate
  */
 /**
+ * @description    styling for the closingDate module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-23 10:45
+ *
+ *
+ *     @example
+  *
+ *        @type    module
+ *       @notes
+ */
+/**
  * @section        closingDate
  */
+/* line 18, ../../layout/css-src/partials/modules/_mod-closing-date.scss */
+.closingDate {
+  color: green;
+}
+
+/**
+ * @section        closingDate--closed
+ */
+/* line 25, ../../layout/css-src/partials/modules/_mod-closing-date.scss */
+.closingDate--closed {
+  color: red;
+  font-weight: bold;
+}
+
+/**
+ * @section        closingDate--soon
+ */
+/* line 33, ../../layout/css-src/partials/modules/_mod-closing-date.scss */
+.closingDate--soon {
+  color: orange;
+  font-weight: bold;
+}
+
 /**
  * @description    styling for the quickSearch module
  *

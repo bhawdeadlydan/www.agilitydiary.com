@@ -27,7 +27,7 @@
 			<a class="active" ng-href="/shows/details/{{ id }}">Details</a>
 			<a ng-href="/shows/results/{{ id }}">Enter results</a>
 			<a ng-href="/shows/viewResults/{{ id }}">View results</a>
-      <a ng-href="/shows/photos/{{ id }}">Photos</a>
+			<a ng-href="/shows/photos/{{ id }}">Photos</a>
 			<a ng-href="/shows/edit/{{ id }}">Edit</a>
 		</nav>
 
@@ -131,30 +131,31 @@
 
 
 
-        <p><a href="http://example.com/link-to-your-event" title="Add to Calendar" class="addthisevent">
-            Add to Calendar
-            <span class="_start">{{ show.ParsedDate | date:'dd-MM-yyyy HH:mm:ss' }}</span>
-            <span class="_end">{{ show.ParsedEnd | date:'dd-MM-yyyy HH:mm:ss' }}</span>
-            <span class="_zonecode">36</span>
-            <span class="_summary">{{ show.Name }}</span>
-            <span class="_description">Description of the event</span>
-            <span class="_location">
-              {{ show.Venue.Name }} {{ show.Venue.Address }} {{ show.Venue.PostCode }}
-            </span>
-            <span class="_organizer">{{ show.Club }}</span>
-            <span class="_organizer_email">Organizer e-mail</span>
-            <span class="_facebook_event">http://www.facebook.com/events/160427380695693</span>
-            <span class="_all_day_event">true</span>
-            <span class="_date_format">DD/MM/YYYY</span>
-        </a></p>
+				<p><a href="http://example.com/link-to-your-event" title="Add to Calendar" class="addthisevent">
+						Add to Calendar
+						<span class="_start">{{ show.ParsedDate | date:'dd-MM-yyyy HH:mm:ss' }}</span>
+						<span class="_end">{{ show.ParsedEnd | date:'dd-MM-yyyy HH:mm:ss' }}</span>
+						<span class="_zonecode">36</span>
+						<span class="_summary">{{ show.Name }}</span>
+						<span class="_description">Description of the event</span>
+						<span class="_location">
+							{{ show.Venue.Name }} {{ show.Venue.Address }} {{ show.Venue.PostCode }}
+						</span>
+						<span class="_organizer">{{ show.Club }}</span>
+						<span class="_organizer_email">Organizer e-mail</span>
+						<span class="_facebook_event">http://www.facebook.com/events/160427380695693</span>
+						<span class="_all_day_event">true</span>
+						<span class="_date_format">DD/MM/YYYY</span>
+				</a></p>
 
-				<p class="date closingDate" ng-show="entriesOpen">
+				<p class="closingDate" ng-show="entriesOpen">
 					<i class="fa fa-ticket"></i>
 					Entries close: <span ng-bind="show.ClosingDate" />
 				</p>
 
-				<p ng-hide="entriesOpen">
-					Entries now closed
+				<p class="closingDate" ng-hide="entriesOpen">
+					<i class="fa fa-ticket"></i>
+					Entries closed: <span ng-bind="show.ClosingDate" />
 				</p>
 
 				<p ng-show="show.EntriesTo=='UK Agility Show Processing'"> Entries to <a href="http://www.ukagility.com/'"><span ng-bind="show.EntriesTo" /></a></p>

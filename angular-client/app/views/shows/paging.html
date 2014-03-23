@@ -25,7 +25,7 @@
 
 	<a href=""
 		ng-click="paging.jumpToPage(page);"
-		ng-bind="paging.sourcePages.length"
+		ng-bind="paging.sourcePages.length - 1"
 		ng-class="(page==paging.page) ? 'selected' : ''"></a>
 
 	<button
