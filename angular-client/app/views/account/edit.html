@@ -19,7 +19,7 @@
 		<div class="formField formUpload">
 			<label for="Email">Current picture</label>
 			<span class="avatar primaryAvatar">
-				<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+				<img ng-src="{{ profile.User.profile.picture || 'app/images/person/person.png' | imageSize: '128x128' }}" />
 			</span>
 		</div>
 

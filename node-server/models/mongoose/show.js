@@ -48,6 +48,13 @@ var showSchema = mongoose.Schema({
 		}
 	],
 
+	Camping: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User'
+		}
+	],
+
 	UserPhotos: [
 		{
 			Path: String,

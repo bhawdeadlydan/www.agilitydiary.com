@@ -9,8 +9,6 @@
 			ng-show="quicksearch.results.Results.length !== 0"
 			title="{{ result.Type}}">
 
-			<img ng-src="{{ result.ImagePath | imageSize: '64x64' }}" />
-
 			<div class="meta">
 				<span ng-bind="result.Name" ></span>
 				<span ng-bind-html="result.Details"></span>

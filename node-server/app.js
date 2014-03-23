@@ -223,6 +223,10 @@ app.get('/agility-diary/comments/get', commentsController.getComments);
 app.get('/agility-diary/enterShow', userController.enterShow);
 app.get('/agility-diary/resignShow', userController.resignShow);
 
+app.get('/agility-diary/enterCampingShow', userController.enterCampingShow);
+app.get('/agility-diary/resignCampingShow', userController.resignCampingShow);
+
+
 app.post('/agility-diary/user/uploadFile', userController.uploadFile);
 app.post('/agility-diary/user/uploadBackgroundFile', userController.uploadBackgroundFile);
 app.get('/agility-diary/user/public', userController.publicUserData);

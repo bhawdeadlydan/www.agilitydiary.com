@@ -13,6 +13,13 @@ var diarySchema = new mongoose.Schema({
 		}
 	],
 
+	EnteredCampingShows: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Show'
+		}
+	],
+
 	Friends: [
 		{
 			LinkedUser: {

@@ -16,7 +16,7 @@
 
 	<div class="primaryAvatarContainer">
 		<span ng-href="/" class="avatar primaryAvatar">
-			<img ng-src="{{ dog.Profile.Photo | imageSize: '128x128' }}" />
+			<img ng-src="{{ dog.Profile.Photo || 'app/images/dog/dog.png' | imageSize: '128x128' }}" />
 		</span>
 	</div>
 
@@ -27,13 +27,13 @@
 
 				ng-href="/dogs/{{ loopDog._id }}"
 				ng-hide="loopDog._id===dog._id">
-				<img ng-src="{{ loopDog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+				<img ng-src="{{ loopDog.Profile.Photo || 'app/images/dog/dog.png' | imageSize: '64x64' }}" />
 			</a>
 
 			<a class="avatar secondaryAvatar"
 				ng-show="loopDog._id===dog._id"
 				ng-href="/">
-				<img ng-src="{{ profile.User.profile.picture || 'app/images/dog.png' | imageSize: '64x64' }}" />
+				<img ng-src="{{ profile.User.profile.picture || 'app/images/dog/dog.png' | imageSize: '64x64' }}" />
 			</a>
 
 		</span>

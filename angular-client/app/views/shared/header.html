@@ -19,13 +19,13 @@
 
 		<div class="primaryAvatarContainer">
 			<a ng-href="/" class="avatar primaryAvatar">
-				<img ng-src="{{ profile.User.profile.picture | imageSize: '128x128' }}" />
+				<img ng-src="{{ profile.User.profile.picture || 'app/images/person/person.png'| imageSize: '128x128' }}" />
 			</a>
 		</div>
 
 		<div class="secondaryAvatarContainer">
 			<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}" ng-repeat="dog in profile.Dogs">
-				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+				<img ng-src="{{ dog.Profile.Photo || 'app/images/dog/dog.png' | imageSize: '64x64' }}" />
 			</a>
 		</div>
 

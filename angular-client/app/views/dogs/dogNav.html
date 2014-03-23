@@ -3,6 +3,6 @@
 	ng-href="/dogs/{{ loopDog._id }}"
 	ng-repeat="loopDog in profile.Dogs"
 	ng-class="loopDog._id===dog._id ? 'selectedAvatar':''">
-	<img ng-src="{{ loopDog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+	<img ng-src="{{ loopDog.Profile.Photo || 'app/images/dog/dog.png' | imageSize: '64x64' }}" />
 </a>
 <!-- <br /><span ng-bind="dog.Profile.Name" /> -->

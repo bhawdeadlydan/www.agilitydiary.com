@@ -35,6 +35,7 @@ app.controller('ShowsController', [
 		$scope.searchText = '';
 		$scope.markers = {};
 		$scope.attending = false;
+		$scope.camping = false;
 		$scope.id = null;
 		$scope.controls = {};
 		$scope.comments = {};
@@ -57,6 +58,9 @@ app.controller('ShowsController', [
 		$scope.filterResultsForShow = filterResultsForShow;
 		$scope.hasUserEnteredShow = hasUserEnteredShow;
 
+		$scope.resignCamping = resignCamping;
+		$scope.enterCamping = enterCamping;
+		$scope.isUserCamping = isUserCamping;
 
 		$scope.filteredShows = [];
 
@@ -224,6 +228,21 @@ app.controller('ShowsController', [
 
 
 
+
+		function isUserCamping(show) {
+			var entered = false;
+
+			_.each($scope.profile.EnteredShows, function (iterShow) {
+				if (show._id == iterShow._id) {
+					entered = true;
+				}
+			});
+
+			return entered;
+		}
+
+
+
 		/**
 		 * Scope watchers
 		 */
@@ -351,11 +370,18 @@ app.controller('ShowsController', [
 
 		function checkAttending() {
 			$scope.attending = false;
+			$scope.camping = false;
 
 			if (($scope.profile !== null) && (angular.isDefined($scope.profile.EnteredShows))){
 				_.each($scope.profile.EnteredShows, function (show) {
 					if (angular.equals(show._id, $scope.id)) {
 						$scope.attending = true;
+					}
+				});
+
+				_.each($scope.profile.EnteredCampingShows, function (show) {
+					if (angular.equals(show, $scope.id)) {
+						$scope.camping = true;
 					}
 				});
 			}
@@ -489,9 +515,6 @@ app.controller('ShowsController', [
 			});
 		}
 
-
-
-
 		function resignShow(event) {
 			ShowService.resignShow($scope.id, function () {
 
@@ -503,6 +526,36 @@ app.controller('ShowsController', [
 				});
 
 				//checkAttending();
+
+			}, function () {
+
+			});
+		}
+
+
+
+		/**
+		 * Camping
+		 */
+		function enterCamping(event) {
+			ShowService.camping({
+				id: $scope.id
+			}, function (data) {
+				$scope.fetchProfile();
+				details($scope.id);
+
+			}, function () {
+
+			});
+		}
+
+		function resignCamping(event) {
+			ShowService.resignCamping($scope.id, function () {
+
+				ShowService.userData({}, function (data) {
+					$scope.fetchProfile();
+					details($scope.id);
+				});
 
 			}, function () {
 

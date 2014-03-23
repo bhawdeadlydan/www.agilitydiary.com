@@ -4,7 +4,7 @@
 
 		<h1 ng-bind="show.Name"></h1>
 
-		<p class="date showDate">
+		<p class="showDate">
 			<i class="fa fa-calendar"></i>
 			<span ng-bind="show.ShowDate" /><span ng-show="show.ShowDate !== show.ShowEnd"> - <span ng-bind="show.ShowEnd" /></span>
 		</p>
@@ -118,12 +118,15 @@
 
 			<section class="contentSub">
 
-				<p><a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a>
+				<p>
+					<a class="action" href=""><i class="fa fa-bookmark"></i> Follow</a>
 
-				<button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
+					<button class="action" ng-click="enterShow(show);" ng-hide="attending">Attending?</button>
+					<button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
+				</p>
 
-				<button class="action warning" ng-click="resignShow(show);" ng-show="attending">No longer attending</button>
-			</p>
+				<button class="action" ng-click="enterCamping(show);" ng-hide="camping">Camping?</button>
+				<button class="action warning" ng-click="resignCamping(show);" ng-show="camping">No longer camping</button>
 
 				<p>
 					<span class="tag" ng-bind="show.Meta.ShowType" /> <!-- <span class="tag">Indoor show</span> -->
@@ -153,9 +156,14 @@
 					Entries close: <span ng-bind="show.ClosingDate" />
 				</p>
 
-				<p class="closingDate" ng-hide="entriesOpen">
+				<p class="closingDate closingDate--closed" ng-hide="entriesOpen">
 					<i class="fa fa-ticket"></i>
 					Entries closed: <span ng-bind="show.ClosingDate" />
+				</p>
+
+				<p class="closingDate closingDate--soon" ng-hide="entriesOpen">
+					<i class="fa fa-ticket"></i>
+					Entries closing soon: <span ng-bind="event.ClosingDate" />
 				</p>
 
 				<p ng-show="show.EntriesTo=='UK Agility Show Processing'"> Entries to <a href="http://www.ukagility.com/'"><span ng-bind="show.EntriesTo" /></a></p>

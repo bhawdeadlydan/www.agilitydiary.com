@@ -61,16 +61,44 @@ exports.uploadFile = Upload.UploadManager({
 			height: 60
 		},
 		{
+			width: 16,
+			height: 16
+		},
+		{
+			width: 32,
+			height: 32
+		},
+		{
+			width: 48,
+			height: 48
+		},
+		{
 			width: 64,
 			height: 64
+		},
+		{
+			width: 80,
+			height: 80
+		},
+		{
+			width: 96,
+			height: 96
+		},
+		{
+			width: 112,
+			height: 112
 		},
 		{
 			width: 128,
 			height: 128
 		},
 		{
-			width: 24,
-			height: 24
+			width: 144,
+			height: 144
+		},
+		{
+			width: 160,
+			height: 160
 		}
 	]
 }, function (request, response, data) {
@@ -219,20 +247,44 @@ exports.addDogPhoto = Upload.UploadManager({
 			height: 100
 		},
 		{
-			width: 80,
-			height: 60
+			width: 16,
+			height: 16
+		},
+		{
+			width: 32,
+			height: 32
+		},
+		{
+			width: 48,
+			height: 48
 		},
 		{
 			width: 64,
 			height: 64
 		},
 		{
+			width: 80,
+			height: 80
+		},
+		{
+			width: 96,
+			height: 96
+		},
+		{
+			width: 112,
+			height: 112
+		},
+		{
 			width: 128,
 			height: 128
 		},
 		{
-			width: 24,
-			height: 24
+			width: 144,
+			height: 144
+		},
+		{
+			width: 160,
+			height: 160
 		}
 	]
 }, function (request, response, data) {
@@ -313,16 +365,44 @@ exports.setDogProfilePhoto = Upload.UploadManager({
 			height: 60
 		},
 		{
+			width: 16,
+			height: 16
+		},
+		{
+			width: 32,
+			height: 32
+		},
+		{
+			width: 48,
+			height: 48
+		},
+		{
 			width: 64,
 			height: 64
+		},
+		{
+			width: 80,
+			height: 80
+		},
+		{
+			width: 96,
+			height: 96
+		},
+		{
+			width: 112,
+			height: 112
 		},
 		{
 			width: 128,
 			height: 128
 		},
 		{
-			width: 24,
-			height: 24
+			width: 144,
+			height: 144
+		},
+		{
+			width: 160,
+			height: 160
 		}
 	]
 }, function (request, response, data) {
@@ -413,6 +493,26 @@ function addUserToShow(show, user, success) {
 
 function removeUserFromShow(show, user, success) {
 	show.Attending.splice(show.Attending.indexOf(user), 1);
+	show.save(function () {
+		success();
+	});
+}
+
+
+
+
+function addUserCampingToShow(show, user, success) {
+	show.Camping.push(user);
+	show.save(function () {
+		success();
+	});
+}
+
+
+
+
+function removeUserCampingFromShow(show, user, success) {
+	show.Camping.splice(show.Camping.indexOf(user), 1);
 	show.save(function () {
 		success();
 	});
@@ -539,6 +639,117 @@ exports.resignShow = function (req, res) {
 						console.log('saved');
 
 						removeUserFromShow(show, user, function () {
+							res.send(200);
+						});
+					});
+				}
+
+			});
+
+		});
+	});
+};
+
+
+
+
+exports.enterCampingShow = function (req, res) {
+	User.findById(req.user.id, function (err, user) {
+		console.log(user);
+
+		Show.findOne({
+			_id: req.query.id
+		}, function (err, show) {
+
+			Diary.find({
+				User: user
+			}, function (err, diary) {
+
+				if (diary.length === 0) {
+					console.log('No diary entry');
+
+					diary = Diary.create({
+						User: user,
+						EnteredShows: [
+							show
+						]
+					}, function (err, diary) {
+						if (err) {
+							console.log(err);
+						} else {
+							sendDiary(res, diary);
+						}
+					});
+				} else {
+
+					var isAdded = false;
+					_.each(diary[0].EnteredCampingShows, function (iterator) {
+						if (iterator.equals(show._id) === true) {
+							isAdded = true;
+						}
+					});
+
+					if (isAdded === false) {
+						diary[0].EnteredCampingShows.push(show);
+					}
+
+					diary[0].save(function (err, diary) {
+						addUserCampingToShow(show, user, function () {
+							res.send(200);
+						});
+					});
+				}
+
+			});
+
+		});
+	});
+};
+
+
+
+
+exports.resignCampingShow = function (req, res) {
+	User.findById(req.user.id, function (err, user) {
+		console.log(user);
+
+		Show.findOne({
+			_id: req.query.id
+		}, function (err, show) {
+
+			Diary.findOne({
+				User: user
+			}, function (err, diary) {
+
+				if (diary === null) {
+					console.log('No diary entry');
+
+					diary = Diary.create({
+						User: user,
+						EnteredCampingShows: [
+
+						]
+					}, function (err, diary) {
+						if (err) {
+							console.log(err);
+						} else {
+							sendDiary(res, diary);
+						}
+					});
+				} else {
+
+					var isAdded = false;
+					_.each(diary.EnteredCampingShows, function (iterator) {
+						if (iterator.equals(req.query.id) === true) {
+
+							diary.EnteredCampingShows.remove(iterator);
+						}
+					});
+
+					diary.save(function (err, diary2) {
+						console.log('saved');
+
+						removeUserCampingFromShow(show, user, function () {
 							res.send(200);
 						});
 					});

@@ -12,7 +12,7 @@
 
 		<ul class="peopleList">
 			<li class="person" ng-repeat="loopUser in listUsers">
-				<p><img src="{{ loopUser.profile.picture | imageSize: '36x36' }}" />
+				<p><img src="{{ loopUser.profile.picture || 'app/images/person/person.png' | imageSize: '36x36' }}" />
 
 				<a ng-href="/people/{{ loopUser._id }}"><span ng-bind="loopUser.profile.name"></span></a>
 

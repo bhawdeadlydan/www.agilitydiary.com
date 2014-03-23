@@ -139,6 +139,28 @@ angular.module('browserAppApp')
 
 
 
+      module.camping  = function (opts, successCallback, errorCallback) {
+        var url = '/agility-diary/enterCampingShow?id=' + opts.id;
+        return $http
+          .get(url)
+          .success(successCallback)
+          .error(errorCallback);
+      };
+
+
+
+
+      module.resignCamping = function (id, successCallback, errorCallback) {
+        var url = '/agility-diary/resignCampingShow?id=' + id;
+        return $http
+          .get(url)
+          .success(successCallback)
+          .error(errorCallback);
+      };
+
+
+
+
 			module.userData = function (opts, successCallback, errorCallback) {
 				var session_data,
 					url;

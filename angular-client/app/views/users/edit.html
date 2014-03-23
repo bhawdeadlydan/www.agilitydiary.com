@@ -153,7 +153,7 @@
 				<div>
 					<p>
 						<a class="avatar secondaryAvatar" ng-href="/dogs/{{ dog._id }}/edit" ng-repeat="dog in profile.Dogs">
-							<img ng-src="{{ dog.Profile.Photo || 'app/images/dog.png' | imageSize: '64x64' }}" />
+							<img ng-src="{{ dog.Profile.Photo || 'app/images/dog/dog.png' | imageSize: '64x64' }}" />
 						</a>
 						<br /><span ng-bind="dog.Profile.Name" />
 					</p>
