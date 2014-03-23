@@ -2456,6 +2456,20 @@ select {
 }
 
 /**
+ * @section        extend .action--disabled
+ */
+/* line 96, ../../layout/css-src/partials/modules/_mod-action.scss */
+.action--disabled {
+  background: #ccc;
+  color: #aaa;
+  cursor: default;
+}
+/* line 101, ../../layout/css-src/partials/modules/_mod-action.scss */
+.action--disabled:hover {
+  background: #ccc;
+}
+
+/**
  * @description    styling for the form module
  *
  *      @author    Kristina Auckland <kristina.auckland@gmail.com>

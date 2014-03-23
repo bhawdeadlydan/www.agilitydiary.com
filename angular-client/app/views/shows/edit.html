@@ -1,0 +1,130 @@
+<section class="details">
+
+	<div class="container">
+
+		<h1>Add an event</h1>
+
+		<form name="form" parsley-validate>
+			<div class="formField formInput formText">
+				<label for="name">Event name</label>
+				<input id="name" type="text" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="type">Event type</label>
+				<input id="type" type="text" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="location">Location</label>
+				<input id="location" type="text" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formDate">
+				<label for="startDate">Start date</label>
+				<input id="startDate" type="date" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formDate">
+				<label for="endDate">End date</label>
+				<input id="endDate" type="date" ng-model="dog.name" placeholder="Required" ng-required="true" />
+			</div>
+
+			<div class="formField formInput formText">
+				<label for="website">Website</label>
+				<input id="website" type="text" ng-model="dog.name" placeholder="Optional" />
+			</div>
+
+			<div class="formField formSelect">
+				<label for="club">Club</label>
+				<select name="club" id="club" ng-model="dog.breed" ng-options="breed.name for breed in breedOptions"></select>
+			</div>
+
+			<div class="formField formUpload">
+				<label for="Schedule">Upload files</label>
+				<div class="action uploadImage" id="addImage" style=""><i class="fa fa-upload"></i> Upload files (schedule, entry form, etc)
+					<span class="dz-message"></span>
+					<span data-dz-name=""></span>
+					<span data-dz-details=""></span>
+					<span data-dz-size=""></span>
+					<span data-dz-errormessage=""></span>
+				</div>
+			</div>
+
+			<hr />
+
+			<h2>Show features</h2>
+
+			<div class="formField formInput formCheckbox">
+				<input id="measuring"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="measuring">Measuring</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="qualifier"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="qualifier">Qualifier</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="juniorClasses"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="juniorClasses">Junior classes</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="eveningEntertainment"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="eveningEntertainment">Evening entertainment</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="refreshments"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="refreshments">Refreshments on site</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="walksNearby"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="walksNearby">Walks nearby</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="waterNearby"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="waterNearby">River/lake nearby</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="camping"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="camping">Camping</label>
+			</div>
+
+			<div class="formField formInput formCheckbox">
+				<input id="tradeStands"
+					type="checkbox"
+					ng-model="controls.location" />
+				<label for="tradeStands">Trade stands</label>
+			</div>
+
+			<div class="formActions">
+				<button class="action" ng-click="saveDog();">
+					Add this event
+				</button>
+			</div>
+		</form>
+
+	</div>
+
+</section>

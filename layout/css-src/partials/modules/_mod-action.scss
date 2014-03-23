@@ -90,3 +90,17 @@
     width: 100%;
 }
 
+/**
+ * @section        extend .action--disabled
+ */
+.action--disabled {
+    background: #ccc;
+    color: #aaa;
+    cursor: default;
+
+    &:hover {
+        background: #ccc;
+    }
+}
+
+

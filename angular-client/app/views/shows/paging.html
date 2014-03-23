@@ -1,22 +1,72 @@
 <nav class="navPaging" role="navigation">
 
-  @@show disabled buttons
+	<button
+		ng-class="{'action--disabled': paging.page == 1}"
+		ng-click="paging.firstClick();"
+		class="action">
+		<i class="fa fa-angle-double-left"></i>
+	</button>
 
-	<button class="action" ng-click="paging.firstClick();"
-			ng-show="paging.page>1"><i class="fa fa-angle-double-left"></i></button>
-
-	<button class="action" ng-click="paging.backClick();"
-			ng-show="paging.page>1"><i class="fa fa-angle-left"></i></button>
+	<button
+		ng-class="{'action--disabled': paging.page == 1}"
+		class="action"
+		ng-click="paging.backClick();">
+		<i class="fa fa-angle-left"></i>
+	</button>
 
 	<span ng-repeat="page in paging.pages">
-		<a  href="" ng-click="paging.jumpToPage(page);"
-				ng-bind="page"
-				ng-class="(page==paging.page) ? 'selected' : ''"></a>
+		<a href=""
+			ng-click="paging.jumpToPage(page);"
+			ng-bind="page"
+			ng-class="(page==paging.page) ? 'selected' : ''"></a>
 	</span>
 
-	<button class="action" ng-click="paging.nextClick();"
-			ng-show="paging.page<paging.sourcePages.length"><i class="fa fa-angle-right"></i></button>
+	&hellip;
 
-	<button class="action" ng-click="paging.lastClick();"
-			ng-show="paging.page<paging.sourcePages.length"><i class="fa fa-angle-double-right"></i></button>
+	<a href=""
+		ng-click="paging.jumpToPage(page);"
+		ng-bind="paging.sourcePages.length"
+		ng-class="(page==paging.page) ? 'selected' : ''"></a>
+
+	<button
+		class="action"
+		ng-click="paging.nextClick();"
+		ng-show="paging.page<paging.sourcePages.length">
+		<i class="fa fa-angle-right"></i>
+	</button>
+
+	<button
+		class="action"
+		ng-click="paging.lastClick();"
+		ng-show="paging.page<paging.sourcePages.length">
+		<i class="fa fa-angle-double-right"></i>
+	</button>
 </nav>
+
+
+
+<!-- https://github.com/angular/builtwith.angularjs.org/blob/master/index.html -->
+
+<!--  <div class="row bwa-projects" ng-repeat="projectCol in pagedProjects[currentPage]">
+			<div class="span6" ng-repeat="project in projectCol">
+				<bwa-project project="project" lightbox="lightbox" add-tag="addTag" class= "well bwa-project-well"></bwa-project>
+			</div>
+		</div>
+
+		<div class="center">
+			<div class="pagination">
+				<ul>
+					<li ng-class="{disabled: currentPage == 0}">
+						<a href ng-click="prevPage()">« Prev</a>
+					</li>
+					<li ng-repeat="n in range(pagedProjects.length)"
+						ng-class="{active: n == currentPage}"
+						ng-click="setPage()">
+						<a href ng-bind="n + 1">1</a>
+					</li>
+					<li ng-class="{disabled: currentPage == pagedProjects.length - 1}">
+						<a href ng-click="nextPage()">Next »</a>
+					</li>
+				</ul>
+			</div>
+		</div> -->
