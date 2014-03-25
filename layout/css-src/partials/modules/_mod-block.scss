@@ -1,0 +1,31 @@
+/**
+ * @description    styling for the block module
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2014-03-25 08:44
+ *
+ *
+ *     @example
+ *                 <section class="block"></section>
+ *
+ *        @type    module
+ *       @notes
+ */
+
+/**
+ * @section        block
+ */
+.block {
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    display: block;
+    padding: 1em;
+
+    :first-child {
+        margin-top: 0;
+    }
+}

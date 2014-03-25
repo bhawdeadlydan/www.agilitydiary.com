@@ -16,26 +16,28 @@
 
 
 			<div class="enteredShow" ng-repeat="show in profile.EnteredShows | limitTo: 3">
-				<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
+				<div class="block">
+					<h3><a ng-href="/shows/details/{{ show._id }}" ng-bind="show.Name"></a></h3>
 
-				<div class="showDetail">
-					<p><i class="fa fa-calendar fa-lg fa-fw"></i>
-						<span ng-bind="show.ShowDate" />
-						<span ng-show="show.ShowDate !== show.ShowEnd">
-						 to <span ng-bind="show.ShowEnd" />
-						</span></p>
+					<div class="showDetail">
+						<p><i class="fa fa-calendar fa-lg fa-fw"></i>
+							<span ng-bind="show.ShowDate" />
+							<span ng-show="show.ShowDate !== show.ShowEnd">
+							 to <span ng-bind="show.ShowEnd" />
+							</span></p>
 
-					<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a ng-href="/venues/details/{{ show.Venue.Id }}"><span ng-bind="show.Venue.Name" /></a>,
-					<br /><span ng-bind="show.Venue.Address" />,
-					<br /><span ng-bind="show.Venue.PostCode" /></p>
+						<p><i class="fa fa-map-marker fa-lg fa-fw"></i> <a ng-href="/venues/details/{{ show.Venue.Id }}"><span ng-bind="show.Venue.Name" /></a>,
+						<br /><span ng-bind="show.Venue.Address" />,
+						<br /><span ng-bind="show.Venue.PostCode" /></p>
 
-					<p><i class="fa fa-compass fa-lg fa-fw"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
-					<br />Lat: <span ng-bind="show.Location.Latitude" />,
-					<br />Long: <span ng-bind="show.Location.Longitude" /></p>
+						<p><i class="fa fa-compass fa-lg fa-fw"></i> <a href="https://www.google.co.uk/maps/preview/place/{{ show.Venue.PostCode }}">View on Google Maps</a>
+						<br />Lat: <span ng-bind="show.Location.Latitude" />,
+						<br />Long: <span ng-bind="show.Location.Longitude" /></p>
 
-					<p><i class="fa fa-cloud fa-lg fa-fw"></i> Weather report here?</p>
+						<p><i class="fa fa-cloud fa-lg fa-fw"></i> Weather report here?</p>
 
-					<p><a class="tag">Helping</a> <a class="tag">Camping</a></p>
+						<p><a class="tag">Helping</a> <a class="tag">Camping</a></p>
+					</div>
 				</div>
 			</div>
 
