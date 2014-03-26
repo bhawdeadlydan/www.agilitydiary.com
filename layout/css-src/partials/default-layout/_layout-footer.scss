@@ -20,7 +20,8 @@
  * @section        layoutFooter
  */
 .layoutFooter {
-    border-top: .25em solid $color-layout-header-border;
-    @include background-image(linear-gradient(#f5f5f5, #e5e5e5));
+    // border-top: .25em solid $color-layout-header-border;
+    background: #323a45;
+    // @include background-image(linear-gradient(#f5f5f5, #e5e5e5));
     padding: 0 1em;
 }

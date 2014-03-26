@@ -22,8 +22,6 @@
     width: 10em;
 
     input {
-        background: $color-quick-search-bg;
-        @include border-radius(0);
         margin: 0;
         text-align: left;
         width: 100%;

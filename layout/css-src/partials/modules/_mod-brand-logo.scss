@@ -17,15 +17,17 @@
  * @section        brandLogo
  */
 .brandLogo {
-    color: $color-copy;
+    // color: $color-copy;
+    // color: #7e8993;
     display: inline-block;
     @include font-size(2.0);
     font-weight: bold;
-    text-shadow: 1px 1px 1px $color-text-shadow;
+    // text-shadow: 1px 1px 1px $color-text-shadow;
 
     &:hover {
         .navPrimary & {
             background: transparent;
+            // color: #7e8993;
         }
     }
 

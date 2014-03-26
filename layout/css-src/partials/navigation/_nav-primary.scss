@@ -20,24 +20,28 @@
  * @section        navPrimary
  */
 .navPrimary {
-    border-right: 1px solid #fff;
+    // border-right: 1px solid #fff;
     float: left;
     display: inline-block;
     text-align: center;
 
     a {
-        border-left: 1px solid #fff;
-        border-right: 1px solid #d5d5d5;
-        color: $color-nav-primary;
+        // border-left: 1px solid #fff;
+        // border-right: 1px solid #d5d5d5;
+        // color: $color-nav-primary;
+        // color: #7e8993;
         display: inline-block;
         margin: 0;
-        padding: .5em 1em;
-        text-shadow: 1px 1px 1px $color-text-shadow;
+        padding: .75em 1em;
+        // text-shadow: 1px 1px 1px $color-text-shadow;
 
         &.active,
         &:hover {
-            background: $color-nav-primary-hover;
-            @include background-image(linear-gradient(#e5e5e5, #fff));
+            // background: $color-nav-primary-hover;
+            background: #27303B;
+            // color: #9aa2aa;
+            color: #62c0b8;
+            // @include background-image(linear-gradient(#e5e5e5, #fff));
             text-decoration: none;
         }
 
